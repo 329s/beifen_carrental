@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl"  ng-cloak>
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="css/rent.css" rel="stylesheet" type="text/css" >
+    <script src='../common/js/angular.min.js'></script>
+    <title>特价套餐——易卡租车</title>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body ng-controller="orderCtrl">
+<packFun id="packFunt" style="display: none">santianzu</packFun>
+<div class="wrapper" ng-controller="carRantCtr">
+    <div ng-include="'../public/html/header.html'"></div>
+    <div class="panel panel-top">
+        <div class="box">
+            <form>
+                <div class="form-inline">
+                    <div class="form-group picker order-take">
+                        <label>取车门店 </label>
+                        <input name="takeCity"  class="form-control input-picker area takeArea" readonly type="text"  ng-model="takeCityZh"  placeholder="城市">
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                        <input  name="takeStore" class="form-control input-picker store" readonly type="text" ng-model="takeStoreZh" ng-show="takeCar==false" placeholder="门店" >
+                        <input onclick="  btnOck?btnOck():0;"  name="takeAddress" class="form-control input-picker address take-address" readonly type="text"data-toggle="modal" ng-click="showTakeAddress([1])" ng-model="takeAddress"  ng-show="takeCar==true" placeholder="输入地址">
+                        <b name="takeAddressXX" ng-hide="true" ng-bind="takeAddressXiangXi"></b>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                        <pickpop></pickpop>
+                    </div>
+                    <div class="input-group onoff">
+                        <label class="label-default">送车上门</label>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="takeCar" value='' class="take-car onoffswitch-checkbox" id="onoffswitch1" ng-model="takeCar" />
+                            <label onclick="btnOck()" for="onoffswitch1" class="onoffswitch-label">
+                                <span class="onoffswitch-inner" style=""></span>
+                                <span class="onoffswitch-switch" style=""></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group date-picker picker">
+                        <label>取车时间 </label>
+                        <input name="takeDate"  onClick="calendar.show({ id: this })" type="text"  class="form-control date" ng-model="takeDate"  readonly/>
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        <input name="takeTime" ng-model="takeTime" class="form-control time" readonly>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                        <pickpop3></pickpop3>
+                    </div>
+                </div>
+                <div class="form-inline">
+                    <div class="form-group picker">
+                        <label>还车门店</label>
+                        <input  name="returnCity" class="form-control input-picker area returnArea" readonly type="text" ng-model="returnCityZh" placeholder="城市"
+                                data-container="body" data-toggle="popover" data-placement="bottom" data-html="true"
+                                data-content="<span>温馨提示: 选择异地还车将收取一定费用<span><i class='right glyphicon glyphicon-remove-circle cl'></i>">
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                        <input name="returnStore" class="form-control input-picker store" readonly type="text" ng-model="returnStoreZh"  ng-show="returnCar==false" placeholder="门店">
+                        <input name="returnAddress"  class="form-control input-picker address return-address" readonly type="text" value="" data-toggle="modal" ng-click="showReturnAddress([1])" ng-model="returnAddress" ng-show="returnCar==true" placeholder="输入地址">
+                        <b name="returnAddressXX" ng-hide="true"  ng-bind="returnAddressXiangXi||takeAddressXiangXi"></b>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                        <pickpop2></pickpop2>
+                    </div>
+                    <div class="input-group onoff">
+                        <label class="label-default">上门取车</label>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="returnCar" value='' class="take-car onoffswitch-checkbox" id="onoffswitch2" ng-model="returnCar"/>
+                            <label onclick="btnOck()" for="onoffswitch2" class="onoffswitch-label">
+                                <span class="onoffswitch-inner" style=""></span>
+                                <span class="onoffswitch-switch" style=""></span>
+                            </label>
+                        </div>
+                    </div>
+                    <!--<div class="form-group date-picker picker">-->
+                        <!--<label>还车时间 </label>-->
+                        <!--<input name="returnDate" onClick="calendar.show({ id: this })" type="text"  class="form-control date" ng-model="returnDate" readonly/>-->
+                        <!--<span class="glyphicon glyphicon-calendar"></span>-->
+                        <!--<input name="returnTime" ng-model="returnTime"  class="form-control time" readonly>-->
+                        <!--<span class="glyphicon glyphicon-chevron-down"></span>-->
+                        <!--<pickpop3></pickpop3>-->
+                    <!--</div>-->
+                    <div class="btn-group top-search" >
+                        <!--<span ng-show="rentDay == 3" class="rentday"> 租期：<span class="text-danger">{{rentDay}}天</span></span>-->
+                        <!--<span ng-show="rentDay != 3" class="rentday" style="margin-top: -60px">租期：<span class="text-danger">{{rentDay}}天</span><br> 三天打包价只适用于租期3天  </span>-->
+
+                        <button data="cxun" class="btn btn-lg btn-warning btn-rent-search"  ng-click="getCarListsRR(santianzu)">查 询</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="container"  ng-controller="orderCtrl">
+        <div class="row">
+            <div class="panel panel-srent col-xs-9" ng-init="package=true">
+                <div class="box box-choose">
+                    <ul class="chexing">
+                        <li >全部车型：</li>
+                        <li chexing="all" class="active"><p>所有车型</p><img src="img/chexing/all.png"></li>
+                        <li chexing="{{x.id}}"  ng-repeat="x in chexingListTop track by $index" ><p ng-bind="x.flag"></p><img ng-src="{{x.imgs}}"></li>
+                        <!--<li chexing="shushi"><p>舒适型</p><img src="img/shushi.png"></li>-->
+                        <!--<li chexing="jingji"><p>经济型</p><img src="img/jingji.png"></li>-->
+                        <!--<li chexing="fengshang"><p>风尚型</p><img src="img/car1.jpg"></li>-->
+                        <!--<li chexing="shangwu"><p>商务型</p><img src="img/shangwu.png"></li>-->
+                        <!--<li chexing="suv"><p>SUV</p><img src="img/SUV.png"></li>-->
+                        <!--<li chexing="mpv"><p>MPV</p><img src="img/MPV.png"></li>-->
+                    </ul>
+                </div>
+
+                <div class="box">
+                    <div class="line-choose line-brand">
+                        <!--<ul class="pinpai">-->
+                        <!--<li style="height: 50px" >品牌：</li>-->
+                        <!--<li  pinpai="all" class=" active">全部</li>-->
+                        <!--<li  ng-repeat="x in carPinPaiLists track by $index" pinpai="{{x.pp}}" >{{x.ppName}}</li>-->
+                        <!--</ul>-->
+                        <ul class="pinpai">
+                            <li style="height: 95px" >品牌：</li>
+                            <li  pinpai="all" class="active">全部</li>
+                            <li  ng-repeat="x in pinpaiList track by $index" pinpai="{{x.id}}" ng-hide="{{!x.name||x.id==93}}" ng-bind="x.name" ></li>
+                        </ul>
+                    </div>
+                    <div class="line-choose line-price">
+                        <ul class="price">
+                            <li>价格：</li>
+                            <li price="all"   class="active">全部</li>
+                            <li price="300">0-300</li>
+                            <li price="500" >300-500</li>
+                            <li price="500up">500以上</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="box box-car">
+                    <!--<div class="box-header line-sort">-->
+                        <!--<ul>-->
+                            <!--<li>默认排序<span class="glyphicon glyphicon-sort-by-attributes"></span></li>-->
+                            <!--<li>按租金<span class="glyphicon glyphicon-sort-by-attributes"></span></li>-->
+                            <!--<li>按排量<span class="glyphicon glyphicon-sort-by-attributes"></span></li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                    <div class="box-body">
+                            <div  class="list-car  flex-box" ng-repeat="x in carListsShort | orderBy: '+price_3days' "    car-chexing="{{x.car_type}}" car-pinpai="{{x.brand}}" car-priceP="{{x.price_shop}}" >
+                            <div class="list-car-content flex-box">
+                                <div class="list-car-pic">
+                                    <img ng-src="{{x.car_image}}" alt="{{x.car_name}}">
+                                </div>
+                                <div class="list-car-info">
+                                    <p ng-bind="x.car_name"></p>
+                                    <p>{{x.property_text}} </p>
+                                    <span class="badge badge-hot" ng-show="!x.carShowTypeHot">热门车</span><span class="badge badge-new" ng-show="!x.carShowTypeNew ">新车型</span>
+                                    <!--车型 热门↑↑↑新车型↑↑↑-->
+                                </div>
+                            </div>
+                            <div class="list-car-package">
+                                <span class="title">3天打包价</span>
+                                <div class="inline-box discount">
+                                    <span>立减</span>
+                                    <span>¥{{x.price_shop*3-x.price_3days*3}}</span>
+                                </div>
+                            </div>
+                            <div class="list-car-pay">
+                                <div class="pay-box">
+                                      <div class="line">
+                                        <span class="price price-package"><em class="Symbol1">¥</em>&nbsp;{{x.price_3days*3}} </span><span>/总价</span>
+                                        <p class="priceDate" ><span  data-price='{{x.price_detail.priceOfficeInfo}}'>原价: <em  class="line-through">¥{{x.price_shop*3}}</em></span></p>
+                                     </div>
+                                </div>
+                                <div class="btn-box">
+                                    <span ng-click="getInfoFortest(x.car_id,2)" class="btn btn-warning btn-lg">租 车</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <a class="btn addmore" ng-show="more"><!--<i class="glyphicon glyphicon-plus"></i>-->+ 加载更多车型</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="panel panel-side right">
+            <div class="box">
+                <div class="map" id="map"></div>
+                <div class="box-info">
+                    <b  ng-hide="!chooseStore.title"     ng-bind="chooseStore.title"></b>
+                    <p  ng-hide="!chooseStore.shortName" ng-bind="chooseStore.shortName"></p>
+                    <p  ng-hide="!chooseStore.address"   class="address"><span>门店地址：</span><span ng-bind="chooseStore.address"></span></p>
+                    <p  ng-hide="!chooseStore.phone"     class="phone"><span>门店电话：</span><span ng-bind="chooseStore.phone"></span></p>
+                    <p  ng-hide="!chooseStore.title"    >营业时间： 8:00-20:00</p>
+                    <p><a href="../help/help-ruler.html#/rule2" >预定规则说明 &gt;&gt;</a></p>
+                    <p><a href="../query/store.html#/0579">地图太小看不爽？查看具体地图 &gt;&gt;</a></p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+             <div class="panel panel-bottom col-xs-9">
+                 <div class="panel-heading">
+                     选车记录（{{chooseCar.length}}）
+                 </div>
+                   <p ng-show="chooseCar.length==0">
+                       您目前还没有选车记录!
+                   </p>
+             </div>
+        </div>
+    </div>
+    <!--引入底部-->
+    <div ng-include="'../public/html/rightnNav.html'"></div>
+</div>
+<div class="modal fade" id="signModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog sign">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    签到送积分
+                    <div class="badge badge-exp">积分可用于兑换租车抵用</div>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="inline-box col-xs-7">
+                        <div style="width:100%;height:300px;" id="calendar"></div>
+                    </div>
+                    <div class="inline-box col-xs-5 box-sign">
+                        <div class="btn-group-sign sign" ng-init="sign=false">
+                            <button class="btn btn-warning" ng-hide="sign">签到</button>
+                            <button class="btn btn-warning" disabled ng-show="sign">已签到</button>
+                        </div>
+                        <div class="box-content">
+                            <p>每日登陆签到即可获得积分发放</p>
+                            <a href="javascript:;" class="right rule popover-show"
+                               data-container="body"
+                               data-html="true"
+                               data-toggle="popover"
+                               data-content="<ul><li>1. 签到1天可获得1点积分</li>
+                               <li>2. 连续签到2天当天可获得2点积分</li>
+                               <li>3. 连续签到3天当天可获得3点积分</li>
+                               <li>4. 连续签到4天当天可获得4点积分</li>
+                               <li>5. 连续签到5天当天可获得5点积分</li>
+                               <li>6. 连续签到6天当天可获得6点积分</li>
+                               <li>7. 连续签到7天当天可获得7点积分</li>
+                               <li>8. 连续签到7天以上当天均获得7点积分</li>
+                               <li>9. 连续签到中断过后，将从第一天开始重新计算</li>">详见签到发放规则>></a>
+                            <a href="#" class="btn btn-lg btn-default btn-reward">点击领取奖励</a>
+                        </div>
+                        <div class="box-footer">
+                            <div class="col-xs-4">
+                                <p>获得积分(点)</p>
+                                <div class="count">300</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>连续签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>累计签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<div class="modal" id="addressModal" tabindex="-1" role="dialog" aria-labelledby="addressModalLabel" aria-hidden="true">
+    <div class="modal-dialog address">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="addressModalLabel">
+                    <span ng-show="!take">送车上门地址</span>
+                    <span ng-show="take">上门取车地址</span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="tip">送车范围：易卡租车所在门店范围内，请提前4个工作小时下单，10公里范围内即可免费尊享送车上门服务。如距离取/还车时间不足4小时，可以选择到店取还。超过10公里范围收取30元送车上门服务费。</div>
+                <div class="row">
+                    <div class="box col-xs-5 box-search">
+                        <div class="box-content">
+                            <form class="form-inline">
+                                <div class="input-group">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                    <input type="text" value="" class="form-control model" id="suggestId" ng-model="searchInput"  placeholder="输入地址">
+                                     <span class="input-group-btn">
+                                        <button type="reset"  class="btn btn-default btn-search">x</button>
+                                     </span>
+                                    <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+                                    <div id="r-result"></div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="box-footer scroll">
+                            <div class="address-box" ng-repeat="x in searchList">
+                                <p>{{x.title}}</p>
+                                <p class="text-muted">{{x.address}}</p>
+                                <button type="button" class="btn btn-warning" data-poi={{x.point}}>确认地址</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box col-xs-7 box-map">
+                        <div id="map-search" style="width:445px;height:400px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<script>
+    function btnOck(){
+        $('.list-car').hide();
+    }
+</script>
+<!--引入底部-->
+<div ng-include="'../public/html/footer.html'"></div>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FiyvLDHpCL6fUaiIhAHk0YtiRfFSCUc1"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/jquery.onoff.min.js'></script>
+<script src='../common/js/hDate.js'></script>
+<script src='../common/js/priceDate.js'></script>
+<script src='../public/js/store.js'></script>
+<script src='js/map.js'></script>
+<script src='../public/js/app.js'></script>
+<script src='../public/js/main.js'></script>
+<script src='../public/js/orderApp.js'></script>
+<script src="js/getCarLists.js"></script>
+</body>
+</html>

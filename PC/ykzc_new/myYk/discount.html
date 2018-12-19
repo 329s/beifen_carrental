@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="css/personal.css" rel="stylesheet" type="text/css" >
+    <title>我的优惠——易卡租车</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div ng-include="'../public/html/header.html'"></div>
+    <div class="container">
+        <div class="panel left panel-list">
+            <ul>
+                <li class="title">我的订单</li>
+                <li><a href="#">订单管理</a></li>
+                <li><a href="#">订单管理</a></li>
+                <li class="title">我的资产</li>
+                <li><a href="#">账户余额</a></li>
+                <li><a href="#">我的优惠</a></li>
+                <li><a href="#">会员等级</a></li>
+                <li><a href="#">我的积分</a></li>
+                <li><a href="#">积分兑换</a></li>
+                <li><a href="#">用户信息</a></li>
+                <li class="title">会员条款</li>
+                <li><a href="#">会员章程</a></li>
+                <li><a href="#">会员细则</a></li>
+            </ul>
+        </div>
+        <div class="panel right panel-personal">
+            <div class="panel-heading panel-header-block">
+                <a href="javascript:;" ng-class="{active:!paged}" ng-click="paged=false">我的优惠卷</a>
+                <a href="javascript:;" ng-class="{active:paged}" ng-click="paged=true">邀请好友</a>
+            </div>
+            <div class="panel-body" ng-show="!paged">
+                 <div class="box box-circle">
+                     <div class="circle circle-gray">
+                         <div class="circle-body" ng-click="discount=0">
+                             <div>已过期</div>
+                             <div>2个</div>
+                         </div>
+                     </div>
+                     <div class="circle circle-red">
+                         <div class="circle-body" ng-click="discount=1">
+                             <div>可用优惠卷</div>
+                             <div>1个</div>
+                         </div>
+                     </div>
+                     <div class="circle circle-yellow">
+                         <div class="circle-body" ng-click="discount=2">
+                             <div>已用优惠卷</div>
+                             <div>1个</div>
+                         </div>
+                     </div>
+                 </div>
+                <div class="box box-discount" ng-init="discount=0">
+                    <div class="box-body overdue" ng-show="discount==0">
+                        <div class="box-coupon">
+                            <div class="coupon">
+                                <div class="coupon-header">积分兑换优惠卷</div>
+                                <div class="coupon-body">¥198</div>
+                                <div class="coupon-footer">过期时间：2017.8.8 24:00</div>
+                            </div>
+                        </div>
+                        <div class="box-coupon">
+                            <div class="coupon">
+                                <div class="coupon-header">积分兑换优惠卷</div>
+                                <div class="coupon-body">¥198</div>
+                                <div class="coupon-footer">过期时间：2017.8.8 24:00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body useable" ng-show="discount==1">
+                        <div class="box-coupon">
+                            <div class="coupon">
+                                <div class="coupon-header">积分兑换优惠卷</div>
+                                <div class="coupon-body">¥198</div>
+                                <div class="coupon-footer">过期时间：2017.8.8 24:00</div>
+                            </div>
+                        </div>
+                        <div class="box-coupon">
+                            <div class="coupon">
+                                <div class="coupon-header">积分兑换优惠卷</div>
+                                <div class="coupon-body">¥198</div>
+                                <div class="coupon-footer">过期时间：2017.8.8 24:00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body used" ng-show="discount==2">
+                        <div class="box-coupon">
+                            <div class="coupon">
+                                <div class="coupon-header">积分兑换优惠卷</div>
+                                <div class="coupon-body">¥198</div>
+                                <div class="coupon-footer">过期时间：2017.8.8 24:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" ng-show="paged">
+                <div class="box box-top box-invite">
+                     <div class="box-left left">
+                         <img src="">
+                         <span>邀请码</span>
+                         <span class="text-danger invite">35601</span>
+                     </div>
+                    <div class="box-right right">
+                           <div class="box-body">
+                               <div class="input-group">
+                                   <input type="text" class="form-control model" placeholder="生成个人邀请链接http://" >
+                                   <span class="input-group-btn">
+                                       <button class="btn btn-info">生成链接</button>
+                                   </span>
+                               </div>
+                           </div>
+                    </div>
+                </div>
+                <div class="box box-medium">
+                      <table class="table">
+                          <tbody>
+                              <tr>
+                                  <th>注册时间</th>
+                                  <th>邀请用户</th>
+                                  <th>获得积分?</th>
+                                  <th>是否租车</th>
+                                  <th>获得积分</th>
+                              </tr>
+                              <tr>
+                                  <td>2017-05-15 11:38:41</td>
+                                  <td>153******18</td>
+                                  <td>5点</td>
+                                  <td>是</td>
+                                  <td>5点</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--引入底部-->
+    <div ng-include="'../public/html/footer.html'"></div>
+</div>
+<div class="navbar navbar-personal-attach hide">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li>
+                <b class="num">1</b>
+                <p>可用积分</p>
+            </li>
+            <li>
+                <b class="num">1</b>
+                <p>优惠卷</p>
+            </li>
+            <li>
+                <b class="num">233</b>
+                <p>账户余额</p>
+            </li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+</div>
+<div class="modal fade" id="signModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog sign">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    签到送积分
+                    <div class="badge badge-exp">积分可用于兑换租车抵用</div>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="inline-box col-xs-7">
+                        <div style="width:100%;height:300px;" id="calendar"></div>
+                    </div>
+                    <div class="inline-box col-xs-5 box-sign">
+                        <div class="btn-group-sign sign" ng-init="sign=false">
+                            <button class="btn btn-warning" ng-hide="sign">签到</button>
+                            <button class="btn btn-warning" disabled ng-show="sign">已签到</button>
+                        </div>
+                        <div class="box-content">
+                            <p>每日登陆签到即可获得积分发放</p>
+                            <a href="javascript:;" class="right rule popover-show"
+                               data-container="body"
+                               data-html="true"
+                               data-toggle="popover"
+                               data-content="<ul><li>1. 签到1天可获得1点积分</li>
+                               <li>2. 连续签到2天当天可获得2点积分</li>
+                               <li>3. 连续签到3天当天可获得3点积分</li>
+                               <li>4. 连续签到4天当天可获得4点积分</li>
+                               <li>5. 连续签到5天当天可获得5点积分</li>
+                               <li>6. 连续签到6天当天可获得6点积分</li>
+                               <li>7. 连续签到7天当天可获得7点积分</li>
+                               <li>8. 连续签到7天以上当天均获得7点积分</li>
+                               <li>9. 连续签到中断过后，将从第一天开始重新计算</li>">详见签到发放规则>></a>
+                            <a href="#" class="btn btn-lg btn-default btn-reward">点击领取奖励</a>
+                        </div>
+                        <div class="box-footer">
+                            <div class="col-xs-4">
+                                <p>获得积分(点)</p>
+                                <div class="count">300</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>连续签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>累计签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../common/js/jquery.onoff.min.js'></script>
+<script src='../common/js/hDate.js'></script>
+<script src='../public/js/app.js'></script>
+<script src='../public/js/main.js'></script>
+</body>
+</html>

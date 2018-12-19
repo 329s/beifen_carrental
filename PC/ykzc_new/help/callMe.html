@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="css/about.css" rel="stylesheet" type="text/css" >
+    <title>联系我们——易卡租车</title>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div ng-include="'../public/html/header.html'"></div>
+    <div class="container">
+        <div class="panel left panel-list">
+            <ul>
+                <li class="title"  ng-init="getAbout = 'x1'">关于我们</li>
+                <li ng-click="getAbout ='x1'"  class="active"><a href="#about1">公司简介</a></li>
+                <li ng-click="getAbout ='x2'" ><a href="#about2">公司文化</a></li>
+                <li ng-click="getAbout ='x3'" ><a href="#about3">业务拓展</a></li>
+                <li ng-click="getAbout ='x4'" ><a href="#about4">关于未来</a></li>
+                <li ng-click="getAbout ='x5'" ><a href="#about5">员工风采</a></li>
+                <li ng-click="getAbout ='x6'" ><a href="#about6">合作伙伴</a></li>
+                <li ng-click="getAbout ='x7'" ><a href="#about7">联系我们</a></li>
+            </ul>
+        </div>
+        <div class="panel right panel-about">
+            <!--公司简介-->
+            <div ng-show="getAbout==='x1'">
+                <div id="about1" class="panel-header panel-header-block">公司简介</div>
+                <div class="panel-body pd-6080">
+                    <div class="left">
+                        <div class="map" >
+                            <img src="img/gsJianjie.png" width="263" height="214" alt="">
+                        </div>
+                    </div>
+                    <div class="right" style="width:500px" >
+                        <h2 class="gsTitle">金华市易卡汽车租赁有限公司（以下简称：易卡租车）</h2>
+                        <p class="zongbu ">易卡租车（金华市易卡汽车租赁有限公司）创办于2009年。</p>
+                        <p> 始终致力于为个人、家庭、休闲旅客及企业提供低成本、高价值的汽车租赁服务体验。</p>
+                        <p> 今天，我们的门店遍布浙江的各个城市。</p>
+                        <p>
+                            未来，易卡租车希望成为中国卓越的专业汽车租赁服务商和提供商，为
+                            大众出行提供便捷、优质、高效的出行服务。
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <!--公司文化-->
+            <div ng-show="getAbout==='x2'">
+                <div id="about2" class="panel-header panel-header-block">公司文化</div>
+                <div class="panel-body pd-6080">
+                    <ul >
+                        <li style="line-height: 2;font-size: 16px"><i style="float: left;margin-top:13px;margin-right:15px;width: 6px;height: 6px;border-radius: 10px;display: block;background-color: #ddddde;"></i><b>公司愿景</b>：为用户提供更好、更便利、更自由的自驾出行租车服务！</li>
+                        <li style="line-height: 2;font-size: 16px"><i style="float: left;margin-top:13px;margin-right:15px;width: 6px;height: 6px;border-radius: 10px;display: block;background-color: #ddddde;"></i><b>公司使命</b>：让汽车价值产生最大化！</li>
+                        <li style="line-height: 2;font-size: 16px"><i style="float: left;margin-top:13px;margin-right:15px;width: 6px;height: 6px;border-radius: 10px;display: block;background-color: #ddddde;"></i><b>公司理念</b>：服务&nbsp;&nbsp;便利&nbsp;&nbsp;创新&nbsp;&nbsp;共享！</li>
+                        <!--<li style="line-height: 2;font-size: 16px"><i style="float: left;margin-top:13px;margin-right:15px;width: 6px;height: 6px;border-radius: 10px;display: block;background-color: #ddddde;"></i>公司追求：成为浙江互联网领先品牌！</li>-->
+                    </ul>
+                </div>
+            </div>
+            <!--业务拓展-->
+            <div  ng-show="getAbout==='x3'">
+                <div id="about3"  class="panel-header panel-header-block">业务拓展</div>
+                <p style="text-align: center">
+                    <img style="    max-width: 100%;" src="img/tuozhan1.jpg" alt="">
+                </p>
+            </div>
+            <!--关于未来-->
+            <div  ng-show="getAbout==='x4'">
+                <div id="about4"  class="panel-header panel-header-block">关于未来</div>
+                <p style="text-align: center">
+                    <img style="   max-width: 100%;" src="img/weilai.jpg" alt="">
+                </p>
+            </div>
+            <!--员工风采-->
+            <div  ng-show="getAbout==='x5'">
+                <div  id="about5"  class="panel-header panel-header-block">员工风采</div>
+                <div class="panel-body pd-6080">
+                    <p style="display: flex; justify-content: space-around;align-items:center; ">
+                        <img style="width:400px;"  src="img/ygfc6.jpg" alt="">
+                        <img style="width:400px;"  src="img/ygfc3.jpg" alt="">
+                    </p>
+                    <p style="display: flex; justify-content: space-around;align-items:center; ">
+                        <img style="width:400px;"  src="img/ygfc2.jpg" alt="">
+                        <img style="width:400px;"  src="img/ygfc4.jpg" alt="">
+                    </p>
+                    <p style="display: flex; justify-content: space-around;align-items:center; ">
+                        <img style="width:400px;"  src="img/ygfc7.jpg" alt="">
+                        <img style="width:400px;"  src="img/ygfc8.jpg" alt="">
+                    </p>
+                </div>
+            </div>
+            <!--合作伙伴-->
+            <div  ng-show="getAbout==='x6'">
+                <div  id="about6"  class="panel-header panel-header-block">合作伙伴</div>
+                <div class="panel-body pd-6080">
+                    <p style="display: flex ; justify-content: space-around">
+                        <a href="http://www.gemdale.com/"><img src="img/partner/partner1.png" alt="金地集团"></a>
+                        <a href="http://www.chinalife.com.cn"><img src="img/partner/partner2.png" alt="中国人寿"></a>
+                        <a href="http://www.boc.cn/"><img src="img/partner/partner3.png" alt="中国银行"></a>
+                        <a href="http://www.mengniu.com.cn/"> <img src="img/partner/partner4.png" alt="蒙牛"></a>
+                    </p>
+                    <p style="display: flex;justify-content: space-around ;margin-top: 40px">
+
+                        <a href="http://www.sgcc.com.cn/"> <img src="img/partner/partner5.png" alt="国家电网"></a>
+                        <a href="http://www.ctrip.com"> <img src="img/partner/partner6.png" alt="携程"></a>
+                        <a href="https://www.sinokorealife.com.cn/"> <img src="img/partner/partner7.png" alt="中韩人寿"></a>
+                        <a href="http://www.airchina.com.cn/"> <img src="img/partner/partner8.png" alt="中国国际航空公司"></a>
+                    </p>
+                    <p style="display: flex;justify-content: space-around ;margin-top: 40px">
+                        <a href="http://www.yili.com/cms/index"> <img src="img/partner/partner9.png" alt="伊利"></a>
+                        <a href="javascript:viod:0"> <img src="img/partner/partner10.png" alt="车纷期"></a>
+                        <a href="http://www.ebuick.com.cn/"> <img src="img/partner/partner11.png" alt="别克"></a>
+                        <a href="http://www.chevrolet.com.cn"> <img src="img/partner/partner12.png" alt="雪佛兰"></a>
+                    </p>
+                </div>
+            </div>
+            <!--联系我们-->
+            <div  ng-show="getAbout==='x7'">
+                <div  id="about7"  class="panel-header panel-header-block">联系我们</div>
+                <div class="panel-body pd-6080">
+                    <div class="left">
+                        <div class="map" >
+                            <img src="img/callMewLeft.png" width="263" height="214" alt="">
+                        </div>
+                    </div>
+                    <div class="right" >
+                        <h2 class="gsTitle">金华市易卡汽车租赁有限公司</h2>
+                        <p class="zongbu">总部</p>
+                        <p>地址：浙江省金华市迎宾大道133号迎宾大厦5楼</p>
+                        <p>邮编：321000</p>
+                        <p>电话：400-876-0101/0579-82760101</p>
+                        <div class="hezuo">
+                            <div class="hezuo-box clearfix">
+                                <img src="img/1.png" alt="">
+                                <p class="title">媒体合作</p>
+                                <p>kefu01@yikazc.com</p>
+                            </div>
+                            <div class="hezuo-box clearfix">
+                                <img src="img/2.png" alt="">
+                                <p class="title">媒体合作</p>
+                                <p>kefu02@yikazc.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--引入底部-->
+    <div ng-include="'../public/html/footer.html'"></div>
+</div>
+<!--<div class="modal fade" id="signModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+    <!--<div class="modal-dialog sign">-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">-->
+                    <!--&times;-->
+                <!--</button>-->
+                <!--<h4 class="modal-title" id="myModalLabel">-->
+                    <!--签到送积分-->
+                    <!--<div class="badge badge-exp">积分可用于兑换租车抵用</div>-->
+                <!--</h4>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+                <!--<div class="row">-->
+                    <!--<div class="inline-box col-xs-7">-->
+                        <!--<div style="width:100%;height:300px;" id="calendar"></div>-->
+                    <!--</div>-->
+                    <!--<div class="inline-box col-xs-5 box-sign">-->
+                        <!--<div class="btn-group-sign sign" ng-init="sign=false">-->
+                            <!--<button class="btn btn-warning" ng-hide="sign">签到</button>-->
+                            <!--<button class="btn btn-warning" disabled ng-show="sign">已签到</button>-->
+                        <!--</div>-->
+                        <!--<div class="box-content">-->
+                            <!--<p>每日登陆签到即可获得积分发放</p>-->
+                            <!--<a href="javascript:;" class="right rule popover-show"-->
+                               <!--data-container="body"-->
+                               <!--data-html="true"-->
+                               <!--data-toggle="popover"-->
+                               <!--data-content="<ul><li>1. 签到1天可获得1点积分</li>-->
+                               <!--<li>2. 连续签到2天当天可获得2点积分</li>-->
+                               <!--<li>3. 连续签到3天当天可获得3点积分</li>-->
+                               <!--<li>4. 连续签到4天当天可获得4点积分</li>-->
+                               <!--<li>5. 连续签到5天当天可获得5点积分</li>-->
+                               <!--<li>6. 连续签到6天当天可获得6点积分</li>-->
+                               <!--<li>7. 连续签到7天当天可获得7点积分</li>-->
+                               <!--<li>8. 连续签到7天以上当天均获得7点积分</li>-->
+                               <!--<li>9. 连续签到中断过后，将从第一天开始重新计算</li>">详见签到发放规则>></a>-->
+                            <!--<a href="#" class="btn btn-lg btn-default btn-reward">点击领取奖励</a>-->
+                        <!--</div>-->
+                        <!--<div class="box-footer">-->
+                            <!--<div class="col-xs-4">-->
+                                <!--<p>获得积分(点)</p>-->
+                                <!--<div class="count">300</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-xs-4">-->
+                                <!--<p>连续签到(天)</p>-->
+                                <!--<div class="count">3</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-xs-4">-->
+                                <!--<p>累计签到(天)</p>-->
+                                <!--<div class="count">3</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
+    <!--</div>&lt;!&ndash; /.modal &ndash;&gt;-->
+<!--</div>-->
+
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../common/js/jquery.onoff.min.js'></script>
+<script src='../common/js/hDate.js'></script>
+<script src='../public/js/app.js'></script>
+<script src='../public/js/main.js'></script>
+<!--<script src='js/about.js'></script>-->
+<script>
+    $('.panel-list').find('li:gt(0)').click(function () {
+        $(this).siblings().removeClass('active');               //删除类名
+        $(this).addClass('active');                             //添加类名
+    })
+</script>
+</body>
+</html>

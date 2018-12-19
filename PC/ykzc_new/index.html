@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl" ng-cloak>
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="PC/ykzc_new/common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="PC/ykzc_new/common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="PC/ykzc_new/public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="PC/ykzc_new/index/css/index.css" rel="stylesheet" type="text/css" >
+    <script src="PC/ykzc_new/common/js/jquery.min.js"></script>
+    <script src="PC/ykzc_new/common/js/modernizr.custom.97074.js"></script>
+    <script src='PC/ykzc_new/common/js/angular.min.js'></script>
+    <meta name="keywords" content="易卡租车，单程租车，浙江租车，网上租车，汽车租赁，租车公司，汽车租赁，租车价格，租车网，商务租车，企业租车，包车，租车手续，异地还车" />
+    <meta name="description" content="易卡租车，始终致力于为个人、家庭、休闲旅客及企业提供低成本、高价值的汽车租赁服务体验。">
+    <title>易卡租车——互联网租车领导品牌</title>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?b5ee7d2f6557eff178818166dd5a1a18";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body ng-controller="orderCtrl" >
+
+<div class="wrapper" ng-controller="indexCtr">
+     <!--#include file="../common/html/header.html" -->
+    <!--头部引入-->
+    <nav class="navbar navbar-inverse navbar-index" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand logo" style="font-size: 0px" href="/">
+                    <img src="PC/ykzc_new/public/img/logo.png"/>
+                    易卡租车/yikazc.com
+                </a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav da-thumbs" id="da-thumbs">
+                    <li class="active index"><a style="background-color: #f1d34b;" href="/">首页<div><span></span></div></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">租车服务<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a  href="PC/ykzc_new/book/shortOrder.html">短租服务</a></li>
+                            <li><a  href="PC/ykzc_new/book/monthOrder.html">长租服务</a></li>
+                            <li><a  href="PC/ykzc_new/book/packageOrder.html">3天打包价</a></li>
+                            <li><a  href="PC/ykzc_new/book/packageWeek.html">7天打包价</a></li>
+                        </ul>
+                    </li>
+
+                    <!--<li><a href="../index/enterprise.html">企业用车</a></li>-->
+                    <li><a href="PC/ykzc_new/book/shortOrder.html">车型查询</a></li>
+                    <li><a href="PC/ykzc_new/query/store.html#/0579">门店查询</a></li>
+                    <!--<li><a href="#">单程往返</a></li>-->
+                    <!--<li><a href="#">顺风专车</a></li>-->
+                    <li><a href="PC/ykzc_new/index/invest.html">投资加盟</a></li>
+                    <li><a href="PC/ykzc_new/activity/activity.html">易卡活动</a></li>
+                    <li><a href="PC/ykzc_new/help/help-new.html">帮助中心</a></li>
+                    <li><a href="PC/ykzc_new/help/callMe.html">关于易卡</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="nav navbar-nav right" >
+                    <li ng-show="!login"><a href="PC/ykzc_new/login/login.html" >登录/注册</a></li>
+                    <li class="dropdown myyk" ng-show="login">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">我的易卡<span class="badge badge-hot badge-sign">签</span><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="PC/ykzc_new/myYk/myYK.html">个人中心</a></li>
+                            <!--<li><a href="#" data-toggle="modal" data-target="#signModal">签到</a></li>-->
+                            <li><a href="#" ng-click="userExit()">退出</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="tel:400-786-0101"><i class="glyphicon glyphicon-earphone"></i>400-876-0101</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <style>
+        .navbar-index{
+            background: #16314b;
+        }
+    </style>
+
+    <div class="banner" >
+        <div class="box container" >
+            <div class="panel panel-order">
+               <ul class="nav nav-tabs">
+                   <li  ng-click="order='dz'" ng-class="{'active':order=='dz'}"><a href="javascript:;">短租预约</a></li>
+                   <!--<li  ng-click="order='cz'" ng-class="{'active':order=='cz'}"><a href="javascript:;">长租预约</a></li>-->
+                   <li  ng-click="order='tc'" ng-class="{'active':order=='tc'}"><a href="javascript:;">特价套餐</a></li>
+               </ul>
+               <div ng-show="order=='dz'" class="panel-body">
+                   <form class="rant-form" method="post" action="#">
+                       <div class="row">
+                           <div class="col-xs-6 order-take">
+                               <label>取车</label>
+                               <span>送车上门</span>
+                               <div  class="onoffswitch"  >
+                                   <input type="checkbox"  name="takeCar" value='' class="take-car onoffswitch-checkbox" id="onoffswitch1" ng-model="takeCar" />
+                                   <!--<label for="onoffswitch1" class="onoffswitch-label">-->
+                                       <!--<span class="onoffswitch-inner" style=""></span>-->
+                                       <!--<span class="onoffswitch-switch" style=""></span>-->
+                                   <!--</label>-->
+                               </div>
+                               <div class="form-group ipicker">
+                                   <input class="input-picker area takeArea model" readonly="" unselectable = "on" ng-model="takeCityZh" type="text"  placeholder="城市" required >
+                                   <span class="glyphicon glyphicon-chevron-down"></span>
+                                   <input  class="input-picker store model " readonly unselectable = "on" type="text" ng-model="takeStoreZh" ng-show="takeCar==false" placeholder="门店" required   >
+                                   <span class="glyphicon glyphicon-chevron-down"></span>
+                                   <input  class="input-picker address take-address model" readonly unselectable = "on" type="text" ng-click="showTakeAddress([1,2])"  ng-model="takeAddress"     ng-show="takeCar==true" placeholder="输入地址">
+                                   <!--<input  class="input-picker address take-address model" readonly type="text" value="" data-toggle="modal" ng-click="showTakeAddress([1,2])" ng-model="takeAddress"  ng-show="takeCar==true" placeholder="输入地址">-->
+
+                                   <pickpop></pickpop>
+                               </div>
+                               <div class="form-group date-picker">
+                                   <input name="takeDate"   onClick="calendar.show({ id: this, minDay: dateDeal0(new Date())})" type="text"  class="model date" ng-model="takeDate" unselectable = "on" readonly/>
+                                   <span class="glyphicon glyphicon-calendar"></span>
+                                   <input name="takeTime" ng-model="takeTime" class="model time" unselectable = "on" readonly placeholder="9:00">
+                                   <span class="glyphicon glyphicon-chevron-down"></span>
+                                   <pickpop3></pickpop3>
+                               </div>
+                           </div>
+                           <div class="col-xs-6 order-return">
+                               <label>还车</label>
+                               <span>上门取车</span>
+                               <div  class="onoffswitch">
+                                   <input type="checkbox" name="returnCar" value='' class="return-car onoffswitch-checkbox" id="onoffswitch2" ng-model="returnCar"/>
+                                   <label for="onoffswitch2" class="onoffswitch-label">
+                                       <span class="onoffswitch-inner" style=""></span>
+                                       <span class="onoffswitch-switch" style=""></span>
+                                   </label>
+                               </div>
+                               <div class="form-group ipicker">
+                                  <input class=" input-picker area model" readonly unselectable = "on" type="text" ng-model="returnCityZh" placeholder="城市" >
+                                  <span class="glyphicon glyphicon-chevron-down"></span>
+                                  <input class="input-picker store model" readonly unselectable = "on" type="text" ng-model="returnStoreZh"  ng-show="returnCar==false" placeholder="门店">
+                                   <span class="glyphicon glyphicon-chevron-down"></span>
+                                   <input class="input-picker address return-address model " unselectable = "on" readonly type="text" ng-click="showReturnAddress([1,2])" ng-show="returnCar==true" placeholder="输入地址">
+                                  <pickpop2></pickpop2>
+                               </div>
+                               <div class="form-group date-picker shortOrlongS" ng-show="order=='dz'">
+                                   <input name="returnDate" onClick="calendar.show({ id: this, minDay: dateDeal0(new Date())})" type="text"  class="model date" ng-model="returnDate" unselectable = "on" readonly/>
+                                   <span class="glyphicon glyphicon-calendar"></span>
+                                   <input name="returnTime" ng-model="returnTime" class="model time" unselectable = "on" readonly placeholder="9:00">
+                                   <span class="glyphicon glyphicon-chevron-down"></span>
+                                   <pickpop3></pickpop3>
+                               </div>
+
+                           </div>
+                           <div  class="box-intr">
+                               <p class="intr">易卡租车新用户首租 &nbsp;&nbsp;租一送一 </p>
+                           </div>
+                           <input value="立即预订" type="button" class="btn btn-block btn-warning btn-order" ng-click="gotoRent(order,'out')">
+                            <p style="margin-top: 28px;color: red;" id="rentTip"></p>
+                       </div>
+
+                       <!--取车城市    $('.form-group.ipicker').find('input.area').val()-->
+                       <!--取车门店    $('.form-group.ipicker').find('input.store').val()-->
+                   </form>
+               </div>
+               <div ng-show="order=='tc'" class="panel-body">
+                   <div class="row " style="padding: 0 15px;;">
+                      <div class="clearfix">
+                          <div class="box-package">
+                              <div class="topPack">
+                                  <div class="packTitle">3DAYS</div>
+                                  <p>三天打包价，超值优惠</p>
+                                  <div class="db"></div>
+                              </div>
+                              <a href="http://www.yikazc.com/PC/ykzc_new/book/packageOrder.html">
+                                  <div class="bottomPack">
+                                      前往预定
+                                  </div>
+                              </a>
+                          </div>
+                          <div class="box-package">
+                              <div class="topPack">
+                                  <div class="packTitle">7DAYS</div>
+                                  <p>七天打包价，低至八折起</p>
+                                  <div class="db"></div>
+                              </div>
+                              <a href="http://www.yikazc.com/PC/ykzc_new/book/packageWeek.html">
+                                  <div class="bottomPack">
+                                      前往预定
+                                  </div>
+                              </a>
+                          </div>
+                          <div class="box-package">
+                              <div class="topPack">
+                                  <div class="packTitle">30DAYS</div>
+                                  <p>月租套餐，低至六折起</p>
+                                  <div class="db"></div>
+                              </div>
+                              <a href="http://www.yikazc.com/PC/ykzc_new/book/monthOrder.html">
+                                  <div class="bottomPack">
+                                      前往预定
+                                  </div>
+                              </a>
+
+                            
+                          </div>
+                      </div>
+
+                   </div>
+                   <div class="">
+                       <p class="intr">更有你用车我加油，易卡租车满油出租，不限里程。</p>
+                       <p class="intr">周租、月租套餐附加增值服务，不计免赔服务，10天封顶。</p>
+                   </div>
+                   <!--<button type="button" class="btn btn-block btn-warning btn-order" onclick="window.location.href='../book/packageOrder.html'">立即预订</button>-->
+               </div>
+            </div>
+        </div>
+        <section id="banner-top"  class="carousel slide  banner-index">
+            <!--<div class="carousel-inner">-->
+                <!--<div class="item active">-->
+                    <!--<img src="https://fimg.zuchecdn.com/upload/web/HomePage/HeadFigure/2017/20170502wanliang69_web.jpg" alt="First slide">-->
+                <!--</div>-->
+                <!--<div class="item">-->
+                    <!--<img src="img/slide2.png" alt="Second slide">-->
+                <!--</div>-->
+                <!--<div class="item">-->
+                    <!--<img src="img/slide3.png" alt="Third slide">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<ol class="carousel-indicators">
+                <li data-target="#banner-top" data-slide-to="0" class="active"></li>
+                <li data-target="#banner-top" data-slide-to="1"></li>
+                <li data-target="#banner-top" data-slide-to="2"></li>
+            </ol>-->
+            <!--轮播图-->
+
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <!--<li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <!--<div class="item active">-->
+                        <!--<a href="javascript:viod:0">-->
+                            <!--<img src="PC/ykzc_new/index/img/banner3.jpg" alt="...">-->
+                            <!--<div class="carousel-caption">-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                    <div class="item active">
+                        <a href="http://www.yikazc.com/h5/cavalier/">
+                            <img src="PC/ykzc_new/index/img/banner2.jpg" alt="...">
+                            <div class="carousel-caption">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="http://www.yikazc.com/h5/rentAndGive/">
+                            <img src="PC/ykzc_new/index/img/banner1.jpg" alt="...">
+                            <div class="carousel-caption">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </section>
+
+    </div>
+   <div style="background-color: #F2F3F5">
+       <div class="box flex-box box-wo" style="max-width: 1480px;margin: 0 auto;padding: 0">
+           <div class="item"><div class="box-img"><img src="PC/ykzc_new/public/img/index/no1.png"/></div><p>多座城市</p></div>
+           <div class="item"><div class="box-img"><img src="PC/ykzc_new/public/img/index/no2.png"/></div><p>多种车型</p></div>
+           <div class="item"><div class="box-img"><img src="PC/ykzc_new/public/img/index/no3.png"/></div><p>100%车险</p></div>
+           <div class="item"><div class="box-img"><img src="PC/ykzc_new/public/img/index/no4.png"/></div><p>24小时服务</p></div>
+           <div class="item"><div class="box-img"><img src="PC/ykzc_new/public/img/index/no5.png"/></div><p>不限里程</p></div>
+       </div>
+   </div>
+    <div class="container">
+         <div class="panel panel-1">
+             <div class="panel-heading panel-header panel-header-line">
+                 热门车型
+                 <span class="right"><a href="PC/ykzc_new/book/shortOrder.html">更多</a></span>
+             </div>
+             <div class="panel-body">
+                 <!--热门车型  展示窗口-->
+                 <div class="car-box" ng-repeat="x in carList">
+                     <a href="http://www.yikazc.com/PC/ykzc_new/book/shortOrder.html?pinpai={{x.carType}}">
+                         <img ng-src="PC/ykzc_new/index/{{x.imgUrl}}" alt="{{x.carname}}"/>
+                         <b class="car-title" ng-bind="x.carname"></b>
+                         <p class="car-content">{{x.vst == 2.0 ? "2.0T" :x.vst+"L&nbsp;"}}{{x.gear}}&nbsp;&nbsp; {{x.carriage == 998? "": x.carriage+"厢 &nbsp;|&nbsp; "}}{{x.seat}}座</p>
+                     </a>
+                 </div>
+             </div>
+         </div>
+        <div class="panel panel-2 right">
+            <form role="form">
+                <div class="panel-heading panel-header">
+                    <div class="input-group">
+                        <!--<input type="text"  class="form-control search-store" ng-model="search"/>-->
+                          <!--<span class="input-group-btn">-->
+                               <!--&lt;!&ndash;<button class="btn btn-warning" type="button">门店搜索</button>&ndash;&gt;-->
+                          <!--</span>-->
+                        <div class="box search-box" ng-hide="search==null||search==''||searchShow==false">
+                            <ul>
+                                <li ng-repeat="x in storeBaseList | filter:{title:search}">
+                                    <a ng-bind="x.title" href="javascript:;" ng-click="setStore(x.pos,x.title)"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-box">
+					<a href="#" data-toggle="modal"  class="zoom">
+						<i class="glyphicon glyphicon-zoom-in"></i>
+					</a>
+                    <div class="map" id="map"></div>
+                </div>
+            </form>
+        </div>
+        <div class="panel panel-3">
+            <div class="panel-heading panel-header panel-header-line">
+                精彩活动
+                <span class="right"><a href="PC/ykzc_new/activity/activity.html">更多</a></span>
+            </div>
+            <div class="panel-body" >
+                <div ng-repeat="act in activeForIndex"  class="act-box">
+                    <a href="{{act.link}}">
+                        <img ng-src="{{act.icon}}"/>
+                        <p class="index_active" ng-bind="act.title">易卡租车优惠你我</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-4">
+            <div class="panel-heading panel-header panel-header-line">
+                易体验
+                <!--<span class="right"><a href="#">更多</a></span>-->
+            </div>
+
+            <div id="myCarousel-text" data-interval="1000" data-wrap="true" class="carousel slide">
+                <!-- 轮播（Carousel）指标 -->
+                <!--<ol class="carousel-indicators">-->
+                    <!--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
+                    <!--<li data-target="#myCarousel" data-slide-to="1"></li>-->
+                    <!--<li data-target="#myCarousel" data-slide-to="2"></li>-->
+                <!--</ol>-->
+                <!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="comt-box">
+                            <img/>
+                            <p>我第一次在白龙桥店租车，以前都是到金华市区之后在租车，没想到这里的服务也这么好，这次周六到周日用车只有一天，租了个白色的K2自动挡，感到小伙子们服务好，热情，细心能为顾客着想，手续办得也很快，对于我提出的问题也非常耐心的讲解，回答的非常专业也非常具体，非常满意，点赞！</p>
+                            <a class="right" href="PC/ykzc_new/book/shortOrder.html">[我也要租]</a>
+                        </div>
+                        <div class="comt-box">
+                            <img/>
+                            <p>已经在易卡租车超过10次，对比起来比其他租车公司要实惠很多，对于我们这种经常出差的人来说，租车简直太方便了，随租随用，价格也实惠。每次出差跟同事一起出行，天气好的时候简直太开心了。租车行的小兄弟已经很熟悉了，每次都能热心周到的服务，赞。</p>
+                            <a class="right" href="PC/ykzc_new/book/shortOrder.html">[我也要租]</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="comt-box">
+                            <img/>
+                            <p>
+                                去杭州自驾游，对比了其他租车APP，还是易卡经济实惠。到了杭州选择上门送车，非常及时的送到，服务小哥态度很好，车洗的很干净。租的车，车况特别好，很新，开着小车，带着全家去灵隐-西湖-古城，易卡的小车一路陪伴着我，很舒心很惬意。还车的时候工作人员还提醒我，杭州有限行的规定，让我更加注意到限行的路况提前避免路段限行，赞一个。这么好的租车服务，我会成为你家最忠实的会员哦！</p>
+                            <a class="right" href="PC/ykzc_new/book/shortOrder.html">[我也要租]</a>
+                        </div>
+                        <div class="comt-box">
+                            <img/>
+                            <p>第一次租车，我纠结了好久，上了携程、58网站等等，后面听朋友介绍易卡，我就选择了易卡。开始在易卡官网上租的是本田飞度，到了门店后，由于飞度车没有，门店的兄弟帮我免费升级了车型。。。哈哈。。。。。爽歪歪，同时金华门店也包接送，非常方便，且开单和结算也很快，服务很人性化。。这个月底，将再次去金华，我也同样会在金华门店租车。谢谢易卡门店的两个员工（不记得名了，不要介意，嘿。。。}特别感谢。。。非常给力！！
+                            </p>
+                            <a class="right" href="PC/ykzc_new/book/shortOrder.html">[我也要租]</a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+
+
+                        <div class="comt-box">
+                            <img/>
+                            <p>这是第一次在易卡租车自驾， 网上订的起亚K2 ，下完单就告知租车点位置、电话，接待员手机，很贴心，整体体验不错 ，内饰也好看，店员服务态度很好，取车时很耐心的讲解和提醒应注意事项，还车时也挺方便的，看完签单就好了。</p>
+                            <a class="right" href="PC/ykzc_new/book/shortOrder.html">[我也要租]</a>
+                        </div>
+                        <div class="comt-box">
+                            <img/>
+                            <p>第一次租车，也是拿到驾照后第一次开车。工作人员很热心，告诉我有哪些注意事项。车况挺好，刚过一万公里的新车。实际使用感受良好，一个人驱车周边游。易卡针对新用户的活动挺实用，直接减免了一天的租车费用。还车的时候工作人员服务态度也挺好。</p>
+                            <a class="right" href="PC/ykzc_new/book/shortOrder.html">[我也要租]</a>
+                        </div>
+
+                    </div>
+                    <div class="item">
+
+
+                        <div class="comt-box">
+                            <img/>
+                            <p>第一次租车，感觉挺好的，去门店后服务人员还细心的跟我说各种细节。趁着周末的时间和老婆开车去周边游，由于是领到驾驶证以来的第一次上路，心里难免会有些兴奋和紧张，不过这车还是蛮好开的，车况不错，没有出现什么问题。还车也很方便，服务人员过来检车之后签完字就开走了，而且还是满油的车给我的，省去了我去加油站的麻烦。更重要的是，我是第一次租车，易卡给我直接减免了一天的车费。下次自驾游还选易卡。</p>
+                            <a class="right" href="PC/ykzc_new/book/shortOrder.html">[我也要租]</a>
+                        </div>
+                        <div class="comt-box">
+                            <img/>
+                            <p>偶尔跑长途或者家里车不够时经常租车，一直用易卡租车， 除了简单快捷服务棒价格公道外， 还有一个原因是车型特别多，车子都很新。以后每个门店都能提供安全座椅就更完美了，下次租车还会选择易卡！！！
+                            </p>
+                            <a class="right" href="PC/ykzc_new/book/shortOrder.html">[我也要租]</a>
+                        </div>
+
+                    </div>
+                    <div class="item">
+
+
+                        <div class="comt-box">
+                            <img/>
+                            <p>
+                                出差的时候租了好几次了，也用过别的租车公司的车，比起来真的还是易卡最便宜实惠，服务也好，就是真的好希望在我们老家也有租车点就好了，哈哈，望易卡能再扩大市场，用车就找易卡了，重点车子都很新哦，不用担心用到旧车，出问题，碰到优惠活动时候更是划算</p>
+                            <a class="right" href="PC/ykzc_new/book/shortOrder.html">[我也要租]</a>
+                        </div>
+                        <div class="comt-box">
+                            <img/>
+                            <p>租了很多次咯，每次都是选择易卡。现在门店的小哥看到我都能叫出我名字了，主要看上他的服务很人性化。客户的要求基本上都满足了。经常有优惠卷。送到我需要的地方很给力 加油，易卡租车，推荐大家使用。棒极了，和朋友一起自驾游，不错的。也挺省油的。</p>
+                            <a class="right" href="PC/ykzc_new/book/shortOrder.html">[我也要租]</a>
+                        </div>
+
+                    </div>
+                    <div class="item">
+
+
+                        <div class="comt-box">
+                            <img/>
+                            <p>第一次租车在几家租车公司徘徊了很久，最后还是选择了易卡租车，租的是一辆雪佛兰科鲁兹，车辆挺新的， 动力也还行，高速超车深踩油门时，有些许的推背感，感觉发动机换挡之后的一阵推背感，感觉挺爽的，是一次不错的租车体验吧，下次出行还是选择易卡租车。</p>
+                            <a class="right" href="PC/ykzc_new/book/shortOrder.html">[我也要租]</a>
+                        </div>
+                        <div class="comt-box">
+                            <img/>
+                            <p>第一次租车，也是拿到驾照后第一次开车。工作人员很热心，告诉我有哪些注意事项。车况挺好，刚过一万公里的新车。实际使用感受良好，一个人驱车周边游。易卡针对新用户的活动挺实用，直接减免了一天的租车费用。还车的时候工作人员服务态度也挺好。</p>
+                            <a class="right" href="PC/ykzc_new/book/shortOrder.html">[我也要租]</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 轮播（Carousel）导航 -->
+                <!--<a class="carousel-control left" href="#myCarousel"-->
+                   <!--data-slide="prev">&lsaquo;-->
+                <!--</a>-->
+                <!--<a class="carousel-control right" href="#myCarousel"-->
+                   <!--data-slide="next">&rsaquo;-->
+                <!--</a>-->
+            </div>
+
+
+            <!--<div class="panel-body">-->
+                <!--<div class="comt-box">-->
+                     <!--<img />-->
+                     <!--<p>方便又便宜，xxxxxxxxxxxxx，xxxxxxxxxxxx，xxxx，xxxxx，xxxxxxxxxxxxxxxxxxxxx，用了很多次易卡</p>-->
+                     <!--<a class="right" href="#">[去看看]</a>-->
+                <!--</div>-->
+                <!--<div class="comt-box">-->
+                    <!--<img />-->
+                    <!--<p>方便又便宜，xxxxxxxxxxxxx，xxxxxxxxxxxx，xxxx，xxxxxx，xxxxxxxxxxxxxxxxxxxx，用了很多次易卡</p>-->
+                    <!--<a class="right" href="#">[去看看]</a>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="panel panel-5 right">
+            <div class="panel-heading panel-header panel-header-line">
+                易动态
+                <!--<span class="right"><a href="#">更多</a></span>-->
+            </div>
+            <div id="company-dyn" class="carousel slide">
+                <!-- 轮播（Carousel）指标 -->
+                <ol class="carousel-indicators">
+                    <li data-target="#company-dyn" data-slide-to="0" class="active"></li>
+                    <li data-target="#company-dyn" data-slide-to="1"></li>
+                    <li data-target="#company-dyn" data-slide-to="2"></li>
+                </ol>
+                <!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="PC/ykzc_new/index/img/slide1.png" alt="First slide">
+                    </div>
+                    <div class="item">
+                        <img src="PC/ykzc_new/index/img/slide2.png" alt="Second slide">
+                    </div>
+                    <div class="item">
+                        <img src="PC/ykzc_new/index/img/slide3.png" alt="Third slide">
+                    </div>
+                </div>
+                <!-- 轮播（Carousel）导航 -->
+                <a class="carousel-control left" href="#company-dyn"
+                   data-slide="prev"></a>
+                <a class="carousel-control right" href="#company-dyn"
+                   data-slide="next"></a>
+            </div>
+        </div>
+    </div>
+    <!--引入底部-->
+    <div ng-include="'PC/ykzc_new/public/html/rightnNav.html'"></div>
+    <!--引入底部-->
+    <div class="sidebar">
+
+        <div class="box box-side"><a href="PC/ykzc_new/myYk/myOrder.html">订单</a></div>
+        <div class="box box-side phone">
+            <a href="" class="app app-link">手机版</a>
+            <div class="box box-app">
+                <div class="left">
+                    <img src="PC/ykzc_new/public/img/downEWM.jpg">
+                </div>
+                <div class="download right">
+                    <p class="text-center">扫描二维码下载<br>易卡租车手机版</p>
+                    <a href="https://itunes.apple.com/cn/app/%E6%98%93%E5%8D%A1%E7%A7%9F%E8%BD%A6-%E6%96%B0%E7%94%A8%E6%88%B7%E9%A6%96%E7%A7%9F%E7%A7%9F%E4%B8%80%E9%80%81%E4%B8%80/id1183650719?mt=8" class="btn btn-block btn-warning">iPhone版下载</a>
+                    <a href="http://android.myapp.com/myapp/detail.htm?apkName=com.jinhua.yika&ADTAG=mobile" class="btn btn-block btn-warning">Android版下载</a>
+                </div>
+            </div>
+        </div>
+        <div class="box box-side"><a href="javascript:   $('html,body').stop().animate({scrollTop:0},500);">返回顶部</a></div>
+        <script>
+            $('.box-side.phone').hover(function(){
+                $('.box-app').fadeIn();
+            },function(){
+                $('.box-app').fadeOut();
+            })
+
+        </script>
+    </div>
+    <footer>
+        <div class="container footers">
+            <div class="city-link">
+                <p class="text-center">城市快捷入口</p>
+                <hr>
+                <ul class="list-left" ng-hide="!cityDoorKuaiSu">
+                    <li ng-repeat="x in cityDoorKuaiSu"><a href="PC/ykzc_new/query/store.html#/{{x.cid}}" onclick="location.reload()" >{{x.city}}租车</a></li>
+                </ul>
+                <ul class="list-left" ng-hide="cityDoorKuaiSu">
+                    <li><a href="PC/ykzc_new/query/store.html#/0571" onclick="location.reload()" >杭州租车</a></li>
+                    <li><a href="PC/ykzc_new/query/store.html#/027" onclick="location.reload()" >武汉租车</a></li>
+                    <li><a href="PC/ykzc_new/query/store.html#/0574" onclick="location.reload()" >宁波租车</a></li>
+                    <li><a href="PC/ykzc_new/query/store.html#/0577" onclick="location.reload()" >温州租车</a></li>
+                    <li><a href="PC/ykzc_new/query/store.html#/0579" onclick="location.reload()" >金华租车</a></li>
+                    <li><a href="PC/ykzc_new/query/store.html#/0579-1" onclick="location.reload()" >义乌租车</a></li>
+                    <li><a href="PC/ykzc_new/query/store.html#/0579-12" onclick="location.reload()" >兰溪租车</a></li>
+                    <li><a href="PC/ykzc_new/query/store.html#/0579-10" onclick="location.reload()" >永康租车</a></li>
+                    <li><a href="PC/ykzc_new/query/store.html#/0579-11" onclick="location.reload()" >东阳租车</a></li>
+                    <li><a href="PC/ykzc_new/query/store.html#/0579-2" onclick="location.reload()" >武义租车</a></li>
+                </ul>
+            </div>
+            <hr>
+            <div class="area-help">
+                <ul class="sp-l">
+                    <li class="title">租车预订说明</li>
+                    <li><a href="PC/ykzc_new/help/help-ruler.html#/rule1">服务时间</a></li>
+                    <li><a href="PC/ykzc_new/help/help-ruler.html#/rule3">服务预定</a></li>
+                    <li><a href="PC/ykzc_new/help/help-ruler.html#/rule5">租车资格</a></li>
+                </ul>
+                <ul class="sp-l sp-l-f">
+                    <li><a href="PC/ykzc_new/help/help-ruler.html#/rule2">待租车况</a></li>
+                    <li><a href="PC/ykzc_new/help/help-ruler.html#/rule4">短租产品</a></li>
+                    <li><a href="PC/ykzc_new/help/help-ruler.html#/rule6">取还车说明</a></li>
+                </ul>
+                <ul>
+                    <li class="title">会员服务</li>
+                    <li><a href="PC/ykzc_new/login/forget.html">忘记密码</a></li>
+                    <li><a href="#">会员充值</a></li>
+                    <li><a href="#">积分说明</a></li>
+                </ul>
+                <ul>
+                    <li class="title">紧急事务处理</li>
+                    <li><a href="PC/ykzc_new/help/help-ruler.html#/rule7">保险责任</a></li>
+                    <li><a href="PC/ykzc_new/help/help-ruler.html#/rule8">事故处理</a></li>
+                    <li><a href="PC/ykzc_new/help/help-ruler.html#/rule9">理赔说明</a></li>
+                </ul>
+                <ul>
+                    <li class="title">租车费用及结算</a></li>
+                    <li><a href="PC/ykzc_new/help/help-ruler.html#/rule10">价格说明</a></li>
+                    <li><a href="PC/ykzc_new/help/help-ruler.html#/rule12">结算流程</a></li>
+                </ul>
+                <ul>
+                    <li class="title">帮助中心</li>
+                    <li><a href="PC/ykzc_new/help/help-qa.html">常见问题</a></li>
+                    <li><a href="PC/ykzc_new/help/help-new.html">新手上路</a></li>
+                    <li><a href="PC/ykzc_new/help/help-ruler.html">服务规则</a></li>
+                </ul>
+                <!--<ul>-->
+                <!--<li class="title">-->
+                <!--<img  src="../public/img/wchat.png" />-->
+                <!--<img  src="../public/img/wchat.png" />-->
+                <!--</li>-->
+                <!--</ul>-->
+            </div>
+            <div class="wchat right">
+                <div style="float: left;margin-right: 20px">
+                    <img  src="PC/ykzc_new/public/img/wchat.png" />
+                    <p style="text-align: center">扫描关注公众号</p>
+                </div>
+
+                <div style="float: left">
+                    <img src="PC/ykzc_new/public/img/downEWM.png" />
+                    <p style="text-align: center">扫描下载APP</p>
+                </div>
+
+            </div>
+            <hr>
+            <div class="webmap">
+                <ul class="list-inline">
+                    <li><a href="PC/ykzc_new/help/callMe.html">关于易卡</a></li>
+                    <li><a href="PC/ykzc_new/help/getJob.html">招贤纳士</a></li>
+                    <li><a href="PC/ykzc_new/help/down.html">移动客户端</a></li>
+                    <li><a href="PC/ykzc_new/help/help-ruler.html">帮助中心</a></li>
+                    <li><a href="PC/ykzc_new/help/webMap.html">网站导航</a></li>
+                    <li><a href="PC/ykzc_new/help/callMe.html">联系我们</a></li>
+                    <li><a href="PC/ykzc_new/news/news.html">新闻中心</a></li>
+                    <li><a href="PC/ykzc_new/index/invest.html">加盟合作</a></li>
+                    <!--<li><a href="#">友情链接</a></li>-->
+                    <li>客服热线：400-876-0101</li>
+                    <li><a href="http://wpa.qq.com/msgrd?v=3&uin=1356650459&site=qq&menu=yes">客服QQ</a></li>
+                </ul>
+                <p class="copy"> Copyright © 2017-2018 All Rights Reserved. 版权所有：金华市易卡汽车租赁有限公司
+                    <img src="PC/ykzc_new/public/img/icp.png" style="    margin-top: -3px;  margin-right: 3px;" alt="">
+                    <a href="http://www.beian.gov.cn/portal/registerSystemInfo">浙公网安备 33071802100171号</a>
+                    <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">浙ICP备13016103号-1</a>
+                </p>
+                <p class="link">友情链接：<a href="#" target="_blank">浙江车纷期网络科技有限公司</a>
+                    <a href="http://www.ctrip.com/" target="_blank">携程网</a></p>
+            </div>
+        </div>
+    </footer>
+    <script>
+
+        console.log("%c 警告！", "text-shadow: 5px 5px 1px grey;font-size:100px;color:red;font-weight:700;margin-left:400px");
+        console.log("%c 您现在打开的窗口是黑客专用交流区，请不要在上面粘贴复制任何代码，否则您可能将遭到黑客的攻击！","font-size:2em;font-weight:700");
+        //    console.log('%c易卡租车', 'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );color:transparent;-webkit-background-clip: text;font-size:3em;');
+    </script>
+    <!--SEO-->
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else{
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+    <script src="PC/ykzc_new/common/js/md5.js"></script>
+</div>
+<div class="modal fade" id="signModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog sign">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    签到送积分
+                    <div class="badge badge-exp">积分可用于兑换租车抵用</div>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="inline-box col-xs-7">
+                        <div style="width:100%;height:300px;" id="calendar"></div>
+                    </div>
+
+                    <div class="inline-box col-xs-5 box-sign">
+                        <div class="btn-group-sign sign" ng-init="sign=false">
+                            <button class="btn btn-warning" ng-hide="sign">签到</button>
+                            <button class="btn btn-warning" disabled ng-show="sign">已签到</button>
+                        </div>
+                        <div class="box-content">
+                            <p>每日登陆签到即可获得积分发放</p>
+                            <a href="javascript:;" class="right rule popover-show"
+                               data-container="body"
+                               data-html="true"
+                               data-toggle="popover"
+                               data-content="<ul><li>1. 签到1天可获得1点积分</li>
+                               <li>2. 连续签到2天当天可获得2点积分</li>
+                               <li>3. 连续签到3天当天可获得3点积分</li>
+                               <li>4. 连续签到4天当天可获得4点积分</li>
+                               <li>5. 连续签到5天当天可获得5点积分</li>
+                               <li>6. 连续签到6天当天可获得6点积分</li>
+                               <li>7. 连续签到7天当天可获得7点积分</li>
+                               <li>8. 连续签到7天以上当天均获得7点积分</li>
+                               <li>9. 连续签到中断过后，将从第一天开始重新计算</li></ul>">详见签到发放规则>></a>
+                            <a href="#" class="btn btn-lg btn-default btn-reward">点击领取奖励</a>
+                        </div>
+                        <div class="box-footer">
+                            <div class="col-xs-4">
+                                <p>获得积分(点)</p>
+                                <div class="count">300</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>连续签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>累计签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog map">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#fff;">
+			    <form role="form">
+					<div class="input-group search" style="height: 20px;">
+						<!--<input type="text"  class="form-control search-store"/>-->
+						<!--<span class="input-group-btn">-->
+							<!--&lt;!&ndash;<button class="btn btn-warning" type="button">门店搜索</button>&ndash;&gt;-->
+						<!--</span>-->
+					</div>
+				</form>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="map" id="map2" style="width: 798px;height: 530px;" ></div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+
+<div class="modal" id="addressModal" tabindex="-1" role="dialog" aria-labelledby="addressModalLabel" aria-hidden="true">
+    <div class="modal-dialog address">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="addressModalLabel">
+                    <span ng-show="!take">上门取车地址</span>
+                    <span ng-show="take">送车上门地址</span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="tip">送车范围：易卡租车所在门店范围内，请提前4个工作小时下单，10公里范围内即可免费尊享送车上门服务。如距离取/还车时间不足4小时，可以选择到店取还。超过10公里范围收取30元送车上门服务费。</div>
+                <div class="row">
+                    <div class="box col-xs-5 box-search">
+                        <div class="box-content">
+                            <form class="form-inline">
+                                <div class="input-group">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                    <input type="text" value="" class="form-control model" id="suggestId" ng-model="searchInput"  placeholder="输入地址">
+                                     <span class="input-group-btn">
+                                        <button type="reset"  class="btn btn-default btn-search">x</button>
+                                     </span>
+                                    <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+                                    <div id="r-result"></div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="box-footer scroll">
+                            <div class="address-box" ng-repeat="x in searchList">
+                                <p>{{x.title}}</p>
+                                <p class="text-muted">{{x.address}}</p>
+                                <button type="button" class="btn btn-warning" ng-click="getTakeAddress(x.address,x.point,x.title)" data-poi={{x.point}} data-title={{x.title}}>确认地址</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box col-xs-7 box-map">
+                        <div id="map-search" style="width:445px;height:400px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<a href="PC/ykzc_new/help/down.html"  >
+    <div id="index_ad_down" class="downAD">
+        <div class="indexBoxC">
+            <i id="closeBox" onclick="closeDownPage()"></i>
+        </div>
+
+        <style>
+            #index_ad_down{
+                width: 100%;
+                background: url("PC/ykzc_new/index/img/downAD.png") no-repeat bottom center;
+                position: fixed;
+                bottom: 0px;
+                z-index: 9999;
+                height: 261px;
+            }
+            #index_ad_down .indexBoxC{
+                margin: 0 auto;
+                height: 261px;
+                position: relative;
+                width: 800px;
+            }
+            #index_ad_down i{
+                width: 20px;
+                height: 20px;
+                background: url("PC/ykzc_new/index/img/downAD_close.png") no-repeat center center;
+                position: absolute;
+                top: 64px;
+                right: 5%;
+                background-size: contain;
+                cursor: pointer;
+            }
+        </style>
+        <script>
+            function closeDownPage(){
+                $("#index_ad_down").hide(500);
+//                document.querySelector('#index_ad_down').style.display = 'none';
+//                sessionStorage.setItem('indexForDown',true);
+                return false;
+            }
+
+            $('#index_ad_down').on('click','#closeBox', function () {
+                $("#index_ad_down").hide(500);
+                return false
+            })
+            var timerDown = setTimeout(function () {
+                closeDownPage();
+                clearTimeout(timerDown);
+            },15000)
+        </script>
+    </div>
+</a>
+<script>
+//    var s =   $.ajax({url:"http://gm.yikazc.com:8010/app/carrental/frontend/web/index.php/papi/city_list",async:true})
+
+</script>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=D5vCYyyvtb3mFECYtswc9SZTjgkT8eFU"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<script src='PC/ykzc_new/common/js/jquery.min.js'></script>
+<script src='PC/ykzc_new/common/js/tool.js'></script>
+<script src='PC/ykzc_new/common/js/bootstrap.min.js'></script>
+<script src='PC/ykzc_new/common/js/jquery.onoff.min.js'></script>
+<script src='PC/ykzc_new/common/js/jquery.hoverdir.js'></script>
+<script src='PC/ykzc_new/common/js/hDate.js'></script>
+<script src='PC/ykzc_new/public/js/store.js'></script>
+<script src='PC/ykzc_new/public/js/map.js'></script>
+<script src='PC/ykzc_new/public/js/app.js'></script>
+<script src='PC/ykzc_new/index/js/index.js'></script>
+<script src='PC/ykzc_new/public/js/main.js'></script>
+<script src='PC/ykzc_new/public/js/orderApp.js'></script>
+<script src="PC/ykzc_new/index/js/indexCtr.js"></script>
+<script>
+    $('#myCarousel-text').carousel({
+    interval: 5000})
+//    $(document).on("click","[style*='left:339px'] [date]",function(){
+//        if($('.shortOrlongS').hasClass('ng-hide')){
+//            setTimeout(function(){  $('.shortOrlongL input[name=returnDate]').click(); console.log(1998);},50);
+//        }else {
+//            setTimeout(function(){  $('.shortOrlongS input[name=returnDate]').click(); console.log(998);},50);
+//        }
+//        $('input[name="returnDate"]').val(datePlus($('input[name="takeDate"]').val(), 1));
+//    });
+//    $(document).on("click","[style*='left:318px'] [date]",function(){
+//        if($('.shortOrlongS').hasClass('ng-hide')){
+//            setTimeout(function(){  $('.shortOrlongL input[name=returnDate]').click(); console.log(1998);},50);
+//        }else {
+//            setTimeout(function(){  $('.shortOrlongS input[name=returnDate]').click(); console.log(998);},50);
+//        }
+//        $('input[name="returnDate"]').val(datePlus($('input[name="takeDate"]').val(), 1));
+//
+//    });
+    $(document).on("click",'.order-take .pop-time li',function () {
+        if($('.shortOrlongS').hasClass('ng-hide')){
+            setTimeout($('.shortOrlongL input[name="returnTime"]').click(),50);
+        }else {
+            setTimeout($('.shortOrlongS input[name="returnTime"]').click(),50);
+        }
+    })
+    $('input[name="takeDate"]').change(function () {
+        $('input[name="returnDate"]').val(datePlus($('input[name="takeDate"]').val(), 1));
+
+    })
+
+
+//    function ifMobile(){
+//        try {
+//            var urlhash = window.location.hash;
+//            if (!urlhash.match("fromapp")) {
+//                if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i))) {
+//                    window.location = "http://m.yikazc.com";
+//                }
+//            }
+//        }
+//        catch (err) {
+//        }
+//    }
+//    ifMobile()
+
+</script>
+</body>
+</html>

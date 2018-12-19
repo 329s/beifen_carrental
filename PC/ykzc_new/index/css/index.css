@@ -1,0 +1,618 @@
+p.num {
+    color: #ff8650;
+    font-size: 20px
+}
+
+p.intr {
+    color: #888
+}
+
+.header h4 {
+    background: #000;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 1.2rem
+}
+
+.navbar {
+    margin-bottom: 0;
+    position: absolute;
+    z-index: 999;
+    min-width: 1380px
+}
+
+.navbar-index {
+    background: rgba(16, 42, 69, .5)
+}
+
+.banner {
+    width: 100%;
+    background-color: #f2f3f5
+}
+
+.banner .box {
+    width: 1380px;
+    min-width: 940px;
+    margin: 0 auto;
+    padding: 0;
+    height: 600px;
+    position: absolute;
+    left: 50%;
+    margin-left: -690px
+}
+
+@media screen and (max-width: 1380px) {
+    .banner .box {
+        width: 80%;
+        min-width: 940px;
+        margin: 0 auto;
+        padding: 0;
+        height: 600px;
+        position: absolute;
+        left: 0
+    }
+}
+
+#banner-top img {
+    width: 100%;
+    object-fit: cover
+}
+
+#banner-top.banner-index img {
+    height: 560px
+}
+
+.carousel {
+    margin-bottom: 0
+}
+
+.panel-order {
+    position: absolute;
+    margin-top: 100px;
+    z-index: 1;
+    width: 450px;
+    min-height: 400px;
+    box-shadow: 0 0 15px rgba(163, 163, 163, .4);
+    border-radius: 2px;
+    filter: drop-shadow(0 0 5px rgba(163, 163, 163, .5));
+    background: #fcfcfc;
+    margin-left: 57px
+}
+
+.panel-order > div {
+    padding: 20px
+}
+
+.panel-order .row {
+    height: 260px
+}
+
+.panel-order .nav li {
+    width: 50%;
+    height: 48px;
+    text-align: center
+}
+
+.nav > li > a:focus, .nav > li > a:hover {
+    background: #fcfcfc
+}
+
+.panel-order .nav > li > a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: #eee;
+    border: none;
+    margin: 0;
+    color: #111;
+    font-size: 16px;
+    text-decoration: none
+}
+
+.panel-order .active > a {
+    background: #fcfcfc !important;
+    color: red;
+    border: none !important
+}
+
+.panel-order .order-return, .panel-order .order-take {
+    padding: 0 15px 15px
+}
+
+.panel-order .order-return > label, .panel-order .order-take > label {
+    margin-bottom: 15px;
+    margin-left: 20px
+}
+
+.panel-order .order-return .onoffswitch, .panel-order .order-take .onoffswitch {
+    margin-bottom: 9px
+}
+
+.panel-order select {
+    margin: 5px 0
+}
+
+.panel-order label, .panel-order span {
+    font-size: 14px;
+    line-height: 16px;
+/ / margin-bottom: 10 px
+}
+
+.panel-order span {
+    padding-left: 15px;
+    padding-right: 3px
+}
+
+.panel-order p {
+    text-align: center;
+    margin: 5px 0
+}
+
+.panel-order .btn-order {
+    margin: 0 auto;
+    font-size: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    letter-spacing: 2px;
+    position: relative;
+    top: 25px;
+    width: 94% !important
+}
+
+.panel-order input, .panel-order select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 100%
+}
+
+.panel-order .box-package {
+    margin-top: 15px;
+    text-align: center;
+    width: 126px;
+    float: left;
+    border: 1px solid #ccc;
+    margin: 5px;
+    height: 240px;
+    position: relative;
+    overflow: hidden
+}
+
+.panel-order .box-package .topPack {
+    background-color: #FDD000;
+    color: #000;
+    height: 140px;
+    transition: all .5s;
+    position: relative;
+    z-index: 2
+}
+
+.panel-order .box-package .topPack .db {
+    background-color: #fdd000;
+    width: 200px;
+    height: 300px;
+    transform: rotate(70deg);
+    transform-origin: right top;
+    position: absolute;
+    top: 115px;
+    left: 0;
+    z-index: -1;
+    transition: .3s
+}
+
+.panel-order .box-package .topPack .packTitle {
+    font-size: 20px;
+    height: 70px;
+    line-height: 100px;
+    transition: all .5s
+}
+
+.panel-order .box-package .topPack p {
+    font-size: 14px;
+    color: #666;
+    margin: 10px;
+    transition: all .3s
+}
+
+.panel-order .bottomPack {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 16px;
+    border: 3px solid #f1f1f1;
+    color: #ccc;
+    width: 80px;
+    height: 30px;
+    margin-left: -40px;
+    transform: scale(.25);
+    transition: all .5s
+}
+
+.panel-order .box-package:hover .topPack {
+    height: 30px
+}
+
+.panel-order .box-package:hover .topPack .packTitle {
+    height: 30px;
+    line-height: 30px
+}
+
+.panel-order .box-package:hover .topPack p {
+    opacity: 0
+}
+
+.panel-order .box-package:hover .topPack .db {
+    transform: rotate(140deg)
+}
+
+.panel-order .box-package:hover .bottomPack {
+    transform: scale(1)
+}
+
+.panel-order .box-intr {
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    width: 100%
+}
+
+.panel-order span.glyphicon {
+    margin: -30px 0 0 150px;
+    left: 0;
+    color: #ddd;
+    float: left;
+    pointer-events: none
+}
+
+.panel-order input.date, .panel-order input.time {
+    width: 100%;
+    margin-left: 0;
+    border-left: 1px solid #ddd
+}
+
+.panel-order .pop-time:before, .pop-time.change:before {
+    left: 0
+}
+
+.panel-order .pop-time {
+    left: 15px !important;
+    top: auto !important;
+    padding: 10px
+}
+
+.panel-order .pop {
+    left: 15px;
+    top: 81px
+}
+
+.panel-order .pop:before {
+    width: 187px
+}
+
+.nav-tabs {
+    border-bottom: none
+}
+
+.box-wo.flex-box {
+    height: 100px;
+    display: flex;
+    width: 100%;
+    font-size: 18px;
+    background-color: #F2F3F5
+}
+
+.flex-box .item {
+    text-align: center;
+    width: 20%;
+    height: 65px;
+    border-left: thin solid #e9ebee;
+    color: #6f757b
+}
+
+.flex-box .item:last-child {
+    border-right: thin solid #dfdfdf
+}
+
+.panel-1, .panel-2, .panel-3, .panel-4, .panel-5 {
+    margin: 20px 0
+}
+
+.panel-header {
+    padding: 5px 10px;
+    margin: 0 0 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #bfbfbf
+}
+
+.panel-header a {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fdd231
+}
+
+.panel-header.panel-header-line {
+    border-bottom: 1px solid #ccc
+}
+
+.panel-1 {
+    width: 64%;
+    background: 0 0;
+    border: none;
+    box-shadow: none;
+    display: inline-block
+}
+
+.panel-1 .panel-body {
+    margin: 0 -35px;
+    padding-top: 10px;
+    display: flex
+}
+
+.panel-1 .car-box {
+    display: inline-block;
+    width: 31%;
+    height: 320px;
+    margin: 0 3%;
+    border: .5px solid #eee;
+    background: #fefefe;
+    text-align: center;
+    box-shadow: 0 0 1px #ddd
+}
+
+.panel-1 .car-box:after {
+    width: 30%;
+    content: ''
+}
+
+.panel-1 .car-box:before {
+    width: 10%;
+    height: 300px;
+    content: ' ';
+    -webkit-box-shadow: 0 -8px 12px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 -8px 12px rgba(0, 0, 0, .3);
+    box-shadow: 0 -8px 12px rgba(0, 0, 0, .3);
+    position: absolute;
+    z-index: -1;
+    margin-top: 13px;
+    transform: skew(10deg) rotate(6deg);
+    margin-left: 13px
+}
+
+.panel-1 .car-box img {
+    object-fit: cover;
+    padding: 20px 0 35px;
+    width: 100%;
+/ / margin: 10 px auto
+}
+
+.panel-1 .car-box .car-title {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.panel-1 .car-box .car-content {
+    padding-top: 5px;
+    font-size: 12px;
+    color: #999;
+}
+
+.panel-2 {
+    width: 30%
+}
+
+.panel-2 .search-store {
+    float: right;
+    width: 60%;
+    min-width: 200px
+}
+
+.panel-2 .input-group-btn .btn {
+    height: 34px
+}
+
+.panel-2 .zoom {
+    position: relative;
+    float: right;
+    margin-left: -22px;
+    font-size: 18px;
+    z-index: 1
+}
+
+.map-box:before {
+    position: absolute;
+    width: 40px;
+    height: 80px;
+    content: "";
+    box-shadow: -1px -1px 1px #888;
+    cursor: nw-resize
+}
+
+.map-box:after {
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    content: "";
+    right: 10%;
+    margin-top: -40px;
+    box-shadow: 1px 1px 2px #666;
+    z-index: -1;
+    cursor: se-resize
+}
+
+.panel-3 .panel-body {
+    display: flex
+}
+
+.act-box {
+    width: 25%;
+    text-align: center
+}
+
+.act-box img {
+    width: 90%
+}
+
+.act-box p.index_active {
+    margin-top: 20px;
+    color: #fdd231
+}
+
+.panel-4 {
+    width: 56%;
+    display: inline-block
+}
+
+.panel-4 .panel-body {
+    display: flex
+}
+
+.comt-box {
+    width: 50%;
+    padding: 5px 40px;
+    float: left
+}
+
+.comt-box p {
+    word-break: break-all;
+    text-indent: 2em
+}
+
+.panel-5 {
+    width: 38%
+}
+
+.panel-5 img {
+    object-fit: cover;
+    width: 100%;
+    height: 240px !important
+}
+
+#mapModel {
+    margin-top: 50px !important
+}
+
+#mapModal .modal-body {
+    padding: 0
+}
+
+.modal-dialog.map {
+    margin-top: 80px;
+    width: 700px
+}
+
+#mapModal .search {
+    max-width: 300px
+}
+
+#mapModal .btn {
+    height: 34px
+}
+
+#mapModal .modal-header .close {
+    margin-top: -32px;
+    font-size: 30px
+}
+
+#mapModal .modal-content {
+    width: 800px;
+    height: 600px
+}
+
+::-webkit-input-placeholder {
+    color: #60606c
+}
+
+:-moz-placeholder {
+    color: #60606c
+}
+
+::-moz-placeholder {
+    color: #60606c
+}
+
+:-ms-input-placeholder {
+    color: #60606c
+}
+
+.box-wo {
+    max-width: 1480px
+}
+
+.box-wo .item {
+    margin-top: 20px
+}
+
+.box-wo .item .box-img {
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    margin-bottom: -5%
+}
+
+.box-wo .item .box-img img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain
+}
+
+.pop {
+    margin-left: 0;
+    margin-top: -10px
+}
+
+.pop.change:before {
+    left: 0
+}
+
+.search-box {
+    position: absolute;
+    margin-left: -285px;
+    margin-top: 40px;
+    z-index: 99;
+    background: rgba(254, 254, 254, .6);
+    text-align: center;
+    width: 208px
+}
+
+.search-box li {
+    background: rgba(240, 240, 240, .8);
+    margin: 3px
+}
+
+.search-box li:hover {
+    background: rgba(238, 184, 26, .7)
+}
+
+.search-box li:hover a {
+    color: #fff !important
+}
+
+.search-box a {
+    font-size: 14px;
+    font-weight: 400;
+    color: #60606c
+}
+
+.search-store {
+    font-weight: 400
+}
+
+@media screen and (max-width: 1381px) {
+    .panel-1 .car-box {
+        height: 260px
+    }
+
+    .panel-1 .car-box:before {
+        height: 240px
+    }
+
+    #map {
+        height: 260px
+    }
+
+    .map-box:after {
+        margin-left: 254px;
+        right: auto
+    }
+}

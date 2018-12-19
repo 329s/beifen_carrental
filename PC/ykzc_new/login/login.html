@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="css/login.css" rel="stylesheet" type="text/css" >
+    <title>登录——易卡租车</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body ng-controller='loginCtrl'>
+<div class="wrapper">
+    <!--<nav class="navbar navbar-inverse" role="navigation">-->
+        <!--<div class="container-fluid">-->
+            <!--<div class="navbar-header">-->
+                <!--<a class="navbar-brand logo" href="#">-->
+                    <!--<img src="../public/img/logo.png"/>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<ul class="nav navbar-nav right" ng-init="login=false">-->
+                    <!--<li><a href="#"><i class="glyphicon glyphicon-earphone"></i>400-876-0101</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</nav>-->
+    <!--引入顶部-->
+    <div ng-include="'../public/html/header.html'"></div>
+    <div class="banner">
+        <div class="box">
+            <div class="panel panel-login right">
+                <ul class="nav nav-tabs">
+                    <li  ng-click="order='dz'" ng-class="{'active':order=='dz'}"><a href="javascript:;">登录</a></li>
+                    <li  ng-click="order='cz'" ng-class="{'active':order=='cz'}"><a href="javascript:;">手机动态码登录</a></li>
+                </ul>
+                <div ng-show="order=='dz'" class="panel-body">
+                    <form method="post" action="#">
+                        <div class="form-group">
+                            <label><i class="glyphicon glyphicon-user"></i> </label>
+                           <input  ng-model="tel_mm" type="tel" maxlength="11" name="username" placeholder="请输入手机号" class="form-control">
+
+                        </div>
+                        <div class="form-group">
+                            <label><i class="glyphicon glyphicon-lock"></i> </label>
+                            <input ng-model="psw_mm"  type="password" name="password" placeholder="请输入密码" ng-keydown=loginKeyDown() class="form-control">
+                        </div>
+                    </form>
+                </div>
+                <div ng-show="order=='cz'" class="panel-body">
+                    <form method="post" action="#">
+                        <div class="form-group">
+                            <label><i class="glyphicon glyphicon-user"></i> </label>
+                            <input type="tel" ng-model="loginPhoneNub" maxlength="11" name="username" placeholder="请输入手机号" class="form-control">
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-8">
+                                <label><i class="glyphicon glyphicon-envelope"></i> </label>
+                                <input type="text" maxlength="4" ng-model="psw_yzm" name="passyzm" placeholder="请输入手机验证码" class="form-control" >
+                            </div>
+                            <div class="col-xs-4">
+                                <button id="loginBtn" type="button" class="btn btn-default btn-block btn-vercode"  ng-click="loginCode(loginPhoneNub)" ng-bind="paracont" ng-disabled="!isClick"></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    <div class="row row-attach">
+                        <div class="col-xs-6">
+                            <!--<span class="f-checkbox"><div></div></span>-->
+                            <!--<label>-->
+                                <!--<input type="checkbox" name="autoLogin" id="autoLogin" class="t-checkbox" checked>-->
+                                <!--30天内自动登录-->
+                            <!--</label>-->
+                        </div>
+                        <div class="col-xs-6">
+                            <a class="right" href="forget.html">忘记密码？</a>
+                        </div>
+                        <div class="col-xs-6"></div>
+                    </div>
+                    <button class="btn btn-block btn-warning btn-login"  ng-click="order=='cz'?userLodin(loginPhoneNub,psw_yzm,'cz'):userLodin(tel_mm,psw_mm,'dz')">登 录</button>
+                    <div class="center-block regist">还不是会员？<a href="register.html">立即注册</a></div>
+                </div>
+            </div>
+        </div>
+        <div id="banner-top"  class="carousel slide">
+            <img src="img/lodeBanner1.png">
+        </div>
+    </div>
+    <div class="container">
+    </div>
+    <div ng-include="'../public/html/footer.html'"></div>
+</div>
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../public/js/app.js'></script>
+<script src="js/login.js"></script>
+</body>
+</html>

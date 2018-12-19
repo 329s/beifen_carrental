@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="css/cancelledOrder.css" rel="stylesheet" type="text/css" >
+    <title>已取消的订单——易卡租车</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body  ng-controller="orderXqCtr">
+<!--顶部引入-->
+<div ng-include="'../public/html/header.html'"></div>
+<!--<div style="max-width: 1000px;margin: 40px auto 20px">-->
+    <!--<img src="img/jindu-1.png" alt="">-->
+<!--</div>-->
+
+<div class="topbox">
+    <h2>{{orderXq.status}} <span>订单总价：<b>￥{{orderXq.total_price}}</b></span></h2>
+    <p>订单号：{{orderXq.order_id}}|租车人：{{orderXq.user_id}}|租期：{{orderXq.rent_days}}天 取车时需要刷取预授权： <span style="color:#ff6600">￥{{orderXq.pledge_cash}}</span></p>
+</div>
+
+<div class="midbox ">
+    <h3>基本信息</h3>
+    <div class="clearfix top-bbox">
+        <div class="left">
+            <div class="carConfig">
+                <a href="#" ng-click="getCarConfig(orderXq.car.car_id)" class="getConfig demo6">配置信息</a>
+                <img ng-src="{{orderXq.car.images}}" alt="{{orderXq.car.car_name}}">
+            </div>
+            <div class="l-bot">
+                <span ng-bind="orderXq.car.car_name">2016别克奥克拉</span><span ng-bind="orderXq.car.property_text">SUV/1.4T 自动乘坐5人</span>
+
+
+            </div>
+        </div>
+        <div class="mid">
+            <p>取车时间：{{orderXq.start_time}}</p>
+            <p>还车时间：{{orderXq.end_time}}</p>
+        </div>
+        <div class="right">
+            <p>取车地点：{{orderXq.store.store_name}}</p>
+            <p>还车地点：{{orderXq.re_store.store_name}}</p>
+        </div>
+    </div>
+
+    <h3 class="redh3">费用明细</h3>
+    <div class="priceList">
+        <!--<p class="clearfix" >-->
+            <!--<span >车辆租赁费</span>-->
+            <!--<span><b>￥{{orderXq.rent_price}}</b></span>-->
+        <!--</p>-->
+        <p class="clearfix"  ng-repeat="price in orderXq.ser_list">
+            <span ng-bind="price.ser_name">车辆租赁费及门店服务费</span>
+            <span><b>￥{{price.ser_price*price.ser_count}}</b></span>
+        </p>
+        <p ng-show="orderXq.preferential_price!=0" class="clearfix">
+             <span style="width: auto" ng-bind="orderXq.preferential_info||'优惠额度'">优惠额度</span><img src="img/yhq.png" style="width: 30px;margin-left: 10px;margin-top: -5px" alt="">
+            <span ><b>￥-{{orderXq.preferential_price}}</b></span>
+        </p>
+        <div class="price-all">
+            订单总价：<span>￥{{orderXq.total_price}}</span>
+        </div>
+    </div>
+</div>
+<div class="btnBox">
+    <!--<a href="#">立即支付</a>-->
+    <a href="#" ng-hide="orderXq.status != '预定未付'" ng-click="cancel_order(orderXq.order_id)">取消订单</a>
+    <!--<a href="#">修改订单</a>-->
+    <a href="../myYk/myYK.html">订单中心</a>
+    <a href="javascript:viod:0"  ng-hide="orderXq.status != '预定未付'"  ng-click="gotoPayAli(orderXq.order_id)">支付租金</a>
+    <a href="#">打印订单</a>
+</div>
+<div class="bottombox">
+    <div class="botTop">
+        <h3>如何取车</h3>
+        <div>
+            <p>1.取车时,出示以下证件的原件：本人二代身份证，本人国内有效驾驶证正副本、本人一张信用卡及可用额度不得少于3000元，所有证件有效期
+                须至少超过当次租期的一个月以上。
+            </p>
+            <p> 2.请您按时取车，超时取车的客户，取车时间按预订取车时间起算。</p>
+        </div>
+    </div>
+    <div class="botBottom">
+        <h3>退还规则</h3>
+        <div>
+            <p>温馨提示：如果您修改订单或者取消订单重新预定，价格可能发生变化。</p>
+        </div>
+    </div>
+</div>
+<!--模态框-->
+
+<div id="demoModal1" class="block modal2">
+    <div class="cftitle">
+        <span>{{carConfigList.vehicle_model}}配置信息</span>
+        <!--<i class="cfclose"></i>-->
+    </div>
+    <div class="cflist">
+        <ul>
+            <li>
+                <b class="rllx">&nbsp;</b>车辆类型：<span ng-bind="carConfigList.vehicle_type">轿车</span>
+            </li>
+            <li>
+                <b class="zws">&nbsp;</b>座 位 数：<span ng-bind="carConfigList.seat">5</span>
+            </li>
+            <li>
+                <b class="cms">&nbsp;</b>车 厢 数：<span ng-bind="carConfigList.carriage">4</span>
+            </li>
+            <!--<li>-->
+            <!--<b class="rllx">&nbsp;</b>燃料类型：<span ng-bind="carConfigList.oil_label">汽油</span>-->
+            <!--</li>-->
+            <li>
+                <b class="bsxlx">&nbsp;</b>变速箱类型：<span ng-bind="carConfigList.gearbox">AT</span>
+            </li>
+            <li>
+                <b class="pl">&nbsp;</b>排　　量： <span ng-bind="carConfigList.emission">1598</span>
+            </li>
+            <li>
+                <b class="rybh">&nbsp;</b>燃油标号：<span ng-bind="carConfigList.oil_label">92-93汽油</span>
+            </li>
+            <li>
+                <b class="qdfs">&nbsp;</b>驱动方式：<span ng-bind="carConfigList.driving_mode">前驱</span>
+            </li>
+            <li>
+                <b class="fdjjqxs">&nbsp;</b>发动机进气形式：<span ng-bind="carConfigList.air_intake_mode">自然吸气</span>
+            </li>
+            <!--<li>-->
+            <!--<b class="tc">&nbsp;</b>天　　窗：<span>无</span>-->
+            <!--</li>-->
+            <li>
+                <b class="yxrl">&nbsp;</b>油箱容量：<span ng-bind="carConfigList.oil_capacity">55</span>
+            </li>
+            <!--<li>-->
+            <!--<b class="yx">&nbsp;</b>音　　箱：<span>4</span>-->
+            <!--</li>-->
+            <li>
+                <b class="zy">&nbsp;</b>座　　椅：<span ng-bind="carConfigList.chair">皮革座椅</span>
+            </li>
+            <li>
+                <b class="dcld">&nbsp;</b>倒车雷达：<span ng-bind="carConfigList.radar">无</span>
+            </li>
+            <!--<li>-->
+            <!--<b class="qin">&nbsp;</b>气　　囊：<span>2</span>-->
+            <!--</li>-->
+            <!--<li class="nonebd">-->
+            <!--<b class="dvd">&nbsp;</b>DVD / CD：<span>CD</span>-->
+            <!--</li>-->
+            <li class="nonebd">
+                <b class="gps">&nbsp;</b>GPS导航：<span ng-bind="carConfigList.gps">无</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+<!--引入底部-->
+<div ng-include="'../public/html/footer.html'"></div>
+
+
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../public/js/app.js'></script>
+<script src='js/cancelledOrder.js'></script>
+<script src="js/orderXq.js"></script>
+<!--模态框-->
+<script src="js/Sweefty.js" type="text/javascript"></script>
+<script src="js/moaModal.minified.js" type="text/javascript"></script>
+
+
+<script>
+
+    $(document).ready(function(){
+
+        $(document).modal({
+
+        });
+
+        $('.demo6').modal({
+
+            target : '#demoModal1',
+
+            speed : 500,
+
+            easing : 'easeOutBack',
+
+            animation : 'right',
+
+            position: 'center',
+
+            overlayClose : true,
+
+            on : 'click'
+
+        });
+
+
+
+
+    });
+
+</script>
+</body>
+</html>

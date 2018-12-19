@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="css/order.css" rel="stylesheet" type="text/css" >
+    <title>订单详情——易卡租车</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div ng-include="'../public/html/header.html'"></div>
+    <div class="container" ng-controller="calcAppCtrl">
+		<div class="panel panel-msg" ng-init="type='wait'">
+            <div class="panel-body">
+                <div class="msg-top">
+                    <i class="text-warning" ng-show="type=='wait'">等待支付</i>
+                    <i class="text-muted" ng-show="type=='cancel'">已取消</i>
+                    <span class="text-muted addition" ng-show="type=='wait'">此单为您保留1小时， 请您尽快预付租金</span>
+                    <span>订单总价：</span>
+                    <span class="text-warning price">¥<i class="num">238</i></span>
+                </div>
+                <div class="msg-bottom">
+                    <p>订单号：130024002356  丨  租车人：方正治   丨  租期：2天   丨   取车时需要刷取预授权：<i class="text-danger">¥ 2000</i></p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-detail">
+            <div class="panel-heading">
+                基本信息
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <td colspan="3" rowspan="3" class="img-box"><img src="../public/img/klz.jpg"></td>
+                        <td rowspan="2">取车时间：2017年8月5日10点00分</td>
+                        <td rowspan="2">取车地点：金华市  宾虹路门店</td>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td rowspan="2">还车时间：2017年8月7日10点00分</td>
+                        <td rowspan="2">还车地点：金华市  宾虹路门店</td>
+                    </tr>
+                    <tr>
+                        <td>别克英朗</td>
+                        <td>三厢/1.5自动</td>
+                        <td>乘坐5人</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="panel-heading">
+                费用明细
+            </div>
+            <div class="panel-body">
+                <div class="line">
+                    <div class="left">车辆租赁费用</div>
+                    <div class="right text-muted"><span>117×2</span><i class="text-danger">¥234</i></div>
+                </div>
+                <div class="line">
+                    <div class="left">增值服务费</div>
+                    <div class="right text-muted"><span>40×2</span><i class="text-danger">¥80</i></div>
+                </div>
+                <div class="line">
+                    <div class="left">其他费用</div>
+                    <div class="right text-muted"><i class="text-danger">0</i></div>
+                </div>
+                <div class="total right text-muted">
+                   订单总价：<span class="text-danger price"><i>¥</i>314</span>
+                </div>
+            </div>
+            <div class="btn-line">
+                <a class="btn btn-danger">支付租金</a>
+                <a class="btn btn-default" href="javascript:;" data-toggle="modal" data-target="#cancelModal">取消订单</a>
+                <a class="btn btn-default">修改订单</a>
+                <a class="btn btn-default">订单中心</a>
+                <a class="btn btn-default">打印订单</a>
+            </div>
+        </div>
+        <div class="panel panel-ruler">
+            <div class="panel-heading">
+                如何取车
+            </div>
+            <div class="panel-body">
+                <p>1. 取车时,出示以下证件的原件：本人二代身份证，本人国内有效驾驶证正副本、本人一张信用卡及可用额度不得少于3000元，所有证件有效期须至少超过当次租期的一个月以上。</p>
+                <p>2. 请您按时取车，超时取车的客户，取车时间按预订取车时间起算。</p>
+            </div>
+        </div>
+        <div class="panel panel-ruler">
+            <div class="panel-heading">
+                退改规则
+            </div>
+            <div class="panel-body">
+                <p>温馨提示：如果您修改订单或者取消订单重新预订，价格可能会发生变化。</p>
+            </div>
+        </div>
+    </div>
+
+    <!--引入底部-->
+    <div ng-include="'../public/html/footer.html'"></div>
+</div>
+<div class="modal fade" id="signModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog sign">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    签到送积分
+                    <div class="badge badge-exp">积分可用于兑换租车抵用</div>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="inline-box col-xs-7">
+                        <div style="width:100%;height:300px;" id="calendar"></div>
+                    </div>
+                    <div class="inline-box col-xs-5 box-sign">
+                        <div class="btn-group-sign sign" ng-init="sign=false">
+                            <button class="btn btn-warning" ng-hide="sign">签到</button>
+                            <button class="btn btn-warning" disabled ng-show="sign">已签到</button>
+                        </div>
+                        <div class="box-content">
+                            <p>每日登陆签到即可获得积分发放</p>
+                            <a href="javascript:;" class="right rule popover-show"
+                               data-container="body"
+                               data-html="true"
+                               data-toggle="popover"
+                               data-content="<ul><li>1. 签到1天可获得1点积分</li>
+                               <li>2. 连续签到2天当天可获得2点积分</li>
+                               <li>3. 连续签到3天当天可获得3点积分</li>
+                               <li>4. 连续签到4天当天可获得4点积分</li>
+                               <li>5. 连续签到5天当天可获得5点积分</li>
+                               <li>6. 连续签到6天当天可获得6点积分</li>
+                               <li>7. 连续签到7天当天可获得7点积分</li>
+                               <li>8. 连续签到7天以上当天均获得7点积分</li>
+                               <li>9. 连续签到中断过后，将从第一天开始重新计算</li>">详见签到发放规则>></a>
+                            <a href="#" class="btn btn-lg btn-default btn-reward">点击领取奖励</a>
+                        </div>
+                        <div class="box-footer">
+                            <div class="col-xs-4">
+                                <p>获得积分(点)</p>
+                                <div class="count">300</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>连续签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>累计签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body">
+                 <p>订单号：130024002356  可以取消</p>
+                 <p class="text-muted">取消订单的原因：</p>
+                 <form class="form-inline form-cancel">
+                      <div>
+                          <div class="input-group">
+                              <input type="radio" value=""><label>行程发生变化</label>
+                          </div>
+                          <div class="input-group">
+                              <input type="radio" value=""><label>不满意价格</label>
+                          </div>
+                          <div class="input-group">
+                              <input type="radio" value=""><label>选择其他租车公司</label>
+                          </div>
+                      </div>
+                      <div>
+                          <div class="input-group">
+                              <input type="radio" value=""><label>其它出行代替</label>
+                          </div>
+                          <div class="input-group">
+                              <input type="radio" value=""><label>天气原因</label>
+                          </div>
+                          <div class="input-group">
+                              <input type="radio" value=""><label>其它</label>
+                          </div>
+                      </div>
+                       <div class="btn-line">
+                           <a class="btn btn-default">取消并提交原因</a>
+                           <a class="btn btn-danger">不取消订单</a>
+                       </div>
+                 </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../common/js/jquery.onoff.min.js'></script>
+<script src='../common/js/hDate.js'></script>
+<script src='../public/js/app.js'></script>
+<script src='../public/js/main.js'></script>
+<script src='js/calcApp.js'></script>
+</body>
+</html>

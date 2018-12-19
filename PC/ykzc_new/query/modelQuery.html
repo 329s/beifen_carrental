@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="common/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="css/modelQuery.css" rel="stylesheet" type="text/css" >
+    <title>车型查询——易卡租车</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div ng-include="'../public/html/header.html'"></div>
+    <div class="container">
+        <div class="panel search-panel">
+            <div class="panel-body">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <b>金华</b>
+                        <a href="javascript:;">[切换]</a>
+                        <input type="hidden">
+                    </div>
+                    <div class="form-group date-picker picker">
+                        <label>用车时间</label>
+                        <input name="takeDate"  onClick="calendar.show({ id: this })" type="text"  class="form-control date" ng-model="takeDate" readonly placeholder=""/>
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        <input name="takeTime" ng-model="takeTime" class="form-control time" readonly>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                        <pickpop3></pickpop3>
+                    </div>
+                    <div class="form-group date-picker picker">
+                        <label>还车时间 </label>
+                        <input name="returnDate" onClick="calendar.show({ id: this })" type="text"  class="form-control date" ng-model="returnDate" readonly/>
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        <input name="returnTime" ng-model="takeTime" class="form-control time" readonly>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                        <pickpop3></pickpop3>
+                    </div>
+                    <div class="btn-group top-search">
+                        <button class="btn btn-lg btn-warning btn-rent-search">查 询</button>
+                    </div>
+                </form>
+            </div>
+            <div class="box">
+                <div class="line-choose line-brand">
+                    <ul>
+                        <li>品牌：</li>
+                        <li  class="active">全部</li>
+                        <li>别克</li>
+                        <li>雪铁龙</li>
+                        <li>福特</li>
+                        <li>现代</li>
+                    </ul>
+                </div>
+                <div class="line-choose line-price">
+                    <ul>
+                        <li>价格：</li>
+                        <li class="active">全部</li>
+                        <li>100以上</li>
+                        <li>100-200</li>
+                        <li>200-300</li>
+                        <li>300以上</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-model">
+            <div class = "row">
+                <div class="col-xs-3 box" ng-repeat="x in carList">
+                    <div class="box-content">
+                        <div class="box-img">
+                             <img ng-src="{{x.imgUrl}}">
+                        </div>
+                        <div class="box-info">
+                             <b class="car-title" ng-bind="x.carname"></b>
+                            <p class="car-content">{{x.gear}}&nbsp;&nbsp; {{x.carriage}}厢 &nbsp;| &nbsp;{{x.seat}}座</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 box" ng-repeat="x in carList">
+                    <div class="box-content">
+                        <div class="box-img">
+                            <img ng-src="{{x.imgUrl}}">
+                        </div>
+                        <div class="box-info">
+                            <b class="car-title" ng-bind="x.carname"></b>
+                            <p class="car-content">{{x.gear}}&nbsp;&nbsp; {{x.carriage}}厢 &nbsp;| &nbsp;{{x.seat}}座</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="btn addmore"><!--<i class="glyphicon glyphicon-plus"></i>-->+ 加载更多车型</a>
+            </div>
+        </div>
+    </div>
+
+    <!--引入底部-->
+    <div ng-include="'../public/html/footer.html'"></div>
+</div>
+<script src='common/js/jquery.min.js'></script>
+<script src='common/js/tool.js'></script>
+<script src='common/js/bootstrap.min.js'></script>
+<script src='common/js/angular.min.js'></script>
+<script src='common/js/jquery.onoff.min.js'></script>
+<script src='common/js/hDate.js'></script>
+<script src='js/app.js'></script>
+<script src='js/main.js'></script>
+<script src='js/map.js'></script>
+</body>
+</html>

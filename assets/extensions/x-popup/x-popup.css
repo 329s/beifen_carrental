@@ -1,0 +1,14 @@
+/* pop */
+#x-popup{background:#fff;width:260px;border:1px solid #e0e0e0;font-size:12px;position:fixed;right:10px;bottom:10px;z-index: 9999}
+#x-popup-head{line-height:32px;background:#f6f0f3;border-bottom:1px solid #e0e0e0;position:relative;font-size:12px;padding:0 0 0 10px;}
+#x-popup-head h2{font-size:14px;color:#666;line-height:32px;height:32px;}
+#x-popup-head #x-popup-close{position:absolute;right:10px;top:1px;}
+#x-popup-head a#x-popup-close:hover{color:#f00;cursor:pointer;}
+#x-popup-content{padding:5px 10px;}
+#x-popup-title a{line-height:24px;font-size:14px;font-family:'微软雅黑';color:#333;font-weight:bold;text-decoration:none;}
+#x-popup-title a:hover{color:#f60;}
+#x-popup-intro{text-indent:24px;line-height:160%;margin:5px 0;color:#666;}
+#x-popup-more{text-align:right;border-top:1px dotted #ccc;line-height:24px;margin:8px 0 0 0;}
+#x-popup-more a{color:#f60;}
+#x-popup-more a:hover{color:#f00;}
+

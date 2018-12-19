@@ -1,0 +1,42 @@
+*{
+    font-size:12px;
+}
+body {
+    font-family:verdana,helvetica,arial,sans-serif;
+    font-size:12px;
+    margin:0;
+    background-color: #F1FAFA;
+}
+h2 {
+    font-size:18px;
+    font-weight:bold;
+    margin:0;
+    margin-bottom:15px;
+}
+
+a { color:#000; text-decoration:none;}
+
+/*bootstrap兼容问题和easyui的bug  */
+.panel-header, .panel-body {  
+border-width: 0px;  
+}
+.datagrid,.combo-p{  
+border:solid 1px #D4D4D4;  
+}  
+.datagrid *{  
+-webkit-box-sizing: content-box;  
+-moz-box-sizing: content-box;  
+box-sizing: content-box;  
+}
+
+a.main-page-logo { float:left; width:250px; height:50px; text-indent:-1000px; background:url(../images/logo/logo.png) no-repeat; }
+
+ul.main-page-header { display:block; height:21px; position:absolute; margin-top: 8px; top:0px; right:0; z-index:31; list-style: none; }
+ul.main-page-header li { float:left; margin-left:-1px; padding:0px 10px; line-height:11px; position:relative;}
+ul.main-page-header li a { line-height:11px;}
+ul.main-page-header ul { display:none; width:230px; border:solid 1px #06223e; overflow:hidden; background:#FFF; position:absolute; top:20px; right:0;}
+ul.main-page-header ul li { margin-top:10px; height:21px;}
+ul.main-page-header ul li a { color:#000;}
+ul.main-page-header .selected ul {display:block;}
+
+div.main-page-header-options { position:absolute; bottom:0px; right:10px; }

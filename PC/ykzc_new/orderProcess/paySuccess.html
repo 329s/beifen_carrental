@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="paySuccess">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <Meta http-equiv="Refresh" Content="3; Url=../myYk/myYK.html">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="css/paySuccess.css" rel="stylesheet" type="text/css" >
+    <title>支付成功——易卡租车</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body >
+<!--顶部引入-->
+<div ng-include="'../public/html/header.html'"></div>
+<div style="max-width: 1000px;margin: 40px auto 20px">
+    <img src="img/jindu-3.png" alt="">
+</div>
+<div class="paySucc-top">
+    <img width="22" height="21" src="img/paySuccess.png" alt="">
+    恭喜你，支付成功！
+    <br>
+    <a href="../myYk/myYK.html">3秒后跳转，如未跳转请点击这里……</a>
+</div>
+<div class="paySucc-bottom">
+    <h2>如何取车</h2>
+    <p>
+        1.取车时,出示以下证件的原件：本人二代身份证，本人国内有效驾驶证正副本、本人一张信用卡及可用额度不得少于3000元，所有证件有效期
+        须至少超过当次租期的一个月以上。
+        <br>
+        2.请您按时取车，超时取车的客户，取车时间按预订取车时间起算
+    </p>
+</div>
+<div class="paySucc-bottom">
+    <h2>退改规则</h2>
+    <p>
+        温馨提示：如果您修改订单或者取消订单重新预订，价格可能会发生变化。
+    </p>
+</div>
+
+
+<!--引入底部-->
+<div ng-include="'../public/html/footer.html'"></div>
+
+
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../public/js/app.js'></script>
+<script src='js/paySuccess.js'></script>
+</body>
+</html>

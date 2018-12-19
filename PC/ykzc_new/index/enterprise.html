@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/swiper.min.css" rel="stylesheet" type="text/css" >
+    <link href="css/index.css" rel="stylesheet" type="text/css" >
+    <link href="css/enterprise.css" rel="stylesheet" type="text/css" >
+    <title>企业租车——易卡租车</title>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div ng-include="'../public/html/header.html'"></div>
+    <div class="banner">
+        <div class="box">
+            <div class="panel panel-enterprise panel-order">
+                <div class="panel-heading panel-header-box">企业租车</div>
+                <div class="panel-body">
+                    <form method="post" action="#">
+                        <div class="form-inline">
+                            <div class="form-group picker ">
+                                <label>取车城市</label>
+                                <input  class="form-control input-picker area" readonly type="text" value="" data-toggle="city-picker" ng-model="takeArea" placeholder="城市" >
+                                <i class="glyphicon glyphicon-chevron-down"></i>
+                                <input  class="form-control write" type="text" value="" data-toggle="city-picker" ng-model="takeAddress" placeholder="详细地址/街道">
+                                <pickpop></pickpop>
+                            </div>
+                            <div class="form-group picker">
+                                <label>用车时间</label>
+                                <input name="takeDate"  onClick="calendar.show({ id: this })" type="text"  class="form-control date" ng-model="takeDate" readonly placeholder=""/>
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </div>
+                            <div class="form-group model">
+                                <label>用车数量</label>
+                                <input name="takeNum"  type="number" class="form-control"   placeholder=""/>
+                            </div>
+                            <div class="form-group model">
+                                <label>品牌</label>
+                                <input  class="form-control input-picker">
+                                <pickop></pickop>
+                            </div>
+                            <div class="form-group model">
+                                <label>企业名称</label>
+                                <input name="companyName"  type="text" class="form-control"   placeholder="请填写企业名称"/>
+                            </div>
+                            <div class="form-group model">
+                                <label>联系人</label>
+                                <input name="personName"  type="text" class="form-control"   placeholder="请填写联系人姓名"/>
+                            </div>
+                            <div class="form-group model">
+                                <label>联系电话</label>
+                                <input name="phoneNum"  type="tel" class="form-control"   placeholder="固定电话请加区号"/>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-block btn-warning btn-order" style="top: 0">立即申请</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <section id="banner-top"  class="carousel slide">
+            <!--轮播图-->
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="img/qyeBanner.png" alt="...">
+                        <div class="carousel-caption">
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="https://fimg.zuchecdn.com/upload/web/HomePage/HeadFigure/2017/20170502wanliang69_web.jpg" alt="...">
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </section>
+    </div>
+    <div class="container">
+        <div class="box col-xs-8">
+            <div class="panel">
+            <div class="panel-heading panel-header panel-header-line">
+                 服务项目
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                  <div class="box col-xs-3">
+                     <img src="img/act1.jpg"/>
+                  </div>
+                  <div class="box col-xs-3">
+                       <img src="img/act2.jpg"/>
+                  </div>
+                   <div class="box col-xs-3">
+                      <img src="img/act3.jpg"/>
+                   </div>
+                 <div class="box col-xs-3">
+                     <img src="img/act4.jpg"/>
+                   </div>
+                 <div class="box col-xs-3">
+                       <img src="img/act5.jpg"/>
+                   </div>
+                  <div class="box col-xs-3">
+                     <img src="img/act6.jpg"/>
+                    </div>
+                   <div class="box col-xs-3">
+                        <img src="img/act7.jpg"/>
+                  </div>
+                  <div class="box col-xs-3">
+                     <img src="img/act8.jpg"/>
+                  </div>
+                </div>
+            </div>
+            </div>
+            <div class="panel panel-show">
+                <div class="panel-heading panel-header panel-header-line">
+                    车型展示
+                </div>
+                <div class="panel-body">
+                    <div class="slide-box">
+                        <div>
+                            <a class="prev"></a>
+                        </div>
+                        <div class="box-body slide-body">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide" ng-repeat="x in carList"><img ng-src="{{x.imgUrl}}"></div>
+                                </div>
+                            </div>
+                            <div class="price">
+                                <p ng-bind="showCarName"></p>
+                                <p><button class="btn btn-3d"><a href="http://wpa.qq.com/msgrd?v=3&uin=1356650459&site=qq&menu=yes" target="_blank" >我要询价</a></button></p>
+                            </div>
+                        </div>
+                        <div>
+                            <a class="next"></a>
+                        </div>
+                        <div class="slide-block swiper-scrollbar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-about col-xs-3 col-xs-offset-1">
+             <div class="panel-header">
+                 关于易卡
+             </div>
+              <div class="panel-body">
+                  <div class="box-info">
+                      <p>易卡便利租车（金华市易卡汽车租赁有限公司萧山国际机场分公司）,创立于2009年8月，是浙江首家经济型连锁租车和电子商务化管理的汽车租赁服务提供商，经营短租、自驾租车、商务用车、企业专车等业务。</p>
+                      <p>易卡便利租车总部设于浙江金华，逐步向全国核心商务城市进行辐射式扩张，精选经典车型，用会员制支持客户的重复消费，并在各城市设立门店，简化取还车手续以及车辆小损伤免赔、免检、无忧用车保障等特色服务。运用先进的IT管理模式，降低运营成本，为客户提供便捷、经济、高效的自驾车连锁租赁业务。</p>
+                  </div>
+                  <hr class="dashed">
+                  <div style="padding: 20px 0">
+                      <p>客户热线：400-876-0101</p>
+                      <p>总部地址：<p style="margin-left: 70px; margin-top: -30px;">浙江省金华市婺城区迎宾大道133号迎宾大厦5楼楼易卡租车</p></p>
+                  </div>
+                  <hr class="dashed">
+              </div>
+            <div class="panel-header">
+                网点展示
+            </div>
+            <div class="panel-body">
+                <div id="map"></div>
+            </div>
+        </div>
+     </div>
+
+    <!--引入底部-->
+    <div ng-include="'../public/html/footer.html'"></div>
+</div>
+<div class="modal fade" id="signModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog sign">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    签到送积分
+                    <div class="badge badge-exp">积分可用于兑换租车抵用</div>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="inline-box col-xs-7">
+                        <div style="width:100%;height:300px;" id="calendar"></div>
+                    </div>
+                    <div class="inline-box col-xs-5 box-sign">
+                        <div class="btn-group-sign sign" ng-init="sign=false">
+                            <button class="btn btn-warning" ng-hide="sign">签到</button>
+                            <button class="btn btn-warning" disabled ng-show="sign">已签到</button>
+                        </div>
+                        <div class="box-content">
+                            <p>每日登陆签到即可获得积分发放</p>
+                            <a href="javascript:;" class="right rule popover-show"
+                               data-container="body"
+                               data-html="true"
+                               data-toggle="popover"
+                               data-content="<ul><li>1. 签到1天可获得1点积分</li>
+                               <li>2. 连续签到2天当天可获得2点积分</li>
+                               <li>3. 连续签到3天当天可获得3点积分</li>
+                               <li>4. 连续签到4天当天可获得4点积分</li>
+                               <li>5. 连续签到5天当天可获得5点积分</li>
+                               <li>6. 连续签到6天当天可获得6点积分</li>
+                               <li>7. 连续签到7天当天可获得7点积分</li>
+                               <li>8. 连续签到7天以上当天均获得7点积分</li>
+                               <li>9. 连续签到中断过后，将从第一天开始重新计算</li>">详见签到发放规则>></a>
+                            <a href="#" class="btn btn-lg btn-default btn-reward">点击领取奖励</a>
+                        </div>
+                        <div class="box-footer">
+                            <div class="col-xs-4">
+                                <p>获得积分(点)</p>
+                                <div class="count">300</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>连续签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>累计签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FiyvLDHpCL6fUaiIhAHk0YtiRfFSCUc1"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../common/js/jquery.onoff.min.js'></script>
+<script src='../common/js/swiper.jquery.min.js'></script>
+<script src='../common/js/hDate.js'></script>
+<script src='../public/js/main.js'></script>
+<script src='js/enterprise.js'></script>
+<script src='../public/js/store.js'></script>
+<script src='../public/js/map.js'></script>
+<script src="../public/js/app.js"></script>
+</body>
+</html>

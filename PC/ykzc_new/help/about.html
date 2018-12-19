@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="css/about.css" rel="stylesheet" type="text/css" >
+    <title>个人中心——易卡租车</title>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div ng-include="'../public/html/header.html'"></div>
+    <div class="container">
+        <div class="panel left panel-list">
+            <ul>
+                <li class="title">关于我们</li>
+                <li class="active"><a href="#">公司简介</a></li>
+                <li><a href="#">公司文化</a></li>
+                <li><a href="#">公司大事记</a></li>
+                <li><a href="#">员工风采</a></li>
+                <li><a href="#">合作伙伴</a></li>
+                <li><a href="#">联系我们</a></li>
+            </ul>
+        </div>
+        <div class="panel right panel-about">
+            <div class="panel-header">联系我们</div>
+            <div class="panel-body">
+                <div class="left"><div id="map" style="width:320px;height:240px;"></div></div>
+                <div class="right"></div>
+            </div>
+        </div>
+    </div>
+    <!--引入右侧-->
+    <div ng-include="'../public/html/rightnNav.html'"></div>
+    <!--引入底部-->
+    <div ng-include="'../public/html/footer.html'"></div>
+</div>
+<!--<div class="modal fade" id="signModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+    <!--<div class="modal-dialog sign">-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">-->
+                    <!--&times;-->
+                <!--</button>-->
+                <!--<h4 class="modal-title" id="myModalLabel">-->
+                    <!--签到送积分-->
+                    <!--<div class="badge badge-exp">积分可用于兑换租车抵用</div>-->
+                <!--</h4>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+                <!--<div class="row">-->
+                    <!--<div class="inline-box col-xs-7">-->
+                        <!--<div style="width:100%;height:300px;" id="calendar"></div>-->
+                    <!--</div>-->
+                    <!--<div class="inline-box col-xs-5 box-sign">-->
+                        <!--<div class="btn-group-sign sign" ng-init="sign=false">-->
+                            <!--<button class="btn btn-warning" ng-hide="sign">签到</button>-->
+                            <!--<button class="btn btn-warning" disabled ng-show="sign">已签到</button>-->
+                        <!--</div>-->
+                        <!--<div class="box-content">-->
+                            <!--<p>每日登陆签到即可获得积分发放</p>-->
+                            <!--<a href="javascript:;" class="right rule popover-show"-->
+                               <!--data-container="body"-->
+                               <!--data-html="true"-->
+                               <!--data-toggle="popover"-->
+                               <!--data-content="<ul><li>1. 签到1天可获得1点积分</li>-->
+                               <!--<li>2. 连续签到2天当天可获得2点积分</li>-->
+                               <!--<li>3. 连续签到3天当天可获得3点积分</li>-->
+                               <!--<li>4. 连续签到4天当天可获得4点积分</li>-->
+                               <!--<li>5. 连续签到5天当天可获得5点积分</li>-->
+                               <!--<li>6. 连续签到6天当天可获得6点积分</li>-->
+                               <!--<li>7. 连续签到7天当天可获得7点积分</li>-->
+                               <!--<li>8. 连续签到7天以上当天均获得7点积分</li>-->
+                               <!--<li>9. 连续签到中断过后，将从第一天开始重新计算</li>">详见签到发放规则>></a>-->
+                            <!--<a href="#" class="btn btn-lg btn-default btn-reward">点击领取奖励</a>-->
+                        <!--</div>-->
+                        <!--<div class="box-footer">-->
+                            <!--<div class="col-xs-4">-->
+                                <!--<p>获得积分(点)</p>-->
+                                <!--<div class="count">300</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-xs-4">-->
+                                <!--<p>连续签到(天)</p>-->
+                                <!--<div class="count">3</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-xs-4">-->
+                                <!--<p>累计签到(天)</p>-->
+                                <!--<div class="count">3</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
+    <!--</div>&lt;!&ndash; /.modal &ndash;&gt;-->
+<!--</div>-->
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FiyvLDHpCL6fUaiIhAHk0YtiRfFSCUc1"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../common/js/jquery.onoff.min.js'></script>
+<script src='../common/js/hDate.js'></script>
+<script src='../public/js/app.js'></script>
+<script src='../public/js/main.js'></script>
+<script src='../public/js/store.js'></script>
+<script src='../public/js/map.js'></script>
+<script src='js/about.js'></script>
+</body>
+</html>

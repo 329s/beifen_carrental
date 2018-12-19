@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-app="myAppCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/cropper.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="css/personal.css" rel="stylesheet" type="text/css" >
+    <title>个人信息——易卡租车</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div ng-include="'../public/html/header.html'"></div>
+    <div class="container">
+        <div class="panel left panel-list">
+            <ul>
+                <li class="title">我的订单</li>
+                <li><a href="#">订单管理</a></li>
+                <li class="title">我的资产</li>
+                <li><a href="#">账户余额</a></li>
+                <li><a href="#">我的优惠</a></li>
+                <li><a href="#">会员等级</a></li>
+                <li><a href="#">我的积分</a></li>
+                <li><a href="#">积分兑换</a></li>
+                <li class="cur"><a href="#">用户信息</a></li>
+                <li class="title">会员条款</li>
+                <li><a href="#">会员章程</a></li>
+                <li><a href="#">会员细则</a></li>
+            </ul>
+        </div>
+        <div class="panel right panel-personal">
+            <div class="panel-heading panel-header-block">
+                <span>个人信息</span>
+            </div>
+            <div class="panel-body">
+                <form method="post" action="#" enctype="multipart/form-data" ng-app="cropper" ng-controller="cropperCtrl">
+                     <div class="image-container large left" data-toggle="modal" data-target="#headModal" cropper-preview="avatar">
+                         <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="noavatar" />
+                     </div>
+                    <div class="box box-id" ng-if="id=true">
+                        <div class="">
+                            <label>真实姓名</label>
+                            <span>丁滴滴</span>
+                        </div>
+                        <div class="">
+                            <label>身份证号</label>
+                            <span>3302*****4566</span>
+                        </div>
+                    </div>
+                    <div class="" ng-if="!id">
+                        <div class="input-group">
+                            <label>真实姓名</label>
+                            <input type="text" name="name" class="form-control model">
+                        </div>
+                        <div class="input-group">
+                            <label>身份证号</label>
+                            <input type="text" name="id" class="form-control model">
+                        </div>
+                    </div>
+                    <div class="box-info">
+                        <label>手机号码</label>
+                        <span>151*****522</span>
+                        <a href="javascript:;" class="right phone-change" ng-click="phoneChange=true" ng-show="phoneChange==false">修改</a>
+                        <a href="javascript:;" class="right phone-change" ng-click="phoneChange=false" ng-show="phoneChange==true">取消修改</a>
+                    </div>
+                    <div class="box-phone-change" style="display: none">
+                        <div class="input-group">
+                            <input type="text" class="form-control model" placeholder="原手机号">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control model" placeholder="新手机号">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control model vercode" placeholder="请输入验证码">
+                            <button type="button" class="btn btn-default btn-vercode">获取验证码</button>
+                        </div>
+                    </div>
+                    <div class="box-info">
+                        <label>电子邮箱</label>
+                        <span>984497166@qq.com</span>
+                        <a href="javascript:;" class="right email-change" ng-click="emailChange=true" ng-show="emailChange==false">修改</a>
+                        <a href="javascript:;" class="right email-change" ng-click="emailChange=false" ng-show="emailChange==true">取消修改</a>
+                    </div>
+                    <div class="box-email-change" style="display: none">
+                        <div class="input-group">
+                            <input type="text" class="form-control model" placeholder="原邮箱">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control model" placeholder="新邮箱">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control model vercode" placeholder="请输入验证码">
+                            <button type="button" class="btn btn-default btn-vercode">获取验证码</button>
+                        </div>
+                    </div>
+                    <div class="box box-check">
+                        <button type="button" class="btn btn-lg btn-warning btn-check">保 存</button>
+                    </div>
+                     <div class="modal fade" id="headModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                         <div class="modal-dialog head">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        更换头像
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="preview-container">
+                                        <div class="image-container target" cropper="avatar" cropper-context="cropContext">
+                                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="noavatar" />
+                                        </div>
+                                        <div class="large-wrapper">
+                                            <div class="image-container large" cropper-preview="avatar">
+                                                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="noavatar" />
+                                            </div>
+                                            <p>
+                                                <button class="btn btn-upload btn-lg">选择图片</button>
+                                                <input type="file" name="avatar" cropper-source="avatar" cropper-file-types="jpg,jpeg,png" />
+                                            <div>请使用JPG, PNG格式的图片</div>
+                                            </p>
+                                            <p>
+                                                <button type="button" class="btn btn-confim btn-lg">确认</button>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="x" value="{{cropContext.left}}"/>
+                                <input type="hidden" name="y" value="{{cropContext.top}}"/>
+                                <input type="hidden" name="w" value="{{cropContext.width}}"/>
+                                <input type="hidden" name="h" value="{{cropContext.height}}"/>
+                             </div>
+                         </div>
+                     </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--引入底部-->
+    <div ng-include="'../public/html/footer.html'"></div>
+</div>
+<div class="modal fade" id="signModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog sign">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    签到送积分
+                    <div class="badge badge-exp">积分可用于兑换租车抵用</div>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="inline-box col-xs-7">
+                        <div style="width:100%;height:300px;" id="calendar"></div>
+                    </div>
+                    <div class="inline-box col-xs-5 box-sign">
+                        <div class="btn-group-sign sign" ng-init="sign=false">
+                            <button class="btn btn-warning" ng-hide="sign">签到</button>
+                            <button class="btn btn-warning" disabled ng-show="sign">已签到</button>
+                        </div>
+                        <div class="box-content">
+                            <p>每日登陆签到即可获得积分发放</p>
+                            <a href="javascript:;" class="right rule popover-show"
+                               data-container="body"
+                               data-html="true"
+                               data-toggle="popover"
+                               data-content="<ul><li>1. 签到1天可获得1点积分</li>
+                               <li>2. 连续签到2天当天可获得2点积分</li>
+                               <li>3. 连续签到3天当天可获得3点积分</li>
+                               <li>4. 连续签到4天当天可获得4点积分</li>
+                               <li>5. 连续签到5天当天可获得5点积分</li>
+                               <li>6. 连续签到6天当天可获得6点积分</li>
+                               <li>7. 连续签到7天当天可获得7点积分</li>
+                               <li>8. 连续签到7天以上当天均获得7点积分</li>
+                               <li>9. 连续签到中断过后，将从第一天开始重新计算</li>">详见签到发放规则>></a>
+                            <a href="#" class="btn btn-lg btn-default btn-reward">点击领取奖励</a>
+                        </div>
+                        <div class="box-footer">
+                            <div class="col-xs-4">
+                                <p>获得积分(点)</p>
+                                <div class="count">300</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>连续签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>累计签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../common/js/jquery.onoff.min.js'></script>
+<script src='../common/js/hDate.js'></script>
+<script src='../common/js/cropper.js'></script>
+<script src='../public/js/main.js'></script>
+<script src='js/myApp.js'></script>
+<script src='js/cropperApp.js'></script>
+<script src='js/personal.js'></script>
+</body>
+</html>

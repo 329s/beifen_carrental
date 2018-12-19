@@ -1,0 +1,405 @@
+body {
+    background: #f2f3f5
+}
+
+.panel-side, .panel-srent {
+    padding: 10px 20px;
+    box-shadow: 0 0 1px #ccc
+}
+
+.panel-srent {
+    padding: 0
+}
+
+.panel-srent .box {
+    padding: 10px 0
+}
+
+.panel-top .box {
+    margin: auto;
+    padding-top: 20px 0;
+    width: 1368px
+}
+
+.top-search {
+    margin-left: 20px;
+    float: right;
+    margin-right: 165px
+}
+
+#map {
+    height: 250px
+}
+
+.box-choose {
+    display: block;
+    border-bottom: 1px solid #ccc
+}
+
+.box-choose li.active {
+    display: block
+}
+
+.box-choose li.active p {
+    background-color: #fabe00;
+    color: #fff;
+    width: 90px;
+    height: 24px;
+    line-height: 24px;
+    margin: 0 auto;
+    border-radius: 100px
+}
+
+.box-choose li {
+    margin: 10px 0 0;
+    float: left;
+    width: 100px;
+    list-style: none;
+    text-align: center;
+    transition: all .5s;
+    cursor: pointer
+}
+
+.box-choose:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+.box-choose li p {
+    margin: 0
+}
+
+.box-choose li img {
+    width: 100%;
+    object-fit: cover
+}
+
+.line-choose li {
+    float: left;
+    padding: 3px 12px;
+    margin: 5px;
+    border-radius: 2px;
+    transition-duration: .2s
+}
+
+.line-choose li:not(:first-child) {
+    cursor: pointer
+}
+
+.line-choose:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+.box-car {
+    padding-top: 0 !important;
+    border-top: 1px solid #ccc
+}
+
+.line-sort li {
+    display: inline-block;
+    border-right: 1px solid #ddd;
+    padding: 5px 15px
+}
+
+.line-choose li.active {
+    background: #fabe00;
+    color: #fefefe
+}
+
+.box-car .box-body {
+    padding-bottom: 15px
+}
+
+.box-car .list-car {
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: thin solid #ddd;
+    padding: 20px 0
+}
+
+.box-car .list-car:hover {
+    background: url(../../public/img/chover_bg.jpg) repeat-x bottom
+}
+
+.list-car .list-car-content {
+    padding: 10px;
+    align-items: center
+}
+
+.list-car .list-car-info, .list-car-pic {
+    padding: 0 15px
+}
+
+.list-car .list-car-info > p {
+    text-align: center;
+    font-size: 17px;
+    margin: 0
+}
+
+.list-car .list-car-info > p:nth-child(2) {
+    font-size: 13px;
+    margin: 8px 6px 14px;
+    color: #888
+}
+
+.box-car img {
+    width: 100%
+}
+
+.list-car-pay {
+    min-width: 300px;
+    display: flex;
+    align-items: center
+}
+
+.list-car-pay .pay-box {
+    padding: 0 15px
+}
+
+.list-car-pay .line {
+    color: #888;
+    font-size: 12px
+}
+
+.list-car-pay .line p {
+    text-align: right
+}
+
+.list-car-pay .price {
+    color: #eeb81a;
+    font-size: 26px
+}
+
+.list-car-pic {
+    width: 275px
+}
+
+.panel-bottom {
+    min-height: 220px;
+    vertical-align: middle
+}
+
+.panel-bottom > p {
+    margin-top: 60px;
+    text-align: center;
+    color: #ccc
+}
+
+.panel.col-xs-9 {
+    width: 74%
+}
+
+.panel-side {
+    width: 23%
+}
+
+.panel-side .box-info {
+    padding: 0;
+    margin: 0 -10px
+}
+
+.panel-side .box-info p {
+    margin-bottom: 5px;
+    color: #93939e
+}
+
+.panel-side .box-info b {
+    color: #60606c;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0 -20px 10px;
+    padding: 10px 18px 10px;
+    display: block;
+    border-top: solid 1px #ddd;
+    border-bottom: solid 1px #ddd
+}
+
+.panel-side .box-info .address span:first-child, .panel-side .box-info .phone span:first-child {
+    position: absolute
+}
+
+.panel-side .box-info .address span:nth-child(2), .panel-side .box-info .phone span:nth-child(2) {
+    display: block;
+    margin-left: 74px
+}
+
+.panel-side .box-info p:last-child {
+    padding: 10px 0
+}
+
+.btn-rent-search {
+    margin: 0;
+    float: none !important;
+    padding: 8px 50px
+}
+
+i.cor {
+    position: absolute;
+    right: 50px;
+    top: -24px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border: 12px solid transparent;
+    border-bottom-color: rgb(16,42,69)
+}
+
+.priceDate span {
+    cursor: pointer;
+    padding: 10px 5px
+}
+
+.priceDay {
+    position: absolute;
+    margin-top: 20px;
+    right: 150px;
+    min-width: 350px;
+    box-shadow: 0 1px 3px #ddd;
+    filter: drop-shadow(0 0 8px #bbb);
+    background: #fefefe;
+    opacity: .4;
+    border-radius: 4px;
+    transition: all ease-out;
+    z-index: 999
+}
+
+.priceDay.active {
+    opacity: .9;
+    margin-top: 8px
+}
+
+.priceDay table th {
+    text-align: center;
+    min-width: 350px;
+    font-weight: 400;
+    font-size: 16px;
+    background: rgb(16,42,69);
+    color: #fb0;
+    padding: 8px;
+    border-radius: 4px 4px 0 0
+}
+
+.priceDay table td {
+    text-align: center;
+    padding: 3px;
+    color: #60606c
+}
+
+.priceDay table tr:not(:nth-child(2)) td {
+    border: 1px solid #ddd
+}
+
+body .priceDay table td.lease,body .priceDay table tr:not(:nth-child(2)) td:hover {
+    background: rgba(238, 184, 26, .3);
+    border-color: #eeb81a
+}
+
+.priceDay table td.lease .price-jg {
+    color: #ff8e5b
+}
+
+.priceDay table td .price-jg {
+    color: #999
+}
+
+.priceDay table tr:last-child th {
+    text-align: right;
+    font-size: 12px
+}
+
+.priceDay table td.lease:hover {
+    background: rgba(238, 184, 26, .6) !important
+}
+
+.onoffswitch {
+    margin: 7px 40px 11px 5px
+}
+
+.onoff {
+    margin-left: 20px
+}
+
+.rentday {
+    position: absolute;
+    margin-top: -35px;
+    margin-left: 4.5%;
+    min-width: 80px;
+    color: #93939e
+}
+
+.btn-group .top-search {
+    width: 120px
+}
+
+.onoffswitch-label {
+    margin-bottom: 0
+}
+
+@media screen and (max-width: 1599px) {
+    .list-car-pay .pay-box {
+        padding: 0
+    }
+
+    .date-picker input.time {
+        width: 140px
+    }
+}
+
+@media screen and (max-width: 1499px) {
+    #map {
+        height: 220px;
+        margin: -10px -15px 0
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .container {
+        width: 1320px
+    }
+}
+
+.list-car-pay .price.price-package {
+    color: #ff8650;
+    font-weight: 700
+}
+
+.discount {
+    background: #fff;
+    color: #ff8650;
+    border: 1px solid #ff8650;
+    line-height: 1;
+    padding: 2px 0 2px;
+    margin: 15px 5px 0
+}
+
+.discount span {
+    padding: 0 3px
+}
+
+.discount span:first-child {
+    background: #ff8650;
+    color: #fff
+}
+
+.list-car-package span.title {
+    font-size: 16px;
+    font-weight: 700;
+    padding-right: 10px
+}
+
+.list-car-package {
+    width: 140px;
+    text-align: center
+}
+
+.badge.badge-default.badge-mr {
+    width: 70px;
+    margin-top: -8px
+}
+
+.panel-side .box #map {
+    margin: 0 -30px
+}

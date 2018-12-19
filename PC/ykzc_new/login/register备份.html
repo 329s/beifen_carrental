@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="css/login.css" rel="stylesheet" type="text/css" >
+    <title>注册</title>
+</head>
+<body ng-controller="regCtr">
+<div class="wrapper">
+    <!--<nav class="navbar navbar-inverse" role="navigation">-->
+        <!--<div class="container-fluid">-->
+            <!--<div class="navbar-header">-->
+                <!--<a class="navbar-brand" href="#">-->
+                    <!--<img src=""/>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<ul class="nav navbar-nav right" ng-init="login=false">-->
+                    <!--<li><a href="#">电话：400-876-0101</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</nav>-->
+    <!--引入顶部-->
+    <div ng-include="'../public/html/header.html'"></div>
+   <div style="background:url('img/zhuce.png') repeat-y center;margin-bottom: -20px" >
+       <div class="container">
+           <div class="row register-row">
+               <div class="panel panel-register left">
+                   <div class="panel-heading">
+                       新用户注册
+                   </div>
+                   <form>
+                       <div class="form-group" data-container="body" data-toggle="popover" data-placement="right"
+                            data-content="姓名不能为空" data-trigger="manual">
+                           <label><i class="glyphicon glyphicon-user"></i> </label>
+                           <input type="text" name="name" placeholder="请输入您的真实姓名" class="form-control" alt="姓名" data-container="body" data-toggle="popover" data-placement="right"
+                                  data-content="请输入真实姓名" data-trigger="manual">
+                       </div>
+                       <div class="form-group" data-container="body" data-toggle="popover" data-placement="right"
+                            data-content="手机号码不能为空" data-trigger="manual">
+                           <label><i class="glyphicon glyphicon-phone"></i> </label>
+                           <input type="text" name="phone" placeholder="请输入您的手机号码" class="form-control" alt="手机号码" data-container="body" data-toggle="popover" data-placement="right"
+                                  data-content="手机号码格式不正确" data-trigger="manual">
+                       </div>
+                       <div class="form-group row row-vercode" data-container="body" data-toggle="popover" data-placement="right"
+                            data-content="验证码不能为空" data-trigger="manual">
+                           <div class="col-xs-8">
+                               <label><i class="glyphicon glyphicon-envelope"></i> </label>
+                               <input type="text" name="vercode" placeholder="请输入手机验证码" class="form-control" alt="验证码">
+                           </div>
+                           <div class="col-xs-4">
+                               <button type="button" class="btn btn-default btn-block btn-vercode">获取验证码</button>
+                           </div>
+                       </div>
+                       <div class="form-group" data-container="body" data-toggle="popover" data-placement="right"
+                            data-content="密码不能为空" data-trigger="manual">
+                           <div class="box box-strength">
+                               <span>弱</span>
+                               <span>中</span>
+                               <span>强</span>
+                           </div>
+                           <label><i class="glyphicon glyphicon-lock"></i> </label>
+                           <input type="password" name="password" placeholder="建议6-18位数字、字母、符合的组合" class="form-control" alt="密码" maxlength="18" minlength="6">
+
+                       </div>
+
+                       <div class="form-group" data-container="body" data-toggle="popover" data-placement="right"
+                            data-content="两次密码不一致" data-trigger="manual">
+                           <label><i class="glyphicon glyphicon-lock"></i> </label>
+                           <input type="password" name="passwordQR" placeholder="确认密码" class="form-control" alt="密码" maxlength="18" minlength="6">
+                       </div>
+
+                       <!--<div class="form-group">-->
+                           <!--<label><i class="glyphicon glyphicon-gift"></i> </label>-->
+                           <!--<input type="text" name="gift" placeholder="如有邀请码，请填写邀请码" class="form-control optional">-->
+                       <!--</div>-->
+                       <div class="row row-attach">
+                           <div class="col-xs-12">
+                               <span class="f-checkbox"><div></div></span>
+                               <label>
+                                   <input type="checkbox" name="autoLogin" id="autoLogin" checked>
+                                   我已阅读并同意<a href="javascript:;" data-toggle="modal" data-target="#ruleModal">《易卡租车会员服务条款》</a>
+                               </label>
+                           </div>
+                       </div>
+                       <button class="btn btn-block btn-warning btn-register">注 册</button>
+                   </form>
+               </div>
+               <div class="panel panel-register right">
+                   <div class="panel-heading">
+                       已有账号，直接<a href="login.html">登录</a>
+                   </div>
+                   <div class="panel-body">
+                       <img src="img/register.png" alt="">
+                       <a style="position: absolute;bottom: 25px;right: 30px " href="#">查看活动专题>></a>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+
+    <div ng-include="'../public/html/footer.html'"></div>
+</div>
+<div class="modal fade" id="ruleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog sign">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="text-align: center" id="myModalLabel">
+                    《易卡租车会员服务条款》
+                </h4>
+
+            </div>
+            <div class="modal-body">
+
+                <div >
+                    <h4> 第一章 总则</h4>
+                    <p> 易卡租车以"便捷、经济、高效"为核心服务理念，竭诚为客户提供简单、便捷、省钱的租车服务。为明确会员的权利和义务，特制定本章程。</p>
+                    <h4> 第二章 会员资格</h4>
+                    <p> 凡年龄在18周岁（含）以上、持有有效证件的客户，均可申请注册成为会员。</p>
+                    <h4> 第三章 会员级别说明</h4>
+                    <p> 3.1 普卡会员</p>
+                    <p> 3.1.1 网站、手机客户端、客服中心或门店均提供免费注册，注册后即时生效；</p>
+                    <p> 3.1.2 会员有效期，自注册之日起永久有效。</p>
+                    <p> 3.2 普通卡、黄金卡、白金卡和钻石卡会员</p>
+                    <p> 3.2.1 会员积分满一定分值（具体分值详见《会员细则》），自动获得相应的银卡、金卡、白金卡或钻石卡会员资格；</p>
+                    <p>3.2.2 升级的会员有效期为一年（自定级/升级之日起）。</p>
+                    <h4> 第四章 会员待遇</h4>
+                    <p> 4.1 不限里程</p>
+                    <p>所有级别会员，均不限行驶里程（有固定里程限制的产品除外）。</p>
+                    <p>4.2 积分返还</p>
+                    <p> 各级别会员租车消费后，按会员级别不同，享受不同比例的积分返还（不返还积分的特殊产品除外），各级别会员的积分返还比例，详见《会员细则》。</p>
+                    <h4> 第五章 会员积分</h4>
+                    <p>5.1 积分类型</p>
+                    <p> 5.1.1 积分根据用途，分为可用积分、累计积分 ；</p>
+                    <p> 5.1.2 可用积分仅限用于抵扣租车消费和礼品兑换，有效期三年。</p>
+                    <p> 5.1.3 累计积分仅限用于会员定级，长期有效。</p>
+                    <p>5.2 积分获取</p>
+                    <p>5.2.1 会员每成功消费，均按有效消费金额、对应的会员级别返送比例获取积分（含可用积分、累计积分）；</p>
+                    <p>5.2.2 会员还车结算后的次日内，积分计入会员名下。</p>
+                    <p>5.3 积分定级</p>
+                    <p> 5.3.1 易卡租车为累计积分分值符合升级条件的会员，自动执行升级，升级时不扣除累计积分，会员有效期期满时，方扣除此前升级所用的会员积分。</p>
+                    <p> 5.3.2 会员有效期期满、扣除累计积分时，易卡租车将按会员剩余累计积分分值重新为会员定级。</p>
+                    <p> 5.3.3 定级当日起，会员按新的会员级别享受会员待遇。</p>
+                    <p> 5.3.4 对于有不良预订或消费记录的会员，易卡租车在积分定级时，有权对会员资格进行再认定。</p>
+                    <h4>第六章 会员权利与义务</h4>
+                    <p> 会员资格仅限会员本人使用。</p>
+                    <p> 6.1 会员权利</p>
+                    <p> 会员享有使用易卡租车产品和服务的权益。</p>
+                    <p> 6.2 会员义务</p>
+                    <p> 6.2.1 会员租车时需遵守易卡租车的产品和服务规定；</p>
+                    <p> 6.2.2 会员的资料发生变更（如工作变动、住址迁移、联系方式变动或单位名称变更、单位迁址等信息等）时，租车时应及时与易卡租车相关人员进行沟通更改；</p>
+                    <p> 6.2.3
+                        会员授权易卡租车存储会员所提交的个人信息（使用用途为会员与易卡租车之间的汽车租赁业务），并授权易卡租车可能为提供服务及提升服务质量的目的，从商业合作伙伴处获取信息作为补充。易卡租车承诺仅在上述用途中使用获取的补充信息。</p>
+                    <h4> 第七章 附则</h4>
+                    <p> 7.1 《会员细则》是本章程的有效补充部分。</p>
+                    <p> 7.2 易卡租车有权在任何时候更改易卡租车会员服务计划的任何规定或终止当年会员服务计划，即使计划的修改或终止会影响会员积分累计或返还的权利，且不承担事先通知的义务。</p>
+                    <p> 7.3 本章程由易卡租车制定，易卡租车拥有最终解释权。</p>
+                    <h4> 重要服务说明</h4>
+                    <h5> 【租期说明】</h5>
+                    <p> 1、 租期小于1天的，按1天收取车辆租赁费、可选服务费等费用；</p>
+                    <p> 2、 租期超过1天的，租期内整日的部分，按天收取车辆租赁费、可选服务费等费用；租期内非整日的部分，不足5小时（含5小时）的
+                        ，按超时费标准计费，5小时以上的，按天收取车辆租金、可选服务费等费用。</p>
+                    <p class="tip">注：月租产品中的不计免赔服务，将按10天计费。</p>
+                    <h5> 【价格说明】</h5>
+                    <p> 1、预订时选择“周租/月租”“工作日套餐”产品并在取车时先付全款；</p>
+                    <p>2、车辆租赁费为租车必付费用；</p>
+                    <p> 3、可选服务视选择的服务，另计费用；</p>
+                    <p>4、租车期间的燃油费用由客户自行承担。</p>
+                    <h5> 【订单修改说明】</h5>
+                    <p>
+                        为不影响您和其他客户的既定行程，在您决定修改订单时，请提前2个工作小时（工作时间：08:30-20:00）致电400-876-0101；涉及取还车方式（如送车上门）的订单修改，请您提前4个工作小时致电。您对订单的修改将影响到您的预订价格，请您慎重。</p>
+                    <h5> 【预付说明】</h5>
+                    <p> 以下情况，请在预订后1小时内预付全部租金，逾时未预付，订单将自动取消：</p>
+                    <p> 1、有预付条款的产品</p>
+                    <p> 2、法定节假日或特殊活动</p>
+                    <p>3、送车上门</p>
+                    <p> 4、多次取消客户</p>
+                    <p> 预付成功后，我们将为您保留车辆，由于车辆稀缺，订单修改或取消将影响您的预付租金，请您慎重考虑：</p>
+                    <p> a) 修改订单请在预订取车或还车时间前尽早致电400-876-0101，以下情况恕无法为您修改：</p>
+                    <p> 涉及取车时间、租期、取车门店、车型的，不能修改；</p>
+                    <p>订单支付时间距离预订取车时间不足2个工作小时（08:30-20:00）的，不能修改。</p>
+                    <p> b) 如取消订单，因个人原因导致订单取消的，则易卡将收取部分车辆租赁费作为违约金；易卡租车原因导致订单取消的，我们将退还您已付金额外，还将补偿您已付金额等值的代金券。</p>
+                    <h5>【取车说明】</h5>
+                    <p>1、起租时间</p>
+                    <p>a) 在预订取车时间前取车，起租时间按实际的取车时间计算；</p>
+                    <p>b) 超过预订取车时间半小时内取车，取车时间按实际的取车时间计算；</p>
+                    <p>c) 超过预订取车时间半小时以上取车，请您在预订取车时间前致电我们保留车辆，取车时间按预订取车时间计算。</p>
+                    <p> 2、携带证件</p>
+                    <p> 首次租车，请携带有效身份证明（身份证）、国内驾驶证正副本、信用卡；</p>
+                    <p> a) 证件有效期须至少超过当次租期的一个月以上；</p>
+                    <p> 3、先付</p>
+                    <p> 周租/月租等特价套餐产品，取车时需一次性先付全部租金。</p>
+                    <p>4、预授权/押金</p>
+                    <p> 客户需根据车型刷取信用卡预授权，车辆出车后预授权自动转为违章押金，若还车后10个工作日内无违章则给予退还。</p>
+                    <h5>【还车说明】</h5>
+                    <p> 1、延期5小时以内还车，延期还车时间根据车型超时费计入总租期，还车时需根据总租期支付费用；</p>
+                    <p>2、延期5小时以上还车，请在租期届满前致电400-876-0101提出续租申请：如原定还车时间在10:00-20:00间，请您提前2小时提出申请；原定还车时间不在10:00-20:00间，请您尽早致电申请。</p>
+                    <p> 3、减少原定的租车天数，视为提前还车：</p>
+                    <p> a) 周租/月租产品、工作日套餐产品、节假日产品：由于车辆稀缺，已付费用恕不退还；</p>
+                    <p> b) 普通产品：为保证及时更新订单，按实际租期和您结算，请尽早告知您的实际还车时间。</p>
+                    <h5> 【保险与救援说明】</h5>
+                    <p>1、购买基本保险后，在理赔范围内有一定的免赔额度需客户承担，如需免除此额度，请另外选购不计免赔可选服务。</p>
+                    <p> 2、非车辆原因导致的车辆事故，客户需承担保险公司拒赔的及理赔范围外的损失。</p>
+                    <p> 3、用车过程中如有事故或需指导，请立即致电400-876-0101。</p>
+                    <h5> 【其他】</h5>
+                    <p> 1、违章</p>
+                    <p>客户租期内的违章及相关费用由客户自行承担，易卡租车将短信通知客户租期内的车辆违章，届时请致电400-876-0101询问详情。</p>
+                    <p> 2、退款</p>
+                    <p>客户还车后，车辆押金自动转为违章押金，若还车后10个工作日内无违章则给予退还，退款进度查询请致电400-876-0101。</p>
+                    <p> 3、信息推送</p>
+                    <p> 用户注册成功后，即视为允许易卡租车通过电子邮件或其他方式向用户发送易卡租车的优惠服务信息。</p>
+                    <p> 隐私保护声明</p>
+                    <p>
+                        隐私权是您的重要权利。向我们提供您的个人信息是基于对我们的信任，相信我们会以负责的态度对待您的个人信息。我们认为您提供的信息只能用于帮助我们为您提供更好的服务。因此，我们制定了易卡租车会员个人信息保密制度以保护您的个人信息。易卡租车的个人信息保密制度如下：
+                    </p>
+                    <p> 保密：</p>
+                    <p>
+                        通常，您能在匿名的状态下访问我们的网站并获取信息。在我们请求您提供有关信息之前，我们会解释这些信息的用途，我们有些站点需要注册才能加入。在通常情况下，这类注册要求您提供一个电子邮件地址和一些诸如您的工作、职务及所使用车辆等一类的基本信息，有时我们也会请您提供更多的信息。我们这样做是为了使我们更好的了解您的需求，以便向您提供更有效的服务。我们收集的信息包括姓名、性别、年龄、有效证件、地址、电话号码等。您有权随时决定不接受来自我们的任何资料。我们将采取合理的措施尽最大可能保护您的个人资料。每当您提供给我们信息时，我们将采取合理的措施保护您的个人资料，我们也将采取合理的安全手段保护已存储的个人资料。除非根据法律或政策的强制性规定，在未得到您的许可之前，我们不会把您的任何个人资料提供给无关的第三方。但是，如果您要求我们提供特定客户支援服务或把一些物品送交给您，我们则需要把您的姓名和地址提供给第三者。
+                    </p>
+                    <p> 隐私权原则：</p>
+                    <p>
+                        您一旦注册成功成为会员，将得到一个密码和帐号。如果您不保管好自己的帐号和密码安全，将负全部责任。另外，每个用户都要对其帐户中的所有活动和事件负全责。您可随时根据指示改变您的密码以及个人资料。由于您的隐私权对我们而言是相当重要的，因此，公布这份隐私权声明的易卡租车会根据下列五项原则管理涉及隐私的信息。
+                    </p>
+                    <p> 原则1</p>
+                    <p>
+                        每当易卡租车需要识别您的身份或与您联络时，会明确的询问所需的资料，即个人资料。一般而言，当您在网站上注册，要求提供特别服务，或是如参加积分奖励等，便会被询问到这项资料。可能的话，易卡租车会利用一些方法，确认您的个人资料的正确性与时效性。
+                    </p>
+                    <p>原则2</p>
+                    <p> 如果想要将个人资料用在其他用途上，易卡租车会提供您如何拒绝这项服务的说明。您可以依照易卡租车的说明，拒绝这项服务。</p>
+                    <p> 原则3</p>
+                    <p> 易卡租车也许会因法律要求公开个人资料，或者因善意确信这样的作法对于下列各项有其必要性：</p>
+                    <p>（1）符合法律公告或遵守适用于易卡租车站点的合法程序；</p>
+                    <p> （2）保护易卡租车的用户权利或财产；</p>
+                    <p> （3）在紧急的情况下，为了保护易卡租车及他们的用户或会员之个人或公众安全。</p>
+                    <p>原则4</p>
+                    <p>任何时候如果您认为www.yikazc.com没有遵守这些原则时，请利用电子邮件kefu01@yikazc.com通知我们，我们会尽一切努力，在合理适当的范围内立即改善这个问题。</p>
+                    <p> 原则5</p>
+                    <p> Cookies的用途</p>
+                    <p>
+                        易卡租车有时会使用cookies，使您在访问我们的网站时得到更好的服务。Cookies是指一种技术，当使用者访问设有Cookies装置的本网站时，本网站的服务器会自动发送Cookies至阁下浏览器内，并储存到您的电脑硬盘内，此Cookies便负责记录日后您访问本网站的各种活动、个人资料、浏览习惯、消费习惯甚至信用记录。运用Cookies技术，本网站能够为您提供更加周到的个性化服务。易卡租车使用
+                        Cookie
+                        来帮助您实现您的联机体验的个性化。因此，Cookie的主要用途之一是提供一种节约时间的实用功能。您可以接受或拒绝Cookie。大多数Web浏览器会自动接受Cookie，但您通常可根据自己的需要来修改浏览器的设置以拒绝
+                        Cookie。
+                    </p>
+                    <h4> 免责条款</h4>
+                    <p>有下列情况之一的，易卡租车不承担任何法律责任：</p>
+                    <p> （1）由于您将用户密码告知他人或与他人共享注册帐户，而导致的任何个人资料泄露；</p>
+                    <p> （2）任何由于计算机问题、黑客攻击、计算机病毒侵入或发作、政府管制等造成的暂时性关闭，使网络无法正常运行而造成的个人资料泄露、丢失、被盗用或被窜改；</p>
+                    <p> （3）由于与本网站链接的其他网站所造成的个人资料泄露及由此而导致的任何法律争议和后果；</p>
+                    <p> （4）因不可抗力而引起的任何后果。</p>
+                    <p> 根据《中华人民共和国宪法》和相关法律法规规定，在保护公民合法言论自由的同时，禁止利用互联网、通讯工具、媒体以及其他方式从事以下行为：</p>
+                    <p>1、组织、煽动抗拒、破坏宪法和法律、法规实施的。</p>
+                    <p> 2、捏造或者歪曲事实，散布谣言，妨害社会管理秩序的。</p>
+                    <p> 3、组织、煽动非法集会、游行、示威、扰乱公共场所秩序的。</p>
+                    <p> 4、从事其他侵犯国家、社会、集体利益和公民合法权益的。管理部门将依法严加监管上述行为并予以处理；对构成犯罪的，司法机关将追究刑事责任。</p>
+                    <p>
+                        如何更新您已经提供给易卡租车的个人信息，如果您的地址、职务（职称）、电话或e-mail地址发生变化，您可以联系易卡租车，以帮助我们保持您的资料的准确性。您也可以通过登陆www.yikazc.com；(易卡租车免费注册页面的更新会员资料栏)的方式自行更新您的个人信息。
+                        易卡租车欢迎您对这项保密制度给予评论并提出质疑。我们将致力于保护您的个人信息，尽全力保证这些信息的安全。由于网上技术的发展突飞猛进，我们会随时更新我们的信息保密制度。所有的修订将在此站点公布。
+                        请将与本声明有关的所有评论和质疑发往kefu01@yikazc.com。</p>
+
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../common/js/validate.js'></script>
+<script src='../public/js/app.js'></script>
+<script src='js/logReg.js'></script>
+</body>
+</html>

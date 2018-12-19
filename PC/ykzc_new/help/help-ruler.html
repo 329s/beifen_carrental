@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="css/about.css" rel="stylesheet" type="text/css" >
+    <title>帮助中心——易卡租车</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body onhashchange="scrollRest()">
+<div class="wrapper">
+    <div ng-include="'../public/html/header.html'"></div>
+    <div class="box box-search">
+        <form>
+            <span class="title">
+                    帮助中心
+            </span>
+            <div class="input-group">
+                <input type="text" class="form-control model">
+                <span class="input-group-btn">
+                     <button class="btn btn-default btn-warning btn-search" type="button"><i class="glyphicon glyphicon-search"></i> </button>
+                </span>
+            </div>
+        </form>
+    </div>
+    <div class="panel center-block panel-top">
+        <div class="panel-body">
+            <span class="active"><a href="help-ruler.html"><i class="glyphicon glyphicon-list-alt"></i>服务规则</a></span>
+            <span><a href="help-new.html"><i class="glyphicon glyphicon-user"></i>新手上路</a></span>
+            <span><a href="help-qa.html"><i class="glyphicon glyphicon-question-sign"></i>常见问题</a></span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="panel left panel-list">
+            <ul>
+                <li class="title">规则索引</li>
+                <li class="active"><a href="#rule1">服务时间</a></li>
+                <li><a href="#rule2"> 待租车况</a></li>
+                <li><a href="#rule3"> 服务预订</a></li>
+                <li><a href="#rule4"> 短租产品</a></li>
+                <li><a href="#rule5"> 租车资格</a></li>
+                <li><a href="#rule6"> 取还车说明</a></li>
+				<li><a href="#rule7"> 保险责任</a></li>
+				<li><a href="#rule8"> 事故处理</a></li>
+                <li><a href="#rule9"> 理赔说明</a></li>
+				<li><a href="#rule10">价格说明</a></li>
+				<li><a href="#rule11">租期计费方式</a></li>
+				<li><a href="#rule12">结算流程</a></li>
+            </ul>
+        </div>
+        <div class="panel right panel-about">
+            <div class="panel-body">
+			    <div class="box" id="rule1">
+                    <div class="box-header">
+                          服务时间
+                    </div>
+                    <div class="box-body">
+                        <p>1. 客服中心 (400-876-0101):　　08：00-23：30</p>
+                        <p>2. 门店：</p>
+                        <p style="text-indent:1em">(1) 机场店/市区08：00-22：00</p>
+                        <p>3. 送车上门/上门取车：08:00-20:00</p>
+                        <p>4. 紧急联系电话：13065906591/13857989674</p>
+                        <p>注：节假日期间，上门服务时间可能调整，敬请留意网站可预订时间。</p>
+                    </div>
+                </div>
+                <div class="box" id="rule2">
+                    <div class="box-header">
+                        待租车况
+                    </div>
+                    <div class="box-body">
+                        <p>我们竭诚为您提供安全、舒适、整洁的车辆：</p>
+                        <p>1. 如无特殊情况，出车时油箱满油；</p>
+                        <p>2. 车辆定期保养检修及安全检查，无重大事故及安全隐患；</p>
+                        <p>3. 车身外观、内饰、性能：</p>
+                        <p style="text-indent:1em">(1) 车身清洁，内饰干净、无破损；</p>
+                        <p style="text-indent:1em">(2) 轮胎完好，无鼓包，胎面无明显偏磨；</p>
+                        <p style="text-indent:1em">(3) 备胎、灭火器、故障警示牌、随车工具等齐全完好；</p>
+                        <p style="text-indent:1em">(4) 行驶本、保单复印件、交强险标、年检标志等齐全并有效放置、粘贴；</p>
+                        <p style="text-indent:1em">(5) 车辆性能（灯光、仪表、空调、玻璃水、电瓶等）正常。</p>
+                        <p>4.车辆出行时，易卡租车免费为您提供矿泉水、餐巾纸及儿童座椅等用来充实您的出行旅程</p>
+                    </div>
+                </div>
+                <div class="box" id="rule3">
+                    <div class="box-header">
+                        服务预订
+                    </div>
+                    <div class="box-body">
+                        <p class="title">预订方式</p>
+                        <p>1. 网站预订：登录www.yikazc.com，按网页提示进行预订；</p>
+                        <p>2. 电话预订：致电易卡租车客户服务中心400-876-0101，客服人员将为您安排订车；</p>
+                        <p>3. 门店预订：光临易卡租车门店，门店人员将为您安排预订或协助您选租车辆。</p>
+                        <p>4. 手机客户端预订：下载易卡租车客户端，根据首页提示进行预订。</p>
+                        <p class="title">预订说明</p>
+                        <p>1. 为不影响您的行程，建议您提前预订车辆；送车上门服务仅在9:00-20:00提供，请您务必提前4个工作小时预订。</p>
+                        <p>2. 成功提交订单并支付后，我们将为您预留车辆。</p>
+                        <p>3. 客户取车：</p>
+                        <p style="text-indent:1em">(1) 提前取车：</p>
+                        <p style="text-indent:2em"> 如在预订取车时间前取车，租期将按您实际的取车时间计算。</p>
+                        <p style="text-indent:1em">(2) 延时取车：</p>
+                        <p style="text-indent:2em"> 如您需要延时取车，请务必在预订取车时间前致电我们以便为您保留车辆，超过预订取车时间1小时如果您未取车，订单将自动取消；</p>
+                        <p style="text-indent:2em"> 延时取车，租期将自您原先预订的取车时间起算。</p>
+                        <p>4. 在特殊情况（如车辆未还回等）无法向您提供已成功预订的车型时：</p>
+                        <p style="text-indent:1em">(1) 我们将为您调整同级别车辆或免费升级车辆；</p>
+                        <p style="text-indent:1em">(2) 确实无车提供的，我们将补偿您订单首日车辆租赁费及门店服务费同等金额的代金券。</p>
+                        <p  class="title">订单修改说明</p>
+                        <p>1. 取车前修改/取消订单：</p>
+                        <p style="text-indent:1em">在您提交订单之后，“普通产品”、“周租/月租”、“工作日套餐”将不能互调，请您预订前做好选择。</p>
+                        <p style="text-indent:1em">订单一旦修改，原订单的用车报价将重新计算，请您慎重考虑。</p>
+                        <p style="text-indent:1em">为不影响您和其他客户的既定行程，在您决定修改或取消订单时，请提前致电400-876-0101，感谢您的配合！</p>
+                        <p>2. 取车后修改订单：</p>
+                        <p style="text-indent:1em">(1) 修改还车时间：</p>
+                        <p style="text-indent:2em">当您决定续租或提前还车时，请提前致电400-876-0101：如您的租期届满时间（续租情况下）或实际还车时间（提前还车的情况下）在10:00-</p>
+                        <p style="text-indent:2em">20:00间，请提前2个小时申请修改；如租期届满时间（续租的情况下）或实际还车时间（提前还车的情况下）在10:00-20:00之外，请您尽早致</p>
+                        <p style="text-indent:2em">电申请，我们将尽力满足您的需求。</p>
+                        <p style="text-indent:2em">详见延时还车、提前还车说明。</p>
+                        <p style="text-indent:1em">(2) 变更还车门店：</p>
+                        <p style="text-indent:2em">为了排在您后面的客户有可以租用或调换的车辆，请您在决定变更还车门店时，提前致电400-876-0101，请尽早告知我们。</p>
+                        <p style="text-indent:1em">(3) 变更还车方式：</p>
+                        <p style="text-indent:2em">提前安排、尽力满足您的需求，请您在决定变更还车方式时，提前4个工作小时（08:00-20:00）致电400-876-0101。</p>
+                        <p  class="title">预付租金及相关说明</p>
+                        <p>重要提示：</p>
+                        <p>节假日或特价产品车辆紧俏，为保留车辆，订单在预付、修改、取消等方面有一些特殊要求，请您在预订时注意以下事项，慎重考虑。</p>
+                        <p>1. 以下情况，请您在提交订单后6小时内完成预付（预付项目及金额以系统显示为准），逾时未预付，订单将自动取消，车辆可能会被其他客户抢订：</p>
+                        <p style="text-indent:1em">(1) 预付产品</p>
+                        <p style="text-indent:1em">(2) 法定节假日或特殊活动</p>
+                        <p style="text-indent:1em">(3) 顺风车</p>
+                        <p style="text-indent:1em">(4) 送车上门</p>
+                        <p style="text-indent:1em">(5) 多次取消客户</p>
+                        <p>2. 由于车辆紧俏，您对订单的修改或取消，都可能影响您的用车价格或预付款退款，请在预订或变更订单时慎重考虑：</p>
+                        <p style="text-indent:1em">(1) 订单取消</p>
+                        <p style="text-indent:2em">预付成功后，我们将为您保留车辆。如因特殊原因不能为您提供车辆，我们将退还您已付全款，同时补偿您下次租车优惠政策；如您决定取消订单，</p>
+                        <p style="text-indent:1em">预付款中的部分车辆租赁费以及预订时所购买的全额增值费恕不能退还。</p>
+                        <p style="text-indent:1em">(2) 订单修改</p>
+                        <p style="text-indent:2em">请您尽早致电400-876-0101申请修改，以下情况无法修改，敬请谅解：</p>
+                        <p style="text-indent:2em">a) 涉及取车时间、租期、取车门店、车型的；</p>
+                        <p style="text-indent:2em">b) 订单支付时间距离预订取车时间不足2个工作小时（08:00-20:00）的。</p>
+                    </div>
+                </div>
+                <div class="box" id="rule4">
+                    <div class="box-header">
+                        短租产品
+                    </div>
+                    <div class="box-body">
+                        <p  class="title">产品类型</p>
+                        <p>我们向您提供的短租自驾服务，您可以视用车需求选择适合的产品：</p>
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                   <th>项目</th>
+                                   <th>普通产品</th>
+                                   <th>打包价产品</th>
+                                   <th>月租</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               <tr>
+                                   <th>价格</th>
+                                   <td>正常价</td>
+                                   <td>优惠价</td>
+                                   <td>优惠价</td>
+                               </tr>
+                               <tr>
+                                   <th>付款时间</th>
+                                   <td>取车时先付或还车时付全款</td>
+                                   <td>取车时付全款</td>
+                                   <td>取车时付全款</td>
+                               </tr>
+                               <tr>
+                                   <th>租期限制</th>
+                                   <td>最短1天（不满1天视为1天）,最长29天 </td>
+                                   <td>三天打包最短3天（含），最长27天（含）；<br>
+                                       7天打包最短7天（含），最长28天（含）；
+                                   </td>
+                                   <td>月租最短周期30天（含）</td>
+                               </tr>
+                               <tr>
+                                   <th>提前还车</th>
+                                   <td>提前通知，按实际租期结算 </td>
+                                   <td>多付金额不退</td>
+                                   <td>多付金额可视情况而定</td>
+                               </tr>
+                               <tr>
+                                   <th>行驶里程</th>
+                                   <td>不限里程</td>
+                                   <td>不限里程</td>
+                                   <td>不限里程</td>
+                               </tr>
+                               <tr>
+                                   <th>会员积分</th>
+                                   <td>会员积分</td>
+                                   <td>会员积分</td>
+                                   <td>会员积分</td>
+                               </tr>
+                            </tbody>
+                        </table>
+                        <p>提示：为预留车辆，部分紧缺产品（如节假日订单）或特价产品（如顺风车、预付产品），预订时需一次性预付车辆费用，敬请留意。</p>
+                        <p> &nbsp;</p>
+                        <p  class="title">可选服务</p>
+                        <p>易卡租车为您提供以下可选服务，只要您在预订时提出需求，就能轻松享受各项便利。</p>
+                        <p>1. 送车上门服务：</p>
+                        <p>我们可将车辆送至您指定的地点，为您现场办理租车手续。</p>
+                        <p style="text-indent:1em">(1) 各城市送车上门范围请在首页选择城市查看或向客服中心查询；</p>
+                        <p style="text-indent:1em">(2) 此项服务仅在9:00-20:00提供，为满足您的需求，请务必提前4个工作小时预订；</p>
+                        <p style="text-indent:1em">(3)订单提交后，您需支付一定金额的预付款；成功预订后，如因您的缘故无法履约，取车前4小时以上取消订单，可全额退还预付款，否则该费用恕不退还。</p>
+                        <p>2. 上门取车服务：</p>
+                        <p style="text-indent:1em">租期结束，我们可到您指定的地点取回车辆，为您现场办理还车手续。</p>
+                        <p style="text-indent:1em">(1) 各城市上门取车的具体范围请在首页选择城市查看或向客服中心查询；</p>
+                        <p style="text-indent:1em">(2)　此项服务仅在9:00-19:00提供，为满足您的需求，请务必提前4个工作小时预订；</p>
+                        <p style="text-indent:1em">(3) 为合理判断车辆损伤、维护您的权益，如车辆在使用过程中出现事故或故障，请将车辆归还到门店。</p>
+                        <p>3. 异地还车服务：</p>
+                        <p style="text-indent:1em">易卡租车提供全国异地还车服务，只要您事先预订，就能在我们全国任一服务网点归还车辆。实际费用联系门店人员以及客服中心确定费用。</p>
+                        <p style="text-indent:1em">为方便您还车，同时不影响下一位客户的既定行程，请您在预订时预订该服务或在预计还车前提前预订：如还车时间在10:00-20:00，</p>
+                        <p style="text-indent:1em">请您提前2小时预订；如还车时间在9:00-19:00之外，请您尽早致电600-876-0101，我们将尽力满足您的需求。</p>
+                        <p>4. 上门取还服务费用计费方式：</p>
+                        <p style="text-indent:1em">客户预定车辆送车上门/上门取车服务10公里范围内免费上门取还服务，超出10公里范围收取30元上门服务费，超出20公里不支持上门取还服务</p>
+                        <p>5. 万元无忧增值服务：</p>
+                        <p style="text-indent:1em">为增加您的出行保障，易卡租车提供万元无忧增值服务。购买该增值服务后，出险后需立即报保险公司，定损金额在2万元以内（含）无需客户承担其他费用</p>
+                        <p>在您未购买万元无忧增值服务的情况下：</p>
+                        <p style="text-indent:1em">（1）单方事故：定损金额在1500元以下（含），由客户自行承担；</p>
+                        <p style="text-indent:1em">（2）2）双方事故：责任划分后，我方全责本车定损金额在1500元（含）以内，需客户承担，  1500元以上，保险理赔后客户需要承担相对应的停运费、车辆加速折旧费（按合同计算）</p>
+                        <p>在您购买万元无忧增值服务后的情况下：</p>
+                        <p style="text-indent:1em">（1）车辆出险保险公司定损金额在2万元以内（含），只要按照保险流程报案报警，客户无需承担任何费用</p>
+                        <p style="text-indent:1em">（2）车辆出险保险公司定损金额在2万元以上，万元无忧失效，客户需承担相对应的停运费和车辆加速折旧费（按合同计算）</p>
+                        <p>保险理赔范围外（保险公司不予理赔）：</p>
+                        <p style="text-indent:1em">（1）车子出险后，未按照公司规定走保险程序的；</p>
+                        <p style="text-indent:1em">（2）未按照交通法规行驶造成事故的，例如：酒驾、疲劳驾驶等；</p>
+                        <p style="text-indent:1em">（3）将车子交由他人使用造成事故的；</p>
+                        <p style="text-indent:1em">（4）易损件玻璃、轮胎、门把手等不在保险公司赔付范围内的。</p>
+                        <p style="text-indent:1em">（5）其他保险公司不予理赔的情况等。</p>
+                        <p>万元无忧收费标准：</p>
+                        <p style="text-indent:1em">（1）本服务按天计费，40元/天（特殊城市价格另算）；</p>
+                        <p style="text-indent:1em">（2）单次租期10天内按天收取万元无忧增值服务，超时5小时以上收取一天增值服务费；</p>
+                        <p style="text-indent:1em">（3）单次租期30天内最高收取10天万元无忧增值服务费封顶；</p>
+                        <p style="text-indent:1em">（4）单次租期超过30天，超出天数在10天之内（含），万元无忧增值服务费按超出天数再次收取，租期60天内最高收取20天万元无忧增值服务费，以此类推。</p>
+                    </div>
+                </div>
+                <div class="box" id="rule5">
+                    <div class="box-header">
+                        租车资格
+                    </div>
+                    <div class="box-body">
+                        <p>租车前，请确认您满足以下条件、持有以下证件：</p>
+                        <p>1. 年龄要求：年满18周岁</p>
+                        <p>2. 证件要求：</p>
+                        <p style="text-indent:1em">A. 取车时，请出示以下证件的原件：</p>
+                        <p style="text-indent:2em">(1) 本人的有效身份证件</p>
+                        <p style="text-indent:3em">a) 境内客户：二代身份证</p>
+                        <p style="text-indent:3em">b) 港澳客户：港澳居民来往内地通行证（回乡证）</p>
+                        <p style="text-indent:3em">c) 台湾客户：大陆通行证（台胞证）</p>
+                        <p style="text-indent:3em">d) 外籍客户：护照，签证/居住证</p>
+                        <p style="text-indent:2em">(2) 本人国内有效驾驶证</p>
+                        <p style="text-indent:2em">(3) 有效信用卡（本人）</p>
+                        <p style="text-indent:3em">a) 有效信用卡指有效期内的中国国内银行发行的信用卡，或国外银行发行的带有VISA、Master、JCB标志的有磁条外卡；</p>
+                        <p style="text-indent:3em">b) 在您本人有信用卡并且信用额度足够时，可租所有车型；</p>
+                        <p style="text-indent:3em">c) 如您本人无信用卡，可通过持有信用卡的亲友进行担保 ，可租所有车型 。</p>
+                        <p style="text-indent:2em">(4) 其他说明：</p>
+                        <p style="text-indent:3em">a) 因违章等后续处理需要，以上证件，有效期须至少超过当次租期的一个月以上（非大陆客户两个月以上）；</p>
+                        <p style="text-indent:3em">b) 身份证件须通过公安局等相关机构验证，且验证结果与客户身份、头像一致；</p>
+                        <p style="text-indent:3em">c) 港澳台客户或外籍客户，首次租车时请提前一个工作日提交证件扫描件；</p>
+                        <p style="text-indent:3em">d) 中国大陆客户，请持国内信用卡租车。</p>
+                        <p style="text-indent:1em">B. 自第二次租车开始，您仅需出示驾照原件即可，无需再提供身份证件；</p>
+                        <p class="title">信用卡担保</p>
+                        <p>如果您没有符合要求的信用卡，可请亲友为您提供担保，担保人对您在租车期间所产生的一切费用及责任承担无限连带责任。</p>
+                        <p>1. 担保人需持有足够信用额度的有效信用卡代您刷取租车预授权或押金，并需携带有效身份证原件和您一起在《租车服务合同》上签字；</p>
+                        <p>2. 每位担保人每次仅限担保1台车辆；</p>
+                        <p>3.在您归还车辆之前，担保人自己不能租用易卡租车车辆，也不能再次为他人提供担保。</p>
+                        <p class="title">数量限制</p>
+                        <p>每位客户每次限租1辆，即在您归还所租车辆之前，不能再租用其他车辆，也不能为其他人担保租车。</p>
+                    </div>
+                </div>
+                <div class="box" id="rule6">
+                    <div class="box-header">
+                        取还车说明
+                    </div>
+                    <div class="box-body">
+                        <p class="title">取还车流程</p>
+                        <p>温馨提示：</p>
+                        <p><img src="img/rantCarLiucheng.jpg" alt=""></p>
+                        <p>离开门店前，请先熟悉租用车辆的安全性能：危险警示灯、门锁、头灯以及备胎。</p>
+                        <p class="title">预授权、押金及费用支付</p>
+                        <p>1. 易卡租车接受信用卡及国内借记卡支付。</p>
+                        <p>2. 预授权及押金：</p>
+                        <p style="text-indent:1em">取车时，请根据您租用的车型，刷取相应的信用卡预授权或押金。</p>
+                        <p class="title">燃油说明</p>
+                        <p>1. 燃油费用：请您自行承担车辆租赁期间的燃油费用。</p>
+                        <p>2. 燃油标准：</p>
+                        <p style="text-indent:1em">为避免安全隐患、保障您和其他客户的用车安全，请按《租车单》所注的燃油标号添加燃料。</p>
+                        <p>3. 加油规则：</p>
+                        <p style="text-indent:1em">我们尽力保证满箱油出车，在满油还车时，您不必支付任何燃油费用；如您还车时不便加满油，请按标准补足油量差价。</p>
+                        <p class="title">延期还车</p>
+                        <p>1. 请您于预订时间内归还车辆。延期5小时以内还车，延期用车时间计入总租期，租车费用将按总租期计费；</p>
+                        <p>2. 为更好地安排车辆、满足您和其他客户的用车需求，延期5小时以上还车，请您在租期届满前尽早致电400-876-0101提出续租申请：</p>
+                        <p style="text-indent:1em">(1) 周租/月租产品续租后，您仍享受车辆租赁费及门店服务费周租/月租价格；</p>
+                        <p style="text-indent:2em"> &nbsp;普通产品、工作日套餐产品续租后，您的车辆租赁费及门店服务费按续租时的正常价格计费；</p>
+                        <p style="text-indent:1em">(2) 您可以在易卡任意门店办理续租手续，无异地或异店续租手续费；</p>
+                        <p style="text-indent:1em">(3) 续租车辆请归还到首次租车的门店，如归还到其他门店或城市，将产生异店或异地还车费。</p>
+                        <p>3. 为保障所有预订客户的公平用车权益和车辆安全，我们希望您按约定准时还车。如果超过5个小时以上未还车且未按规定办理续租手续，</p>
+                        <p>或未经同意强行不还车，您将支付正常租金及超期违约金，易卡租车还将可能收回车辆；在租车城市以外地区收回车辆的，请您加付异地还</p>
+                        <p>车费及易卡租车由此付出的其他费用。</p>
+                        <p>为避免带给您不必要的困扰，节省租车费用，请您按时归还车辆。</p>
+                        <p class="title">提前还车</p>
+                        <p>为方便调度车辆和服务人员，当您决定减少原定的租车天数时，请在实际还车前致电400-876-0101；实际还车时间在10:00-20:00间，请您提前</p>
+                        <p>6个小时告知我们；实际还车时间在10:00-20:00之外，请您尽早告知我们。</p>
+                        <p>对于周租/月租、顺风车等特价产品，以及节假日等需预付的产品，由于车辆紧俏并且已经为您预留，当您提前还车时，将按您原定的租期结算，</p>
+                        <p>望您谅解。</p>
+                    </div>
+                </div>
+                <div class="box" id="rule7">
+                    <div class="box-header">
+                        保险责任
+                    </div>
+                    <div class="box-body">
+                        <p class="title">1. 基础服务费</p>
+                        <p  style="text-indent:1em"> 基础服务费覆盖如下内容（具体赔偿范围及赔付金额以保险公司条款为准）：</p>
+                        <p>(一)车辆损失险:</p>
+                        <p  style="text-indent:1em">保额:车辆实际价值</p>
+                        <p>(1)保险保障范围:由于发生意外事故、其他保险事故导致的车辆本身的损失</p>
+                        <p style="text-indent:1em">承租方责任: 1500元</p>
+                        <p style="text-indent:1em">保险公司及易卡租车责任:1500元以上的部分</p>
+                        <p style="text-indent:1em">注：保险公司免赔/拒赔的部分由客户全额承担</p>
+                        <p>(2)保险保障范围:由于发生意外事故、其他保险事故导致的车辆报废</p>
+                        <p style="text-indent:1em">承租方责任: 20%</p>
+                        <p style="text-indent:1em">保险公司及易卡租车责任: 80%</p>
+                        <p style="text-indent:1em">注：保险公司免赔/拒赔的部分由客户全额承担</p>
+                        <p>(二)第三者责任险:</p>
+                        <p style="text-indent:1em">(1)保额: 100万元</p>
+                        <p style="text-indent:1em">(2)保险保障范围:保险车辆发生意外事故，导致第三者承受的损失</p>
+                        <p style="text-indent:1em">(3)承租方责任: 0</p>
+                        <p style="text-indent:1em">(4)保险公司及易卡租车责任: 100%</p>
+                        <p style="text-indent:1em">注：保险公司免赔/拒赔的部分由客户全额承担</p>
+                        <p>(三)车上人员责任险（驾驶员）:</p>
+                        <p style="text-indent:1em">(1)保额: 5万元</p>
+                        <p style="text-indent:1em">(2)保险保障范围:保险车辆发生保险事故，导致驾驶员人身伤亡</p>
+                        <p style="text-indent:1em">(3)承租方责任: 0</p>
+                        <p style="text-indent:1em">(4)保险公司及易卡租车责任: 100%</p>
+                        <p style="text-indent:1em">注：保险公司免赔/拒赔的部分由客户全额承担</p>
+                        <p>(四)车上人员责任险（乘客）:</p>
+                        <p style="text-indent:1em">(1)保额:1万</p>
+                        <p style="text-indent:1em">(2)保险保障范围:保险车辆发生保险事故，导致乘客人身伤亡</p>
+                        <p style="text-indent:1em">(3)承租方责任: 0</p>
+                        <p style="text-indent:1em">(4)保险公司及易卡租车责任: 100%</p>
+                        <p style="text-indent:1em">注：保险公司免赔/拒赔的部分由客户全额承担</p>
+                        <p class="title">2. 万元无忧服务</p>
+                        <p>为增加您的出行保障，易卡租车提供万元无忧增值服务。购买该增值服务后，出险后需立即报保险公司，本车定损金额在2万元以内（不含），保险公司全额理赔的情况下，无需客户承担其他费用</p>
+                        <p>在您未购买万元无忧增值服务的情况下：</p>
+                        <p style="text-indent:1em">1）单方事故：定损金额在1500元以下（含），由客户自行承担；</p>
+                        <p style="text-indent:1em">2）双方事故：责任划分后，我方全责本车定损金额在1500元（含）以内，需客户承担，  1500元以上，保险理赔后客户需要承担相对应的停运费、车辆加速折旧费（按合同计算）</p>
+                        <p>在您购买万元无忧增值服务后的情况下：</p>
+                        <p style="text-indent:1em">1）车辆出险保险公司定损金额在2万元以内（含），只要按照保险流程报案报警，客户无需承担任何费用        </p>
+                        <p style="text-indent:1em">2）车辆出险保险公司定损金额在2万元以上，万元无忧失效，客户需承担相对应的停运费和车辆加速折旧费（按合同计算）</p>
+                        <p>保险理赔范围外，由客户全权承担</p>
+                        <p style="text-indent:1em">1）车子出险后，未按照公司规定走保险程序的；               </p>
+                        <p style="text-indent:1em">2）未按照交通法规行驶造成事故的，例如：酒驾、疲劳驾驶等；</p>
+                        <p style="text-indent:1em">3）将车子交由他人使用造成事故的；                          </p>
+                        <p style="text-indent:1em">4）易损件玻璃、轮胎、门把手等不在保险公司赔付范围内的。 </p>
+                        <p style="text-indent:1em">5）保险公司其他不能理赔的条款等。 </p>
+                    </div>
+                </div>
+                <div class="box" id="rule8">
+                    <div class="box-header">
+                        事故处理
+                    </div>
+                    <div class="box-body">
+                        <p class="title">1. 如车辆不慎出险，请您注意人身安全，并立即致电易卡租车24小时热线4008760101，车辆需由保险公司定损后再修理；车辆必须到易卡指定的维修单位维修，客户不得私自维修。</p>
+                        <p class="title">2. 为避免处理不当给您带来损失，请您按以下指引处理事故：</p>
+                        <p style="text-indent:1em">(1) 双方交通事故：</p>
+                        <p style="text-indent:2em">a) 请您立即停车，记录相关事故车辆的车牌号码，索要对方电话号码；</p>
+                        <p style="text-indent:2em">b) 检查对方驾驶执照，请立即拨打122报警；</p>
+                        <p style="text-indent:2em">■ 请于事故车后50米处安放随车附带的三角警示牌，同时将车辆双闪警示灯打开，以便使行驶车辆安全避让；</p>
+                        <p style="text-indent:2em">■ 待警察出具事故责任判定后，立即致电4008760101报险。</p>
+                        <p style="text-indent:2em">■ 根据责任判定，联系有责方（全责、主责、等责、次责）交强及商业保险公司到现场查勘 。</p>
+                        <p style="text-indent:2em">c) 请根据报险处理建议，携带车辆行驶本和驾照，将车辆送到指定地点定损（定损时需要事故车辆同时到场以便勘察定损）。</p>
+                        <p style="text-indent:2em">d) 请按指导收集理赔所需材料，并将材料交与还车门店或指定维修人员。</p>
+                        <p style="text-indent:1em">(2)　如遇对方车辆肇事逃逸的、对方车辆无号牌的、对方驾驶员无驾驶证或饮酒后驾驶车辆的，请您记录相关信息（如：车牌号，车辆品牌，颜色以及肇事地点）并立即报警（122），等候交警处理，同时请您致电400876010以获得保险方面的咨询和建议。</p>
+                        <p style="text-indent:1em">(3)　如车辆与障碍物、建筑物发生碰撞，或车辆停放期间被碰撞而找不到肇事者，请您将车辆损坏部位以及碰撞物体进行比对拍照，并致电4008760101，以便车辆能够得到及时修复；</p>
+                        <p style="text-indent:1em">(4)　如遇重大交通事故且有人员伤亡的，请保护现场，并拨打122交通事故报警台求助，同时请立即致电4008760101以获得保险方面的咨询和建议。</p>
+                        <p class="title">3. 事故损失的垫付：</p>
+                        <p style="text-indent:1em">(1)　在事故索赔所需材料不齐的情况下，您需垫付本车维修费用（即支付材料缺失保证金）；</p>
+                        <p style="text-indent:1em">(2)　如有第三方损失，相关费用需由您先行垫付；(在您全责或主责的情况下，如第三方同意在易卡租车指定维修单位定损、维修，第三方损失将无需您垫付)</p>
+                        <p class="title">4. 为避免保险公司拒赔或视您放弃理赔，请您务必在出险之日起15日内将保险理赔所需事故材料完整提供给我们（特大人伤事故，或费用超1万元，可相应延缓），感谢您的配合！</p>
+                        <p class="title">5. 保险公司理赔结束后，我们会将所得理赔款中由您垫付的部分返还给您（具体费用由保险公司核损，最终返还给您的费用额度将按保险公司实际到位理赔款确定）。</p>
+                        <p>注：发生事故后，请勿擅自维修事故车辆，否则您将承担赔偿损失等违约责任，超过保险公司赔偿范围或保险公司不足额理赔的部分，也将由您承担。</p>
+                    </div>
+                </div>
+                <div class="box" id="rule9">
+                    <div class="box-header">
+                        理赔说明
+                    </div>
+                    <div class="box-body">
+                        <p>1. 以下情况及其他保险公司不予赔偿的情况，造成的所有经济损失和后果将由您自行承担，请您务必避免：</p>
+                        <p style="text-indent:1em">(1) 超过48小时报案；</p>
+                        <p style="text-indent:1em">(2) 饮酒后驾驶车辆；</p>
+                        <p style="text-indent:1em">(3) 无证驾驶车辆；</p>
+                        <p style="text-indent:1em">(4) 持逾期未审验的驾驶执照驾驶车辆；</p>
+                        <p style="text-indent:1em">(5) 发生事故后驾车逃逸。</p>
+                        <p style="text-indent:1em">(6) 实习期上高速无三年以上驾龄人员陪同的</p>
+                        <p style="text-indent:1em">(7)保险公司其他不能理赔的条款等。</p>
+                        <p>2. 如车辆不慎出险，请您注意人身安全，并立即致电易卡租车24小时热线4008760101、收集理赔材料。齐全的理赔材料可以节省您的理赔等待时间：</p>
+                        <p style="text-indent:1em">(1) 在您还车并提交了齐全的理赔资料时，您不需要垫付本车维修等保险公司应付费用，仅需：</p>
+                        <p style="text-indent:2em">a) 支付上表列明的保险责任内的由承租方承担的损失，以及保险责任外的所有责任和损失</p>
+                        <p style="text-indent:2em">b) 垫付第三方损失，该费用将在保险公司完成理赔后返还给您；(在您全责或主责的情况下，如第三方同意在易卡租车指定维修单位定损、维修，该费用将无需您垫付</p>
+                    </div>
+                </div>
+                <div class="box" id="rule10">
+                    <div class="box-header">
+                        价格说明
+                    </div>
+                    <div class="box-body">
+                        <p class="title">标准服务价格</p>
+                        <p>1. 车辆租赁费：（必购项目）</p>
+                        <p style="text-indent:1em">各车型在租赁及服务中形成的费用，最小单位为天（24小时），如租期超过1天，租期中非整日的部分：</p>
+                        <p style="text-indent:1em">(1) 不足5小时（含）的，按超时服务费计费；</p>
+                        <p style="text-indent:1em">(2)　5小时以上的，按1天计费。</p>
+                        <p>2. 超时服务费：</p>
+                        <p style="text-indent:1em">30分钟以内的超时，不收取超时服务费。</p>
+                        <p style="text-indent:1em">还车时间超过租期约定的归还时间30分钟以上的，或总租期内非整日部分中有不满5小时的，按以下标准收取超时服务费。</p>
+                        <p style="text-indent:1em">(1) 基本计费单位：小时</p>
+                        <p style="text-indent:1em">(2) 超时服务费用只计车辆租赁费不含其他费用，计费方式：</p>
+                        <p style="text-indent:2em">a) 不足1小时的，按1小时收费；</p>
+                        <p style="text-indent:2em">b) 5小时（含）内的，以“小时”为单位收费；</p>
+                        <p style="text-indent:2em">c) 5小时以上，按1天（24小时）租期计费；</p>
+                        <p class="title">可选服务价格</p>
+                        <table class="table">
+                            <thead>
+                                 <tr>
+                                     <th>项目（可选）</th>
+                                     <th>费用</th>
+                                 </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>不计免赔服务</td>
+                                    <td>
+                                        40元/天（部分城市机场按照50元/天计算），超时5小时以上或租期5小时以上按1天计费，<br>
+                                        超时5小时内或租期不满5小时不另计费
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>送车上门服务</td>
+                                    <td>免费</td>
+                                </tr>
+                                <tr>
+                                    <td>上门取车服务</td>
+                                    <td>免费</td>
+                                </tr>
+                                <tr>
+                                    <td>异地还车服务</td>
+                                    <td>以预订实际报价为准</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="title">其他费用</p>
+                        <p>1. 加油服务费：为方便您用车，我们将尽量为您提供满油车辆。只要满油还车，您就不必支付油量差价以及加油服务费。</p>
+                        <p>2. 违章罚款：</p>
+                        <p style="text-indent:1em">驾驶车辆时，请您随身携带有效期内的《车辆行驶证》，遵守交通法规、安全驾驶。用车期间如有违章产生，请您自行负责缴</p>
+                        <p>纳罚款、清除违章记录：</p>
+                        <p style="text-indent:1em">(1) 我们将短信或电话提醒您违章情况，届时您可致电400-876-0101详询违章办理方法。</p>
+                        <p>3. 停运损失费</p>
+                        <p style="text-indent:1em">易卡租车在因客户遗失证照或违法违规用车导致车辆被扣时，按以下标准收取停运损失费。</p>
+                        <p style="text-indent:1em">(1) 计费方式：租期内车辆租赁费均价*停运天数</p>
+                        <p style="text-indent:1em">(2) 停运天数确认标准如下：</p>
+                        <table class="table">
+                            <thead>
+                               <tr>
+                                   <th>停运情形</th>
+                                   <th>停运天数（预计）</th>
+                               </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>因证照遗失，导致不能合法上路   </td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>因客户违法违规驾驶导致车辆被扣</td>
+                                    <td>按车辆实际被扣押天数收取</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>注：易卡租车已经免除车辆维修类的停运损失费，但为保障您的人身财产安全，节省租车费用，请遵法守法、安全驾驶。</p>
+                        <p>6. 维修费</p>
+                        <p style="text-indent:1em">我们的基础服务费、不计免赔服务将最大限度覆盖您出险后的车辆维修费用，但保险公司赔付范围外的车辆维修费用，需由您承担。</p>
+                        <p style="text-indent:1em">(1) 维修费用收取标准与流程：</p>
+                        <p style="text-indent:1em">《车辆外观损伤修复费用标准》是易卡租车统一执行的最低维修费用参照，请您在还车时根据该标准预先支付维修费用，维</p>
+                        <p style="text-indent:1em">修完成后我们将按实际费用多退少补。</p>
+                        <p style="text-indent:1em">(2) 为了避免您不必要的损失和麻烦，请勿擅自维修车辆。</p>
+                        <p>7. 随车物品损失费</p>
+                        <p style="text-indent:1em">车内随车设备和物品不在保险公司赔付范围内，如不慎遗失或损坏，请您参照《随车物品清单及价格表》或当地4S店价格进行赔偿。为节省您的费用，请您爱惜车辆。</p>
+                        <p>8. 其他损失，按租车合同及相关法规协商处理。</p>
+                    </div>
+                </div>
+                <div class="box" id="rule11">
+                    <div class="box-header">
+                        租期计费方式
+                    </div>
+                    <div class="box-body">
+                    </div>
+                </div>
+                <div class="box" id="rule12">
+                    <div class="box-header">
+                        结算流程
+                    </div>
+                    <div class="box-body">
+                        <p>1. 取车时：</p>
+                        <p style="text-indent:1em">(1) 刷取第预授权以及刷取您相应的租金；</p>
+                        <p style="text-indent:1em">(2) 周租/月租、活动特价或需要先付的普通产品，取车时需请您先付预计租金。</p>
+                        <p>2. 还车结算：</p>
+                        <p style="text-indent:1em">我们支持信用卡、借记卡等多种结算，还车时您可以选择适合您的结算方式。</p>
+                        <p>3. 预授权</p>
+                        <p style="text-indent:1em">(1) 预授权/押金刷取方式：</p>
+                        <p style="text-indent:2em">a) 信用卡预授权；</p>
+                        <p style="text-indent:2em">b) 国内银行卡支付押金;</p>
+                        <p style="text-indent:2em">c) 押金转付;</p>
+                        <p style="text-indent:2em">d) 储值卡支付。</p>
+                        <p style="text-indent:1em">(2) 解冻或退款时间：</p>
+                        <p style="text-indent:2em">a) 如无违章或您已提供违章处理凭证：</p>
+                        <p style="text-indent:3em">■ 押金：如在您还车后30天内没有查询到车辆违章或查询到的违章您已提供处理凭证，我们将向您退还租车押金：</p>
+                        <p style="text-indent:4em">◇ 银行卡押金：由于各银行的退款政策和退款周期不同，退款最长在我们发起退款后的15-20个工作日返还到您的刷卡账户；</p>
+                        <p style="text-indent:4em">◇ 储值卡押金：退款将在次日退还到您的储值卡账户，最长不超过3个工作日到账。</p>
+                        <p style="text-indent:2em">b) 如有违章，但您不便自行处理或按期处理：</p>
+                        <p style="text-indent:3em">■ 预授权：我们将采用银行托收的方式在您的预授权中直接扣除违章费用及违章违约金，剩余额度在发卡行银行规定的解冻期限内解冻；</p>
+                        <p style="text-indent:3em">■ 押金：我们将在您的押金中扣除相应费用和违章违约金，剩余押金将退还到您的刷卡账户：</p>
+                        <p style="text-indent:4em">◇ 银行卡押金：由于银行流程，退款最长在我们发起退款后的15-20个工作日返还到您的刷卡账户；</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--引入底部-->
+    <div ng-include="'../public/html/footer.html'"></div>
+</div>
+<div class="modal fade" id="signModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog sign">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    签到送积分
+                    <div class="badge badge-exp">积分可用于兑换租车抵用</div>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="inline-box col-xs-7">
+                        <div style="width:100%;height:300px;" id="calendar"></div>
+                    </div>
+                    <div class="inline-box col-xs-5 box-sign">
+                        <div class="btn-group-sign sign" ng-init="sign=false">
+                            <button class="btn btn-warning" ng-hide="sign">签到</button>
+                            <button class="btn btn-warning" disabled ng-show="sign">已签到</button>
+                        </div>
+                        <div class="box-content">
+                            <p>每日登陆签到即可获得积分发放</p>
+                            <a href="javascript:;" class="right rule popover-show"
+                               data-container="body"
+                               data-html="true"
+                               data-toggle="popover"
+                               data-content="<ul><li>1. 签到1天可获得1点积分</li>
+                               <li>2. 连续签到2天当天可获得2点积分</li>
+                               <li>3. 连续签到3天当天可获得3点积分</li>
+                               <li>4. 连续签到4天当天可获得4点积分</li>
+                               <li>5. 连续签到5天当天可获得5点积分</li>
+                               <li>6. 连续签到6天当天可获得6点积分</li>
+                               <li>7. 连续签到7天当天可获得7点积分</li>
+                               <li>8. 连续签到7天以上当天均获得7点积分</li>
+                               <li>9. 连续签到中断过后，将从第一天开始重新计算</li>">详见签到发放规则>></a>
+                            <a href="#" class="btn btn-lg btn-default btn-reward">点击领取奖励</a>
+                        </div>
+                        <div class="box-footer">
+                            <div class="col-xs-4">
+                                <p>获得积分(点)</p>
+                                <div class="count">300</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>连续签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>累计签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../common/js/jquery.onoff.min.js'></script>
+<script src='../common/js/hDate.js'></script>
+<script src='../public/js/app.js'></script>
+<script src='../public/js/main.js'></script>
+<script src='js/about.js'></script>
+
+</body>
+</html>

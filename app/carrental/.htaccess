@@ -1,0 +1,42 @@
+Options +FollowSymLinks
+IndexIgnore */*
+RewriteEngine on
+
+# deal with admin first
+RewriteCond %{REQUEST_URI} ^/app/carrental/admin
+RewriteRule ^admin\/?(.*) backend/web/$1
+
+# other requests and frontend/web/$1
+RewriteCond %{REQUEST_URI} !^/app/carrental/(frontend/web/|backend/web|admin)
+RewriteRule (.*) /app/carrental/frontend/web/$1
+
+RewriteCond %{REQUEST_URI} ^/app/carrental/frontend/web
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ frontend/web/index.php
+
+RewriteCond %{REQUEST_URI} ^/app/carrental/backend/web
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ backend/web/index.php
+
+###For Nginx###
+#location /
+#{
+#	# If the file exists as a static file serve it
+#	# directly without running all
+#	# the other rewite tests on it
+#	if ($request_filename ~ "favicon\.ico$") {
+#		break;
+#	}
+#
+#	if (-e $request_filename) {
+#		break;
+#	}
+#
+#	if (!-e $request_filename) {
+#		rewrite  ^.*$  /index.php  last;
+#		break;
+#	}
+#}
+###End For Nginx###

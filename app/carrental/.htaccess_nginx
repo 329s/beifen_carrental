@@ -1,0 +1,98 @@
+
+##For Nginx###
+
+set $project_relative app/carrental;
+
+location ^~ /app/carrental/admin {
+    root $project_root;
+    #rewrite ^/app/carrental/admin(.*)$ /app/carrental/backend/web$1 last;
+    rewrite ^/app/carrental/admin/assets/(.*)$ /app/carrental/backend/web/assets/$1 last;
+    rewrite ^/app/carrental/admin/css/(.*)$ /app/carrental/backend/web/css/$1 last;
+    #rewrite !^/app/carrental/admin/(assets|css)(.*)$ /app/carrental/backend/web/index.php;
+    
+    rewrite ^/app/carrental/admin/(assets|css)/(.*)$ /app/carrental/backend/web/index.php;
+}
+
+location ~ !^/app/carrental/backend/web/(assets|css)/ {
+    root $project_root;
+    if ($request_uri ~ ^/app/carrental/admin) {
+        rewrite ^.*$ /app/carrental/backend/web/index.php;
+    }
+}
+
+#location ^~ /app/carrental/backend/web {
+#    root $project_root;
+#
+#    # uncomment the following, if you want to enable speaking URL in the backend
+#    #try_files $uri $uri/ /index.php$is_args$args;
+#    
+#    location ~ /\.(ht|svn|git) {
+#        deny all;
+#    }
+#    
+#    if ($uri ~ web/(assets|css)(.*)$) {
+#        rewrite ~/(.*)$ $uri break;
+#    }
+#    if ($uri !~ web/(assets|css)(.*)$) {
+#        rewrite ~/(.*)$ /app/carrental/backend/web/index.php;
+#    }
+#    
+#    #location ~ \.php$ {
+#    #    try_files $uri =404;
+#    #    include fastcgi_params;
+#    #    fastcgi_pass $fcgi_server;
+#    #}
+#}
+
+location ^~ /$project_relative/frontend {
+    rewrite ^/$project_relative/frontend(.*)$ /$project_relative/frontend/web$1 last;
+}
+
+location ^~ /$project_relative/frontend/web {
+    root $project_root;
+
+    # uncomment the following, if you want to enable speaking URL in the frontend
+    try_files $uri $uri/ /index.php$is_args$args;
+
+    location ~ /\.(ht|svn|git) {
+        deny all;
+    }
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        include fastcgi_params;
+        fastcgi_pass $fcgi_server;
+    }
+}
+
+location / {
+	# If the file exists as a static file serve it
+	# directly without running all
+	# the other rewite tests on it
+	if ($request_filename ~ "favicon\.ico$") {
+		break;
+	}
+    #
+	#if (-e $request_filename) {
+	#	break;
+	#}
+    #
+	#if (!-e $request_filename) {
+	#	rewrite  ^.*$  /index.php  last;
+	#	break;
+	#}
+    
+    #try_files $uri $uri/ /index.php$is_args$args;
+}
+
+location ~ /\.(ht|svn|git) {
+    deny all;
+}
+
+location ~ \.php$ {
+    try_files $uri =404;
+    include fastcgi_params;
+    fastcgi_pass $fcgi_server;
+}
+
+##End For Nginx###

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="css/personal.css" rel="stylesheet" type="text/css" >
+    <title>个人中心——易卡租车</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div ng-include="'../public/html/header.html'"></div>
+    <div class="container">
+         <div class="panel left panel-list">
+             <ul>
+                 <li class="title">我的订单</li>
+                 <li><a href="#">订单管理</a></li>
+                 <li class="title">我的资产</li>
+                 <li><a href="http://www.baidu.com">账户余额</a></li>
+                 <li><a href="#">我的优惠</a></li>
+                 <li><a href="#">会员等级</a></li>
+                 <li><a href="#">我的积分</a></li>
+                 <li><a href="#">积分兑换</a></li>
+                 <li><a href="#">用户信息</a></li>
+                 <li class="title">会员条款</li>
+                 <li><a href="#">会员章程</a></li>
+                 <li><a href="#">会员细则</a></li>
+             </ul>
+         </div>
+         <div class="panel right panel-personal">
+             <div class="box box-top">
+                 <div class="block left">
+                     <img class="head" src="../public/img/p/head.png">
+                     <div class="edit-link"><a href="#">编辑资料</a></div>
+                 </div>
+                 <div class="block center-block left">
+                     <div class="title"><b>151xxxxx522</b> <span class="badge badge-default right">普卡会员</span></div>
+                     <div class="progress" title="50/150">
+                         <div class="progress-bar" role="progressbar" aria-valuenow="60"
+                              aria-valuemin="0" aria-valuemax="100" style="width: 40%;" ="20/50">
+                             <span class="sr-only">20/50</span>
+                         </div>
+                     </div>
+                     <div class="line">我的累计积分：<b class="num">0</b>，<b class="num">+50</b>分就能成为银卡会员</div>
+                     <div class="line">我的优惠卷：<b class="num">2</b>张</div>
+                     <div class="line">"租一送一" 可用天数：<b class="num">0</b>天</div>
+                     <!--<div class="line">身份证：未验证 <a href="#">立即验证</a></div>
+                     <div class="line" style="text-indent: 1em">手机：已验证</div>-->
+                 </div>
+                 <div class="block right">
+                     <div class="inline-box box-data">
+                         <p>可用余额</p>
+                         <p>¥0.00</p>
+                         <p><a href="#">立即充值</a></p>
+                     </div>
+                     <div class="inline-box box-data">
+                         <p>可用积分</p>
+                         <p>0</p>
+                         <p><a href="#">前往积分商城</a></p>
+                     </div>
+                 </div>
+             </div>
+             <div class="box box-medium">
+                 <div class="box-header">
+                     <span class="title">所有订单</span>
+                     <ul class="nav nav-tabs right" ng-init="order=0">
+                         <li ng-class="{active:order==0}"><a href="javascript:;" ng-click="order=0;">全部订单</a></li>
+                         <li ng-class="{active:order==1}"><a href="javascript:;" ng-click="order=1;">预订已付</a></li>
+                         <li ng-class="{active:order==2}"><a href="javascript:;" ng-click="order=2;">预订未付</a></li>
+                         <li ng-class="{active:order==3}"><a href="javascript:;" ng-click="order=3;">已取消</a></li>
+                         <li ng-class="{active:order==4}"><a href="javascript:;" ng-click="order=4;">租赁中</a></li>
+                         <li ng-class="{active:order==5}"><a href="javascript:;" ng-click="order=5;">已完成</a></li>
+                         <li ng-class="{active:order==6}"><a href="javascript:;" ng-click="order=6;">待查违章</a></li>
+                     </ul>
+                 </div>
+                 <div class="box-body">
+                     <div class="order-no" ng-hide="">
+                         <div>
+                            <p>您还没有订单，现在就去租车吧</p>
+                            <a href="#" class="btn btn-warning center-block btn-order">立即预定</a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="box box-bottom">
+                 <div class="row">
+                     <div class="col-xs-5 discount">
+                         <span class="title">优惠活动</span>
+                         <ul>
+                             <li><span>最热门自驾路线</span><span class="right">2016-03-11</span></li>
+                             <li><span>租车优惠预付享受8折</span><span class="right">2016-03-11</span></li>
+                             <li><span>租车优惠预付享受8折</span><span class="right">2016-03-11</span></li>
+                             <li><span>租车优惠预付享受8折</span><span class="right">2016-03-11</span></li>
+                             <li><span>租车优惠预付享受8折</span><span class="right">2016-03-11</span></li>
+                             <li><span>租车优惠预付享受8折</span><span class="right">2016-03-11</span></li>
+                         </ul>
+                     </div>
+                     <div class="col-xs-7 reminder">
+                         <div class="top">
+                            <span class="title">温馨提示</span>
+                            <p>1、取车时请务必携带本人本人身份证、驾照证副本、本人信用卡。</p>
+                            <p>2、可能因地区政策及车牌原因影响交通限行，请及时查看全国地区限行说明。</p>
+                            <p>3、您在易卡租车所涉及的正常消费，均可向易卡工作人员索要消费凭证。</p>
+                         </div>
+                         <div class="bottom">
+                             <div class="inline-box">
+                                 <img src="../public/img/wchat.png">
+                             </div>
+                             <div class="inline-box">
+                                 <img src="../public/img/wchat.png">
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+    </div>
+
+<!--引入底部-->
+<div ng-include="'../public/html/footer.html'"></div>
+</div>
+<div class="modal fade" id="signModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog sign">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    签到送积分
+                    <div class="badge badge-exp">积分可用于兑换租车抵用</div>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="inline-box col-xs-7">
+                        <div style="width:100%;height:300px;" id="calendar"></div>
+                    </div>
+                    <div class="inline-box col-xs-5 box-sign">
+                        <div class="btn-group-sign sign" ng-init="sign=false">
+                            <button class="btn btn-warning" ng-hide="sign">签到</button>
+                            <button class="btn btn-warning" disabled ng-show="sign">已签到</button>
+                        </div>
+                        <div class="box-content">
+                            <p>每日登陆签到即可获得积分发放</p>
+                            <a href="javascript:;" class="right rule popover-show"
+                               data-container="body"
+                               data-html="true"
+                               data-toggle="popover"
+                               data-content="<ul><li>1. 签到1天可获得1点积分</li>
+                               <li>2. 连续签到2天当天可获得2点积分</li>
+                               <li>3. 连续签到3天当天可获得3点积分</li>
+                               <li>4. 连续签到4天当天可获得4点积分</li>
+                               <li>5. 连续签到5天当天可获得5点积分</li>
+                               <li>6. 连续签到6天当天可获得6点积分</li>
+                               <li>7. 连续签到7天当天可获得7点积分</li>
+                               <li>8. 连续签到7天以上当天均获得7点积分</li>
+                               <li>9. 连续签到中断过后，将从第一天开始重新计算</li>">详见签到发放规则>></a>
+                            <a href="#" class="btn btn-lg btn-default btn-reward">点击领取奖励</a>
+                        </div>
+                        <div class="box-footer">
+                            <div class="col-xs-4">
+                                <p>获得积分(点)</p>
+                                <div class="count">300</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>连续签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>累计签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../common/js/jquery.onoff.min.js'></script>
+<script src='../common/js/hDate.js'></script>
+<script src='../public/js/app.js'></script>
+<script src='../public/js/main.js'></script>
+</body>
+</html>

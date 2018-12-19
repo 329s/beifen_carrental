@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl" ng-clock>
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="css/confirmOrder.css" rel="stylesheet" type="text/css" >
+    <script src='../common/js/angular.min.js'></script>
+    <title>订单确认——易卡租车</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body  ng-controller="carRantCtr">
+    <!--顶部引入-->
+    <div ng-include="'../public/html/header.html'"></div>
+
+    <div class="container">
+
+        <div class="confirmOrder-top">
+            <img src="img/jindu-1.png"  alt="">
+            <div class="clearfix">
+                <div class="carInfo">
+                    <div class="info-left">
+                        <img  ng-src="{{rentCarsInfo.car.car_image}}" alt="{{rentCarsInfo.car.car_name}}" width="180" height="105">
+                    </div>
+
+                    <div class="info-right">
+                        <p class="title">{{rentCarsInfo.car.car_name}} </p>
+                        <p class="carModels">{{rentCarsInfo.car.property_text}}</p>
+                        <p>
+                            <a href="#" ng-click="getCarConfig()" class="getConfig demo6">查看配置信息</a>
+                            <!--<a href="#" class="changeOrder">修改订单</a>-->
+                        </p>
+                    </div>
+                </div>
+                <div class="timer clearfix">
+                    <div class="Car">
+                        <p class="title"><i class="ifr-qc"></i>取车</p>
+                        <p class="time"><i class="ifr-time"></i>{{rentCarsInfo.start_time}}</p>
+                        <p class="add"><i class="ifr-local"></i>{{rentCarsInfo.isTakeCarAddress==1?rentCarsInfo.take_car_addr:rentCarsInfo.store.store_name}}</p>
+                    </div>
+                    <div class="Car">
+                        <p class="title"><i class="ifr-hc"></i>还车</p>
+                        <p class="time"><i class="ifr-time"></i>{{rentCarsInfo.end_time}}</p>
+                        <p class="add"><i class="ifr-local"></i>{{rentCarsInfo.isReturnCarAddress==1?rentCarsInfo.return_car_addr:rentCarsInfo.re_store.store_name}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="confirmOrder-mid">
+            <!--<div class="info-msg">-->
+                <!--<p>下单成功后，提醒信息会发送至手机-->
+                    <!--<i id="phoneNub" >13131313131</i>-->
+                    <!--<a href="#" style="float: right;margin-right: 50px" onclick="$('#phoneNub').attr('contentEditable',true);$('.nubTip').show()">[修改]</a>-->
+                    <!--<span class="nubTip"  >点击电话，修改电话号码</span>-->
+                <!--</p>-->
+            <!--</div>-->
+            <h3 class="bt">
+                费用明细
+            </h3>
+
+            <div>
+                <ul class="h3h feeul clearfix">
+                    <li class="qtfy clearfix titles">
+                        <span class="fl">基本费用</span>
+                        <!--<span class="fr heji" >合计：{{rentCarsInfo.rent_price}}</span>-->
+
+                    </li>
+                    <!--<li class="clearfix nrText">-->
+                    <!--<li class="clearfix nrText">-->
+                      <!--<p class="clearfix">  <span class="fee-txt">车辆租赁费</span>-->
+                          <!--<span class="fee-res">¥ <b style="font-size: 24px">{{rentCarsInfo.rent_price}}</b></span>-->
+                          <!--&lt;!&ndash;<span class="fee-pro">78x2</span>&ndash;&gt;-->
+                        <!--</p>-->
+                    <!--</li>-->
+                    <li class="clearfix nrText" ng-repeat=" x in gudingPrice">
+                       <p class="clearfix"> <span class="fee-txt" ng-bind="x.ser_name">车辆租赁费</span>
+                           <span class="fee-res">¥ <b style="font-size: 24px">{{x.ser_price}}</b></span>
+                           <!--<span class="fee-pro">78x2</span>-->
+                       </p>
+                    </li>
+                    <!--<li class="clearfix">-->
+                        <!--<span class="fee-txt">基本保险费</span>-->
+                        <!--<span class="fee-res"><i>¥</i>80</span>-->
+                        <!--<span class="fee-pro">40*2</span>-->
+                        <!--<i class="ywen">? <div class="kuang-fd">-->
+                            <!--如果车辆租赁期间出险，客户无需承担保险理赔范围内的任何损失。-->
+                            <!--<br>-->
+                            <!--本服务按天计费。-->
+                        <!--</div></i>-->
+
+                    <!--</li>-->
+
+
+                    <li class="qtfy clearfix titles">
+                        <span class="fl">其他费用</span>
+                        <!--<span class="fr heji" >合计：{{rentCarsInfo.rent_price}}</span>-->
+                    </li>
+                    <li class="qtfylist clearfix nrText" id="kexuanPriceBox">
+                        <p class="clearfix" ng-repeat=" x in kexuanPrice">
+                            <input ng-click="kexuanPriceIsChecked()" data-serid="{{x.ser_id}}" ng-checked="x.isChecked"  style="-webkit-appearance:checkbox" type="checkbox"  id="{{'kexuan'+x.ser_id}}" value="{{x.ser_name}}"><label for="{{'kexuan'+x.ser_id}}" >{{x.ser_name}}</label>
+                            <b class="hoverBX">
+                                <img width="19" src="img/yw.png" alt="">
+                                <i>如车辆租赁期间出险，事故车损在2万元以内，只要按照保险流程报案报警，客户无需承担保险理赔范围内的任何损失。
+                                    本服务按天计费，一个月最高10天封顶，超时不另计费。
+                                </i>
+                            </b>
+                            <span class="fr" style="color: #fabe00">￥ <b>{{x.ser_price}}x{{rentCarsInfo.wywyDays}} = </b> <b style="font-size: 24px">{{x.ser_price*rentCarsInfo.wywyDays}}</b></span>
+
+                        </p>
+
+                   </li>
+                    <li ng-show="rentCarsInfo.preferential_info" class="qtfy clearfix titles">
+                        <span class="fl">优惠项目</span>
+                        <span class="fr heji" >合计优惠金额：<i style="font-size: 20px">¥</i>{{-rentCarsInfo.preferential_price}}</span>
+                    </li>
+                    <li ng-show="rentCarsInfo.preferential_info" class="qtfy clearfix nrText">
+                        <p class="clearfix">
+                            <img src="img/yhq.png" style="width: 30px;margin-left: 10px" alt=""><span class="fee-txt" ng-bind="rentCarsInfo.preferential_info">优惠项目</span>
+                            <span class="fee-res"><i style="font-size: 20px">¥</i>{{-rentCarsInfo.preferential_price}}</span>
+                            <!--<span class="fee-pro">78x2</span>--></p>
+                    </li>
+                </ul>
+            </div>
+            <style>
+                .h3h li.qtfylist{
+                    border-bottom: none;
+                }
+                .qtfylist p{
+                    height: 40px;
+                    line-height: 40px;
+                    border-bottom: 1px dashed #ccc;
+                }
+
+                .h3h li.qtfy{
+                    font-size: 16px;
+                }
+                .h3h li span.heji{
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+                .hoverBX{
+                    position: relative;
+                }
+                .hoverBX:hover i{
+                    display: block;
+                }
+                .hoverBX i{
+                    display: block;
+                    display: none;
+                    position: absolute;
+                    width:300px;
+                    border: 1px dashed #ccc;
+                    border-radius: 20px;
+                    z-index: 998;
+                    background-color: #eee;
+                    top:-15px;
+                    left: 48px;
+                    padding: 10px;
+                    line-height: 1.5;
+                    font-weight: 400;
+                }
+            </style>
+            <h3 class="bt">
+                订单总价
+            </h3>
+            <div class="papers-tip">
+                <p>取车时,出示以下证件的原件：本人二代身份证、本人国内有效驾驶证正副本以及本人一张额度不低于2000元的有效信用卡。</p>
+            </div>
+            <div class="gopay ">
+                <div class="paydetail">
+                    <span class="ddzj">订单总价</span>
+
+                    <span class="ddall"><i>¥</i><i class="orderTotalPrice all">{{dingdanZongjia}}</i></span>
+                </div>
+                <a  class="ljzf"    ng-click="putOrder(isPackPriceTime.is_festival)">提交订单</a>
+            </div>
+            <p> <span ng-hide="isPackPriceTime.is_festival!=1|| bpriceType == '2' " style="color: red;">tip:  您所选择的时间不在打包期间以内按短租计算，三天打包价仅限租赁时间在周日下午4点至周四下午4点之间的订单！</span></p>
+        </div>
+        <div class="confirmOrder-bot">
+            <h3>退改规则</h3>
+            <p>
+                1.订单取消
+                <br>
+                非易卡租车原因导致订单取消，预付款中的车辆租金及可选服务费等将不退。
+                <br>
+                2.订单修改
+                <br>
+                a)取车时间距当前时间≥2个工作小时，如需修改订单，请在门店营业时间前2个工作小时以上致电400-876-0101。若易卡租车车辆可以满足更改订单的需求，可以为您修改订单，否则不予修改。
+                <br>
+                b)取车时间距当前时间＜2个工作小时，不接受修改。 （小贴士：如果您修改订单或取消订单重新预订，价格可能会发生变化。）
+                <br>
+                3.提前还车：允许提前还车，但已预付的租金不退。
+            </p>
+        </div>
+
+    </div>
+
+    <div id="demoModal1" class="block modal2">
+        <div class="cftitle">
+            <span>{{carConfigList.vehicle_model}}配置信息</span>
+            <!--<i class="cfclose"></i>-->
+        </div>
+        <div class="cflist">
+            <ul>
+                <li>
+                     <b class="rllx">&nbsp;</b>车辆类型：<span ng-bind="carConfigList.vehicle_type">轿车</span>
+                </li>
+                <li>
+                    <b class="zws">&nbsp;</b>座 位 数：<span ng-bind="carConfigList.seat">5</span>
+                </li>
+                <li>
+                    <b class="cms">&nbsp;</b>车 厢 数：<span ng-bind="carConfigList.carriage">4</span>
+                </li>
+                <!--<li>-->
+                    <!--<b class="rllx">&nbsp;</b>燃料类型：<span ng-bind="carConfigList.oil_label">汽油</span>-->
+                <!--</li>-->
+                <li>
+                    <b class="bsxlx">&nbsp;</b>变速箱类型：<span ng-bind="carConfigList.gearbox">AT</span>
+                </li>
+                <li>
+                    <b class="pl">&nbsp;</b>排　　量： <span ng-bind="carConfigList.emission">1598</span>
+                </li>
+                <li>
+                    <b class="rybh">&nbsp;</b>燃油标号：<span ng-bind="carConfigList.oil_label">92-93汽油</span>
+                </li>
+                <li>
+                    <b class="qdfs">&nbsp;</b>驱动方式：<span ng-bind="carConfigList.driving_mode">前驱</span>
+                </li>
+                <li>
+                    <b class="fdjjqxs">&nbsp;</b>发动机进气形式：<span ng-bind="carConfigList.air_intake_mode">自然吸气</span>
+                </li>
+                <!--<li>-->
+                    <!--<b class="tc">&nbsp;</b>天　　窗：<span>无</span>-->
+                <!--</li>-->
+                <li>
+                    <b class="yxrl">&nbsp;</b>油箱容量：<span ng-bind="carConfigList.oil_capacity">55</span>
+                </li>
+                <!--<li>-->
+                    <!--<b class="yx">&nbsp;</b>音　　箱：<span>4</span>-->
+                <!--</li>-->
+                <li>
+                    <b class="zy">&nbsp;</b>座　　椅：<span ng-bind="carConfigList.chair">皮革座椅</span>
+                </li>
+                <li>
+                     <b class="dcld">&nbsp;</b>倒车雷达：<span ng-bind="carConfigList.radar">无</span>
+                </li>
+                <!--<li>-->
+                    <!--<b class="qin">&nbsp;</b>气　　囊：<span>2</span>-->
+                <!--</li>-->
+                <!--<li class="nonebd">-->
+                    <!--<b class="dvd">&nbsp;</b>DVD / CD：<span>CD</span>-->
+                <!--</li>-->
+                <li class="nonebd">
+                    <b class="gps">&nbsp;</b>GPS导航：<span ng-bind="carConfigList.gps">无</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+    <!--引入底部-->
+    <div ng-include="'../public/html/footer.html'"></div>
+
+
+    <script src='../common/js/jquery.min.js'></script>
+    <script src='../common/js/tool.js'></script>
+    <script src='../common/js/bootstrap.min.js'></script>
+    <script src='../public/js/app.js'></script>
+    <script src='js/confirmOrder.js'></script>
+    <script src="js/Sweefty.js" type="text/javascript"></script>
+    <script src="js/moaModal.minified.js" type="text/javascript"></script>
+    <script src="js/orderConfirmCtrl.js"></script>
+
+
+    <script>
+
+        $(document).ready(function(){
+            $(document).modal({});
+            $('.demo2').modal({
+                target : '#demoModal1',
+                speed : 500,
+                easing : 'easeInOutExpo',
+                animation : 'zoom',
+                position: '1% auto',
+                overlayClose : true
+            });
+            $('.demo3').modal({
+                target : '#demoModal1',
+                speed : 500,
+                easing : 'easeOutCirc',
+                animation : 'zoom',
+                position: '1% 1%',
+                overlayClose : true
+            });
+            $('.demo6').modal({
+                target : '#demoModal1',
+                speed : 500,
+                easing : 'easeOutBack',
+                animation : 'right',
+                position: 'center',
+                overlayClose : true,
+                on : 'click'
+            });
+        });
+
+    </script>
+</body>
+</html>

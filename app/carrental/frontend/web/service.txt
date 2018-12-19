@@ -1,0 +1,5 @@
+{"car_id":"50","sid":"30"}
+{"car_id":"50","sid":"30"}
+[{"ser_id":1,"ser_name":"\u624b\u7eed\u8d39","required":"1","default_count":1,"ser_price":"10","ser_tips":""},{"ser_id":2,"ser_name":"\u57fa\u672c\u670d\u52a1\u8d39","required":"1","default_count":2,"ser_price":"20","ser_tips":""},{"ser_id":"12","ser_name":"\u4e07\u5143\u65e0\u5fe7","required":"0","default_count":2,"ser_price":"50.00","ser_tips":"\u4fdd\u969c\u4f1a\u5458\u7528\u8f66\u65e0\u5fe7\uff0c\u4e8b\u6545\u8f66\u635f2\u4e07\u5143\u4ee5\u4e0b\uff0c\u5ba2\u6237\u4e0d\u5fc5\u627f\u62c5\u4efb\u4f55\u8d54\u507f\u3002"}]
+{"car_id":"50","sid":"30"}
+[{"ser_id":1,"ser_name":"\u624b\u7eed\u8d39","required":"1","default_count":1,"ser_price":"10","ser_tips":""},{"ser_id":2,"ser_name":"\u57fa\u672c\u670d\u52a1\u8d39","required":"1","default_count":2,"ser_price":"20","ser_tips":""},{"ser_id":"12","ser_name":"\u4e07\u5143\u65e0\u5fe7","required":"0","default_count":2,"ser_price":"50.00","ser_tips":"\u4fdd\u969c\u4f1a\u5458\u7528\u8f66\u65e0\u5fe7\uff0c\u4e8b\u6545\u8f66\u635f2\u4e07\u5143\u4ee5\u4e0b\uff0c\u5ba2\u6237\u4e0d\u5fc5\u627f\u62c5\u4efb\u4f55\u8d54\u507f\u3002"}]

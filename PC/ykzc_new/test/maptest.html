@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hello, World</title>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css" />
+    <style type="text/css">
+        html{height:100%}
+        body{height:100%;margin:0px;padding:0px}
+        #container{height:100%}
+        #r-result{width:100%;
+            height: 400px;
+            position: absolute;
+            top: 400px;
+        }
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=D5vCYyyvtb3mFECYtswc9SZTjgkT8eFU"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
+</head>
+
+<body>
+<div id="container"></div>
+
+<div id="r-result"></div>
+<input type="text" id="sech">
+
+<script type="text/javascript">
+    var map = new BMap.Map("container");
+    // 创建地图实例
+    var point = new BMap.Point(116.404, 39.915);
+    // 创建点坐标
+    map.centerAndZoom(point, 15);
+    // 初始化地图，设置中心点坐标和地图级别
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+    var opts = {type: BMAP_NAVIGATION_CONTROL_SMALL};   //控件尺寸控制
+    map.addControl(new BMap.NavigationControl(opts));    //左上角移动地图
+    map.addControl(new BMap.ScaleControl());            //左下比例尺
+//    map.addControl(new BMap.OverviewMapControl());      //缩略图
+//    map.addControl(new BMap.MapTypeControl());          //右上地图类型
+    map.setCurrentCity("北京"); // 仅当设置城市信息时，MapTypeControl的切换功能才能可用
+
+
+
+    //鼠标绘制完成回调方法   获取各个点的经纬度
+    var overlays = [];
+    var overlaycomplete = function(e){
+        overlays.push(e.overlay);
+        var path = e.overlay.getPath();//Array<Point> 返回多边型的点数组
+        for(var i=0;i<path.length;i++){
+            console.log("lng:"+path[i].lng+"\n lat:"+path[i].lat);
+        }
+    };
+//    绘制多边形
+    var styleOptions = {
+        strokeColor:"red",    //边线颜色。
+        fillColor:"red",      //填充颜色。当参数为空时，圆形将没有填充效果。
+        strokeWeight: 3,       //边线的宽度，以像素为单位。
+        strokeOpacity: 0.8,    //边线透明度，取值范围0 - 1。
+        fillOpacity: 0.6,      //填充的透明度，取值范围0 - 1。
+        strokeStyle: 'solid' //边线的样式，solid或dashed。
+    }
+    //实例化鼠标绘制工具
+    var drawingManager = new BMapLib.DrawingManager(map, {
+        isOpen: false, //是否开启绘制模式
+        enableDrawingTool: true, //是否显示工具栏
+        drawingToolOptions: {
+            anchor: BMAP_ANCHOR_TOP_RIGHT, //位置
+            offset: new BMap.Size(5, 5), //偏离值
+            drawingModes:[
+                BMAP_DRAWING_POLYGON
+            ]
+        },
+//        circleOptions: styleOptions, //圆的样式
+//        polylineOptions: styleOptions, //线的样式
+        polygonOptions: styleOptions, //多边形的样式
+//        rectangleOptions: styleOptions //矩形的样式
+    });
+    //添加鼠标绘制工具监听事件，用于获取绘制结果
+//    drawingManager.addEventListener('overlaycomplete', overlaycomplete);
+//    function clearAll() {
+//        for(var i = 0; i < overlays.length; i++){
+//            map.removeOverlay(overlays[i]);
+//        }
+//        overlays.length = 0
+//    }
+
+    map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
+    // 创建地理编码实例
+    var myGeo = new BMap.Geocoder();
+    // 根据坐标得到地址描述
+    myGeo.getLocation(new BMap.Point(116.364, 39.993), function(result){
+        if (result){
+            alert(result.address);
+        }
+    });
+
+
+</script>
+</body>
+</html>

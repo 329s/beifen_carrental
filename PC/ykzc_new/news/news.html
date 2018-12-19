@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="css/news.css" rel="stylesheet" type="text/css" >
+    <title>新闻中心——易卡租车</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div ng-include="'../public/html/header.html'"></div>
+    <div class="container">
+        <div class="panel left panel-list">
+            <ul>
+                <li class="title" ng-init="newsShow = 'new1'">新闻中心</li>
+                <li ng-click="newsShow = 'new1'"  class="active"><a href="#">公司动态</a></li>
+                <li ng-click="newsShow = 'new2'" ><a href="#">媒体报道</a></li>
+                <li ng-click="newsShow = 'new3'" ><a href="../activity/activity.html">特惠活动</a></li>
+                <li ng-click="newsShow = 'new4'" ><a href="#">租车攻略</a></li>
+            </ul>
+        </div>
+        <div class="panel right panel-about">
+            <div  ng-show="newsShow==='new1'">
+                <div  id="news1"  class="panel-header panel-header-block">公司动态</div>
+                <div class="panel-body ">
+                    <ul>
+                        <li class="clearfix"><a href="#"><span>易卡租车衢州店装修完毕，开始试营业</span><span>发布时间:2017-11-29</span></a></li>
+                        <li class="clearfix"><a href="#"><span>易卡租车新增杭州市余杭区加盟店</span><span>发布时间:2017-11-22</span></a></li>
+                        <li class="clearfix"><a href="#"><span>易卡租车宁波市朝晖路门店正式运营</span><span>发布时间:2017-11-04</span></a></li>
+                        <li class="clearfix"><a href="#"><span>易卡租车宁波贸城店装修完毕正式运营</span><span>发布时间:2017-10-28</span></a></li>
+                        <li class="clearfix"><a href="#"><span>易卡租车新增衢州市加盟店</span><span>发布时间:2017-10-24</span></a></li>
+                        <li class="clearfix"><a href="#"><span>易卡租车成功签约丽水市加盟店</span><span>发布时间:2017-10-19</span></a></li>
+                        <li class="clearfix"><a href="#"><span>易卡租车成功签约金华加盟店</span><span>发布时间:2017-10-04</span></a></li>
+                        <li class="clearfix"><a href="#"><span>易卡租车新进一批全新雪佛兰科沃兹</span><span>发布时间:2017-05-04</span></a></li>
+                        <li class="clearfix"><a href="#"><span>申通别克向易卡租车批量交付全新别克GL8商务高端车系</span><span>发布时间:2017-04-28</span></a></li>
+                        <li class="clearfix"><a href="#"><span>易卡租车再次批量购入全新起亚K2</span><span>发布时间:2017-01-06</span></a></li>
+                        <li class="clearfix"><a href="#"><span>易卡租车批量购入全新起亚K2</span><span>发布时间:2016-08-31</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div  ng-show="newsShow==='new2'">
+                <div  id="news2"  class="panel-header panel-header-block">媒体报道</div>
+                <div class="panel-body ">
+                    <ul>
+                        <li class="clearfix"><a href="#"><span>荣登携程全国优秀供应商排名榜，易卡租车打通企业和供应商“租车生态圈”实现多方共赢</span><span>发布时间:2017-10-31</span></a></li>
+                        <li class="clearfix"><a href="#"><span>易卡租车国庆助力自己出行活动</span><span>发布时间:2017-10-31</span></a></li>
+                        <li class="clearfix"><a href="#"><span>易卡租车强势联合易出行</span><span>发布时间:2017-08-30</span></a></li>
+                        <li class="clearfix"><a href="#"><span>易卡租车荣获青年创业大赛第二名</span><span>发布时间:2016-07-08</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div  ng-show="newsShow==='new3'">
+                <div  id="news3"  class="panel-header panel-header-block">特惠活动</div>
+                <div class="panel-body ">
+
+                </div>
+            </div>
+            <div  ng-show="newsShow==='new4'">
+                <div  id="news4"  class="panel-header panel-header-block">租车攻略</div>
+                <div class="panel-body ">
+                    <ul>
+                        <li class="clearfix"><a href="#"><span>4条国内经典线路 让你玩转自驾游</span><span>发布时间:2017-03-13</span></a></li>
+                        <li class="clearfix"><a href="#"><span>四大冬季自驾游好去处 </span><span>发布时间:2016-12-14</span></a></li>
+                        <li class="clearfix"><a href="#"><span>人少景美 最适合自驾游的世外桃源 </span><span>发布时间:2016-09-05</span></a></li>
+                        <li class="clearfix"><a href="#"><span>气温攀升 细数十大避暑胜地 </span><span>发布时间:2016-04-12</span></a></li>
+                        <li class="clearfix"><a href="#"><span>春季自驾游去哪？15条自驾特色线路任你选 </span><span>发布时间:2016-02-26</span></a></li>
+                        <li class="clearfix"><a href="#"><span>春季行车谨防“春困” </span><span>发布时间:2016-02-23</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--引入底部-->
+    <div ng-include="'../public/html/footer.html'"></div>
+</div>
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../public/js/app.js'></script>
+<script>
+    $('.panel-list').find('li:gt(0)').click(function () {
+        $(this).siblings().removeClass('active');               //删除类名
+        $(this).addClass('active');                             //添加类名
+    })
+</script>
+</body>
+</html>

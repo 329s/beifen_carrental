@@ -1,0 +1,151 @@
+#map {
+    height: 640px
+}
+
+.panel ul {
+    padding: 0 20px
+}
+
+.panel ul li.title {
+    padding-left: 0;
+    padding-right: 30px;
+    font-weight: 700;
+    font-size: 16px
+}
+
+.panel ul li {
+    padding: 8px
+}
+
+.panel ul {
+    padding: 0 30px
+}
+
+.panel .list-row ul {
+    padding-left: 10px
+}
+
+.panel .list-col ul li a {
+    /*padding: 0 8px*/
+}
+
+.panel-city {
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px #ddd;
+    margin-bottom: 0;
+    z-index: 999;
+    border-radius: 0;
+    margin-left: 248px
+}
+
+.panel-city:before {
+    content: '';
+    position: absolute;
+    height: 78px;
+    width: 7px;
+    background: #fff;
+    left: -5px;
+    top: 0
+}
+
+.panel-city > div {
+    padding: 5px
+}
+
+.line-city {
+    font-size: 13px;
+    color: #888
+}
+
+.line-city .store {
+    display: inline-block;
+    width: 80px;
+    margin: 0 50px 0 0;
+    text-align: center
+}
+
+.line-city:first-child .store {
+    font-size: 14px
+}
+
+.line-city a, .line-city span {
+    margin: 0 10px
+}
+
+.panel-map {
+    padding: 0;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 248px;
+    width: 66.7%;
+    min-width: 933px
+}
+
+.panel-store {
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px #ddd;
+    z-index: 999;
+    height: 722px;
+    margin-top: -70px;
+    top: -10px;
+    border-radius: 0;
+    font-size: 12px;
+    padding: 0;
+    position: relative;
+    width: 248px;
+    float: left;
+    border-top-left-radius: 12px
+}
+
+.panel-store .panel-body {
+    height: 640px
+}
+
+.panel-store .panel-header {
+    padding: 12px 15px;
+    font-size: 14px
+}
+
+.panel-store .panel-header .city {
+    font-size: 18px
+}
+
+.panel-store .panel-body .box {
+    padding: 5px 10px 5px 0;
+    color: #888
+}
+
+.panel-store b, .panel-store p {
+    margin-bottom: 3px
+}
+
+.panel-store b, .panel-store p:nth-child(2) {
+    color: #888
+}
+
+.panel-store .box .box-title {
+    padding: 5px 0;
+    font-size: 13px;
+    color: #000
+}
+
+.wrapper {
+    background: #f2f3f5
+}
+
+b.num {
+    font-size: 18px
+}
+
+.panel-city-1 {
+    padding: 15px;
+    height: 682px;
+    border-top-left-radius: 12px;
+    margin-top: 20px
+}
+
+.panel-map-1 {
+    padding: 20px 15px;
+    margin-top: 20px
+}

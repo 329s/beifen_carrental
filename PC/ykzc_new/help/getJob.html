@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="css/about.css" rel="stylesheet" type="text/css" >
+    <title>联系我们——易卡租车</title>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrapper" ng-controller="getJobCtr">
+    <div ng-include="'../public/html/header.html'"></div>
+    <div class="container">
+        <div class="panel left panel-list">
+            <ul>
+                <li class="title" ng-init="job = 'x1'">招贤纳士</li>
+                <li class="active" ng-click="job='x1'"><a href="#job1">汽车租赁代表</a></li>
+                <li ng-click="job='x2'"><a href="#job2">销售经理</a></li>
+                <li ng-click="job='x3'"><a href="#job3">拓展销售</a></li>
+                <li ng-click="job='x4'"><a href="#job4">管理培训生</a></li>
+                <!--<li ng-click="job='x5'"><a href="#">理赔专员/顾问</a></li>-->
+            </ul>
+        </div>
+        <div class="panel right panel-about">
+            <div ng-show="job === 'x1'">
+                <div id="job1" class="panel-header panel-header-block">汽车租赁代表（浙江省）</div>
+                <div class="panel-body pd-6080">
+                    <style>
+                        .panel-body.pd-6080{
+                            padding: 20px 0 0 ;
+                        }
+                        .panel-body.pd-6080 p{
+                            margin-top: 20px;
+                            padding-left: 40px;
+                        }
+                    </style>
+                  <h4>岗位职责</h4>
+                    <p> 1、 负责门店客户业务接待，为客户提供租用车辆，跟踪出租车辆情况；<br>
+                        2、 负责租还车验车及车辆维护保养，确保车辆安全、整洁；<br>
+                        3、 负责租车系统的使用及相关信息的维护，关注订单及车态情况，及时汇总整理客户租车资料。<br>
+                        4、 门店周边业务开拓、市场推广、开发潜在会员及客户；<br>
+                        5、 跟进客户业务咨询、投诉、答疑；<br>
+                        6、 完成上级下达的其它任务。</p>
+                    <h4>任职资格</h4>
+                    <p>
+                        1、热爱汽车服务行业，持C1驾照；<br>
+                        2、诚信，务实，较强的责任心及服务意识；<br>
+                        3、良好的语言表达能力、沟通技巧及承压能力；<br>
+                        4、有连锁服务业、汽车租赁业、4S店、会员卡销售等经验优先
+                    </p>
+                    <h4>公司福利</h4>
+                    <p>
+                        绩效奖金 |
+                        餐补     |
+                        全勤奖   |
+                        带薪年假 |
+                        员工旅游 |
+                        节日福利
+                    </p>
+                    <h4>联系电话</h4>
+                    <p>
+                        蔡女士     0579-82922010
+                    </p>
+                </div>
+            </div>
+            <div ng-show="job === 'x2'">
+                <div  id="job2" class="panel-header panel-header-block">销售经理</div>
+                <div class="panel-body pd-6080">
+                    <h4>岗位职责</h4>
+                    <p>
+                        1、负责公司产品的销售及推广；<br>
+                        2、根据市场营销计划，完成部门销售指标；<br>
+                        3、开拓新市场,发展新客户,增加产品销售范围；<br>
+                        4、负责销售区域内销售活动的策划和执行；<br>
+                        5、管理维护客户关系以及客户间的长期战略合作计划。
+                    </p>
+                    <h4>任职资格</h4>
+                    <p>
+                        1、高中及以上学历；<br>
+                        2、1-2年以上销售行业工作经验，业绩突出者优先；<br>
+                        3、反应敏捷、表达能力强，具有较强的沟通能力及交际技巧，具有亲和力；<br>
+                        4、具备一定的市场分析及判断能力，良好的客户服务意识；<br>
+                        5、有责任心，能承受较大的工作压力；<br>
+                        6、有团队协作精神，善于挑战。<br>
+                        有信用卡销售经验，连锁公司商务拓展经验者优先
+                    </p>
+                    <h4>公司福利</h4>
+                    <p>
+                        绩效奖金 |
+                        餐补     |
+                        全勤奖   |
+                        带薪年假 |
+                        员工旅游 |
+                        节日福利
+                    </p>
+                    <h4>联系电话</h4>
+                    <p>
+                        蔡女士     0579-82922010
+                    </p>
+                </div>
+            </div>
+            <div ng-show="job === 'x3'">
+                <div id="job3"  class="panel-header panel-header-block">拓展销售</div>
+                <div class="panel-body pd-6080">
+                    <h4>岗位职责</h4>
+                    <p>
+                        1、负责同行租赁公司调车业务的维护和拓展<br>
+                        2、拓展和同行租赁公司相关业务的合作（按揭、保险、定位）<br>
+                        3、开拓新市场,发展新客户,开发企业、酒店、旅行社等用车业务<br>
+                        4、负责销售区域内销售活动的策划和执行<br>
+                        5、管理维护客户关系以及客户间的长期战略合作计划<br>
+                    </p>
+                    <h4>任职资格</h4>
+                    <p>
+                        1、大专及以上学历<br>
+                        2、1-2年以上销售行业工作经验，业绩突出者优先；<br>
+                        3、反应敏捷、表达能力强，具有较强的沟通能力及交际技巧，具有亲和力；<br>
+                        4、具备一定的市场分析及判断能力，良好的客户服务意识；<br>
+                        5、有责任心，能承受较大的工作压力；<br>
+                        6、有团队协作精神，善于挑战。<br>
+                        有信用卡销售经验，连锁公司商务拓展经验者优先
+                    </p>
+                    <h4>公司福利</h4>
+                    <p>
+                        绩效奖金 |
+                        餐补     |
+                        全勤奖   |
+                        带薪年假 |
+                        员工旅游 |
+                        节日福利
+                    </p>
+                    <h4>联系电话</h4>
+                    <p>
+                        蔡女士     0579-82922010
+                    </p>
+                </div>
+            </div>
+            <div ng-show="job === 'x4'">
+                <div id="job4"  class="panel-header panel-header-block">管理培训生（学历：全日制本科）</div>
+                <div class="panel-body pd-6080">
+                    <h4>岗位职责</h4>
+                    <p>
+                        1、在总部开始学习，培养综合管理能力；<br>
+                        2、全面的学习公司运营、各个部门的工作调配；<br>
+                        3、分析市场，了解客户需求，制定合理的营销方案；<br>
+                        4、根据市场制定营销计划，开拓新市场,发展新客户,维护老顾客，增加市场范围。<br>
+                    </p>
+                    <h4>任职资格</h4>
+                    <p>
+                        1、应届全日制毕业生，本科及以上学历，专业不限；<br>
+                        2、具有良好的沟通协调能力，分析能力，快速学习能力，有较强的责任心和进取心；<br>
+                        3、愿意从基层岗位做起，具有良好的综合素质和培养潜力；<br>
+                        4、愿意接受公司内部调动或岗位调整；<br>
+                        5、其他根据具体岗位职责确定要求。<br>
+                        要求：未婚，男女不限
+                    </p>
+                    <h4>公司福利</h4>
+                    <p>
+                        绩效奖金 |
+                        餐补     |
+                        全勤奖   |
+                        带薪年假 |
+                        员工旅游 |
+                        节日福利
+                    </p>
+                    <h4>联系电话</h4>
+                    <p>
+                        蔡女士     0579-82922010
+                    </p>
+                </div>
+            </div>
+            <!--<div ng-show="job === 'x5'">-->
+                <!--<div class="panel-header panel-header-block">理赔专员/顾问</div>-->
+                <!--<div class="panel-body pd-6080">-->
+                    <!--<h4>岗位职责</h4>-->
+                    <!--<p>-->
+                        <!--1、登记整理收集事故资料；<br>-->
+                        <!--2、跟进车辆维修进度；<br>-->
+                        <!--3、事故跟进（跟进维修进度、定损金额的确定）；<br>-->
+                        <!--4、到保险公司提交理赔资料-->
+                    <!--</p>-->
+                    <!--<h4>任职资格</h4>-->
+                    <!--<p>-->
+                        <!--1、大专以上学历；<br>-->
+                        <!--2、有无经验均可，有4S店或者售后维修经验的最佳<br>-->
+                        <!--3、热爱汽车服务行业，持C1驾照；<br>-->
+                        <!--4、诚信，务实，较强的责任心及服务意识-->
+                    <!--</p>-->
+                    <!--<h4>公司福利</h4>-->
+                    <!--<p>-->
+                        <!--绩效奖金 |-->
+                        <!--餐补     |-->
+                        <!--全勤奖   |-->
+                        <!--带薪年假 |-->
+                        <!--员工旅游 |-->
+                        <!--节日福利-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+
+    <!--引入底部-->
+    <div ng-include="'../public/html/footer.html'"></div>
+</div>
+<!--<div class="modal fade" id="signModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+    <!--<div class="modal-dialog sign">-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">-->
+                    <!--&times;-->
+                <!--</button>-->
+                <!--<h4 class="modal-title" id="myModalLabel">-->
+                    <!--签到送积分-->
+                    <!--<div class="badge badge-exp">积分可用于兑换租车抵用</div>-->
+                <!--</h4>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+                <!--<div class="row">-->
+                    <!--<div class="inline-box col-xs-7">-->
+                        <!--<div style="width:100%;height:300px;" id="calendar"></div>-->
+                    <!--</div>-->
+                    <!--<div class="inline-box col-xs-5 box-sign">-->
+                        <!--<div class="btn-group-sign sign" ng-init="sign=false">-->
+                            <!--<button class="btn btn-warning" ng-hide="sign">签到</button>-->
+                            <!--<button class="btn btn-warning" disabled ng-show="sign">已签到</button>-->
+                        <!--</div>-->
+                        <!--<div class="box-content">-->
+                            <!--<p>每日登陆签到即可获得积分发放</p>-->
+                            <!--<a href="javascript:;" class="right rule popover-show"-->
+                               <!--data-container="body"-->
+                               <!--data-html="true"-->
+                               <!--data-toggle="popover"-->
+                               <!--data-content="<ul><li>1. 签到1天可获得1点积分</li>-->
+                               <!--<li>2. 连续签到2天当天可获得2点积分</li>-->
+                               <!--<li>3. 连续签到3天当天可获得3点积分</li>-->
+                               <!--<li>4. 连续签到4天当天可获得4点积分</li>-->
+                               <!--<li>5. 连续签到5天当天可获得5点积分</li>-->
+                               <!--<li>6. 连续签到6天当天可获得6点积分</li>-->
+                               <!--<li>7. 连续签到7天当天可获得7点积分</li>-->
+                               <!--<li>8. 连续签到7天以上当天均获得7点积分</li>-->
+                               <!--<li>9. 连续签到中断过后，将从第一天开始重新计算</li>">详见签到发放规则>></a>-->
+                            <!--<a href="#" class="btn btn-lg btn-default btn-reward">点击领取奖励</a>-->
+                        <!--</div>-->
+                        <!--<div class="box-footer">-->
+                            <!--<div class="col-xs-4">-->
+                                <!--<p>获得积分(点)</p>-->
+                                <!--<div class="count">300</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-xs-4">-->
+                                <!--<p>连续签到(天)</p>-->
+                                <!--<div class="count">3</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-xs-4">-->
+                                <!--<p>累计签到(天)</p>-->
+                                <!--<div class="count">3</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
+    <!--</div>&lt;!&ndash; /.modal &ndash;&gt;-->
+<!--</div>-->
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FiyvLDHpCL6fUaiIhAHk0YtiRfFSCUc1"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../common/js/jquery.onoff.min.js'></script>
+<script src='../common/js/hDate.js'></script>
+<script src='../public/js/app.js'></script>
+<script src='../public/js/main.js'></script>
+<script src='../public/js/store.js'></script>
+<script src='../public/js/map.js'></script>
+<!--<script src='js/about.js'></script>-->
+<script src="js/getJobCtr.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <title>移动端APP下载——易卡租车</title>
+
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <link rel="stylesheet" href="css/appDown.css">
+    <link rel="stylesheet" href="../common/css/animate.min.css">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <!--引入顶部-->
+    <div ng-include="'../public/html/header.html'"></div>
+
+    <div class="appdown">
+        <div class="content">
+            <div class="hand">
+                <div class="hand_lun">
+                   <div class="hand_lun_box">
+                       <img src="img/appdown/down_hand_app1.jpg" alt="">
+                       <img src="img/appdown/down_hand_app2.jpg" alt="">
+                       <img src="img/appdown/down_hand_app3.jpg" alt="">
+                   </div>
+                </div>
+            </div>
+
+            <div class="ewm" id="down_ewm"></div>
+            <div class="text_top  " id="down_top"></div>
+            <div class="text_mid  " id="down_mid"></div>
+            <div class="text_bottom" id="down_bot"></div>
+            <a href="http://android.myapp.com/myapp/detail.htm?apkName=com.jinhua.yika&ADTAG=mobile"> <div class="anroid" id="down_anroid">
+                <i></i>
+                <span>安卓版本下载</span>
+            </div></a>
+            <a href="https://itunes.apple.com/cn/app/%E6%98%93%E5%8D%A1%E7%A7%9F%E8%BD%A6-%E6%96%B0%E7%94%A8%E6%88%B7%E9%A6%96%E7%A7%9F%E7%A7%9F%E4%B8%80%E9%80%81%E4%B8%80/id1183650719?mt=8">
+                <div class="ios" id="down_ios">
+                    <i></i>
+                    <span>IOS版本下载</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <!--引入底部-->
+    <div ng-include="'../public/html/footer.html'"></div>
+</div>
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../public/js/app.js'></script>
+<script>
+//    动画
+    $(function () {
+        $('#down_top').addClass('animated fadeInDownBig');
+        $('#down_mid').css('display','none');
+        $('#down_anroid,#down_bot,#down_ewm,#down_ios').css('display','none');
+        setTimeout(function () {
+            $('#down_mid').css('display','block');
+            $('#down_mid').addClass('animated fadeInDown')
+            setTimeout(function () {
+                $('#down_anroid,#down_ewm,#down_ios').css('display','block');
+                $('#down_anroid,#down_ewm,#down_ios').addClass('animated fadeInUpBig');
+                setTimeout(function () {
+                    $('#down_bot').css('display','block');
+                    $('#down_bot').addClass('animated fadeInUp');
+                },1000)
+            },0)
+        },1000)
+
+    })
+
+    function lunbo(){
+        var lunboBox =  $('.appdown .hand_lun .hand_lun_box');
+        var step = 198;
+        var k = 0;
+        var imgLength =$('.appdown .hand_lun .hand_lun_box').find('img').length;
+        $(lunboBox).css('left',-step*k);
+        setInterval(function () {
+            k++;
+            if(k===imgLength){
+                k=0;
+            }
+            $(lunboBox).css('left',-step*k)
+        },3000)
+    }
+    lunbo()
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="css/payOrder.css" rel="stylesheet" type="text/css" >
+    <title>选择支付——易卡租车</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body ng-controller="payOrder">
+<!--顶部引入-->
+<div ng-include="'../public/html/header.html'"></div>
+
+<div class="container">
+    <div style="max-width: 1000px;margin: 40px auto 28px;">
+        <img src="img/jindu-2.png" alt="">
+    </div>
+    <div class="pay-top clearfix">
+
+        <div class="left">
+            <p class="ddzf">等待付款 <a href="javaScript:viod:0" ng-click="goOrderXQ()"> 订单详情》 </a></p>
+            <p>在线完成支付，快速取车</p>
+        </div>
+        <div class="right">
+            ￥<span ng-bind="payOrderPrice"></span>
+        </div>
+    </div>
+    <div class="pay-bot">
+        <h3>支付方式</h3>
+        <div class="paybox">
+            <!--<a href="#"><img src="img/pay-bank.png" alt=""></a>-->
+            <!--<a href="#" style="margin-right: 150px"><img src="img/pay-wx.png" alt=""></a>-->
+            <a href="#"><img src="img/pay-zfb.png" alt=""></a>
+        </div>
+        <hr>
+        <a class="toPay" href="#" ng-click="gotoPay()">确认支付</a>
+        <!--<a class="toPay" ng-click="goToAliPay()" href="javascript:viod:0">确认支付</a>-->
+    </div>
+
+</div>
+
+
+<!--引入底部-->
+<div ng-include="'../public/html/footer.html'"></div>
+
+
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../public/js/app.js'></script>
+<script src='js/payOrder.js'></script>
+</body>
+</html>

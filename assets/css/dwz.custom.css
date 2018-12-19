@@ -1,0 +1,14 @@
+
+.dwz-layout-sidebar_s { display:none; width:24px; position:absolute; top:0; left:0; z-index:21;}
+.dwz-layout-sidebar_s .collapse { height:430px; cursor:pointer;}
+.dwz-layout-sidebar_s .toggleCollapse { border:0; background:none;}
+.dwz-layout-sidebar_s .toggleCollapse div { width:21px; border:0; background-position:-2px -147px;}
+.dwz-layout-sidebar_s .toggleCollapse div:hover { background-position:-2px -197px;}
+
+.dwz-layout-sidebar_s .collapse { border:solid 1px #b8d0d6; background:#eff5f6;}
+.dwz-layout-sidebar_s .collapse:hover { background:#f5f9fa;}
+
+ul.datalist { font-size: 12px; background-color: #fefefe; vertical-align: center; }
+ul.datalist li { line-height: 23px; }
+ul.datalist li:hover { background-color: #f5f9fa; }
+ul.datalist li.selected { background-color: #eff5f6; }

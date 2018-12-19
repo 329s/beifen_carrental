@@ -1,0 +1,45 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 24, 2016, 9:46:54 PM
+*/
+
+h1.contract {
+    width:100%;
+    font-size:18px;
+    text-align:center;
+}
+
+h2.contract {
+    width:100%;
+    font-size:12px;
+    text-align:center;
+}
+
+h3.contract {
+    font-size:12px;
+    font-weight: normal;
+    margin-bottom: 2px;
+    /*font-family: '宋体', 'Arial';*/
+}
+
+table.contract {
+    font-size: 11px;
+    border: 1px solid #666;
+    border-collapse:collapse;
+    /*font-family: '宋体', 'Arial';*/
+}
+
+table.contract td {
+    padding: 2px 0px 2px 0px;
+    border-width: 1px;
+    word-break: keep-all;
+    white-space:nowrap;
+}
+
+p {
+    font-size: 11px;
+}

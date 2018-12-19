@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+body{ width: 100%;height: 100%;overflow: hidden; margin:0px; padding:0px; font-size:12px; font-family:Verdana, Geneva, sans-serif; 
+background:url(../images/login/big-back.png) repeat-x rgb(241, 241, 241); color:#333333;}
+ul{ margin:0px; padding:0px; list-style:none;}
+a{text-decoration:none;  color:#333; outline:none;}
+form{ margin:0px; padding:0px;}
+p{ margin:0px; padding:0px;}
+h1,h2,h3{ margin:0px; padding:0px; font-size:12px; font-weight:100;}
+
+.window{display: block;width: 488px;z-index: 9001;background-color: #F2F2F2; margin:0px auto; margin-top:205px;
+background: -webkit-linear-gradient(top,white 0,#F2F2F2 20%); border:1px solid #D4D4D4; padding:5px; -webkit-border-radius: 5px; border-radius:5px; background:#FFF;}
+.panel-body {overflow: hidden;width: 486px;height: 286px; border:1px solid #D4D4D4;}
+
+#logo {text-align: center;height: 101px;line-height: 101px;}
+#logo h1 {display: inline;font-size: 26px; font-weight:bold;}
+#form-body {
+text-align: center;
+width: 486px;
+height:148px;
+background: url(../images/login/brushed.png) repeat-y 50% 50%; overflow:hidden;
+}
+#form-body ul li { overflow:hidden;
+margin-top: 20px;
+}
+#form-body .account {
+background-image: url(../images/login/username.gif);
+background-repeat: no-repeat;
+background-position: 2px 4px;
+
+width: 160px;
+background-color: white;
+border: 1px solid #999;
+padding: 3px 6px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+padding-left: 18px;
+}
+#form-body .password {
+background-image: url(../images/login/password.gif);
+background-repeat: no-repeat;
+background-position: 2px 4px;
+width: 160px;
+background-color: white;
+border: 1px solid #999;
+padding: 3px 6px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+padding-left: 18px;
+}
+.dialog-button {
+border-top: 1px solid #E6E6E6;
+}
+.l-btn{ border:1px solid #dddddd; -webkit-border-radius: 5px;border-radius: 5px; display:block; width:60px; height:24px; line-height:24px; text-align:center; float:right; margin-top:5px; margin-right:10px ; background:url(../images/login/an.jpg) repeat-x;}
+.l-btn:hover{ background:#e6e6e6; color:#00438a;}

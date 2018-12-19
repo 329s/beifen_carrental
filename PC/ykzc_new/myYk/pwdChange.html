@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="myAppCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="../common/css/plugin.css" rel="stylesheet" type="text/css" >
+    <link href="../public/css/main.css" rel="stylesheet" type="text/css" >
+    <link href="css/personal.css" rel="stylesheet" type="text/css" >
+    <title>修改密码——易卡租车</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9e5610c8a5bf7be493e91a0efd541fcb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div ng-include="'../public/html/header.html'"></div>
+    <div class="container">
+        <div class="panel left panel-list">
+            <ul>
+                <li class="title">我的订单</li>
+                <li><a href="#">订单管理</a></li>
+                <li class="title">我的资产</li>
+                <li><a href="http://www.baidu.com">账户余额</a></li>
+                <li><a href="#">我的优惠</a></li>
+                <li><a href="#">会员等级</a></li>
+                <li><a href="#">我的积分</a></li>
+                <li><a href="#">积分兑换</a></li>
+                <li><a href="#">用户信息</a></li>
+                <li class="title">会员条款</li>
+                <li><a href="#">会员章程</a></li>
+                <li><a href="#">会员细则</a></li>
+            </ul>
+        </div>
+        <div class="panel right panel-pchange" >
+            <div class="panel-heading panel-header-block">
+                <a href="javascript:;" class="active">修改密码</a>
+            </div>
+            <div class="panel-body">
+                <form class="form">
+                    <div class="box box-pwd">
+                        <div class="form-group" data-container="body" data-toggle="popover" data-placement="right"
+                             data-content="原密码不能为空" data-trigger="manual">
+                            <label>原密码 </label>
+                            <i class="glyphicon glyphicon-lock"></i>
+                            <input type="password" name="password" placeholder="请输入原密码" class="form-control" alt="密码" maxlength="18" minlength="6">
+                        </div>
+                        <div class="form-group" data-container="body" data-toggle="popover" data-placement="bottom"
+                             data-content="密码不能为空" data-trigger="manual">
+                            <label>新密码 </label>
+                            <i class="glyphicon glyphicon-lock"></i>
+                            <input type="password" name="password" placeholder="建议6-18位数字、字母、符合的组合" class="form-control" alt="密码" maxlength="18" minlength="6">
+                            <div class="box box-strength inline-box">
+                                <span>弱</span>
+                                <span>中</span>
+                                <span>强</span>
+                            </div>
+                        </div>
+                        <div class="form-group" data-container="body" data-toggle="popover" data-placement="right"
+                             data-content="确认密码不能为空" data-trigger="manual">
+                            <label>确认密码 </label>
+                            <i class="glyphicon glyphicon-lock"></i>
+                            <input type="password" name="password" placeholder="再次输入密码" class="form-control" alt="密码" maxlength="18" minlength="6">
+                        </div>
+                    </div>
+                    <div class="box box-check">
+                        <button type="button" class="btn btn-lg btn-warning btn-check">保 存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--引入底部-->
+    <div ng-include="'../public/html/footer.html'"></div>
+</div>
+<div class="modal fade" id="signModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog sign">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    签到送积分
+                    <div class="badge badge-exp">积分可用于兑换租车抵用</div>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="inline-box col-xs-7">
+                        <div style="width:100%;height:300px;" id="calendar"></div>
+                    </div>
+                    <div class="inline-box col-xs-5 box-sign">
+                        <div class="btn-group-sign sign" ng-init="sign=false">
+                            <button class="btn btn-warning" ng-hide="sign">签到</button>
+                            <button class="btn btn-warning" disabled ng-show="sign">已签到</button>
+                        </div>
+                        <div class="box-content">
+                            <p>每日登陆签到即可获得积分发放</p>
+                            <a href="javascript:;" class="right rule popover-show"
+                               data-container="body"
+                               data-html="true"
+                               data-toggle="popover"
+                               data-content="<ul><li>1. 签到1天可获得1点积分</li>
+                               <li>2. 连续签到2天当天可获得2点积分</li>
+                               <li>3. 连续签到3天当天可获得3点积分</li>
+                               <li>4. 连续签到4天当天可获得4点积分</li>
+                               <li>5. 连续签到5天当天可获得5点积分</li>
+                               <li>6. 连续签到6天当天可获得6点积分</li>
+                               <li>7. 连续签到7天当天可获得7点积分</li>
+                               <li>8. 连续签到7天以上当天均获得7点积分</li>
+                               <li>9. 连续签到中断过后，将从第一天开始重新计算</li>">详见签到发放规则>></a>
+                            <a href="#" class="btn btn-lg btn-default btn-reward">点击领取奖励</a>
+                        </div>
+                        <div class="box-footer">
+                            <div class="col-xs-4">
+                                <p>获得积分(点)</p>
+                                <div class="count">300</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>连续签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>累计签到(天)</p>
+                                <div class="count">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<script src='../common/js/jquery.min.js'></script>
+<script src='../common/js/tool.js'></script>
+<script src='../common/js/bootstrap.min.js'></script>
+<script src='../common/js/angular.min.js'></script>
+<script src='../common/js/jquery.onoff.min.js'></script>
+<script src='../common/js/hDate.js'></script>
+<script src='../common/js/cropper.js'></script>
+<script src="../common/js/validate.js"></script>
+<script src='js/myApp.js'></script>
+<script src='../public/js/main.js'></script>
+<script src='js/personal.js'></script>
+</body>
+</html>
