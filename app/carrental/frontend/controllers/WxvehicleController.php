@@ -82,7 +82,6 @@ class WxvehicleController extends \yii\web\Controller
     			}
     		}
 
-
         }while (0);
         echo json_encode($arrData);
     }
