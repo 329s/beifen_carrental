@@ -21,7 +21,7 @@ class WxvehicleController extends \yii\web\Controller
     public function actionGet_vehicle_info(){
         $arrData = ['result' => \frontend\components\ApiModule::CODE_SUCCESS, 'desc' => \Yii::t('locale', 'Success')];//0,成功
         do{
-    		$plate_number = \Yii::$app->request->post('plate_number');
+    		$plate_number = strtoupper(\Yii::$app->request->post('plate_number'));
     		// 车辆信息
     		$tblNameVehicle = \common\models\Pro_vehicle::tableName();
     		$tblNameVehicleModel = \common\models\Pro_vehicle_model::tableName();
@@ -40,6 +40,12 @@ class WxvehicleController extends \yii\web\Controller
 		    $queryVehicle->leftJoin($tblNameOffice, "{$tblNameVehicle}.stop_office_id = {$tblNameOffice}.id");
 		    $queryVehicle->where(["{$tblNameVehicle}.plate_number"=>$plate_number]);
 		    $arrVehicleObjects = $queryVehicle->asArray()->one();
+
+            if(!$arrVehicleObjects){
+                $arrData['result'] = \frontend\components\ApiModule::CODE_ERROR;
+                $arrData['desc'] = '查询失败';
+                break;
+            }
 		    // $arrData['arrVehicleObjects'] = $arrVehicleObjects;
 
 		    $vehicleInfo = $this->adorn_params($arrVehicleObjects);
@@ -65,22 +71,61 @@ class WxvehicleController extends \yii\web\Controller
     		$arrData['adorn_vehicle']['count'] = count($orders);
     		$arrData['adorn_vehicle']['all_rent_days'] = $all_rent_days;
     		$arrData['adorn_vehicle']['all_total_amount'] = $all_total_amount;
-    		$arrData['adorn_vehicle']['all_paid_amount'] = $all_paid_amount;
+            $arrData['adorn_vehicle']['all_paid_amount'] = $all_paid_amount;
 
-    		// 是否在租
+            // 是否本月在租
+    		$arrData['adorn_vehicle']['isrent'] = 0;
     		$officeModel = \common\models\Pro_office::find();
     		foreach ($orders as $key => $value) {
     			if($value['status'] == '10'){
     				$office = $officeModel->where(['id'=>$value['office_id_rent']])->one();
     				$arrData['adorn_vehicle']['office_id_rent'] = $office->fullname;
     				$arrData['adorn_vehicle']['address'] = $office->address;
-    				$arrData['adorn_vehicle']['start_time'] = $value['start_time'];
-    				$arrData['adorn_vehicle']['new_end_time'] = $value['new_end_time'];
+                    $arrData['adorn_vehicle']['start_date'] = date('Y/m/d',$value['start_time']);
+    				$arrData['adorn_vehicle']['start_time'] = date('H:i:s',$value['start_time']);
+                    $arrData['adorn_vehicle']['new_end_date'] = date('Y/m/d',$value['new_end_time']);
+    				$arrData['adorn_vehicle']['new_end_time'] = date('H:i:s',$value['new_end_time']);
     				$arrData['adorn_vehicle']['rent_per_day'] = $value['rent_per_day'];
     				$arrData['adorn_vehicle']['rent_days'] = $value['rent_days'];
-    				$arrData['adorn_vehicle']['status'] = '在租';
+                    $arrData['adorn_vehicle']['status'] = '在租';
+    				$arrData['adorn_vehicle']['isrent'] = 1;
     			}
     		}
+            // 是否上月延租
+            if($arrData['adorn_vehicle']['isrent'] == 0){
+                $order_Model = \common\models\Pro_vehicle_order::find();
+                $order_Model->where(['<','start_time',$beginThismonth]);
+                $order_Model->andWhere(['>','new_end_time',$beginThismonth]);
+                $order_Model->andWhere(['=','status','10']);
+                $order = $order_Model->asArray()->one();
+                if($order){
+                    $arrData['adorn_vehicle']['isrent'] = 1;//在租
+                    $office = $officeModel->where(['id'=>$order['office_id_rent']])->one();
+                    $arrData['adorn_vehicle']['office_id_rent'] = $office->fullname;
+                    $arrData['adorn_vehicle']['address'] = $office->address;
+                    $arrData['adorn_vehicle']['start_date'] = date('Y/m/d',$order['start_time']);
+                    $arrData['adorn_vehicle']['start_time'] = date('H:i:s',$order['start_time']);
+                    $arrData['adorn_vehicle']['new_end_date'] = date('Y/m/d',$order['new_end_time']);
+                    $arrData['adorn_vehicle']['new_end_time'] = date('H:i:s',$order['new_end_time']);
+                    $arrData['adorn_vehicle']['rent_per_day'] = $order['rent_per_day'];
+                    $arrData['adorn_vehicle']['rent_days'] = $order['rent_days'];
+                    $arrData['adorn_vehicle']['status'] = '上月续租租';
+
+                    if($order['new_end_time']>$endThismonth){
+                        $days = date('t');
+                        $arrData['adorn_vehicle']['all_rent_days'] += $days;
+                        $arrData['adorn_vehicle']['all_total_amount'] += ($order['rent_per_day'] * $days);
+                        $arrData['adorn_vehicle']['count']++;
+                    }else{
+                        $days = date('d',$order['new_end_time']);
+                        $arrData['adorn_vehicle']['all_rent_days'] += $days;
+                        $arrData['adorn_vehicle']['all_total_amount'] += ($order['rent_per_day'] * $days);
+                        $arrData['adorn_vehicle']['count']++;
+
+                    }
+
+                }
+            }
 
         }while (0);
         echo json_encode($arrData);
