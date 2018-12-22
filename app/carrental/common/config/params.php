@@ -11,6 +11,7 @@ return [
     'mob.sms.appkey' => '1408a2894205a',    // mob 短信验证码 appKey
     'mob.sms.enabled' => true,
     'mob.sms.sendmsgurl' => 'https://webapi.sms.mob.com/sms/sendmsg',//PC端发送手机验证码接口
+    'mob.sms.verify' => 'https://webapi.sms.mob.com/sms/verify',//PC端发送手机验证码验证接口
     'mob.sms.sendurl' => 'https://webapi.sms.mob.com/custom/msg',
     'mob.identity.appkey' => '1408869dde09b',    // mob 身份证验证 appKey
     'mob.identify.enabled' => true,
@@ -104,4 +105,9 @@ Eukw1b5PibWWgwDPW4z83h5wGctZa0LycexSg6AB8CBY
         'notify_url' => 'https://www.yikazc.com/app/carrental/frontend/web/index.php/wxapppayment/notify_url',
     ),
     'AppSecret'=>'e91cbfc01e5006f1eece32c0c514030d',//小程序设置秘钥
+    // 汽车在线appkey和账号account
+    'pageApi' =>array(
+        'appkey'  => '68f7e5358c1773e5cfe37ade7b82e4d5',
+        'account' => '金华易卡租车',
+    ),
 ];

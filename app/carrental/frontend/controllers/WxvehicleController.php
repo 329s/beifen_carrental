@@ -97,6 +97,7 @@ class WxvehicleController extends \yii\web\Controller
                 $order_Model->where(['<','start_time',$beginThismonth]);
                 $order_Model->andWhere(['>','new_end_time',$beginThismonth]);
                 $order_Model->andWhere(['=','status','10']);
+                $order_Model->andWhere(['=','vehicle_id',$arrVehicleObjects['id']]);
                 $order = $order_Model->asArray()->one();
                 if($order){
                     $arrData['adorn_vehicle']['isrent'] = 1;//在租
@@ -109,7 +110,7 @@ class WxvehicleController extends \yii\web\Controller
                     $arrData['adorn_vehicle']['new_end_time'] = date('H:i:s',$order['new_end_time']);
                     $arrData['adorn_vehicle']['rent_per_day'] = $order['rent_per_day'];
                     $arrData['adorn_vehicle']['rent_days'] = $order['rent_days'];
-                    $arrData['adorn_vehicle']['status'] = '上月续租租';
+                    $arrData['adorn_vehicle']['status'] = '上月续租';
 
                     if($order['new_end_time']>$endThismonth){
                         $days = date('t');
@@ -126,6 +127,10 @@ class WxvehicleController extends \yii\web\Controller
 
                 }
             }
+
+            $pageApiParams = $this->getUrl($arrVehicleObjects['locator_device']);
+            $arrData['adorn_vehicle']['url_is_null'] = $pageApiParams['url_is_null'];
+            $arrData['adorn_vehicle']['url'] = $pageApiParams['url'];
 
         }while (0);
         echo json_encode($arrData);
@@ -153,4 +158,76 @@ class WxvehicleController extends \yii\web\Controller
     	$data['stop_office_id'] = $params['fullname'];
     	return $data;
     }
+
+
+    /*根据手机号码和验证码来查询车辆*/
+    public function actionGet_vehicles(){
+        $arrData = ['result' => \frontend\components\ApiModule::CODE_SUCCESS, 'desc' => \Yii::t('locale', 'Success')];//0,成功
+        do{
+            // $mobile = \Yii::$app->request->post('mobile');
+            // $code = \Yii::$app->request->post('code');
+            $params = \Yii::$app->request->post();
+            $requiredFields = ['mobile', 'code'];
+            foreach ($requiredFields as $k) {
+                if (!isset($params[$k])) {
+                    $arrData['result'] = \frontend\components\ApiModule::CODE_INVALID_PACKAGE;
+                    $arrData['desc'] = \Yii::t('locale', 'Missing required parameter!');
+                    break;
+                }
+            }
+            if ($arrData['result'] != \frontend\components\ApiModule::CODE_SUCCESS) {
+                break;
+            }
+
+            $mobile = $params['mobile'];
+            $code = $params['code'];
+            $zone = (isset($params['zone']) ? $params['zone'] : '86');
+            $verifyResult = \common\components\UserModule::verifyUserPhoneSmsCode($mobile, $code, $zone);
+            if (!$verifyResult[0]) {
+                $arrData['result'] = \frontend\components\ApiModule::CODE_PHONE_CODE_INVALID;
+                $arrData['desc'] = $verifyResult[1];
+                break;
+            }
+            // 查询车辆
+            $vehicleModel = \common\models\Pro_vehicle::find();
+            $vehicleModel->select('id,plate_number,mobile');
+            $vehicleModel->where(['=','mobile',$mobile]);
+            $vehicles = $vehicleModel->asArray()->all();
+            if($vehicles){
+                $arrData['vehicles'] = $vehicles;
+            }else{
+                $arrData['result'] = \frontend\components\ApiModule::CODE_ERROR;
+                $arrData['desc'] = '没有车辆记录';
+                break;
+            }
+
+        }while(0);
+        echo json_encode($arrData);
+    }
+
+    /**
+    *@desc 汽车在线跟踪url拼接
+    */
+    public function getUrl($locator_device=''){
+        if(empty($locator_device)){
+            $arrData['url'] = '';
+            $arrData['url_is_null'] = '1';
+            return $arrData;
+        }else{
+            //$url = 'http://pageapi.gpsoo.net/third?method=jump&appkey=dbd77ada93ca392d9f2712d6f2beb6ca&account=aaa&page=tracking&target=252411111122222';
+            $pageApiParams = \Yii::$app->params['pageApi'];
+            $arrData['url_is_null'] = '0';
+            $url = 'http://pageapi.gpsoo.net/third?method=jump&appkey='.$pageApiParams['appkey'].'&account='.$pageApiParams['account'].'&page=tracking&target='.$locator_device;
+            $arrData['url'] = $url;
+            return $arrData;
+        }
+
+
+    }
+
+
+
+
+
+
 }

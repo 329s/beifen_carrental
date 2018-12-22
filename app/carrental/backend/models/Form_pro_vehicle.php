@@ -12,6 +12,8 @@ class Form_pro_vehicle extends \common\helpers\ActiveFormModel
     public $model_id;
     public $status;
     public $isoneway;
+    public $mobile;
+    public $locator_device;
     public $engine_number;
     public $vehicle_number;
     public $certificate_number;

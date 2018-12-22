@@ -42,6 +42,7 @@ use Yii;
  * @property integer $edit_user_id
  * @property integer $created_at
  * @property integer $updated_at
+ * @property integer $mobile
  */
 class Pro_vehicle extends \common\helpers\ActiveRecordModel
 {
@@ -147,7 +148,9 @@ class Pro_vehicle extends \common\helpers\ActiveRecordModel
             
             'left_upkeep_mileage' => Yii::t('carrental', 'Left upkeep mileage'),
             'left_upkeep_time' => Yii::t('carrental', 'Left upkeep time'),
-			'inquiryCount'=> Yii::t('locale', 'Inquiry count'),
+            'inquiryCount'=> Yii::t('locale', 'Inquiry count'),
+            'mobile'=> Yii::t('locale', 'Mobile'),
+			'locator_device'=> Yii::t('locale', 'Locator'),
         );
     }
     
@@ -164,6 +167,8 @@ class Pro_vehicle extends \common\helpers\ActiveRecordModel
             'model_id' => array('width' => 120, 'sortable' => 'true'),
             'status' => array('width' => 60, 'sortable' => 'true'),
             'isoneway' => array('width' => 60, 'sortable' => 'true'),
+            'mobile' => array('width' => 60, 'sortable' => 'true'),
+            'locator_device' => array('width' => 60, 'sortable' => 'true'),
             'engine_number' => array('width' => 100),
             'vehicle_number' => array('width' => 150),
             'certificate_number' => array('width' => 100),

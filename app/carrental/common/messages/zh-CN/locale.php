@@ -902,5 +902,7 @@ return [
   'New belong office' => '新所属门店',
   'Vehicle name' => '车辆',
   'Vehicle office change updated_at' => '更新时间',
-  'ABC'    => '农行扫码付'
+  'ABC'    => '农行扫码付',
+  'Mobile' => '挂靠车辆电话',
+  'Locator' => '汽车在线设备号',
 ];
