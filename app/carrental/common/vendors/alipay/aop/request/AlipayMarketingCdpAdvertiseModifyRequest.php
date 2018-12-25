@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-01 15:33:20
  */
 class AlipayMarketingCdpAdvertiseModifyRequest
-{
-	/** 
-	 * 提供给ISV、开发者修改广告的接口，修改广告后投放渠道包括钱包APP，聚牛APP等，投放支持的APP应用
-	 **/
+{
+	/** 
+	 * 提供给ISV、开发者修改广告的接口，修改广告后投放渠道包括钱包APP，聚牛APP等，投放支持的APP应用
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingCdpAdvertiseModifyRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

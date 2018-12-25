@@ -345,7 +345,7 @@ class PorderController extends \common\helpers\AuthorityController
         $params['price_type']="3";//
         $params['return_sid']="20";
         $params['ser_list']="1|2|12";
-        $params['sid']="69";
+        $params['sid']="20";
         // $params['time']=time();
         $params['sign']="b9498845af575b96f9a9c7effdf48207";
         $params['address_take_car']="兰溪市汽车西站";

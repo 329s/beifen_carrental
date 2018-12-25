@@ -6,10 +6,10 @@
  * @since 1.0, 2016-03-30 10:16:33
  */
 class ZhimaMerchantTestPracticeRequest
-{
-	/** 
-	 * asd
-	 **/
+{
+	/** 
+	 * asd
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class ZhimaMerchantTestPracticeRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

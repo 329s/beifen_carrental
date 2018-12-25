@@ -6,10 +6,10 @@
  * @since 1.0, 2016-07-07 13:14:52
  */
 class AlipayCommerceCityfacilitatorVoucherConfirmRequest
-{
-	/** 
-	 * 钱包中地铁票购票，获得核销码，线下地铁自助购票机上凭核销码取票,购票确认
-	 **/
+{
+	/** 
+	 * 钱包中地铁票购票，获得核销码，线下地铁自助购票机上凭核销码取票,购票确认
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayCommerceCityfacilitatorVoucherConfirmRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

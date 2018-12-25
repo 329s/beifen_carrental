@@ -6,10 +6,10 @@
  * @since 1.0, 2017-01-16 11:30:46
  */
 class AlipayDaoweiOrderRefuseRequest
-{
-	/** 
-	 * 到位的单笔订单拒绝接口
-	 **/
+{
+	/** 
+	 * 到位的单笔订单拒绝接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayDaoweiOrderRefuseRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

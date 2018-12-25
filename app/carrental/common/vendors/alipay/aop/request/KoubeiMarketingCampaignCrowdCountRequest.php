@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-07 17:14:41
  */
 class KoubeiMarketingCampaignCrowdCountRequest
-{
-	/** 
-	 * 口碑商户人群组数目统计接口
-	 **/
+{
+	/** 
+	 * 口碑商户人群组数目统计接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class KoubeiMarketingCampaignCrowdCountRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

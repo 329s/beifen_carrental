@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-07 18:38:50
  */
 class AlipayAssetPointOrderCreateRequest
-{
-	/** 
-	 * 商户在采购完集分宝后可以通过此接口发放集分宝
-	 **/
+{
+	/** 
+	 * 商户在采购完集分宝后可以通过此接口发放集分宝
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayAssetPointOrderCreateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

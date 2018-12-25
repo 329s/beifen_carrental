@@ -6,35 +6,35 @@
  * @since 1.0, 2016-12-19 20:52:29
  */
 class AlipayMobilePublicAccountAddRequest
-{
-	/** 
-	 * 协议号
-	 **/
-	private $agreementId;
-	
-	/** 
-	 * 绑定账户
-	 **/
-	private $bindAccountNo;
-	
-	/** 
-	 * json
-	 **/
-	private $bizContent;
-	
-	/** 
-	 * 绑定账户的名
-	 **/
-	private $displayName;
-	
-	/** 
-	 * 关注者标识
-	 **/
-	private $fromUserId;
-	
-	/** 
-	 * 绑定账户的用户名
-	 **/
+{
+	/** 
+	 * 协议号
+	 **/
+	private $agreementId;
+	
+	/** 
+	 * 绑定账户
+	 **/
+	private $bindAccountNo;
+	
+	/** 
+	 * json
+	 **/
+	private $bizContent;
+	
+	/** 
+	 * 绑定账户的名
+	 **/
+	private $displayName;
+	
+	/** 
+	 * 关注者标识
+	 **/
+	private $fromUserId;
+	
+	/** 
+	 * 绑定账户的用户名
+	 **/
 	private $realName;
 
 	private $apiParas = array();
@@ -46,71 +46,71 @@ class AlipayMobilePublicAccountAddRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setAgreementId($agreementId)
-	{
-		$this->agreementId = $agreementId;
-		$this->apiParas["agreement_id"] = $agreementId;
+	{
+		$this->agreementId = $agreementId;
+		$this->apiParas["agreement_id"] = $agreementId;
 	}
-
+
 	public function getAgreementId()
-	{
-		return $this->agreementId;
+	{
+		return $this->agreementId;
 	}
-
+
 	public function setBindAccountNo($bindAccountNo)
-	{
-		$this->bindAccountNo = $bindAccountNo;
-		$this->apiParas["bind_account_no"] = $bindAccountNo;
+	{
+		$this->bindAccountNo = $bindAccountNo;
+		$this->apiParas["bind_account_no"] = $bindAccountNo;
 	}
-
+
 	public function getBindAccountNo()
-	{
-		return $this->bindAccountNo;
+	{
+		return $this->bindAccountNo;
 	}
-
+
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
-
+
 	public function setDisplayName($displayName)
-	{
-		$this->displayName = $displayName;
-		$this->apiParas["display_name"] = $displayName;
+	{
+		$this->displayName = $displayName;
+		$this->apiParas["display_name"] = $displayName;
 	}
-
+
 	public function getDisplayName()
-	{
-		return $this->displayName;
+	{
+		return $this->displayName;
 	}
-
+
 	public function setFromUserId($fromUserId)
-	{
-		$this->fromUserId = $fromUserId;
-		$this->apiParas["from_user_id"] = $fromUserId;
+	{
+		$this->fromUserId = $fromUserId;
+		$this->apiParas["from_user_id"] = $fromUserId;
 	}
-
+
 	public function getFromUserId()
-	{
-		return $this->fromUserId;
+	{
+		return $this->fromUserId;
 	}
-
+
 	public function setRealName($realName)
-	{
-		$this->realName = $realName;
-		$this->apiParas["real_name"] = $realName;
+	{
+		$this->realName = $realName;
+		$this->apiParas["real_name"] = $realName;
 	}
-
+
 	public function getRealName()
-	{
-		return $this->realName;
+	{
+		return $this->realName;
 	}
 
 	public function getApiMethodName()

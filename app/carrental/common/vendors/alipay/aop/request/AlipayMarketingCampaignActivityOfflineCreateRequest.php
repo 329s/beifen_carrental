@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-07 18:22:19
  */
 class AlipayMarketingCampaignActivityOfflineCreateRequest
-{
-	/** 
-	 * 能够创商户建领券活动,后续支持
-	 **/
+{
+	/** 
+	 * 能够创商户建领券活动,后续支持
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingCampaignActivityOfflineCreateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

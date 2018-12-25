@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-01 15:34:47
  */
 class AlipayMarketingCdpRecommendQueryRequest
-{
-	/** 
-	 * 外部应用根据用户当前地理位置查询附近商家信息
-	 **/
+{
+	/** 
+	 * 外部应用根据用户当前地理位置查询附近商家信息
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingCdpRecommendQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

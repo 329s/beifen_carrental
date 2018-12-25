@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-07 20:25:33
  */
 class AlipayMobilePublicTemplateMessageDeleteRequest
-{
-	/** 
-	 * 模板id
-	 **/
+{
+	/** 
+	 * 模板id
+	 **/
 	private $templateId;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMobilePublicTemplateMessageDeleteRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setTemplateId($templateId)
-	{
-		$this->templateId = $templateId;
-		$this->apiParas["template_id"] = $templateId;
+	{
+		$this->templateId = $templateId;
+		$this->apiParas["template_id"] = $templateId;
 	}
-
+
 	public function getTemplateId()
-	{
-		return $this->templateId;
+	{
+		return $this->templateId;
 	}
 
 	public function getApiMethodName()

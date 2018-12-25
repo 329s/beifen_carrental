@@ -6,39 +6,39 @@
  * @since 1.0, 2014-10-22 15:46:40
  */
 class AlipayOperatorMobileBindRequest
-{
-	/** 
-	 * 标识该运营商是否需要验证用户的手机号绑定过快捷卡
-1：需要
-0：不需要
-	 **/
-	private $checkSigncard;
-	
-	/** 
-	 * 支付宝处理完请求后，如验证失败，当前页面自动跳转到商户网站里指定页面的http路径。
-	 **/
-	private $fReturnUrl;
-	
-	/** 
-	 * 标识该运营商是否提供了查询手机归属的spi接口。
-1：提供了
-0：没提供
-	 **/
-	private $hasSpi;
-	
-	/** 
-	 * 标识该运营商名称
-	 **/
-	private $operatorName;
-	
-	/** 
-	 * 标识该运营商所在省份
-	 **/
-	private $provinceName;
-	
-	/** 
-	 * 支付宝处理完请求后，如验证成功，当前页面自动跳转到商户网站里指定页面的http路径。
-	 **/
+{
+	/** 
+	 * 标识该运营商是否需要验证用户的手机号绑定过快捷卡
+1：需要
+0：不需要
+	 **/
+	private $checkSigncard;
+	
+	/** 
+	 * 支付宝处理完请求后，如验证失败，当前页面自动跳转到商户网站里指定页面的http路径。
+	 **/
+	private $fReturnUrl;
+	
+	/** 
+	 * 标识该运营商是否提供了查询手机归属的spi接口。
+1：提供了
+0：没提供
+	 **/
+	private $hasSpi;
+	
+	/** 
+	 * 标识该运营商名称
+	 **/
+	private $operatorName;
+	
+	/** 
+	 * 标识该运营商所在省份
+	 **/
+	private $provinceName;
+	
+	/** 
+	 * 支付宝处理完请求后，如验证成功，当前页面自动跳转到商户网站里指定页面的http路径。
+	 **/
 	private $sReturnUrl;
 
 	private $apiParas = array();
@@ -50,71 +50,71 @@ class AlipayOperatorMobileBindRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setCheckSigncard($checkSigncard)
-	{
-		$this->checkSigncard = $checkSigncard;
-		$this->apiParas["check_signcard"] = $checkSigncard;
+	{
+		$this->checkSigncard = $checkSigncard;
+		$this->apiParas["check_signcard"] = $checkSigncard;
 	}
-
+
 	public function getCheckSigncard()
-	{
-		return $this->checkSigncard;
+	{
+		return $this->checkSigncard;
 	}
-
+
 	public function setfReturnUrl($fReturnUrl)
-	{
-		$this->fReturnUrl = $fReturnUrl;
-		$this->apiParas["f_return_url"] = $fReturnUrl;
+	{
+		$this->fReturnUrl = $fReturnUrl;
+		$this->apiParas["f_return_url"] = $fReturnUrl;
 	}
-
+
 	public function getfReturnUrl()
-	{
-		return $this->fReturnUrl;
+	{
+		return $this->fReturnUrl;
 	}
-
+
 	public function setHasSpi($hasSpi)
-	{
-		$this->hasSpi = $hasSpi;
-		$this->apiParas["has_spi"] = $hasSpi;
+	{
+		$this->hasSpi = $hasSpi;
+		$this->apiParas["has_spi"] = $hasSpi;
 	}
-
+
 	public function getHasSpi()
-	{
-		return $this->hasSpi;
+	{
+		return $this->hasSpi;
 	}
-
+
 	public function setOperatorName($operatorName)
-	{
-		$this->operatorName = $operatorName;
-		$this->apiParas["operator_name"] = $operatorName;
+	{
+		$this->operatorName = $operatorName;
+		$this->apiParas["operator_name"] = $operatorName;
 	}
-
+
 	public function getOperatorName()
-	{
-		return $this->operatorName;
+	{
+		return $this->operatorName;
 	}
-
+
 	public function setProvinceName($provinceName)
-	{
-		$this->provinceName = $provinceName;
-		$this->apiParas["province_name"] = $provinceName;
+	{
+		$this->provinceName = $provinceName;
+		$this->apiParas["province_name"] = $provinceName;
 	}
-
+
 	public function getProvinceName()
-	{
-		return $this->provinceName;
+	{
+		return $this->provinceName;
 	}
-
+
 	public function setsReturnUrl($sReturnUrl)
-	{
-		$this->sReturnUrl = $sReturnUrl;
-		$this->apiParas["s_return_url"] = $sReturnUrl;
+	{
+		$this->sReturnUrl = $sReturnUrl;
+		$this->apiParas["s_return_url"] = $sReturnUrl;
 	}
-
+
 	public function getsReturnUrl()
-	{
-		return $this->sReturnUrl;
+	{
+		return $this->sReturnUrl;
 	}
 
 	public function getApiMethodName()

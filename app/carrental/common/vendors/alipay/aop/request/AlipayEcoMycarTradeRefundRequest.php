@@ -6,10 +6,10 @@
  * @since 1.0, 2016-06-14 15:11:20
  */
 class AlipayEcoMycarTradeRefundRequest
-{
-	/** 
-	 * 汽车超人退款节接口
-	 **/
+{
+	/** 
+	 * 汽车超人退款节接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayEcoMycarTradeRefundRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

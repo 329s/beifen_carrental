@@ -6,10 +6,10 @@
  * @since 1.0, 2016-01-04 10:45:37
  */
 class AlipayMobilePublicAccountDeleteRequest
-{
-	/** 
-	 * 协议号等相关参数
-	 **/
+{
+	/** 
+	 * 协议号等相关参数
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMobilePublicAccountDeleteRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

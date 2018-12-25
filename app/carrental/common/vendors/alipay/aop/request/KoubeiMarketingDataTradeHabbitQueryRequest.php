@@ -6,10 +6,10 @@
  * @since 1.0, 2016-11-25 10:43:58
  */
 class KoubeiMarketingDataTradeHabbitQueryRequest
-{
-	/** 
-	 * 商户会员交易习惯查询接口
-	 **/
+{
+	/** 
+	 * 商户会员交易习惯查询接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class KoubeiMarketingDataTradeHabbitQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

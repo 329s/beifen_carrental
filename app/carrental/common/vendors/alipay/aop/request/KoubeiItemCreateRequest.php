@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-04 13:39:21
  */
 class KoubeiItemCreateRequest
-{
-	/** 
-	 * 口碑商品创建接口
-	 **/
+{
+	/** 
+	 * 口碑商品创建接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class KoubeiItemCreateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

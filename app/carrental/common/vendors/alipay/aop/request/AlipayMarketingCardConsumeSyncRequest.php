@@ -6,10 +6,10 @@
  * @since 1.0, 2016-10-18 15:46:55
  */
 class AlipayMarketingCardConsumeSyncRequest
-{
-	/** 
-	 * 会员卡消费记录同步
-	 **/
+{
+	/** 
+	 * 会员卡消费记录同步
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingCardConsumeSyncRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

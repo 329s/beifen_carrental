@@ -6,10 +6,10 @@
  * @since 1.0, 2016-03-18 20:58:13
  */
 class AlipayDataDataexchangeSfasdfRequest
-{
-	/** 
-	 * 1232456374
-	 **/
+{
+	/** 
+	 * 1232456374
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayDataDataexchangeSfasdfRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

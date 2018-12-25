@@ -6,10 +6,10 @@
  * @since 1.0, 2016-11-30 14:31:02
  */
 class AlipayEbppPdeductSignValidateRequest
-{
-	/** 
-	 * 缴费直连代扣签约前置校验
-	 **/
+{
+	/** 
+	 * 缴费直连代扣签约前置校验
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayEbppPdeductSignValidateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

@@ -6,10 +6,10 @@
  * @since 1.0, 2016-03-31 21:02:46
  */
 class AlipayMobilePublicAccountQueryRequest
-{
-	/** 
-	 * 业务信息：userId，这是个json字段
-	 **/
+{
+	/** 
+	 * 业务信息：userId，这是个json字段
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMobilePublicAccountQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

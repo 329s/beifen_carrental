@@ -6,10 +6,10 @@
  * @since 1.0, 2017-03-24 11:24:31
  */
 class AlipayEcoCplifeRoominfoQueryRequest
-{
-	/** 
-	 * 商户根据需要调用该接口查询小区房屋信息列表。
-	 **/
+{
+	/** 
+	 * 商户根据需要调用该接口查询小区房屋信息列表。
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayEcoCplifeRoominfoQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

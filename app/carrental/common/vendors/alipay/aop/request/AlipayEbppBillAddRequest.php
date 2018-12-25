@@ -6,75 +6,75 @@
  * @since 1.0, 2017-04-07 16:46:59
  */
 class AlipayEbppBillAddRequest
-{
-	/** 
-	 * 外部订单号
-	 **/
-	private $bankBillNo;
-	
-	/** 
-	 * 账单的账期，例如201203表示2012年3月的账单。
-	 **/
-	private $billDate;
-	
-	/** 
-	 * 账单单据号，例如水费单号，手机号，电费号，信用卡卡号。没有唯一性要求。
-	 **/
-	private $billKey;
-	
-	/** 
-	 * 支付宝给每个出账机构指定了一个对应的英文短名称来唯一表示该收费单位。
-	 **/
-	private $chargeInst;
-	
-	/** 
-	 * 扩展属性
-	 **/
-	private $extendField;
-	
-	/** 
-	 * 输出机构的业务流水号，需要保证唯一性
-	 **/
-	private $merchantOrderNo;
-	
-	/** 
-	 * 用户的手机号
-	 **/
-	private $mobile;
-	
-	/** 
-	 * 支付宝订单类型。公共事业缴纳JF,信用卡还款HK
-	 **/
-	private $orderType;
-	
-	/** 
-	 * 拥有该账单的用户姓名
-	 **/
-	private $ownerName;
-	
-	/** 
-	 * 缴费金额。用户支付的总金额。单位为：RMB Yuan。取值范围为[0.01，100000000.00]，精确到小数点后两位。
-	 **/
-	private $payAmount;
-	
-	/** 
-	 * 账单的服务费。
-	 **/
-	private $serviceAmount;
-	
-	/** 
-	 * 子业务类型是业务类型的下一级概念，例如：WATER表示JF下面的水费，ELECTRIC表示JF下面的电费，GAS表示JF下面的燃气费。
-	 **/
-	private $subOrderType;
-	
-	/** 
-	 * 交通违章地点，sub_order_type=TRAFFIC时填写。
-	 **/
-	private $trafficLocation;
-	
-	/** 
-	 * 违章行为，sub_order_type=TRAFFIC时填写。
-	 **/
+{
+	/** 
+	 * 外部订单号
+	 **/
+	private $bankBillNo;
+	
+	/** 
+	 * 账单的账期，例如201203表示2012年3月的账单。
+	 **/
+	private $billDate;
+	
+	/** 
+	 * 账单单据号，例如水费单号，手机号，电费号，信用卡卡号。没有唯一性要求。
+	 **/
+	private $billKey;
+	
+	/** 
+	 * 支付宝给每个出账机构指定了一个对应的英文短名称来唯一表示该收费单位。
+	 **/
+	private $chargeInst;
+	
+	/** 
+	 * 扩展属性
+	 **/
+	private $extendField;
+	
+	/** 
+	 * 输出机构的业务流水号，需要保证唯一性
+	 **/
+	private $merchantOrderNo;
+	
+	/** 
+	 * 用户的手机号
+	 **/
+	private $mobile;
+	
+	/** 
+	 * 支付宝订单类型。公共事业缴纳JF,信用卡还款HK
+	 **/
+	private $orderType;
+	
+	/** 
+	 * 拥有该账单的用户姓名
+	 **/
+	private $ownerName;
+	
+	/** 
+	 * 缴费金额。用户支付的总金额。单位为：RMB Yuan。取值范围为[0.01，100000000.00]，精确到小数点后两位。
+	 **/
+	private $payAmount;
+	
+	/** 
+	 * 账单的服务费。
+	 **/
+	private $serviceAmount;
+	
+	/** 
+	 * 子业务类型是业务类型的下一级概念，例如：WATER表示JF下面的水费，ELECTRIC表示JF下面的电费，GAS表示JF下面的燃气费。
+	 **/
+	private $subOrderType;
+	
+	/** 
+	 * 交通违章地点，sub_order_type=TRAFFIC时填写。
+	 **/
+	private $trafficLocation;
+	
+	/** 
+	 * 违章行为，sub_order_type=TRAFFIC时填写。
+	 **/
 	private $trafficRegulations;
 
 	private $apiParas = array();
@@ -86,159 +86,159 @@ class AlipayEbppBillAddRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBankBillNo($bankBillNo)
-	{
-		$this->bankBillNo = $bankBillNo;
-		$this->apiParas["bank_bill_no"] = $bankBillNo;
+	{
+		$this->bankBillNo = $bankBillNo;
+		$this->apiParas["bank_bill_no"] = $bankBillNo;
 	}
-
+
 	public function getBankBillNo()
-	{
-		return $this->bankBillNo;
+	{
+		return $this->bankBillNo;
 	}
-
+
 	public function setBillDate($billDate)
-	{
-		$this->billDate = $billDate;
-		$this->apiParas["bill_date"] = $billDate;
+	{
+		$this->billDate = $billDate;
+		$this->apiParas["bill_date"] = $billDate;
 	}
-
+
 	public function getBillDate()
-	{
-		return $this->billDate;
+	{
+		return $this->billDate;
 	}
-
+
 	public function setBillKey($billKey)
-	{
-		$this->billKey = $billKey;
-		$this->apiParas["bill_key"] = $billKey;
+	{
+		$this->billKey = $billKey;
+		$this->apiParas["bill_key"] = $billKey;
 	}
-
+
 	public function getBillKey()
-	{
-		return $this->billKey;
+	{
+		return $this->billKey;
 	}
-
+
 	public function setChargeInst($chargeInst)
-	{
-		$this->chargeInst = $chargeInst;
-		$this->apiParas["charge_inst"] = $chargeInst;
+	{
+		$this->chargeInst = $chargeInst;
+		$this->apiParas["charge_inst"] = $chargeInst;
 	}
-
+
 	public function getChargeInst()
-	{
-		return $this->chargeInst;
+	{
+		return $this->chargeInst;
 	}
-
+
 	public function setExtendField($extendField)
-	{
-		$this->extendField = $extendField;
-		$this->apiParas["extend_field"] = $extendField;
+	{
+		$this->extendField = $extendField;
+		$this->apiParas["extend_field"] = $extendField;
 	}
-
+
 	public function getExtendField()
-	{
-		return $this->extendField;
+	{
+		return $this->extendField;
 	}
-
+
 	public function setMerchantOrderNo($merchantOrderNo)
-	{
-		$this->merchantOrderNo = $merchantOrderNo;
-		$this->apiParas["merchant_order_no"] = $merchantOrderNo;
+	{
+		$this->merchantOrderNo = $merchantOrderNo;
+		$this->apiParas["merchant_order_no"] = $merchantOrderNo;
 	}
-
+
 	public function getMerchantOrderNo()
-	{
-		return $this->merchantOrderNo;
+	{
+		return $this->merchantOrderNo;
 	}
-
+
 	public function setMobile($mobile)
-	{
-		$this->mobile = $mobile;
-		$this->apiParas["mobile"] = $mobile;
+	{
+		$this->mobile = $mobile;
+		$this->apiParas["mobile"] = $mobile;
 	}
-
+
 	public function getMobile()
-	{
-		return $this->mobile;
+	{
+		return $this->mobile;
 	}
-
+
 	public function setOrderType($orderType)
-	{
-		$this->orderType = $orderType;
-		$this->apiParas["order_type"] = $orderType;
+	{
+		$this->orderType = $orderType;
+		$this->apiParas["order_type"] = $orderType;
 	}
-
+
 	public function getOrderType()
-	{
-		return $this->orderType;
+	{
+		return $this->orderType;
 	}
-
+
 	public function setOwnerName($ownerName)
-	{
-		$this->ownerName = $ownerName;
-		$this->apiParas["owner_name"] = $ownerName;
+	{
+		$this->ownerName = $ownerName;
+		$this->apiParas["owner_name"] = $ownerName;
 	}
-
+
 	public function getOwnerName()
-	{
-		return $this->ownerName;
+	{
+		return $this->ownerName;
 	}
-
+
 	public function setPayAmount($payAmount)
-	{
-		$this->payAmount = $payAmount;
-		$this->apiParas["pay_amount"] = $payAmount;
+	{
+		$this->payAmount = $payAmount;
+		$this->apiParas["pay_amount"] = $payAmount;
 	}
-
+
 	public function getPayAmount()
-	{
-		return $this->payAmount;
+	{
+		return $this->payAmount;
 	}
-
+
 	public function setServiceAmount($serviceAmount)
-	{
-		$this->serviceAmount = $serviceAmount;
-		$this->apiParas["service_amount"] = $serviceAmount;
+	{
+		$this->serviceAmount = $serviceAmount;
+		$this->apiParas["service_amount"] = $serviceAmount;
 	}
-
+
 	public function getServiceAmount()
-	{
-		return $this->serviceAmount;
+	{
+		return $this->serviceAmount;
 	}
-
+
 	public function setSubOrderType($subOrderType)
-	{
-		$this->subOrderType = $subOrderType;
-		$this->apiParas["sub_order_type"] = $subOrderType;
+	{
+		$this->subOrderType = $subOrderType;
+		$this->apiParas["sub_order_type"] = $subOrderType;
 	}
-
+
 	public function getSubOrderType()
-	{
-		return $this->subOrderType;
+	{
+		return $this->subOrderType;
 	}
-
+
 	public function setTrafficLocation($trafficLocation)
-	{
-		$this->trafficLocation = $trafficLocation;
-		$this->apiParas["traffic_location"] = $trafficLocation;
+	{
+		$this->trafficLocation = $trafficLocation;
+		$this->apiParas["traffic_location"] = $trafficLocation;
 	}
-
+
 	public function getTrafficLocation()
-	{
-		return $this->trafficLocation;
+	{
+		return $this->trafficLocation;
 	}
-
+
 	public function setTrafficRegulations($trafficRegulations)
-	{
-		$this->trafficRegulations = $trafficRegulations;
-		$this->apiParas["traffic_regulations"] = $trafficRegulations;
+	{
+		$this->trafficRegulations = $trafficRegulations;
+		$this->apiParas["traffic_regulations"] = $trafficRegulations;
 	}
-
+
 	public function getTrafficRegulations()
-	{
-		return $this->trafficRegulations;
+	{
+		return $this->trafficRegulations;
 	}
 
 	public function getApiMethodName()

@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-07 20:39:23
  */
 class AlipayMobilePublicStdMockListsmlistApiRequest
-{
-	/** 
-	 * JSON
-	 **/
+{
+	/** 
+	 * JSON
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMobilePublicStdMockListsmlistApiRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

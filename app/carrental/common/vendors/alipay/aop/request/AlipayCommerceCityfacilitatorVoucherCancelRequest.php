@@ -6,10 +6,10 @@
  * @since 1.0, 2016-04-28 14:25:54
  */
 class AlipayCommerceCityfacilitatorVoucherCancelRequest
-{
-	/** 
-	 * 钱包中地铁票购票，获得核销码，线下渠道商凭核销码撤销该笔交易
-	 **/
+{
+	/** 
+	 * 钱包中地铁票购票，获得核销码，线下渠道商凭核销码撤销该笔交易
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayCommerceCityfacilitatorVoucherCancelRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

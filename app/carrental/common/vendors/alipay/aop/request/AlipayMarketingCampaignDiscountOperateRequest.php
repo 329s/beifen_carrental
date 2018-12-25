@@ -6,10 +6,10 @@
  * @since 1.0, 2017-03-03 16:48:01
  */
 class AlipayMarketingCampaignDiscountOperateRequest
-{
-	/** 
-	 * 支付宝营销优惠立减活动操作
-	 **/
+{
+	/** 
+	 * 支付宝营销优惠立减活动操作
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingCampaignDiscountOperateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

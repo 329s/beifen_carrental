@@ -6,10 +6,10 @@
  * @since 1.0, 2016-11-02 19:53:47
  */
 class AlipayEcoWelfareCodeSyncRequest
-{
-	/** 
-	 * 福利平台用户订单外部核销接口
-	 **/
+{
+	/** 
+	 * 福利平台用户订单外部核销接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayEcoWelfareCodeSyncRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

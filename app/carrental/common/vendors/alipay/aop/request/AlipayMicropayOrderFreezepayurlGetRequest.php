@@ -6,10 +6,10 @@
  * @since 1.0, 2016-06-06 17:52:18
  */
 class AlipayMicropayOrderFreezepayurlGetRequest
-{
-	/** 
-	 * 冻结订单号,创建冻结订单时支付宝返回的
-	 **/
+{
+	/** 
+	 * 冻结订单号,创建冻结订单时支付宝返回的
+	 **/
 	private $alipayOrderNo;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMicropayOrderFreezepayurlGetRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setAlipayOrderNo($alipayOrderNo)
-	{
-		$this->alipayOrderNo = $alipayOrderNo;
-		$this->apiParas["alipay_order_no"] = $alipayOrderNo;
+	{
+		$this->alipayOrderNo = $alipayOrderNo;
+		$this->apiParas["alipay_order_no"] = $alipayOrderNo;
 	}
-
+
 	public function getAlipayOrderNo()
-	{
-		return $this->alipayOrderNo;
+	{
+		return $this->alipayOrderNo;
 	}
 
 	public function getApiMethodName()

@@ -6,10 +6,10 @@
  * @since 1.0, 2016-12-22 15:57:50
  */
 class AlipayEcoMycarParkingOrderUpdateRequest
-{
-	/** 
-	 * 订单更新接口
-	 **/
+{
+	/** 
+	 * 订单更新接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayEcoMycarParkingOrderUpdateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

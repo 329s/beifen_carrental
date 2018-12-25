@@ -6,10 +6,10 @@
  * @since 1.0, 2017-01-10 16:08:28
  */
 class ZhimaCustomerCertificationQueryRequest
-{
-	/** 
-	 * 芝麻认证查询
-	 **/
+{
+	/** 
+	 * 芝麻认证查询
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class ZhimaCustomerCertificationQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

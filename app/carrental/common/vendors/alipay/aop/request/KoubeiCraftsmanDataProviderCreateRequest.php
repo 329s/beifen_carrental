@@ -6,10 +6,10 @@
  * @since 1.0, 2017-01-13 16:26:55
  */
 class KoubeiCraftsmanDataProviderCreateRequest
-{
-	/** 
-	 * 手艺人创建
-	 **/
+{
+	/** 
+	 * 手艺人创建
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class KoubeiCraftsmanDataProviderCreateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

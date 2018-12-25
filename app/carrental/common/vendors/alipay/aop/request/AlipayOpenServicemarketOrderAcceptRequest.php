@@ -6,10 +6,10 @@
  * @since 1.0, 2016-12-08 11:47:51
  */
 class AlipayOpenServicemarketOrderAcceptRequest
-{
-	/** 
-	 * 服务商接单操作
-	 **/
+{
+	/** 
+	 * 服务商接单操作
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOpenServicemarketOrderAcceptRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

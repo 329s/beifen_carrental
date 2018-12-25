@@ -157,6 +157,7 @@ class VehicleModule
             \common\models\Pro_vehicle::PROPERTY_BAUGHT => \Yii::t('locale', 'Self baught vehicle'),
             \common\models\Pro_vehicle::PROPERTY_AFFILIATE => \Yii::t('locale', 'Affiliate vehicle'),
             \common\models\Pro_vehicle::PROPERTY_TRUSTTEE => \Yii::t('locale', 'Trusttee vehicle'),
+            \common\models\Pro_vehicle::PROPERTY_CHEFENQI => \Yii::t('locale', 'Chefenqi vehicle'),
         ];
     }
     

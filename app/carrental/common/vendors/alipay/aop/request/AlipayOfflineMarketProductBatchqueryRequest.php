@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-07 17:46:07
  */
 class AlipayOfflineMarketProductBatchqueryRequest
-{
-	/** 
-	 * 通过该接口可以查询商户录入的所有商品编号
-	 **/
+{
+	/** 
+	 * 通过该接口可以查询商户录入的所有商品编号
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOfflineMarketProductBatchqueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

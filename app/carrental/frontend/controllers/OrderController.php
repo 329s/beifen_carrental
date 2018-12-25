@@ -39,7 +39,7 @@ class OrderController extends \common\helpers\AuthorityController {
         ];
     }
 
-    public function beforeAction1($action) {
+    public function beforeAction($action) {
         $preVerify = \common\components\SysmaintenanceService::verifyMaintenanceStatus($action);
         if (!$preVerify[0]) {
             echo json_encode(['result'=> \frontend\components\ApiModule::CODE_ON_MAINTENANCE, 'desc' => $preVerify[1]]);

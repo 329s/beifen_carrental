@@ -6,10 +6,10 @@
  * @since 1.0, 2016-06-17 15:05:08
  */
 class AlipaySecurityRiskHideDeviceidQueryRequest
-{
-	/** 
-	 * 设备指纹查询接口
-	 **/
+{
+	/** 
+	 * 设备指纹查询接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipaySecurityRiskHideDeviceidQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

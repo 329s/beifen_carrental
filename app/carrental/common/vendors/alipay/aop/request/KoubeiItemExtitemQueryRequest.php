@@ -6,10 +6,10 @@
  * @since 1.0, 2016-07-06 10:47:56
  */
 class KoubeiItemExtitemQueryRequest
-{
-	/** 
-	 * 单个商品查询接口
-	 **/
+{
+	/** 
+	 * 单个商品查询接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class KoubeiItemExtitemQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

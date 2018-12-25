@@ -16,7 +16,7 @@
 
 	<body>
 		<div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
-			<img class="img_first" src="https://www.yikazc.com/PC/ykzc_new/index/img/carShow1.png" alt="" />
+			<img class="img_first" src="http://www.yikazc.com/PC/ykzc_new/index/img/carShow1.png" alt="" />
 
 		</div>
 		<div id="capture" class="infos_box">
@@ -360,62 +360,68 @@
 		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 		<script src="js/min.js"></script>
 		<script>
-			function getCarList() {
-				if(sessionStorage.getItem('carList')) {
-					var carArr = sessionStorage.getItem('carList').split(',');
-					var car_html = '';
-					for(let i = 0; i < carArr.length; i++) {
-						car_html += `<option value="` + carArr[i] + `">` + carArr[i] + `</option>`
+			if(location.href.indexOf('https') != '-1') {
+				location.href = location.href.replace(/https/, 'http')
 
-					}
-					$('.car_nobs').html(car_html)
-				} else {
-					alert('请登陆后再试！');
-					window.location.href = 'index.html'
-				}
-			}
-			//			getCarList()
-
-			function getUrlParam(name) {
-				// 用该属性获取页面 URL 地址从问号 (?) 开始的 URL（查询部分）
-				var url = window.location.search;
-				// 正则筛选地址栏
-				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-				// 匹配目标参数
-				var result = url.substr(1).match(reg);
-				//返回参数值
-				return result ? decodeURIComponent(result[2]) : null;
-			}
-			if(!getUrlParam('car_id')) {
-				alert('参数不正确！');
-				window.location.href = 'index.html'
 			} else {
-				$.ajax({
-					type: "post",
-					url: "https://www.yikazc.com/app/carrental/frontend/web/index.php/wxvehicle/get_vehicle_info_id",
-					data: {
-						'vehicle_id': getUrlParam('car_id')
-					},
-					dataType: 'json',
-					success: function(data) {
-						console.log(data.fx_data)
-						var $_GET = data.fx_data;
-						for(item in $_GET) {
-							if(item == 'imgSrc') {
-								$('.car_img').attr('src', $_GET[item])
-							} else {
-								$('.' + item).text($_GET[item])
+				function getCarList() {
+					if(sessionStorage.getItem('carList')) {
+						var carArr = sessionStorage.getItem('carList').split(',');
+						var car_html = '';
+						for(let i = 0; i < carArr.length; i++) {
+							car_html += `<option value="` + carArr[i] + `">` + carArr[i] + `</option>`
 
-							}
-							//						console.log($('.' + item))
 						}
-						if($_GET.flag == '在租') {
-							$('.rent_box').show()
-						} else {
-							$('.rent_box').hide()
-						}
+						$('.car_nobs').html(car_html)
+					} else {
+						alert('请登陆后再试！');
+						window.location.href = 'index.html'
 					}
-				})
+				}
+				//			getCarList()
+
+				function getUrlParam(name) {
+					// 用该属性获取页面 URL 地址从问号 (?) 开始的 URL（查询部分）
+					var url = window.location.search;
+					// 正则筛选地址栏
+					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+					// 匹配目标参数
+					var result = url.substr(1).match(reg);
+					//返回参数值
+					return result ? decodeURIComponent(result[2]) : null;
+				}
+				if(!getUrlParam('car_id')) {
+					alert('参数不正确！');
+					window.location.href = 'index.html'
+				} else {
+					$.ajax({
+						type: "post",
+						url: "http://www.yikazc.com/app/carrental/frontend/web/index.php/wxvehicle/get_vehicle_info_id",
+						data: {
+							'vehicle_id': getUrlParam('car_id')
+						},
+						dataType: 'json',
+						success: function(data) {
+							console.log(data.fx_data)
+							var $_GET = data.fx_data;
+							for(item in $_GET) {
+								if(item == 'imgSrc') {
+									$('.car_img').attr('src', $_GET[item])
+								} else {
+									$('.' + item).text($_GET[item])
+
+								}
+								//						console.log($('.' + item))
+							}
+							if($_GET.flag == '在租') {
+								$('.rent_box').show()
+							} else {
+								$('.rent_box').hide()
+							}
+						}
+					})
+
+				}
 
 			}
 		</script>

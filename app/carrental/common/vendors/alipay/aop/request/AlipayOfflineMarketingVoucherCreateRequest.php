@@ -6,10 +6,10 @@
  * @since 1.0, 2016-06-23 17:38:07
  */
 class AlipayOfflineMarketingVoucherCreateRequest
-{
-	/** 
-	 * 券模板创建
-	 **/
+{
+	/** 
+	 * 券模板创建
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOfflineMarketingVoucherCreateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

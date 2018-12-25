@@ -6,10 +6,10 @@
  * @since 1.0, 2017-03-03 16:48:04
  */
 class AlipayMarketingCampaignDiscountWhitelistQueryRequest
-{
-	/** 
-	 * 优惠活动白名单查询
-	 **/
+{
+	/** 
+	 * 优惠活动白名单查询
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingCampaignDiscountWhitelistQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

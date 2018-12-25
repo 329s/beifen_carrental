@@ -6,10 +6,10 @@
  * @since 1.0, 2016-09-20 16:38:11
  */
 class AlipayEcoMycarDataExternalQueryRequest
-{
-	/** 
-	 * 行业平台外部查询请求
-	 **/
+{
+	/** 
+	 * 行业平台外部查询请求
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayEcoMycarDataExternalQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

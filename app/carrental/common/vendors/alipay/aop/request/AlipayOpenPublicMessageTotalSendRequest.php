@@ -6,10 +6,10 @@
  * @since 1.0, 2017-01-06 11:37:37
  */
 class AlipayOpenPublicMessageTotalSendRequest
-{
-	/** 
-	 * alipay.open.public. message.total.send（群发消息）
-	 **/
+{
+	/** 
+	 * alipay.open.public. message.total.send（群发消息）
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOpenPublicMessageTotalSendRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

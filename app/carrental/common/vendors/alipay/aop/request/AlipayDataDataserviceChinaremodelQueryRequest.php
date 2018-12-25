@@ -6,10 +6,10 @@
  * @since 1.0, 2016-06-02 14:27:15
  */
 class AlipayDataDataserviceChinaremodelQueryRequest
-{
-	/** 
-	 * 中再核保结果查询
-	 **/
+{
+	/** 
+	 * 中再核保结果查询
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayDataDataserviceChinaremodelQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

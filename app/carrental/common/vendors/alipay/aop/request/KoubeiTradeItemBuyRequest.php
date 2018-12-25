@@ -6,10 +6,10 @@
  * @since 1.0, 2017-03-30 16:12:41
  */
 class KoubeiTradeItemBuyRequest
-{
-	/** 
-	 * 获取购特车scheme
-	 **/
+{
+	/** 
+	 * 获取购特车scheme
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class KoubeiTradeItemBuyRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

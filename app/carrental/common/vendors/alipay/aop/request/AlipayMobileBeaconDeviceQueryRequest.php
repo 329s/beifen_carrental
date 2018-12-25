@@ -6,10 +6,10 @@
  * @since 1.0, 2017-02-28 11:12:47
  */
 class AlipayMobileBeaconDeviceQueryRequest
-{
-	/** 
-	 * 设备的UUID
-	 **/
+{
+	/** 
+	 * 设备的UUID
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMobileBeaconDeviceQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

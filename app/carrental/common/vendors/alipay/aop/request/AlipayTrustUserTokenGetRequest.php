@@ -6,10 +6,10 @@
  * @since 1.0, 2015-05-06 18:13:09
  */
 class AlipayTrustUserTokenGetRequest
-{
-	/** 
-	 * 入参json串
-	 **/
+{
+	/** 
+	 * 入参json串
+	 **/
 	private $aliTrustUserInfo;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayTrustUserTokenGetRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setAliTrustUserInfo($aliTrustUserInfo)
-	{
-		$this->aliTrustUserInfo = $aliTrustUserInfo;
-		$this->apiParas["ali_trust_user_info"] = $aliTrustUserInfo;
+	{
+		$this->aliTrustUserInfo = $aliTrustUserInfo;
+		$this->apiParas["ali_trust_user_info"] = $aliTrustUserInfo;
 	}
-
+
 	public function getAliTrustUserInfo()
-	{
-		return $this->aliTrustUserInfo;
+	{
+		return $this->aliTrustUserInfo;
 	}
 
 	public function getApiMethodName()

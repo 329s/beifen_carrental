@@ -88,15 +88,13 @@ class OrderService extends BaseService
                 $objFormData->yuyue_time = $objFormData->start_time;
                 $objFormData->yuyue_end_time = $objFormData->end_time;
             }
+            /*echo "<pre>";
+            print_r($objFormData);
+            echo "</pre>";die;*/
 
             // 判断是否三天打包价
             /*得到开始时间和结束时间之差的日时分秒*/
             $timediff = \common\components\CheckModule::timediff($objFormData->start_time,$objFormData->end_time);
-            // echo "<pre>";
-            // print_r($timediff);
-            // // echo "<hr>";
-            // // print_r($objFormData->end_time);
-            // echo "</pre>";die;
             if($timediff['day'] == 3 && $objFormData->rent_days == 3 && $objFormData->pay_type == 2){
                 $res = \common\components\CheckModule::is_discount_period($objFormData->start_time,$objFormData->end_time);
                 if($res==1){

@@ -6,10 +6,10 @@
  * @since 1.0, 2016-11-18 16:07:46
  */
 class MybankFinanceYulibaoAccountQueryRequest
-{
-	/** 
-	 * 余利宝账户和收益查询
-	 **/
+{
+	/** 
+	 * 余利宝账户和收益查询
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class MybankFinanceYulibaoAccountQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

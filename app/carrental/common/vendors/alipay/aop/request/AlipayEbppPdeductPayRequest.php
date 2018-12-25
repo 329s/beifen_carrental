@@ -6,68 +6,68 @@
  * @since 1.0, 2017-04-07 16:45:48
  */
 class AlipayEbppPdeductPayRequest
-{
-	/** 
-	 * 渠道码，如用户通过机构通过服务窗进来签约则是PUBLICFORM，此值可随意传，只要不空就行
-	 **/
-	private $agentChannel;
-	
-	/** 
-	 * 二级渠道码，预留字段
-	 **/
-	private $agentCode;
-	
-	/** 
-	 * 支付宝代扣协议Id
-	 **/
-	private $agreementId;
-	
-	/** 
-	 * 账期
-	 **/
-	private $billDate;
-	
-	/** 
-	 * 户号，缴费单位用于标识每一户的唯一性的
-	 **/
-	private $billKey;
-	
-	/** 
-	 * 扩展参数。必须以key value形式定义，
-转为json为格式：{"key1":"value1","key2":"value2",
-"key3":"value3","key4":"value4"}
- 后端会直接转换为MAP对象，转换异常会报参数格式错误
-	 **/
-	private $extendField;
-	
-	/** 
-	 * 滞纳金
-	 **/
-	private $fineAmount;
-	
-	/** 
-	 * 备注信息
-	 **/
-	private $memo;
-	
-	/** 
-	 * 商户外部业务流水号
-	 **/
-	private $outOrderNo;
-	
-	/** 
-	 * 扣款金额，支付总金额，包含滞纳金
-	 **/
-	private $payAmount;
-	
-	/** 
-	 * 商户PartnerId
-	 **/
-	private $pid;
-	
-	/** 
-	 * 用户ID
-	 **/
+{
+	/** 
+	 * 渠道码，如用户通过机构通过服务窗进来签约则是PUBLICFORM，此值可随意传，只要不空就行
+	 **/
+	private $agentChannel;
+	
+	/** 
+	 * 二级渠道码，预留字段
+	 **/
+	private $agentCode;
+	
+	/** 
+	 * 支付宝代扣协议Id
+	 **/
+	private $agreementId;
+	
+	/** 
+	 * 账期
+	 **/
+	private $billDate;
+	
+	/** 
+	 * 户号，缴费单位用于标识每一户的唯一性的
+	 **/
+	private $billKey;
+	
+	/** 
+	 * 扩展参数。必须以key value形式定义，
+转为json为格式：{"key1":"value1","key2":"value2",
+"key3":"value3","key4":"value4"}
+ 后端会直接转换为MAP对象，转换异常会报参数格式错误
+	 **/
+	private $extendField;
+	
+	/** 
+	 * 滞纳金
+	 **/
+	private $fineAmount;
+	
+	/** 
+	 * 备注信息
+	 **/
+	private $memo;
+	
+	/** 
+	 * 商户外部业务流水号
+	 **/
+	private $outOrderNo;
+	
+	/** 
+	 * 扣款金额，支付总金额，包含滞纳金
+	 **/
+	private $payAmount;
+	
+	/** 
+	 * 商户PartnerId
+	 **/
+	private $pid;
+	
+	/** 
+	 * 用户ID
+	 **/
 	private $userId;
 
 	private $apiParas = array();
@@ -79,137 +79,137 @@ class AlipayEbppPdeductPayRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setAgentChannel($agentChannel)
-	{
-		$this->agentChannel = $agentChannel;
-		$this->apiParas["agent_channel"] = $agentChannel;
+	{
+		$this->agentChannel = $agentChannel;
+		$this->apiParas["agent_channel"] = $agentChannel;
 	}
-
+
 	public function getAgentChannel()
-	{
-		return $this->agentChannel;
+	{
+		return $this->agentChannel;
 	}
-
+
 	public function setAgentCode($agentCode)
-	{
-		$this->agentCode = $agentCode;
-		$this->apiParas["agent_code"] = $agentCode;
+	{
+		$this->agentCode = $agentCode;
+		$this->apiParas["agent_code"] = $agentCode;
 	}
-
+
 	public function getAgentCode()
-	{
-		return $this->agentCode;
+	{
+		return $this->agentCode;
 	}
-
+
 	public function setAgreementId($agreementId)
-	{
-		$this->agreementId = $agreementId;
-		$this->apiParas["agreement_id"] = $agreementId;
+	{
+		$this->agreementId = $agreementId;
+		$this->apiParas["agreement_id"] = $agreementId;
 	}
-
+
 	public function getAgreementId()
-	{
-		return $this->agreementId;
+	{
+		return $this->agreementId;
 	}
-
+
 	public function setBillDate($billDate)
-	{
-		$this->billDate = $billDate;
-		$this->apiParas["bill_date"] = $billDate;
+	{
+		$this->billDate = $billDate;
+		$this->apiParas["bill_date"] = $billDate;
 	}
-
+
 	public function getBillDate()
-	{
-		return $this->billDate;
+	{
+		return $this->billDate;
 	}
-
+
 	public function setBillKey($billKey)
-	{
-		$this->billKey = $billKey;
-		$this->apiParas["bill_key"] = $billKey;
+	{
+		$this->billKey = $billKey;
+		$this->apiParas["bill_key"] = $billKey;
 	}
-
+
 	public function getBillKey()
-	{
-		return $this->billKey;
+	{
+		return $this->billKey;
 	}
-
+
 	public function setExtendField($extendField)
-	{
-		$this->extendField = $extendField;
-		$this->apiParas["extend_field"] = $extendField;
+	{
+		$this->extendField = $extendField;
+		$this->apiParas["extend_field"] = $extendField;
 	}
-
+
 	public function getExtendField()
-	{
-		return $this->extendField;
+	{
+		return $this->extendField;
 	}
-
+
 	public function setFineAmount($fineAmount)
-	{
-		$this->fineAmount = $fineAmount;
-		$this->apiParas["fine_amount"] = $fineAmount;
+	{
+		$this->fineAmount = $fineAmount;
+		$this->apiParas["fine_amount"] = $fineAmount;
 	}
-
+
 	public function getFineAmount()
-	{
-		return $this->fineAmount;
+	{
+		return $this->fineAmount;
 	}
-
+
 	public function setMemo($memo)
-	{
-		$this->memo = $memo;
-		$this->apiParas["memo"] = $memo;
+	{
+		$this->memo = $memo;
+		$this->apiParas["memo"] = $memo;
 	}
-
+
 	public function getMemo()
-	{
-		return $this->memo;
+	{
+		return $this->memo;
 	}
-
+
 	public function setOutOrderNo($outOrderNo)
-	{
-		$this->outOrderNo = $outOrderNo;
-		$this->apiParas["out_order_no"] = $outOrderNo;
+	{
+		$this->outOrderNo = $outOrderNo;
+		$this->apiParas["out_order_no"] = $outOrderNo;
 	}
-
+
 	public function getOutOrderNo()
-	{
-		return $this->outOrderNo;
+	{
+		return $this->outOrderNo;
 	}
-
+
 	public function setPayAmount($payAmount)
-	{
-		$this->payAmount = $payAmount;
-		$this->apiParas["pay_amount"] = $payAmount;
+	{
+		$this->payAmount = $payAmount;
+		$this->apiParas["pay_amount"] = $payAmount;
 	}
-
+
 	public function getPayAmount()
-	{
-		return $this->payAmount;
+	{
+		return $this->payAmount;
 	}
-
+
 	public function setPid($pid)
-	{
-		$this->pid = $pid;
-		$this->apiParas["pid"] = $pid;
+	{
+		$this->pid = $pid;
+		$this->apiParas["pid"] = $pid;
 	}
-
+
 	public function getPid()
-	{
-		return $this->pid;
+	{
+		return $this->pid;
 	}
-
+
 	public function setUserId($userId)
-	{
-		$this->userId = $userId;
-		$this->apiParas["user_id"] = $userId;
+	{
+		$this->userId = $userId;
+		$this->apiParas["user_id"] = $userId;
 	}
-
+
 	public function getUserId()
-	{
-		return $this->userId;
+	{
+		return $this->userId;
 	}
 
 	public function getApiMethodName()

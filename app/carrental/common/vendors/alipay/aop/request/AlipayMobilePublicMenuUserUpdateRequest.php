@@ -6,10 +6,10 @@
  * @since 1.0, 2016-01-05 22:37:24
  */
 class AlipayMobilePublicMenuUserUpdateRequest
-{
-	/** 
-	 * opendId和菜单唯一标识
-	 **/
+{
+	/** 
+	 * opendId和菜单唯一标识
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMobilePublicMenuUserUpdateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

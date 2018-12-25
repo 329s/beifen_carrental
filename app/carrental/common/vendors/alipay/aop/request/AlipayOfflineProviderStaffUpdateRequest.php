@@ -6,10 +6,10 @@
  * @since 1.0, 2016-05-16 16:12:42
  */
 class AlipayOfflineProviderStaffUpdateRequest
-{
-	/** 
-	 * 云纵员工信息同步到口碑
-	 **/
+{
+	/** 
+	 * 云纵员工信息同步到口碑
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOfflineProviderStaffUpdateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

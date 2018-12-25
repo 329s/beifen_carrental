@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-07 20:42:01
  */
 class AlipayMobileStdPublicFollowListRequest
-{
-	/** 
-	 * 当nextUserId为空时,代表查询第一组,如果有值时以当前值为准查询下一组
-	 **/
+{
+	/** 
+	 * 当nextUserId为空时,代表查询第一组,如果有值时以当前值为准查询下一组
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMobileStdPublicFollowListRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

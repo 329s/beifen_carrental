@@ -6,10 +6,10 @@
  * @since 1.0, 2016-06-14 15:08:52
  */
 class AlipayEcoMycarParkingLotbarcodeCreateRequest
-{
-	/** 
-	 * 物料二维码
-	 **/
+{
+	/** 
+	 * 物料二维码
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayEcoMycarParkingLotbarcodeCreateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

@@ -6,15 +6,15 @@
  * @since 1.0, 2017-02-13 20:51:57
  */
 class AlipayZdataserviceUnidataQueryRequest
-{
-	/** 
-	 * 通用的查询入参
-	 **/
-	private $queryCondition;
-	
-	/** 
-	 * 返回数据的类型，内部业务系统分配
-	 **/
+{
+	/** 
+	 * 通用的查询入参
+	 **/
+	private $queryCondition;
+	
+	/** 
+	 * 返回数据的类型，内部业务系统分配
+	 **/
 	private $uniqKey;
 
 	private $apiParas = array();
@@ -26,27 +26,27 @@ class AlipayZdataserviceUnidataQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setQueryCondition($queryCondition)
-	{
-		$this->queryCondition = $queryCondition;
-		$this->apiParas["query_condition"] = $queryCondition;
+	{
+		$this->queryCondition = $queryCondition;
+		$this->apiParas["query_condition"] = $queryCondition;
 	}
-
+
 	public function getQueryCondition()
-	{
-		return $this->queryCondition;
+	{
+		return $this->queryCondition;
 	}
-
+
 	public function setUniqKey($uniqKey)
-	{
-		$this->uniqKey = $uniqKey;
-		$this->apiParas["uniq_key"] = $uniqKey;
+	{
+		$this->uniqKey = $uniqKey;
+		$this->apiParas["uniq_key"] = $uniqKey;
 	}
-
+
 	public function getUniqKey()
-	{
-		return $this->uniqKey;
+	{
+		return $this->uniqKey;
 	}
 
 	public function getApiMethodName()

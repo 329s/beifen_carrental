@@ -6,10 +6,10 @@
  * @since 1.0, 2017-02-28 11:11:26
  */
 class AlipayMobileCodeQueryRequest
-{
-	/** 
-	 * 二维码的码值或者包含业务信息的二维码
-	 **/
+{
+	/** 
+	 * 二维码的码值或者包含业务信息的二维码
+	 **/
 	private $qrToken;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMobileCodeQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setQrToken($qrToken)
-	{
-		$this->qrToken = $qrToken;
-		$this->apiParas["qr_token"] = $qrToken;
+	{
+		$this->qrToken = $qrToken;
+		$this->apiParas["qr_token"] = $qrToken;
 	}
-
+
 	public function getQrToken()
-	{
-		return $this->qrToken;
+	{
+		return $this->qrToken;
 	}
 
 	public function getApiMethodName()

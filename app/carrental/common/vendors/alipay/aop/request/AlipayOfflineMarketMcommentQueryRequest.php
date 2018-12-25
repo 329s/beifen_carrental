@@ -6,10 +6,10 @@
  * @since 1.0, 2016-06-13 20:25:02
  */
 class AlipayOfflineMarketMcommentQueryRequest
-{
-	/** 
-	 * 查询交易评价信息
-	 **/
+{
+	/** 
+	 * 查询交易评价信息
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOfflineMarketMcommentQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

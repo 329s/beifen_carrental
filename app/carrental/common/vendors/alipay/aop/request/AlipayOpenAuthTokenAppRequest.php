@@ -6,10 +6,10 @@
  * @since 1.0, 2016-12-08 12:06:55
  */
 class AlipayOpenAuthTokenAppRequest
-{
-	/** 
-	 * 用应用授权码（app_auth_code）换取或者刷新应用授权令牌(app_auth_token)
-	 **/
+{
+	/** 
+	 * 用应用授权码（app_auth_code）换取或者刷新应用授权令牌(app_auth_token)
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOpenAuthTokenAppRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

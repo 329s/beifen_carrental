@@ -6,10 +6,10 @@
  * @since 1.0, 2016-05-11 19:52:52
  */
 class AlipayOpenAppCodetesttestRequest
-{
-	/** 
-	 * 统一对外错误码测试测试
-	 **/
+{
+	/** 
+	 * 统一对外错误码测试测试
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOpenAppCodetesttestRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

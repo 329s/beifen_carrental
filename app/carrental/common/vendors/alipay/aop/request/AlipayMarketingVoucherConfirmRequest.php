@@ -6,10 +6,10 @@
  * @since 1.0, 2017-03-28 22:17:49
  */
 class AlipayMarketingVoucherConfirmRequest
-{
-	/** 
-	 * 用户确认领券
-	 **/
+{
+	/** 
+	 * 用户确认领券
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingVoucherConfirmRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

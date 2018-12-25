@@ -6,10 +6,10 @@
  * @since 1.0, 2017-02-07 16:46:17
  */
 class AlipayOfflineMarketApplyorderBatchqueryRequest
-{
-	/** 
-	 * 分页查询Leads、门店、商品相关操作流水信息
-	 **/
+{
+	/** 
+	 * 分页查询Leads、门店、商品相关操作流水信息
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOfflineMarketApplyorderBatchqueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

@@ -63,48 +63,6 @@ class VehicleController extends \backend\components\AuthorityController
         $arrParams = ['type'=>'all', 'action'=>\Yii::$app->request->getParam('action')];
         return $this->renderPartial('vehiclelist', $arrParams);
     }
-
-    public function actionAllIndex_change($value='')
-    {
-        
-        $belongOfficeId = intval(\Yii::$app->request->getParam('office_id'));
-        $status = intval(\Yii::$app->request->getParam('status'));
-        $pay_type = intval(\Yii::$app->request->getParam('pay_type'));
-        $date = \Yii::$app->request->getParam('date');
-        $date_start = \Yii::$app->request->getParam('date_start');
-        if (empty($date)) {
-            $date = date('Y-m-d');
-        }
-        else {
-            $date = date('Y-m-d', strtotime($date));
-        }
-
-        if (empty($date_start)) {
-            $date_start = date('Y-m-01');
-        }else{
-            if($date_start>$date){
-                $date_start = date('Y-m-d');
-            }else{
-                $date_start = date('Y-m-d', strtotime($date_start));
-            }
-        }
-        
-        /*echo "$date_start".'------';
-        echo "$date";*/
-        // $arrData = \backend\components\StatisticsService::getMonthlyOrderIncomeData($status, $date, $belongOfficeId);
-        
-        $arrData = \backend\components\StatisticsService::getMonthlyOrderIncomeDataNew($status, $date, $belongOfficeId,$date_start,$pay_type);
-        
-        return $this->renderPartial('vehiclechangelist', [
-            'columns'=>\backend\components\VehicleService::getMonthlyOrderIncomeDataColumns($status,$pay_type),
-            'models'=>$arrData,
-            'date'=>$date,
-            'date_start'=>$date_start,
-            'status'=>$status,
-            'pay_type'=>$pay_type,
-            'belongOfficeId'=>($belongOfficeId?$belongOfficeId:''),
-        ]);
-    }
     
     public function actionRecentlyrenewalIndex() {
         $arrParams = ['type'=>'recentlyrenewal', 'action'=>\Yii::$app->request->getParam('action')];
@@ -163,7 +121,6 @@ class VehicleController extends \backend\components\AuthorityController
     
     public function actionVehicle_list() {
         $params = \Yii::$app->request->getParams();
-
         $filterModel = new \backend\models\searchers\Searcher_pro_vehicle();
         $filterModel->loadPagination($params);
         $filterModel->loadSort($params);

@@ -6,10 +6,10 @@
  * @since 1.0, 2016-11-18 16:08:17
  */
 class MybankFinanceYulibaoPriceQueryRequest
-{
-	/** 
-	 * 查询余利宝行情信息（七日年化收益率、万份收益金额）
-	 **/
+{
+	/** 
+	 * 查询余利宝行情信息（七日年化收益率、万份收益金额）
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class MybankFinanceYulibaoPriceQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

@@ -139,92 +139,101 @@
 		</style>
 		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 		<script>
-			var isClick = true;
+			if(location.href.indexOf('https')!='-1') {
+				location.href = location.href.replace(/https/, 'http')
 
-			function yzm() {
-				if(isClick) {
-					var phone = $('#phone').val();
-					if(!(/^1[345678]\d{9}$/.test(phone))) {
-						alert("手机号码有误，确认后请重填");
-						return false;
+			} else {
+				var isClick = true;
+
+				function yzm() {
+					if(isClick) {
+						var phone = $('#phone').val();
+						if(!(/^1[345678]\d{9}$/.test(phone))) {
+							alert("手机号码有误，确认后请重填");
+							return false;
+						} else {
+							var timeOut = 60;
+							isClick = false;
+							$.ajax({
+								url: "http://www.yikazc.com/app/carrental/frontend/web/index.php/puser/get_verify_code",
+								type: "post",
+								data: {
+									phone: phone
+								},
+								dataType: "json",
+								contentType: "application/x-www-form-urlencoded",
+								success: function(data) {
+									//								console.log(data)
+									if(!data.result) {
+										var timer = setInterval(function() {
+											timeOut--;
+											//										console.log(timeOut)
+											if(timeOut >= 0) {
+												$('.yzm_btn').val(timeOut + '秒后再试');
+											} else {
+												clearInterval(timer);
+												$('.yzm_btn').val('获取验证码');
+												isClick = true;
+											}
+										}, 1000)
+									} else {
+										alert(data.desc)
+									}
+								},
+							});
+
+						}
 					} else {
-						var timeOut = 60;
-						isClick = false;
+
+					}
+				}
+				$('.close_btn').click(function() {
+					$('#phone').val('')
+				})
+				$('.chaxun_btn').click(function() {
+					if($('#phone').val() && $('#yzm_').val()) {
+						var phone = $('#phone').val(),
+							yzcode = $('#yzm_').val();
+						//					console.log(phone, yzcode)
+						//					http://www.yikazc.com/app/carrental/frontend/web/index.php/wxvehicle/get_vehicles
 						$.ajax({
-							url: "https://www.yikazc.com/app/carrental/frontend/web/index.php/puser/get_verify_code",
+							url: "http://www.yikazc.com/app/carrental/frontend/web/index.php/wxvehicle/get_vehicles",
 							type: "post",
 							data: {
-								phone: phone
+								mobile: phone,
+								code: yzcode
 							},
 							dataType: "json",
 							contentType: "application/x-www-form-urlencoded",
 							success: function(data) {
-								//								console.log(data)
-								if(!data.result) {
-									var timer = setInterval(function() {
-										timeOut--;
-										//										console.log(timeOut)
-										if(timeOut >= 0) {
-											$('.yzm_btn').val(timeOut + '秒后再试');
-										} else {
-											clearInterval(timer);
-											$('.yzm_btn').val('获取验证码');
-											isClick = true;
-										}
-									}, 1000)
+								console.log(data)
+								if(data.result == '1') {
+									alert(data.desc);
+								} else if(data.result == '0') {
+									var carArr = [];
+									for(let i = 0; i < data.vehicles.length; i++) {
+										carArr.push({
+											'id': data.vehicles[i].id,
+											'carNub': data.vehicles[i].plate_number
+										})
+									}
+									//								console.log(carArr,carArr.toString())
+									console.log(carArr);
+									sessionStorage.setItem("carList", JSON.stringify(carArr));
+									//								console.log(sessionStorage.getItem('carList'))
+									window.location.href = 'my_yk.html'
 								} else {
 									alert(data.desc)
 								}
 							},
-						});
+						})
 
+					} else {
+						alert('请确认输入手机号和验证码后再试！')
 					}
-				} else {
+				})
 
-				}
 			}
-			$('.close_btn').click(function() {
-				$('#phone').val('')
-			})
-			$('.chaxun_btn').click(function() {
-				if($('#phone').val() && $('#yzm_').val()) {
-					var phone = $('#phone').val(),
-						yzcode = $('#yzm_').val();
-					//					console.log(phone, yzcode)
-					//					http://www.yikazc.com/app/carrental/frontend/web/index.php/wxvehicle/get_vehicles
-					$.ajax({
-						url: "https://www.yikazc.com/app/carrental/frontend/web/index.php/wxvehicle/get_vehicles",
-						type: "post",
-						data: {
-							mobile: phone,
-							code: yzcode
-						},
-						dataType: "json",
-						contentType: "application/x-www-form-urlencoded",
-						success: function(data) {
-														console.log(data)
-							if(data.result == '1') {
-								alert(data.desc);
-							} else if(data.result == '0') {
-								var carArr = [];
-								for(let i = 0; i < data.vehicles.length; i++) {
-									carArr.push({'id':data.vehicles[i].id,'carNub':data.vehicles[i].plate_number})
-								}
-								//								console.log(carArr,carArr.toString())
-								console.log(carArr);
-								sessionStorage.setItem("carList", JSON.stringify(carArr));
-								//								console.log(sessionStorage.getItem('carList'))
-								window.location.href = 'my_yk.html'
-							} else {
-								alert(data.desc)
-							}
-						},
-					})
-
-				} else {
-					alert('请确认输入手机号和验证码后再试！')
-				}
-			})
 		</script>
 	</body>
 

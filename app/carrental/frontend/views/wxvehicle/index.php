@@ -1,3 +1,13 @@
+<?php
+
+/* @var $this yii\web\View */
+
+$this->title = \Yii::$app->params['app.company.name'];
+
+$autoId = \common\helpers\CMyHtml::genID();
+$urlRoot = \common\helpers\Utils::getRootUrl();
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -74,7 +84,7 @@
 				</div>
 			</div>
 			<div class="shadow bot_info">
-				<p>本月已租：<span><b class="count"></b>次</span></p>
+				<p>本月已租次数：<span><b class="count"></b>次</span></p>
 				<p>本月已租天数：<span><b class="all_rent_days"></b>天</span></p>
 				<p>本月车辆收入：<span><b class="all_total_amount"></b>元</span></p>
 			</div>
@@ -116,7 +126,9 @@
 
 			<!--<div class="tip">实际租金以车辆实际出租天数为准。</div>-->
 			<input id="btn_fx" type="button" value="点击分享" /></div>
-		<iframe style="display: none;" id="address_car_dw" src="" width="100%" height="600"></iframe>
+		<iframe style="display: none;" id="address_car_dw" src="http://pageapi.gpsoo.net/third?method=jump&appkey=68f7e5358c1773e5cfe37ade7b82e4d5&account=金华易卡租车&page=tracking&target=868120172758432&s=1" width="100%" height="600"></iframe>
+		<iframe style="" id="address_car_dws" src="http://pageapi.gpsoo.net/third?method=jump&appkey=68f7e5358c1773e5cfe37ade7b82e4d5&account=金华易卡租车&page=playback&target=868120172758432&s=1" width="100%" height="600"></iframe>
+		<iframe src="http://pageapi.gpsoo.net/third?method=jump&page=monitor&locale=zh-cn&account=%E9%87%91%E5%8D%8E%E6%98%93%E5%8D%A1%E7%A7%9F%E8%BD%A6&target=%E9%87%91%E5%8D%8E%E6%98%93%E5%8D%A1%E7%A7%9F%E8%BD%A6&appkey=68f7e5358c1773e5cfe37ade7b82e4d5&t=1545636395721&s=1" width="800" height="450"></iframe>
 
 		<style>
 			body,
@@ -389,38 +401,45 @@
 			}
 		</style>
 		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
-		<script src="js/min.js"></script>
-		<script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
-		<script type="text/javascript" src="api/php/sharejs.php"></script>
+		<script src="http://www.yikazc.com/phone/car_chaxun/js/min.js"></script>
 		<script>
-			function getCarList() {
+			if(location.href.indexOf('https')!='-1') {
+				location.href = location.href.replace(/https/, 'http')
+
+			} else {
+				function getCarList() {
 				if(sessionStorage.getItem('carList')) {
-					var carArr = sessionStorage.getItem('carList').split(',');
+					console.log(sessionStorage.getItem('carList'));
+					console.log(JSON.parse(sessionStorage.getItem('carList')));
+					var carArr =JSON.parse(sessionStorage.getItem('carList')) ;
+
 					var car_html = '';
 					for(let i = 0; i < carArr.length; i++) {
-						car_html += `<option value="` + carArr[i] + `">` + carArr[i] + `</option>`
-
+//						car_html += `<option id="`+carArr[i].id+`" value="` + carArr[i].carNub + `">` + carArr[i].carNub + `</option>`
+						car_html += `<option  value="` + carArr[i].id + `">` + carArr[i].carNub + `</option>`
 					}
 					$('.car_nobs').html(car_html)
 				} else {
-					alert('请登陆后再试！');
-					window.location.href = 'index.html'
+					//alert('请登陆后再试！');
+					//window.location.href = 'index'
 				}
 			}
 			getCarList()
 
 			function query() {
-				var car_nub = $('.car_nobs').val();
+				$('#address_car_dw').hide()
+				// var car_nub = $('.car_nobs option:selected').text();
+				var car_nub = '浙G987654';
 				if(car_nub) {
 					$.ajax({
 						type: "post",
-						url: "https://www.yikazc.com/app/carrental/frontend/web/index.php/wxvehicle/get_vehicle_info",
+						url: "http://www.yikazc.com/app/carrental/frontend/web/index.php/wxvehicle/get_vehicle_info",
 						data: {
 							'plate_number': car_nub
 						},
 						dataType: 'json',
 						success: function(data) {
-							//							console.log(data)
+														console.log(data)
 
 							if(data.result) {
 								alert(data.desc)
@@ -450,9 +469,9 @@
 									$('.rent_box').hide()
 								}
 								if(infos.url_is_null === '0') {
-									$('#address_car_dw').show().attr('src', infos.url)
+									$('#address_car_dw').show()
 								} else {
-									$('#address_car_dw').hide()
+									$('#address_car_dw').show()
 								}
 
 							}
@@ -466,35 +485,47 @@
 				//				html2canvas(document.querySelector("#capture")).then(canvas => {
 				//					document.body.appendChild(canvas)
 				//				});
-				var fx_data = {};
-				fx_data.imgSrc = $('.car_img').attr('src');
-				fx_data.flag = $('.flag').text();
-				fx_data.car_name = $('.car_name').text();
-				fx_data.car_type = $('.car_type').text();
-				fx_data.car_info = $('.car_info').text();
-				fx_data.car_type = $('.car_type').text();
-				fx_data.car_stop = $('.car_stop').text();
-				fx_data.start_date = $('.start_date').text();
-				fx_data.start_time = $('.start_time').text();
-				fx_data.address = $('.address').text();
-				fx_data.rent_shop = $('.rent_shop').text();
-				fx_data.new_end_date = $('.new_end_date').text();
-				fx_data.new_end_time = $('.new_end_time').text();
-				fx_data.rent_days = $('.rent_days').text();
-				fx_data.count = $('.count').text();
-				fx_data.all_rent_days = $('.all_rent_days').text();
-				fx_data.all_total_amount = $('.all_total_amount').text();
-				fx_data.rent_per_day = $('.rent_per_day').text();
-				console.log(fx_data);
-				var url_code = 'https://www.yikazc.com/phone/car_chaxun/fx_html.html?'
+//				var fx_data = {};
+//				fx_data.imgSrc = $('.car_img').attr('src');
+//				fx_data.flag = $('.flag').text();
+//				fx_data.car_name = $('.car_name').text();
+//				fx_data.car_type = $('.car_type').text();
+//				fx_data.car_info = $('.car_info').text();
+//				fx_data.car_type = $('.car_type').text();
+//				fx_data.car_stop = $('.car_stop').text();
+//				fx_data.start_date = $('.start_date').text();
+//				fx_data.start_time = $('.start_time').text();
+//				fx_data.address = $('.address').text();
+//				fx_data.rent_shop = $('.rent_shop').text();
+//				fx_data.new_end_date = $('.new_end_date').text();
+//				fx_data.new_end_time = $('.new_end_time').text();
+//				fx_data.rent_days = $($('.rent_days')[0]).text();
+//				fx_data.count = $('.count').text();
+//				fx_data.all_rent_days = $('.all_rent_days').text();
+//				fx_data.all_total_amount = $('.all_total_amount').text();
+//				fx_data.rent_per_day = $('.rent_per_day').text();
+//				console.log(fx_data);
+//				var url_code = 'https://www.yikazc.com/phone/car_chaxun/fx_html.html?'
 				//				var url_code = 'fx_html.html?'
-				for(key in fx_data) {
-					url_code += key + '=' + fx_data[key] + '&'
-				}
-				console.log(url_code);
-				location.href = url_code.substr(0, url_code.length - 1)
+//				var key_arr = []
+//				for(key in fx_data) {
+//					key_arr.push(key);
+//					url_code += key + '=' + fx_data[key] + '&'
+//				}
+//				key_arr.sort()
+//				console.log(key_arr)
+//				for(let i=0;i<key_arr.length;i++){
+//					url_code += key_arr[i] + '=' + fx_data[key_arr[i]] + '&'
+//				}
+				
+//				console.log(url_code);
+//				location.href = url_code.substr(0, url_code.length - 1)+'&from=singlemessage&isappinstalled=0'
+				location.href =  'http://www.yikazc.com/phone/car_chaxun/fx_html.html?car_id='+$('.car_nobs option:selected').val()
+//				location.href =  'fx_html.html?car_id='+$('.car_nobs option:selected').val()
 			})
-		</script>
+		
+			}
+			</script>
 	</body>
 
 </html>

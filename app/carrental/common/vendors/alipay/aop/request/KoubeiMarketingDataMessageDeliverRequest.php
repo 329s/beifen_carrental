@@ -6,10 +6,10 @@
  * @since 1.0, 2016-09-09 17:44:32
  */
 class KoubeiMarketingDataMessageDeliverRequest
-{
-	/** 
-	 * 一键营销商家中心PUSH消息接口
-	 **/
+{
+	/** 
+	 * 一键营销商家中心PUSH消息接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class KoubeiMarketingDataMessageDeliverRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

@@ -6,10 +6,10 @@
  * @since 1.0, 2016-05-12 09:57:29
  */
 class AlipayEcoMycarDataserviceViolationinfoShareRequest
-{
-	/** 
-	 * ISV获取违章车辆信息
-	 **/
+{
+	/** 
+	 * ISV获取违章车辆信息
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayEcoMycarDataserviceViolationinfoShareRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

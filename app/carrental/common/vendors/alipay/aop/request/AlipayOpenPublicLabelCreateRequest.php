@@ -6,10 +6,10 @@
  * @since 1.0, 2016-12-08 11:55:52
  */
 class AlipayOpenPublicLabelCreateRequest
-{
-	/** 
-	 * 公众号标签管理-添加标签
-	 **/
+{
+	/** 
+	 * 公众号标签管理-添加标签
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOpenPublicLabelCreateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

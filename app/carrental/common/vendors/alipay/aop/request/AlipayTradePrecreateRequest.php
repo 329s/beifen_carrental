@@ -6,11 +6,11 @@
  * @since 1.0, 2017-01-09 15:29:09
  */
 class AlipayTradePrecreateRequest
-{
-	/** 
-	 * 收银员通过收银台或商户后台调用支付宝接口，生成二维码后，展示给伤脑筋户，由用户扫描二维码完成订单支付。
-修改路由策略到R
-	 **/
+{
+	/** 
+	 * 收银员通过收银台或商户后台调用支付宝接口，生成二维码后，展示给伤脑筋户，由用户扫描二维码完成订单支付。
+修改路由策略到R
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -22,16 +22,16 @@ class AlipayTradePrecreateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

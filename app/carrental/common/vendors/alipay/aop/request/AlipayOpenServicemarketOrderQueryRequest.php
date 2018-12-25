@@ -6,10 +6,10 @@
  * @since 1.0, 2017-03-01 16:20:58
  */
 class AlipayOpenServicemarketOrderQueryRequest
-{
-	/** 
-	 * 用于服务商回查服务市场订单明细信息
-	 **/
+{
+	/** 
+	 * 用于服务商回查服务市场订单明细信息
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOpenServicemarketOrderQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

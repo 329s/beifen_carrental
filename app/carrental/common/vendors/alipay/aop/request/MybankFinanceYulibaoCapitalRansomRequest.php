@@ -6,10 +6,10 @@
  * @since 1.0, 2016-11-18 16:08:08
  */
 class MybankFinanceYulibaoCapitalRansomRequest
-{
-	/** 
-	 * 网商银行余利宝赎回
-	 **/
+{
+	/** 
+	 * 网商银行余利宝赎回
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class MybankFinanceYulibaoCapitalRansomRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

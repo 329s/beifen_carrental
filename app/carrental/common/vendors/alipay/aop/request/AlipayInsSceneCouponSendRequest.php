@@ -6,10 +6,10 @@
  * @since 1.0, 2017-02-23 21:17:32
  */
 class AlipayInsSceneCouponSendRequest
-{
-	/** 
-	 * 保险营销权益发放接口
-	 **/
+{
+	/** 
+	 * 保险营销权益发放接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayInsSceneCouponSendRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

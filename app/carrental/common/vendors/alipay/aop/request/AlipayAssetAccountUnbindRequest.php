@@ -6,15 +6,15 @@
  * @since 1.0, 2017-04-07 18:06:06
  */
 class AlipayAssetAccountUnbindRequest
-{
-	/** 
-	 * 业务参数 使用该app提供用户信息的商户在支付宝签约时的支付宝账户userID，可以和app相同。
-	 **/
-	private $providerId;
-	
-	/** 
-	 * 用户在商户网站的会员标识。商户需确保其唯一性，不可变更。
-	 **/
+{
+	/** 
+	 * 业务参数 使用该app提供用户信息的商户在支付宝签约时的支付宝账户userID，可以和app相同。
+	 **/
+	private $providerId;
+	
+	/** 
+	 * 用户在商户网站的会员标识。商户需确保其唯一性，不可变更。
+	 **/
 	private $providerUserId;
 
 	private $apiParas = array();
@@ -26,27 +26,27 @@ class AlipayAssetAccountUnbindRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setProviderId($providerId)
-	{
-		$this->providerId = $providerId;
-		$this->apiParas["provider_id"] = $providerId;
+	{
+		$this->providerId = $providerId;
+		$this->apiParas["provider_id"] = $providerId;
 	}
-
+
 	public function getProviderId()
-	{
-		return $this->providerId;
+	{
+		return $this->providerId;
 	}
-
+
 	public function setProviderUserId($providerUserId)
-	{
-		$this->providerUserId = $providerUserId;
-		$this->apiParas["provider_user_id"] = $providerUserId;
+	{
+		$this->providerUserId = $providerUserId;
+		$this->apiParas["provider_user_id"] = $providerUserId;
 	}
-
+
 	public function getProviderUserId()
-	{
-		return $this->providerUserId;
+	{
+		return $this->providerUserId;
 	}
 
 	public function getApiMethodName()

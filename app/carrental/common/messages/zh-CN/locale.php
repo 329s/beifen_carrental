@@ -324,6 +324,7 @@ return [
   'Self baught vehicle' => '自购车辆',
   'Affiliate vehicle' => '长期挂靠',
   'Trusttee vehicle' => '临时托管',
+  'Chefenqi vehicle' => '车分期',
   'Vehicle color' => '车身颜色',
   'Purchase price' => '购进金额',
   'Purchase tax' => '购置税',

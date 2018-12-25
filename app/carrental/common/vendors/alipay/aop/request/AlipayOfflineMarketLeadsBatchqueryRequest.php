@@ -6,10 +6,10 @@
  * @since 1.0, 2017-02-07 16:46:29
  */
 class AlipayOfflineMarketLeadsBatchqueryRequest
-{
-	/** 
-	 * 通过该接口多组合条件查询口碑线下Leads信息
-	 **/
+{
+	/** 
+	 * 通过该接口多组合条件查询口碑线下Leads信息
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOfflineMarketLeadsBatchqueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

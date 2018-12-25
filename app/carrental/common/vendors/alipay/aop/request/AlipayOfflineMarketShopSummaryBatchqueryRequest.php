@@ -6,10 +6,10 @@
  * @since 1.0, 2017-02-17 14:20:04
  */
 class AlipayOfflineMarketShopSummaryBatchqueryRequest
-{
-	/** 
-	 * 门店摘要信息批量查询接口
-	 **/
+{
+	/** 
+	 * 门店摘要信息批量查询接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOfflineMarketShopSummaryBatchqueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

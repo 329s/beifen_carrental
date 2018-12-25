@@ -6,15 +6,15 @@
  * @since 1.0, 2016-06-06 17:54:23
  */
 class AlipayMicropayOrderUnfreezeRequest
-{
-	/** 
-	 * 冻结资金流水号,在创建资金订单时支付宝返回的流水号
-	 **/
-	private $alipayOrderNo;
-	
-	/** 
-	 * 冻结备注
-	 **/
+{
+	/** 
+	 * 冻结资金流水号,在创建资金订单时支付宝返回的流水号
+	 **/
+	private $alipayOrderNo;
+	
+	/** 
+	 * 冻结备注
+	 **/
 	private $memo;
 
 	private $apiParas = array();
@@ -26,27 +26,27 @@ class AlipayMicropayOrderUnfreezeRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setAlipayOrderNo($alipayOrderNo)
-	{
-		$this->alipayOrderNo = $alipayOrderNo;
-		$this->apiParas["alipay_order_no"] = $alipayOrderNo;
+	{
+		$this->alipayOrderNo = $alipayOrderNo;
+		$this->apiParas["alipay_order_no"] = $alipayOrderNo;
 	}
-
+
 	public function getAlipayOrderNo()
-	{
-		return $this->alipayOrderNo;
+	{
+		return $this->alipayOrderNo;
 	}
-
+
 	public function setMemo($memo)
-	{
-		$this->memo = $memo;
-		$this->apiParas["memo"] = $memo;
+	{
+		$this->memo = $memo;
+		$this->apiParas["memo"] = $memo;
 	}
-
+
 	public function getMemo()
-	{
-		return $this->memo;
+	{
+		return $this->memo;
 	}
 
 	public function getApiMethodName()

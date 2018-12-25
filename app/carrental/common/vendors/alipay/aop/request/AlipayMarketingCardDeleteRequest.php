@@ -6,10 +6,10 @@
  * @since 1.0, 2017-01-13 13:10:44
  */
 class AlipayMarketingCardDeleteRequest
-{
-	/** 
-	 * 会员卡删卡
-	 **/
+{
+	/** 
+	 * 会员卡删卡
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingCardDeleteRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

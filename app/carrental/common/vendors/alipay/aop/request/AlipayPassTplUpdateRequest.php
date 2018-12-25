@@ -6,15 +6,15 @@
  * @since 1.0, 2016-07-01 15:35:58
  */
 class AlipayPassTplUpdateRequest
-{
-	/** 
-	 * 模版内容
-	 **/
-	private $tplContent;
-	
-	/** 
-	 * 模版ID
-	 **/
+{
+	/** 
+	 * 模版内容
+	 **/
+	private $tplContent;
+	
+	/** 
+	 * 模版ID
+	 **/
 	private $tplId;
 
 	private $apiParas = array();
@@ -26,27 +26,27 @@ class AlipayPassTplUpdateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setTplContent($tplContent)
-	{
-		$this->tplContent = $tplContent;
-		$this->apiParas["tpl_content"] = $tplContent;
+	{
+		$this->tplContent = $tplContent;
+		$this->apiParas["tpl_content"] = $tplContent;
 	}
-
+
 	public function getTplContent()
-	{
-		return $this->tplContent;
+	{
+		return $this->tplContent;
 	}
-
+
 	public function setTplId($tplId)
-	{
-		$this->tplId = $tplId;
-		$this->apiParas["tpl_id"] = $tplId;
+	{
+		$this->tplId = $tplId;
+		$this->apiParas["tpl_id"] = $tplId;
 	}
-
+
 	public function getTplId()
-	{
-		return $this->tplId;
+	{
+		return $this->tplId;
 	}
 
 	public function getApiMethodName()

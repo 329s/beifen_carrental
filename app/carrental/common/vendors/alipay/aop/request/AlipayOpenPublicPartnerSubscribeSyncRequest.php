@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-07 20:24:37
  */
 class AlipayOpenPublicPartnerSubscribeSyncRequest
-{
-	/** 
-	 * 用于为服务窗合作伙伴（如YunOS），提供订阅关系（关注与取消关注）同步功能
-	 **/
+{
+	/** 
+	 * 用于为服务窗合作伙伴（如YunOS），提供订阅关系（关注与取消关注）同步功能
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOpenPublicPartnerSubscribeSyncRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

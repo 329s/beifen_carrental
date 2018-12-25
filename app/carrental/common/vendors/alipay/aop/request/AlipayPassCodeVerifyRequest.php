@@ -6,29 +6,29 @@
  * @since 1.0, 2014-06-12 17:16:11
  */
 class AlipayPassCodeVerifyRequest
-{
-	/** 
-	 * 商户核销操作扩展信息
-	 **/
-	private $extInfo;
-	
-	/** 
-	 * 操作员id
-如果operator_type为1，则此id代表核销人员id
-如果operator_type为2，则此id代表核销机具id
-	 **/
-	private $operatorId;
-	
-	/** 
-	 * 操作员类型
-1 核销人员
-2 核销机具
-	 **/
-	private $operatorType;
-	
-	/** 
-	 * Alipass对应的核销码串
-	 **/
+{
+	/** 
+	 * 商户核销操作扩展信息
+	 **/
+	private $extInfo;
+	
+	/** 
+	 * 操作员id
+如果operator_type为1，则此id代表核销人员id
+如果operator_type为2，则此id代表核销机具id
+	 **/
+	private $operatorId;
+	
+	/** 
+	 * 操作员类型
+1 核销人员
+2 核销机具
+	 **/
+	private $operatorType;
+	
+	/** 
+	 * Alipass对应的核销码串
+	 **/
 	private $verifyCode;
 
 	private $apiParas = array();
@@ -40,49 +40,49 @@ class AlipayPassCodeVerifyRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setExtInfo($extInfo)
-	{
-		$this->extInfo = $extInfo;
-		$this->apiParas["ext_info"] = $extInfo;
+	{
+		$this->extInfo = $extInfo;
+		$this->apiParas["ext_info"] = $extInfo;
 	}
-
+
 	public function getExtInfo()
-	{
-		return $this->extInfo;
+	{
+		return $this->extInfo;
 	}
-
+
 	public function setOperatorId($operatorId)
-	{
-		$this->operatorId = $operatorId;
-		$this->apiParas["operator_id"] = $operatorId;
+	{
+		$this->operatorId = $operatorId;
+		$this->apiParas["operator_id"] = $operatorId;
 	}
-
+
 	public function getOperatorId()
-	{
-		return $this->operatorId;
+	{
+		return $this->operatorId;
 	}
-
+
 	public function setOperatorType($operatorType)
-	{
-		$this->operatorType = $operatorType;
-		$this->apiParas["operator_type"] = $operatorType;
+	{
+		$this->operatorType = $operatorType;
+		$this->apiParas["operator_type"] = $operatorType;
 	}
-
+
 	public function getOperatorType()
-	{
-		return $this->operatorType;
+	{
+		return $this->operatorType;
 	}
-
+
 	public function setVerifyCode($verifyCode)
-	{
-		$this->verifyCode = $verifyCode;
-		$this->apiParas["verify_code"] = $verifyCode;
+	{
+		$this->verifyCode = $verifyCode;
+		$this->apiParas["verify_code"] = $verifyCode;
 	}
-
+
 	public function getVerifyCode()
-	{
-		return $this->verifyCode;
+	{
+		return $this->verifyCode;
 	}
 
 	public function getApiMethodName()

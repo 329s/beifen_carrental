@@ -6,10 +6,10 @@
  * @since 1.0, 2016-01-14 17:47:44
  */
 class AlipayUserTestRequest
-{
-	/** 
-	 * 顶顶顶
-	 **/
+{
+	/** 
+	 * 顶顶顶
+	 **/
 	private $userinfo;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayUserTestRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setUserinfo($userinfo)
-	{
-		$this->userinfo = $userinfo;
-		$this->apiParas["userinfo"] = $userinfo;
+	{
+		$this->userinfo = $userinfo;
+		$this->apiParas["userinfo"] = $userinfo;
 	}
-
+
 	public function getUserinfo()
-	{
-		return $this->userinfo;
+	{
+		return $this->userinfo;
 	}
 
 	public function getApiMethodName()

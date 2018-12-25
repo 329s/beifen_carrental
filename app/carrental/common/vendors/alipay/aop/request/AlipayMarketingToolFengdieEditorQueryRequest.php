@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-10 10:25:08
  */
 class AlipayMarketingToolFengdieEditorQueryRequest
-{
-	/** 
-	 * 唤起凤蝶活动编辑器
-	 **/
+{
+	/** 
+	 * 唤起凤蝶活动编辑器
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingToolFengdieEditorQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

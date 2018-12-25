@@ -6,10 +6,10 @@
  * @since 1.0, 2016-06-06 17:38:21
  */
 class AlipayPlatformOpenidGetRequest
-{
-	/** 
-	 * 业务内容，其中包括商户partner_id和用户ID列表user_ids两块
-	 **/
+{
+	/** 
+	 * 业务内容，其中包括商户partner_id和用户ID列表user_ids两块
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayPlatformOpenidGetRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

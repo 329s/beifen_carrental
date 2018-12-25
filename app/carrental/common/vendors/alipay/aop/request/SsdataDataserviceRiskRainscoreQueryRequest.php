@@ -6,10 +6,10 @@
  * @since 1.0, 2017-02-21 17:13:22
  */
 class SsdataDataserviceRiskRainscoreQueryRequest
-{
-	/** 
-	 * 蚁盾风险评分服务新版
-	 **/
+{
+	/** 
+	 * 蚁盾风险评分服务新版
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class SsdataDataserviceRiskRainscoreQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

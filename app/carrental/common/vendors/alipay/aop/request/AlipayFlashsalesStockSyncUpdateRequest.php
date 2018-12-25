@@ -6,20 +6,20 @@
  * @since 1.0, 2014-08-22 15:32:32
  */
 class AlipayFlashsalesStockSyncUpdateRequest
-{
-	/** 
-	 * 商户的商品id
-	 **/
-	private $outProductId;
-	
-	/** 
-	 * 服务窗id
-	 **/
-	private $publicId;
-	
-	/** 
-	 * 库存数量
-	 **/
+{
+	/** 
+	 * 商户的商品id
+	 **/
+	private $outProductId;
+	
+	/** 
+	 * 服务窗id
+	 **/
+	private $publicId;
+	
+	/** 
+	 * 库存数量
+	 **/
 	private $stock;
 
 	private $apiParas = array();
@@ -31,38 +31,38 @@ class AlipayFlashsalesStockSyncUpdateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setOutProductId($outProductId)
-	{
-		$this->outProductId = $outProductId;
-		$this->apiParas["out_product_id"] = $outProductId;
+	{
+		$this->outProductId = $outProductId;
+		$this->apiParas["out_product_id"] = $outProductId;
 	}
-
+
 	public function getOutProductId()
-	{
-		return $this->outProductId;
+	{
+		return $this->outProductId;
 	}
-
+
 	public function setPublicId($publicId)
-	{
-		$this->publicId = $publicId;
-		$this->apiParas["public_id"] = $publicId;
+	{
+		$this->publicId = $publicId;
+		$this->apiParas["public_id"] = $publicId;
 	}
-
+
 	public function getPublicId()
-	{
-		return $this->publicId;
+	{
+		return $this->publicId;
 	}
-
+
 	public function setStock($stock)
-	{
-		$this->stock = $stock;
-		$this->apiParas["stock"] = $stock;
+	{
+		$this->stock = $stock;
+		$this->apiParas["stock"] = $stock;
 	}
-
+
 	public function getStock()
-	{
-		return $this->stock;
+	{
+		return $this->stock;
 	}
 
 	public function getApiMethodName()

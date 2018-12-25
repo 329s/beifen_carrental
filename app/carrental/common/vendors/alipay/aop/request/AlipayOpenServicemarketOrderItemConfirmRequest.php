@@ -6,10 +6,10 @@
  * @since 1.0, 2016-09-20 14:23:46
  */
 class AlipayOpenServicemarketOrderItemConfirmRequest
-{
-	/** 
-	 * 服务商代商家确认完成
-	 **/
+{
+	/** 
+	 * 服务商代商家确认完成
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOpenServicemarketOrderItemConfirmRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

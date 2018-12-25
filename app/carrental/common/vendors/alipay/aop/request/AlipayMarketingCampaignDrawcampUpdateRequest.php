@@ -6,10 +6,10 @@
  * @since 1.0, 2017-03-23 14:22:20
  */
 class AlipayMarketingCampaignDrawcampUpdateRequest
-{
-	/** 
-	 * 营销抽奖活动修改
-	 **/
+{
+	/** 
+	 * 营销抽奖活动修改
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingCampaignDrawcampUpdateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

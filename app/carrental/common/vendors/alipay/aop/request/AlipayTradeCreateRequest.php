@@ -6,10 +6,10 @@
  * @since 1.0, 2017-01-13 10:48:42
  */
 class AlipayTradeCreateRequest
-{
-	/** 
-	 * 商户通过该接口进行交易的创建下单
-	 **/
+{
+	/** 
+	 * 商户通过该接口进行交易的创建下单
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayTradeCreateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

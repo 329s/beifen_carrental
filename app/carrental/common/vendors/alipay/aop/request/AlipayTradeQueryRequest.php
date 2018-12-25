@@ -6,11 +6,11 @@
  * @since 1.0, 2017-01-09 15:37:43
  */
 class AlipayTradeQueryRequest
-{
-	/** 
-	 * 统一收单线下交易查询
-修改路由策略到R
-	 **/
+{
+	/** 
+	 * 统一收单线下交易查询
+修改路由策略到R
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -22,16 +22,16 @@ class AlipayTradeQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

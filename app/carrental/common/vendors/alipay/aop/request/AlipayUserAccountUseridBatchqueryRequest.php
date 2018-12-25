@@ -6,10 +6,10 @@
  * @since 1.0, 2016-06-06 21:37:53
  */
 class AlipayUserAccountUseridBatchqueryRequest
-{
-	/** 
-	 * 业务统一入参，目前会传入用户的手机号作为查询参数
-	 **/
+{
+	/** 
+	 * 业务统一入参，目前会传入用户的手机号作为查询参数
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayUserAccountUseridBatchqueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

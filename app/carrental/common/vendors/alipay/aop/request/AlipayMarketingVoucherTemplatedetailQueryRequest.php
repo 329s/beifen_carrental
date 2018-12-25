@@ -6,10 +6,10 @@
  * @since 1.0, 2017-03-29 11:07:30
  */
 class AlipayMarketingVoucherTemplatedetailQueryRequest
-{
-	/** 
-	 * 查询模板详情
-	 **/
+{
+	/** 
+	 * 查询模板详情
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingVoucherTemplatedetailQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

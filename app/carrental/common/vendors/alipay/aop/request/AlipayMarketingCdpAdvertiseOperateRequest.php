@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-01 15:31:43
  */
 class AlipayMarketingCdpAdvertiseOperateRequest
-{
-	/** 
-	 * 提供给ISV、开发者操作广告的接口
-	 **/
+{
+	/** 
+	 * 提供给ISV、开发者操作广告的接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingCdpAdvertiseOperateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

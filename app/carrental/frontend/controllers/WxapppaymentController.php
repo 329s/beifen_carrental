@@ -236,8 +236,6 @@ class WxapppaymentController extends \yii\web\Controller
             "transaction_id"=>"4200000197201811012996358318"
         );*/
 
-        // {"appid":"wx6257364ee334cd75","bank_type":"CMB_CREDIT","cash_fee":"27900","fee_type":"CNY","is_subscribe":"N","mch_id":"1395342202","nonce_str":"rijuvnSD8CGIVsU0lEqA35dOz4NTZk1X","openid":"oHTLE5PsHef7P70sO7P_h7fyWSKY","out_trade_no":"200079028505","result_code":"SUCCESS","return_code":"SUCCESS","sign":"4534E2CF82A50B28EF68F904B0F87493","time_end":"20181216113552","total_fee":"27900","trade_type":"JSAPI","transaction_id":"4200000204201812169298949833"}
-
         $post_sign = $post_data['sign'];
 
         //重新生成签名

@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-07 18:31:56
  */
 class AlipayOfflineMarketItemModifyRequest
-{
-	/** 
-	 * 商户可以通过此接口对商品进行库存等信息的修改（库存修改值只能大于当前值）
-	 **/
+{
+	/** 
+	 * 商户可以通过此接口对商品进行库存等信息的修改（库存修改值只能大于当前值）
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOfflineMarketItemModifyRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

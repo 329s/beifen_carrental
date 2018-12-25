@@ -6,10 +6,10 @@
  * @since 1.0, 2017-03-02 18:17:11
  */
 class AlipayEcoCplifeRoominfoDeleteRequest
-{
-	/** 
-	 * 删除物业小区房屋信息
-	 **/
+{
+	/** 
+	 * 删除物业小区房屋信息
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayEcoCplifeRoominfoDeleteRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

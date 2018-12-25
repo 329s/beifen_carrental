@@ -6,10 +6,10 @@
  * @since 1.0, 2017-03-20 10:29:11
  */
 class AlipayMarketingToolFengdieActivityQueryRequest
-{
-	/** 
-	 * 查询凤蝶活动详情
-	 **/
+{
+	/** 
+	 * 查询凤蝶活动详情
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingToolFengdieActivityQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

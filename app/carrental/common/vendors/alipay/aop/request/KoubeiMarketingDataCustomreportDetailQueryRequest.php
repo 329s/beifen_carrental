@@ -6,10 +6,10 @@
  * @since 1.0, 2016-11-17 11:58:23
  */
 class KoubeiMarketingDataCustomreportDetailQueryRequest
-{
-	/** 
-	 * 自定义数据报表规则详情查询接口
-	 **/
+{
+	/** 
+	 * 自定义数据报表规则详情查询接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class KoubeiMarketingDataCustomreportDetailQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

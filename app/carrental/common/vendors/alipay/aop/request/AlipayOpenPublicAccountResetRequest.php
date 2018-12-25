@@ -6,10 +6,10 @@
  * @since 1.0, 2016-12-08 12:01:32
  */
 class AlipayOpenPublicAccountResetRequest
-{
-	/** 
-	 * 重新设置绑定商家会员号
-	 **/
+{
+	/** 
+	 * 重新设置绑定商家会员号
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOpenPublicAccountResetRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

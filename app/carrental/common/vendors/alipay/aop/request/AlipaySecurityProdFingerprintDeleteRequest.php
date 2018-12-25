@@ -6,10 +6,10 @@
  * @since 1.0, 2017-01-12 17:27:09
  */
 class AlipaySecurityProdFingerprintDeleteRequest
-{
-	/** 
-	 * 指纹解注册
-	 **/
+{
+	/** 
+	 * 指纹解注册
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipaySecurityProdFingerprintDeleteRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

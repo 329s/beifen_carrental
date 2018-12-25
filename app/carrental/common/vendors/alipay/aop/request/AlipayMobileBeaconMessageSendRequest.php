@@ -6,10 +6,10 @@
  * @since 1.0, 2017-02-28 11:13:19
  */
 class AlipayMobileBeaconMessageSendRequest
-{
-	/** 
-	 * 设备关联数据
-	 **/
+{
+	/** 
+	 * 设备关联数据
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMobileBeaconMessageSendRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

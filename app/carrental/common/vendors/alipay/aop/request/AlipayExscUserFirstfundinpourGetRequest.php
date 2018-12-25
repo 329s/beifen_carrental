@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-07 16:23:40
  */
 class AlipayExscUserFirstfundinpourGetRequest
-{
-	/** 
-	 * 支付宝 cif的accountNo 格式：支付宝userId+0156
-	 **/
+{
+	/** 
+	 * 支付宝 cif的accountNo 格式：支付宝userId+0156
+	 **/
 	private $alipayId;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayExscUserFirstfundinpourGetRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setAlipayId($alipayId)
-	{
-		$this->alipayId = $alipayId;
-		$this->apiParas["alipay_id"] = $alipayId;
+	{
+		$this->alipayId = $alipayId;
+		$this->apiParas["alipay_id"] = $alipayId;
 	}
-
+
 	public function getAlipayId()
-	{
-		return $this->alipayId;
+	{
+		return $this->alipayId;
 	}
 
 	public function getApiMethodName()

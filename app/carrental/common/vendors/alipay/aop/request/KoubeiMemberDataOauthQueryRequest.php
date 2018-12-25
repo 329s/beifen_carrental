@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-10 10:45:22
  */
 class KoubeiMemberDataOauthQueryRequest
-{
-	/** 
-	 * 口碑业务授权令牌查询
-	 **/
+{
+	/** 
+	 * 口碑业务授权令牌查询
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class KoubeiMemberDataOauthQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

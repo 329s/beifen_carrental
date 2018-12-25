@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-07 20:23:56
  */
 class AlipayOpenPublicPartnerMenuQueryRequest
-{
-	/** 
-	 * 为服务窗合作伙伴（如YunOS），提供查询所有服务窗的菜单的功能
-	 **/
+{
+	/** 
+	 * 为服务窗合作伙伴（如YunOS），提供查询所有服务窗的菜单的功能
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOpenPublicPartnerMenuQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

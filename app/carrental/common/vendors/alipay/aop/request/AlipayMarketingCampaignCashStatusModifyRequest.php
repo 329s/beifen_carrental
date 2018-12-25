@@ -6,10 +6,10 @@
  * @since 1.0, 2017-01-05 15:04:17
  */
 class AlipayMarketingCampaignCashStatusModifyRequest
-{
-	/** 
-	 * 更改现金活动状态
-	 **/
+{
+	/** 
+	 * 更改现金活动状态
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingCampaignCashStatusModifyRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

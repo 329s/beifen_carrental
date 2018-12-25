@@ -6,10 +6,10 @@
  * @since 1.0, 2015-12-15 11:37:56
  */
 class AlipayCommerceCityfacilitatorDepositQueryRequest
-{
-	/** 
-	 * 商户查询用户的充值转账记录
-	 **/
+{
+	/** 
+	 * 商户查询用户的充值转账记录
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayCommerceCityfacilitatorDepositQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

@@ -6,10 +6,10 @@
  * @since 1.0, 2017-03-30 11:55:47
  */
 class AlipayDaoweiOrderCancelRequest
-{
-	/** 
-	 * 到位订单取消
-	 **/
+{
+	/** 
+	 * 到位订单取消
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayDaoweiOrderCancelRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

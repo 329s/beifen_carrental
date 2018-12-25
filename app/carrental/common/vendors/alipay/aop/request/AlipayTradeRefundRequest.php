@@ -6,10 +6,10 @@
  * @since 1.0, 2017-01-13 19:12:23
  */
 class AlipayTradeRefundRequest
-{
-	/** 
-	 * 统一收单交易退款接口
-	 **/
+{
+	/** 
+	 * 统一收单交易退款接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayTradeRefundRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

@@ -6,10 +6,10 @@
  * @since 1.0, 2016-06-02 14:27:04
  */
 class AlipayDataDataserviceCodeRecoRequest
-{
-	/** 
-	 * 改api为数立提供验证码识别服务。isv可以通过该接口，使用我们的图片识别能力。
-	 **/
+{
+	/** 
+	 * 改api为数立提供验证码识别服务。isv可以通过该接口，使用我们的图片识别能力。
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayDataDataserviceCodeRecoRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

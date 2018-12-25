@@ -6,20 +6,20 @@
  * @since 1.0, 2017-02-17 14:14:15
  */
 class AlipayZdatafrontDatatransferedSendRequest
-{
-	/** 
-	 * 数据字段，identity对应的其他数据字段。使用json格式组织，且仅支持字符串类型，其他类型请转为字符串。
-	 **/
-	private $data;
-	
-	/** 
-	 * 合作伙伴的主键数据，同一合作伙伴要保证该字段唯一，若出现重复，后入数据会覆盖先入数据。使用json格式组织，且仅支持字符串类型，其他类型请转为字符串。
-	 **/
-	private $identity;
-	
-	/** 
-	 * 合作伙伴标识字段，用来区分数据来源。建议使用公司域名或公司名。
-	 **/
+{
+	/** 
+	 * 数据字段，identity对应的其他数据字段。使用json格式组织，且仅支持字符串类型，其他类型请转为字符串。
+	 **/
+	private $data;
+	
+	/** 
+	 * 合作伙伴的主键数据，同一合作伙伴要保证该字段唯一，若出现重复，后入数据会覆盖先入数据。使用json格式组织，且仅支持字符串类型，其他类型请转为字符串。
+	 **/
+	private $identity;
+	
+	/** 
+	 * 合作伙伴标识字段，用来区分数据来源。建议使用公司域名或公司名。
+	 **/
 	private $typeId;
 
 	private $apiParas = array();
@@ -31,38 +31,38 @@ class AlipayZdatafrontDatatransferedSendRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setData($data)
-	{
-		$this->data = $data;
-		$this->apiParas["data"] = $data;
+	{
+		$this->data = $data;
+		$this->apiParas["data"] = $data;
 	}
-
+
 	public function getData()
-	{
-		return $this->data;
+	{
+		return $this->data;
 	}
-
+
 	public function setIdentity($identity)
-	{
-		$this->identity = $identity;
-		$this->apiParas["identity"] = $identity;
+	{
+		$this->identity = $identity;
+		$this->apiParas["identity"] = $identity;
 	}
-
+
 	public function getIdentity()
-	{
-		return $this->identity;
+	{
+		return $this->identity;
 	}
-
+
 	public function setTypeId($typeId)
-	{
-		$this->typeId = $typeId;
-		$this->apiParas["type_id"] = $typeId;
+	{
+		$this->typeId = $typeId;
+		$this->apiParas["type_id"] = $typeId;
 	}
-
+
 	public function getTypeId()
-	{
-		return $this->typeId;
+	{
+		return $this->typeId;
 	}
 
 	public function getApiMethodName()

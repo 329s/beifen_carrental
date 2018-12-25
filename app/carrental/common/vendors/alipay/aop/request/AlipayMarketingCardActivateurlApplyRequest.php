@@ -6,10 +6,10 @@
  * @since 1.0, 2017-03-13 15:27:54
  */
 class AlipayMarketingCardActivateurlApplyRequest
-{
-	/** 
-	 * 会员卡领卡链接获取接口
-	 **/
+{
+	/** 
+	 * 会员卡领卡链接获取接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingCardActivateurlApplyRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

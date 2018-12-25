@@ -6,10 +6,10 @@
  * @since 1.0, 2016-09-20 14:23:46
  */
 class KoubeiMarketingDataActivityReportQueryRequest
-{
-	/** 
-	 * 口碑商户营销报表查询
-	 **/
+{
+	/** 
+	 * 口碑商户营销报表查询
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class KoubeiMarketingDataActivityReportQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

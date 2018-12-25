@@ -6,10 +6,10 @@
  * @since 1.0, 2015-02-06 13:10:24
  */
 class AlipayTrustUserStandardVerifyGetRequest
-{
-	/** 
-	 * 详见说明文档和代码样例
-	 **/
+{
+	/** 
+	 * 详见说明文档和代码样例
+	 **/
 	private $aliTrustUserInfo;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayTrustUserStandardVerifyGetRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setAliTrustUserInfo($aliTrustUserInfo)
-	{
-		$this->aliTrustUserInfo = $aliTrustUserInfo;
-		$this->apiParas["ali_trust_user_info"] = $aliTrustUserInfo;
+	{
+		$this->aliTrustUserInfo = $aliTrustUserInfo;
+		$this->apiParas["ali_trust_user_info"] = $aliTrustUserInfo;
 	}
-
+
 	public function getAliTrustUserInfo()
-	{
-		return $this->aliTrustUserInfo;
+	{
+		return $this->aliTrustUserInfo;
 	}
 
 	public function getApiMethodName()

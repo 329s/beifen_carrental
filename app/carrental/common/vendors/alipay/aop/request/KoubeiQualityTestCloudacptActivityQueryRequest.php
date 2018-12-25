@@ -6,10 +6,10 @@
  * @since 1.0, 2016-06-15 15:07:41
  */
 class KoubeiQualityTestCloudacptActivityQueryRequest
-{
-	/** 
-	 * 云验收活动列表查询
-	 **/
+{
+	/** 
+	 * 云验收活动列表查询
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class KoubeiQualityTestCloudacptActivityQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

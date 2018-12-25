@@ -6,10 +6,10 @@
  * @since 1.0, 2017-01-13 16:32:57
  */
 class KoubeiCraftsmanDataWorkModifyRequest
-{
-	/** 
-	 * 修改手艺人作品信息接口
-	 **/
+{
+	/** 
+	 * 修改手艺人作品信息接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class KoubeiCraftsmanDataWorkModifyRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

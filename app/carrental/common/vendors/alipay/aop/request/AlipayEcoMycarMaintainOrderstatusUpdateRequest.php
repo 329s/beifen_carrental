@@ -6,10 +6,10 @@
  * @since 1.0, 2016-07-21 12:12:48
  */
 class AlipayEcoMycarMaintainOrderstatusUpdateRequest
-{
-	/** 
-	 * 保养订单状态更新
-	 **/
+{
+	/** 
+	 * 保养订单状态更新
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayEcoMycarMaintainOrderstatusUpdateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

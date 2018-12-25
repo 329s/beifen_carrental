@@ -6,10 +6,10 @@
  * @since 1.0, 2016-07-29 19:51:20
  */
 class AlipayUserGetRequest
-{
-	/** 
-	 * 需要返回的字段列表。alipay_user_id：支付宝用户userId,user_status：支付宝用户状态,user_type：支付宝用户类型,certified：是否通过实名认证,real_name：真实姓名,logon_id：支付宝登录号,sex：用户性别
-	 **/
+{
+	/** 
+	 * 需要返回的字段列表。alipay_user_id：支付宝用户userId,user_status：支付宝用户状态,user_type：支付宝用户类型,certified：是否通过实名认证,real_name：真实姓名,logon_id：支付宝登录号,sex：用户性别
+	 **/
 	private $fields;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayUserGetRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setFields($fields)
-	{
-		$this->fields = $fields;
-		$this->apiParas["fields"] = $fields;
+	{
+		$this->fields = $fields;
+		$this->apiParas["fields"] = $fields;
 	}
-
+
 	public function getFields()
-	{
-		return $this->fields;
+	{
+		return $this->fields;
 	}
 
 	public function getApiMethodName()

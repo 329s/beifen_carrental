@@ -6,10 +6,10 @@
  * @since 1.0, 2016-07-06 10:48:15
  */
 class KoubeiItemExtitemExistedQueryRequest
-{
-	/** 
-	 * 查询商品编码对应的商品是否存在
-	 **/
+{
+	/** 
+	 * 查询商品编码对应的商品是否存在
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class KoubeiItemExtitemExistedQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

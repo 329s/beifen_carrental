@@ -6,15 +6,15 @@
  * @since 1.0, 2017-04-07 17:06:14
  */
 class AlipayEbppPdeductBillPayStatusRequest
-{
-	/** 
-	 * 支付宝用户ID
-	 **/
-	private $agreementId;
-	
-	/** 
-	 * 商户代扣业务流水
-	 **/
+{
+	/** 
+	 * 支付宝用户ID
+	 **/
+	private $agreementId;
+	
+	/** 
+	 * 商户代扣业务流水
+	 **/
 	private $outOrderNo;
 
 	private $apiParas = array();
@@ -26,27 +26,27 @@ class AlipayEbppPdeductBillPayStatusRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setAgreementId($agreementId)
-	{
-		$this->agreementId = $agreementId;
-		$this->apiParas["agreement_id"] = $agreementId;
+	{
+		$this->agreementId = $agreementId;
+		$this->apiParas["agreement_id"] = $agreementId;
 	}
-
+
 	public function getAgreementId()
-	{
-		return $this->agreementId;
+	{
+		return $this->agreementId;
 	}
-
+
 	public function setOutOrderNo($outOrderNo)
-	{
-		$this->outOrderNo = $outOrderNo;
-		$this->apiParas["out_order_no"] = $outOrderNo;
+	{
+		$this->outOrderNo = $outOrderNo;
+		$this->apiParas["out_order_no"] = $outOrderNo;
 	}
-
+
 	public function getOutOrderNo()
-	{
-		return $this->outOrderNo;
+	{
+		return $this->outOrderNo;
 	}
 
 	public function getApiMethodName()

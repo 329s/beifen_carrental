@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-05 17:31:42
  */
 class AlipayTradeWapPayRequest
-{
-	/** 
-	 * 手机网站支付接口2.0
-	 **/
+{
+	/** 
+	 * 手机网站支付接口2.0
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayTradeWapPayRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

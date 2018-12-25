@@ -6,10 +6,10 @@
  * @since 1.0, 2016-06-08 12:53:36
  */
 class AlipayMarketingCampaignDiscountBudgetCreateRequest
-{
-	/** 
-	 * 营销立减活动预算创建
-	 **/
+{
+	/** 
+	 * 营销立减活动预算创建
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingCampaignDiscountBudgetCreateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

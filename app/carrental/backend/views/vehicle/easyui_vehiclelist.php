@@ -17,7 +17,7 @@ if (!empty($type) && $type != 'all') {
 if (isset($vehicleStatus)) {
     $urlInfo['status'] = $vehicleStatus;
     
-    $columnsArray = ['id', 'plate_number', 'model_id', 'status', 'engine_number', 'vehicle_number', 
+    $columnsArray = ['id', 'plate_number', 'model_id', 'status','vehicle_property', 'engine_number', 'vehicle_number', 
         'color', 'baught_time', 'cur_kilometers', 'belong_office_id', 'stop_office_id', 
         'gps_id', 'annual_inspection_time', 'tci_renewal_time', 'vci_renewal_time', 
         'edit_user_id', 'updated_at', 'operation'];
@@ -27,7 +27,7 @@ if (isset($vehicleStatus)) {
 else if(isset($action) && $action == 'find_vehicles') {
     $urlInfo['action'] = $action;
     
-    $columnsArray = ['id', 'plate_number', 'model_id', 'status', 'engine_number', 'vehicle_number', 
+    $columnsArray = ['id', 'plate_number', 'model_id', 'status','vehicle_property', 'engine_number', 'vehicle_number', 
         'color', 'baught_time', 'cur_kilometers', 'belong_office_id', 'stop_office_id', 
         'gps_id', 'annual_inspection_time', 'tci_renewal_time', 'vci_renewal_time', 
         'edit_user_id', 'updated_at'];
@@ -50,7 +50,7 @@ else {
     $toolbarArray[] = Yii::$app->user->can('vehicle/index') ? CMyHtml::formatDatagridToolConfig(CMyHtml::DG_TOOL_BUTTON, \Yii::t('carrental', 'Find vehicles'), ['tab'=>\yii\helpers\Url::to(['vehicle/all-index', 'action'=>'find_vehicles'])]) : null;
     
     $urlsArray['deleteUrl'] = \yii\helpers\Url::to(['vehicle/delete']);
-    $columnsArray = ['id', 'plate_number', 'model_id', 'status', 'engine_number', 'vehicle_number', 
+    $columnsArray = ['id', 'plate_number', 'model_id', 'status','vehicle_property', 'engine_number', 'vehicle_number', 
         'color', 'baught_time', 'cur_kilometers', 'belong_office_id', 'stop_office_id', 
         'gps_id', 'annual_inspection_time', 'tci_renewal_time', 'vci_renewal_time', 
         'edit_user_id', 'updated_at', 'operation'];

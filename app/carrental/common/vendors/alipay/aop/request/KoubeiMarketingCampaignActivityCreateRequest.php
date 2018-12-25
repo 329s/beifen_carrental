@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-01 21:21:04
  */
 class KoubeiMarketingCampaignActivityCreateRequest
-{
-	/** 
-	 * 活动创建接口
-	 **/
+{
+	/** 
+	 * 活动创建接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class KoubeiMarketingCampaignActivityCreateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

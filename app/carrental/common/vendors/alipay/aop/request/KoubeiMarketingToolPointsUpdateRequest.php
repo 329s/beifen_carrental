@@ -6,10 +6,10 @@
  * @since 1.0, 2016-11-15 18:49:47
  */
 class KoubeiMarketingToolPointsUpdateRequest
-{
-	/** 
-	 * 更新卡积分
-	 **/
+{
+	/** 
+	 * 更新卡积分
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class KoubeiMarketingToolPointsUpdateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

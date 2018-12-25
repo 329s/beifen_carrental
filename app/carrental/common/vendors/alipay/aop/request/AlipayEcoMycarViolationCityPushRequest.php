@@ -6,10 +6,10 @@
  * @since 1.0, 2016-05-12 09:57:36
  */
 class AlipayEcoMycarViolationCityPushRequest
-{
-	/** 
-	 * 推送新支持违章查询的城市
-	 **/
+{
+	/** 
+	 * 推送新支持违章查询的城市
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayEcoMycarViolationCityPushRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

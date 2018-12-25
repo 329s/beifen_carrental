@@ -6,10 +6,10 @@
  * @since 1.0, 2017-03-31 15:32:46
  */
 class AlipayPassTemplateUpdateRequest
-{
-	/** 
-	 * 支付宝pass更新模版接口
-	 **/
+{
+	/** 
+	 * 支付宝pass更新模版接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayPassTemplateUpdateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

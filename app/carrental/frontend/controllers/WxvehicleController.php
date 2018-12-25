@@ -154,7 +154,12 @@ class WxvehicleController extends \yii\web\Controller
     	$data['status'] = $getVehicleStatusArray[$params['status']];
     	$data['vehicle_model'] = $params['vehicle_model'];
     	$data['vehicle_property'] = $getVehiclePropertiesArray[$params['vehicle_property']];
-    	$data['text'] = $params['plate_number'].'|'.$getVehicleCarriagesArray[$params['carriage']].'|'.$getVehicleGearboxTypesArray[$params['gearbox']].'|'.$emission.$air_intake_mode;
+    	if($params['carriage']==0){
+
+            $data['text'] = $params['plate_number'].'|'.$getVehicleGearboxTypesArray[$params['gearbox']].'|'.$emission.$air_intake_mode;
+        }else{
+            $data['text'] = $params['plate_number'].'|'.$getVehicleCarriagesArray[$params['carriage']].'|'.$getVehicleGearboxTypesArray[$params['gearbox']].'|'.$emission.$air_intake_mode;
+        }
     	$data['stop_office_id'] = $params['fullname'];
     	return $data;
     }
@@ -217,7 +222,10 @@ class WxvehicleController extends \yii\web\Controller
             //$url = 'http://pageapi.gpsoo.net/third?method=jump&appkey=dbd77ada93ca392d9f2712d6f2beb6ca&account=aaa&page=tracking&target=252411111122222';
             $pageApiParams = \Yii::$app->params['pageApi'];
             $arrData['url_is_null'] = '0';
-            $url = 'https://pageapi.gpsoo.net/third?method=jump&appkey='.$pageApiParams['appkey'].'&account='.$pageApiParams['account'].'&page=tracking&target='.$locator_device;
+            $url = 'http://pageapi.gpsoo.net/third?method=jump&appkey='.$pageApiParams['appkey'].'&account='.$pageApiParams['account'].'&page=tracking&target='.$locator_device;
+            // $url='http://pageapi.gpsoo.net/third?method=jump&page=playback&locale=zh-cn&account=%E9%87%91%E5%8D%8E%E6%98%93%E5%8D%A1%E7%A7%9F%E8%BD%A6&target=868120200770284&appkey=68f7e5358c1773e5cfe37ade7b82e4d5&t=1545628408889';
+            // $url='http://pageapi.gpsoo.net/third?method=jump&page=weixin&locale=zh-cn&account=%E9%87%91%E5%8D%8E%E6%98%93%E5%8D%A1%E7%A7%9F%E8%BD%A6&target=%E9%87%91%E5%8D%8E%E6%98%93%E5%8D%A1%E7%A7%9F%E8%BD%A6&appkey=68f7e5358c1773e5cfe37ade7b82e4d5&time=1545628558';
+            // $url='http://pageapi.gpsoo.net/third?method=jump&page=tracking&locale=zh-cn&account=%E9%87%91%E5%8D%8E%E6%98%93%E5%8D%A1%E7%A7%9F%E8%BD%A6&target=868120200770284&appkey=68f7e5358c1773e5cfe37ade7b82e4d5&t=1545628665263';
             $arrData['url'] = $url;
             return $arrData;
         }
@@ -363,6 +371,29 @@ class WxvehicleController extends \yii\web\Controller
         }while (0);
         echo json_encode($arrData);
 
+    }
+
+    public function actionGet_iframe(){
+        // $url = \Yii::$app->request->post('url');
+        $data = $this->getUrl('868120172756048');
+        $url = $data['url'];
+        // print_r($url);die;
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 500);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($curl, CURLOPT_URL, $url);
+
+        $res = curl_exec($curl);
+        curl_close($curl);
+
+        return $res;
+    }
+
+    public function actionIndex()
+    {
+        return $this->renderPartial('index');
     }
 
 

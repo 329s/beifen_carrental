@@ -6,10 +6,10 @@
  * @since 1.0, 2016-10-18 15:46:32
  */
 class AlipayMarketingCardTemplateQueryRequest
-{
-	/** 
-	 * 会员卡模板查询接口
-	 **/
+{
+	/** 
+	 * 会员卡模板查询接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMarketingCardTemplateQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

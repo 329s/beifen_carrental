@@ -6,10 +6,10 @@
  * @since 1.0, 2015-12-15 11:19:03
  */
 class AlipayCommerceCityfacilitatorFunctionQueryRequest
-{
-	/** 
-	 * 基于设备和城市查询当前支持的功能
-	 **/
+{
+	/** 
+	 * 基于设备和城市查询当前支持的功能
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayCommerceCityfacilitatorFunctionQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

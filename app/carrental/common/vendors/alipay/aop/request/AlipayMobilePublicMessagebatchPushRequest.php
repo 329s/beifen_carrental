@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-07 20:29:38
  */
 class AlipayMobilePublicMessagebatchPushRequest
-{
-	/** 
-	 * 业务内容JSON
-	 **/
+{
+	/** 
+	 * 业务内容JSON
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMobilePublicMessagebatchPushRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

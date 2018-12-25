@@ -6,10 +6,10 @@
  * @since 1.0, 2016-09-21 21:43:09
  */
 class AlipayOpenAppPackagetestRequest
-{
-	/** 
-	 * ISP功能测试接口
-	 **/
+{
+	/** 
+	 * ISP功能测试接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOpenAppPackagetestRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

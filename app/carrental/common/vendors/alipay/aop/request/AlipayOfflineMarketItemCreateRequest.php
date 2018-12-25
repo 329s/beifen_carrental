@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-07 18:31:16
  */
 class AlipayOfflineMarketItemCreateRequest
-{
-	/** 
-	 * 系统商需要通过该接口在口碑平台帮助商户创建商品。
-	 **/
+{
+	/** 
+	 * 系统商需要通过该接口在口碑平台帮助商户创建商品。
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOfflineMarketItemCreateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

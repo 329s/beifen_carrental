@@ -6,10 +6,10 @@
  * @since 1.0, 2016-06-06 20:23:18
  */
 class AlipayUserContractGetRequest
-{
-	/** 
-	 * 订购者支付宝ID。session与subscriber_user_id二选一即可。
-	 **/
+{
+	/** 
+	 * 订购者支付宝ID。session与subscriber_user_id二选一即可。
+	 **/
 	private $subscriberUserId;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayUserContractGetRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setSubscriberUserId($subscriberUserId)
-	{
-		$this->subscriberUserId = $subscriberUserId;
-		$this->apiParas["subscriber_user_id"] = $subscriberUserId;
+	{
+		$this->subscriberUserId = $subscriberUserId;
+		$this->apiParas["subscriber_user_id"] = $subscriberUserId;
 	}
-
+
 	public function getSubscriberUserId()
-	{
-		return $this->subscriberUserId;
+	{
+		return $this->subscriberUserId;
 	}
 
 	public function getApiMethodName()

@@ -6,10 +6,10 @@
  * @since 1.0, 2017-04-07 20:21:15
  */
 class AlipayMobileStdPublicExpressUserQueryRequest
-{
-	/** 
-	 * 查询请求，用户id
-	 **/
+{
+	/** 
+	 * 查询请求，用户id
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayMobileStdPublicExpressUserQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

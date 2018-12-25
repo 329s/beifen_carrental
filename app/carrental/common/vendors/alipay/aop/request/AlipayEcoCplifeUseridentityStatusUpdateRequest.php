@@ -6,10 +6,10 @@
  * @since 1.0, 2016-07-14 19:53:15
  */
 class AlipayEcoCplifeUseridentityStatusUpdateRequest
-{
-	/** 
-	 * 社区物业业主鉴权状态更新
-	 **/
+{
+	/** 
+	 * 社区物业业主鉴权状态更新
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayEcoCplifeUseridentityStatusUpdateRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

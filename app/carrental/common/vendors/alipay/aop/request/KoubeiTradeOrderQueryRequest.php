@@ -6,10 +6,10 @@
  * @since 1.0, 2017-03-17 15:14:16
  */
 class KoubeiTradeOrderQueryRequest
-{
-	/** 
-	 * 口碑订单详情
-	 **/
+{
+	/** 
+	 * 口碑订单详情
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class KoubeiTradeOrderQueryRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

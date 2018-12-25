@@ -6,10 +6,10 @@
  * @since 1.0, 2017-03-20 14:01:59
  */
 class AlipayDaoweiOrderModifyRequest
-{
-	/** 
-	 * 服务订单修改接口
-	 **/
+{
+	/** 
+	 * 服务订单修改接口
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayDaoweiOrderModifyRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

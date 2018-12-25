@@ -6,10 +6,10 @@
  * @since 1.0, 2016-12-08 11:45:50
  */
 class AlipayOpenPublicMessageSingleSendRequest
-{
-	/** 
-	 * 单发模板消息
-	 **/
+{
+	/** 
+	 * 单发模板消息
+	 **/
 	private $bizContent;
 
 	private $apiParas = array();
@@ -21,16 +21,16 @@ class AlipayOpenPublicMessageSingleSendRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setBizContent($bizContent)
-	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+	{
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
-
+
 	public function getBizContent()
-	{
-		return $this->bizContent;
+	{
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()

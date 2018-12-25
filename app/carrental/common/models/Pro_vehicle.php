@@ -56,6 +56,7 @@ class Pro_vehicle extends \common\helpers\ActiveRecordModel
     const PROPERTY_BAUGHT = 1;
     const PROPERTY_AFFILIATE = 2;
     const PROPERTY_TRUSTTEE = 3;
+    const PROPERTY_CHEFENQI = 4;
     
     private $_vehicleModel = null;
     private $_showModelDetail = false;
@@ -260,6 +261,10 @@ class Pro_vehicle extends \common\helpers\ActiveRecordModel
         $arrColors = \common\components\VehicleModule::getVehicleColorsArray();
         return (isset($arrColors[$this->color]) ? $arrColors[$this->color] : '');
     }
+    public function getVehicle_propertyText() {
+        $arrVehicle_property = \common\components\VehicleModule::getVehiclePropertiesArray();
+        return (isset($arrVehicle_property[$this->vehicle_property]) ? $arrVehicle_property[$this->vehicle_property] : '');
+    }
     
     /**
      * @inheritdoc
@@ -284,6 +289,7 @@ class Pro_vehicle extends \common\helpers\ActiveRecordModel
             'formattingAttributes' => [
                 'status' => \common\components\VehicleModule::getVehicleStatusWithAllArray(),
                 'color' => \common\components\VehicleModule::getVehicleColorsArray(),
+                'vehicle_property'=>\common\components\VehicleModule::getVehiclePropertiesArray(),
                 //'vehicle_image' => function($model, $attribute) {
                 //    
                 //},

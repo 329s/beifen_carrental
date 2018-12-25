@@ -6,20 +6,20 @@
  * @since 1.0, 2016-06-23 17:58:11
  */
 class AlipayOfflineMarketingVoucherCodeUploadRequest
-{
-	/** 
-	 * 约定的扩展参数
-	 **/
-	private $extendParams;
-	
-	/** 
-	 * 文件编码
-	 **/
-	private $fileCharset;
-	
-	/** 
-	 * 文件二进制内容
-	 **/
+{
+	/** 
+	 * 约定的扩展参数
+	 **/
+	private $extendParams;
+	
+	/** 
+	 * 文件编码
+	 **/
+	private $fileCharset;
+	
+	/** 
+	 * 文件二进制内容
+	 **/
 	private $fileContent;
 
 	private $apiParas = array();
@@ -31,38 +31,38 @@ class AlipayOfflineMarketingVoucherCodeUploadRequest
 	private $returnUrl;
     private $needEncrypt=false;
 
-	
+	
 	public function setExtendParams($extendParams)
-	{
-		$this->extendParams = $extendParams;
-		$this->apiParas["extend_params"] = $extendParams;
+	{
+		$this->extendParams = $extendParams;
+		$this->apiParas["extend_params"] = $extendParams;
 	}
-
+
 	public function getExtendParams()
-	{
-		return $this->extendParams;
+	{
+		return $this->extendParams;
 	}
-
+
 	public function setFileCharset($fileCharset)
-	{
-		$this->fileCharset = $fileCharset;
-		$this->apiParas["file_charset"] = $fileCharset;
+	{
+		$this->fileCharset = $fileCharset;
+		$this->apiParas["file_charset"] = $fileCharset;
 	}
-
+
 	public function getFileCharset()
-	{
-		return $this->fileCharset;
+	{
+		return $this->fileCharset;
 	}
-
+
 	public function setFileContent($fileContent)
-	{
-		$this->fileContent = $fileContent;
-		$this->apiParas["file_content"] = $fileContent;
+	{
+		$this->fileContent = $fileContent;
+		$this->apiParas["file_content"] = $fileContent;
 	}
-
+
 	public function getFileContent()
-	{
-		return $this->fileContent;
+	{
+		return $this->fileContent;
 	}
 
 	public function getApiMethodName()

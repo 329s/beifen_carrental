@@ -30,22 +30,4 @@ class TestController  extends \yii\web\Controller
         return $this->renderPartial('test_order');
     }
     
-
-    public function actionArea($value='')
-    {
-        $preVerify = \frontend\components\CommonModule::test();
-        $time = time();
-        foreach ($preVerify as $key => $value) {
-            foreach ($value as $k => $v) {
-                $cdb = new \common\models\Pro_area();
-                $cdb->code = $k;
-                $cdb->address = $v;
-                $cdb->parentId = $key;
-                $cdb->level = '1';
-                $cdb->created =$time;
-                $cdb->save();
-            }
-        }
-        
-    }
 }
