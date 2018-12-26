@@ -225,6 +225,7 @@ class WxappuserController extends \yii\web\Controller
                 $arrData['user_id'] = $user->id;
                 $arrData['account'] = $user->account;
                 // $arrData['isg'] = \Yii::$app->user->isGuest;
+                $arrData['session_id'] = session_id();
                 $arrData[\Yii::$app->request->csrfParam] = \Yii::$app->request->getCsrfToken();
             }
             else {
