@@ -70,7 +70,7 @@ class Form_pro_vehicle extends \common\helpers\ActiveFormModel
             [['baught_time', 'annual_inspection_time', 'tci_renewal_time', 'vci_renewal_time', 'next_upkeep_time'], 'date'],
             [['vehicle_image', 'certificate_image'], 'image', 'maxSize'=>256000],
             ['status', 'in', 'range' => [\common\models\Pro_vehicle::STATUS_NORMAL, \common\models\Pro_vehicle::STATUS_MAINTENANCE, \common\models\Pro_vehicle::STATUS_SAILED, \common\models\Pro_vehicle::STATUS_DELETED]],
-            ['vehicle_property', 'in', 'range' => [\common\models\Pro_vehicle::PROPERTY_BAUGHT, \common\models\Pro_vehicle::PROPERTY_AFFILIATE, \common\models\Pro_vehicle::PROPERTY_CHEFENQI]],
+            ['vehicle_property', 'in', 'range' => [\common\models\Pro_vehicle::PROPERTY_BAUGHT, \common\models\Pro_vehicle::PROPERTY_AFFILIATE,\common\models\Pro_vehicle::PROPERTY_TRUSTTEE, \common\models\Pro_vehicle::PROPERTY_CHEFENQI]],
             
             [['upkeep_time_interval'], \common\helpers\validators\FloatValidator::className(), 'factor'=>86400*30],
             
